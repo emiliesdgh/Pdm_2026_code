@@ -13,9 +13,11 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-import mp_gesture as G
+from mp_gesture import recognize_gesture, recognize_gesture2, get_finger_states, cross_product_vector
 
 TEXT_FLIPPED = True
+### === Camera information === ###
+FOCAL_LENGTH = 1.0  # Focal length of the camera
 
 # this function is for testing the mp_HandGesture class: hand orientation, cross_product ==> hand position and orientation in frame
 def run_hand_gesture_recognition():
@@ -125,12 +127,7 @@ def run_hand_gesture_recognition():
 
 # this function is for testing the different hand gestures from the mp_gesture file ==> actual hand gestures (open palm, fist, peace sign, thumbs up, etc.)
 def run_hand_tracking_on_webcam():
-    print("Starting hand tracking on webcam...")
     cap = cv2.VideoCapture(index=0)
-    
-    if not cap.isOpened():
-        print("Error: Could not open webcam.")
-        return
 
     with mp_hands.Hands(
         model_complexity=0,
@@ -144,64 +141,42 @@ def run_hand_tracking_on_webcam():
                 print("Ignoring empty camera frame...")
                 continue
 
-            # Convert to RGB for MediaPipe processing
+            # Check the frame for hands
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             results = hands.process(frame_rgb)
 
+            # Draw the hand annotations on the image
             if results.multi_hand_landmarks:
-                for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
-                    
-                    # Initialize your local class
-                    handsClass = HG.HandGesture(hand_landmarks, frame_rgb)
-                    
-                    # Handle Handedness (Left vs Right)
-                    handsClass.label = handedness.classification[0].label
-                    if handsClass.label == 'Left':
-                        handsClass.label = 'Right'
-                    elif handsClass.label == 'Right':
-                        handsClass.label = 'Left'
-                    
-                    print(f"Detected a {handsClass.label} hand")
+                for hand_landmarks in results.multi_hand_landmarks:
+                    gesture = recognize_gesture2(hand_landmarks, frame_rgb)
+                    _, cross_vect, coordinates = cross_product_vector(hand_landmarks, frame_rgb)
+                    # print("cross_vect", cross_vect)
+                    palm_basePIXEL = coordinates[4]
+                    thumb_tipPIXEL = coordinates[1]
+                    finger_tipPIXEL = coordinates[3]
+                    scale = 0.1  # Adjust this based on your needs
+                    end_point = [int(palm_basePIXEL[0] + scale * FOCAL_LENGTH),int(palm_basePIXEL[1] - scale * FOCAL_LENGTH)]
+                    print("main cross_vect", cross_vect)  
+                    cv2.line(frame, tuple(palm_basePIXEL[:2]), tuple(thumb_tipPIXEL[:2]), (0, 255, 0), 2)
+                    cv2.line(frame, tuple(palm_basePIXEL[:2]), tuple(finger_tipPIXEL[:2]), (255, 0, 0), 2)
+                    cv2.line(frame, tuple(palm_basePIXEL[:2]), tuple(cross_vect), (0, 0, 255), 2)
 
-                    # === INTEGRATED GESTURE RECOGNITION ===
-                    # Use the advanced logic from mp_gesture.py
-                    gesture = G.recognize_gesture2(hand_landmarks)
-
-                    # Get coordinates for drawing
-                    cross, coordinates, palm_px, end_px = handsClass.cross_product(hand_landmarks)
-                    thumb_PIXEL = coordinates[0]
-                    middle_PIXEL = coordinates[2]
-                    palm_PIXEL = coordinates[5]
-
-                    # Draw visual feedback
-                    cv2.line(frame, tuple(palm_px[:2]), end_px, (0, 0, 255), 2) # Cross Product
-                    cv2.line(frame, tuple(palm_PIXEL[:2]), tuple(thumb_PIXEL[:2]), (0, 255, 0), 2)
-                    cv2.line(frame, tuple(palm_PIXEL[:2]), tuple(middle_PIXEL[:2]), (255, 0, 0), 2)
-
-                    # Orientation and displacement logic
-                    alphaHorizontal, alphaVertical, X_real, Y_real, centerFrame = handsClass.displacement(hand_landmarks)
-                    handsClass.orientation(hand_landmarks)
-                    cv2.circle(frame, centerFrame, radius=10, color=(255, 0, 255), thickness=-1)
-
-                    # === DRAW GESTURE TEXT ===
-                    # We flip temporarily to keep text readable if the whole frame is flipped later
                     if TEXT_FLIPPED:
                         frame = cv2.flip(frame, 1)
 
                     cv2.putText(
                         frame,
-                        f"Gesture: {gesture}",
-                        (50, 100),
+                        gesture,
+                        (100, 100),
                         cv2.FONT_HERSHEY_SIMPLEX,
-                        2,
+                        4,
                         (255, 0, 0),
-                        5,
+                        8,
                     )
 
                     if TEXT_FLIPPED:
                         frame = cv2.flip(frame, 1)
 
-                    # Draw the standard MediaPipe landmarks
                     mp_drawing.draw_landmarks(
                         image=frame,
                         landmark_list=hand_landmarks,
@@ -210,13 +185,11 @@ def run_hand_tracking_on_webcam():
                         connection_drawing_spec=mp_drawing_styles.get_default_hand_connections_style(),
                     )
 
-            # Display the final frame
             cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
 
     cap.release()
-    cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
