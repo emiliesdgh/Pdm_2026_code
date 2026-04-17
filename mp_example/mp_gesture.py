@@ -109,69 +109,73 @@ def cross_product_vector(hand_landmarks, frame):
 
 # FINGER STATE ANALYSIS
 # Function to check if fingers are extended
+
 def get_finger_states(hand_landmarks):
     finger_states = []
     landmarks = hand_landmarks.landmark
+    wrist = np.array([landmarks[0].x, landmarks[0].y, landmarks[0].z])
 
-    # 1. IMPROVED THUMB LOGIC (Distance from Pinky Knuckle)
-    # Using landmark 17 (Pinky MCP) as a reference point for the palm width
+    # 1. THUMB LOGIC (Unchanged robust distance-based logic)
     thumb_tip = np.array([landmarks[4].x, landmarks[4].y])
     pinky_mcp = np.array([landmarks[17].x, landmarks[17].y])
     thumb_mcp = np.array([landmarks[2].x, landmarks[2].y])
-    
-    # Distance from thumb tip to opposite side of palm
     dist_thumb_to_palm = np.linalg.norm(thumb_tip - pinky_mcp)
     dist_mcp_to_palm = np.linalg.norm(thumb_mcp - pinky_mcp)
+    finger_states.append(1 if dist_thumb_to_palm > dist_mcp_to_palm else 0)
 
-    if dist_thumb_to_palm > dist_mcp_to_palm:
-        finger_states.append(1)  # Extended
-    else:
-        finger_states.append(0)  # Folded
-
-    # 2. IMPROVED FINGER LOGIC (Distance from Wrist)
-    wrist = np.array([landmarks[0].x, landmarks[0].y])
+    # 2. ROBUST FINGER LOGIC (Distance-based for orientation independence)
     finger_tips = [8, 12, 16, 20]
     pip_joints = [6, 10, 14, 18]
 
     for tip, pip in zip(finger_tips, pip_joints):
-        tip_vec = np.array([landmarks[tip].x, landmarks[tip].y])
-        pip_vec = np.array([landmarks[pip].x, landmarks[pip].y])
+        tip_vec = np.array([landmarks[tip].x, landmarks[tip].y, landmarks[tip].z])
+        pip_vec = np.array([landmarks[pip].x, landmarks[pip].y, landmarks[pip].z])
         
-        # If tip is further from wrist than the knuckle, it's extended
+        # If tip is further from the wrist than its joint, it is extended
+        # This works horizontally, vertically, or diagonally.
         if np.linalg.norm(tip_vec - wrist) > np.linalg.norm(pip_vec - wrist):
             finger_states.append(1)
         else:
             finger_states.append(0)
 
     return finger_states
-# def get_finger_states(hand_landmarks):
-#     """
-#     Returns a list indicating if each finger is extended (1) or folded (0).
-#     Uses relative landmark positions instead of just y-coordinates.
-#     """
-#     finger_states = []
 
-#     # Define landmarks for fingertips and PIP joints
-#     finger_tips = [8, 12, 16, 20]  # Index, Middle, Ring, Pinky
-#     pip_joints = [6, 10, 14, 18]  # Corresponding PIP joints
+# def get_finger_states(hand_landmarks):
+#     finger_states = []
+#     landmarks = hand_landmarks.landmark
+
+#     # 1. IMPROVED THUMB LOGIC (Distance from Pinky Knuckle)
+#     # Using landmark 17 (Pinky MCP) as a reference point for the palm width
+#     thumb_tip = np.array([landmarks[4].x, landmarks[4].y])
+#     pinky_mcp = np.array([landmarks[17].x, landmarks[17].y])
+#     thumb_mcp = np.array([landmarks[2].x, landmarks[2].y])
+    
+#     # Distance from thumb tip to opposite side of palm
+#     dist_thumb_to_palm = np.linalg.norm(thumb_tip - pinky_mcp)
+#     dist_mcp_to_palm = np.linalg.norm(thumb_mcp - pinky_mcp)
+
+#     if dist_thumb_to_palm > dist_mcp_to_palm:
+#         finger_states.append(1)  # Extended
+#     else:
+#         finger_states.append(0)  # Folded
+
+#     # 2. IMPROVED FINGER LOGIC (Distance from Wrist)
+#     wrist = np.array([landmarks[0].x, landmarks[0].y])
+#     finger_tips = [8, 12, 16, 20]
+#     pip_joints = [6, 10, 14, 18]
 
 #     for tip, pip in zip(finger_tips, pip_joints):
-#         if hand_landmarks.landmark[tip].y < hand_landmarks.landmark[pip].y:
-#             finger_states.append(1)  # Finger is extended
+#         tip_vec = np.array([landmarks[tip].x, landmarks[tip].y])
+#         pip_vec = np.array([landmarks[pip].x, landmarks[pip].y])
+        
+#         # If tip is further from wrist than the knuckle, it's extended
+#         if np.linalg.norm(tip_vec - wrist) > np.linalg.norm(pip_vec - wrist):
+#             finger_states.append(1)
 #         else:
-#             finger_states.append(0)  # Finger is folded
-
-#     # Thumb: Check distance instead of y-coordinates
-#     thumb_tip = hand_landmarks.landmark[4]
-#     thumb_ip = hand_landmarks.landmark[3]
-#     thumb_mcp = hand_landmarks.landmark[2]
-
-#     if abs(thumb_tip.x - thumb_mcp.x) > abs(thumb_ip.x - thumb_mcp.x):
-#         finger_states.insert(0, 1)  # Thumb extended
-#     else:
-#         finger_states.insert(0, 0)  # Thumb folded
+#             finger_states.append(0)
 
 #     return finger_states
+
 
 
 # Function to recognize gestures based on finger states
@@ -203,7 +207,7 @@ def recognize_gesture2(hand_landmarks, frame):
             return "Rock Sign"
         elif finger_states == [1, 1, 1, 0, 0]:
             return "Three Fingers"
-        elif finger_states == [0, 1, 0, 0, 0]:
+        elif finger_states == [0, 1, 0, 0, 0] or finger_states == [1, 1, 0, 0, 0]:
             return "Pointing"
         else:
             return "Unknown Gesture"
