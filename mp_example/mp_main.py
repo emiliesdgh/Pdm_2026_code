@@ -14,6 +14,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
 from mp_gesture import recognize_gesture, recognize_gesture2, get_finger_states, cross_product_vector
+import mp_temporal_gesture as MTG
 
 TEXT_FLIPPED = True
 ### === Camera information === ###
@@ -130,6 +131,9 @@ def run_hand_gesture_recognition():
 def run_hand_tracking_on_webcam():
     cap = cv2.VideoCapture(index=0)
 
+    # added the temporal gesture manager for pinch detection
+    temporal_gesture_manager = MTG.TemporalGestureManager(window_size=15)
+
     with mp_hands.Hands(
         model_complexity=0,
         max_num_hands=1,
@@ -149,7 +153,10 @@ def run_hand_tracking_on_webcam():
             # Draw the hand annotations on the image
             if results.multi_hand_landmarks:
                 for hand_landmarks in results.multi_hand_landmarks:
-                    gesture = recognize_gesture2(hand_landmarks, frame_rgb)
+
+                    static_gesture = recognize_gesture2(hand_landmarks, frame_rgb)
+                    final_gesture = temporal_gesture_manager.update(hand_landmarks, static_gesture)
+
                     _, cross_vect, coordinates = cross_product_vector(hand_landmarks, frame_rgb)
                     # print("cross_vect", cross_vect)
                     palm_basePIXEL = coordinates[4]
@@ -165,15 +172,27 @@ def run_hand_tracking_on_webcam():
                     if TEXT_FLIPPED:
                         frame = cv2.flip(frame, 1)
 
-                    cv2.putText(
-                        frame,
-                        gesture,
-                        (100, 100),
-                        cv2.FONT_HERSHEY_SIMPLEX,
-                        2,
-                        (255, 0, 0),
-                        4,
-                    )
+                    if final_gesture != "Pinch Performed":
+
+                        cv2.putText(
+                            frame,
+                            final_gesture,
+                            (100, 100),
+                            cv2.FONT_HERSHEY_SIMPLEX,
+                            1,
+                            (255, 0, 0),
+                            2,
+                        )
+                    else:
+                        cv2.putText(
+                            frame,
+                            final_gesture,
+                            (100, 100),
+                            cv2.FONT_HERSHEY_SIMPLEX,
+                            2,
+                            (0, 0, 255),
+                            4,
+                        )
 
                     if TEXT_FLIPPED:
                         frame = cv2.flip(frame, 1)
