@@ -17,6 +17,7 @@ from mp_gesture import recognize_gesture, recognize_gesture2, get_finger_states,
 
 TEXT_FLIPPED = True
 ### === Camera information === ###
+## NEED to find the actial focal length of the camera for accurate real-world coordinate conversion
 FOCAL_LENGTH = 1.0  # Focal length of the camera
 
 # this function is for testing the mp_HandGesture class: hand orientation, cross_product ==> hand position and orientation in frame
@@ -61,7 +62,7 @@ def run_hand_gesture_recognition():
                     elif handsClass.label == 'Right':
                         handsClass.label = 'Left'
                     ###############################################
-                    print(f"Detected a {handsClass.label} hand")
+                    # print(f"Detected a {handsClass.label} hand")
 
                     ##### == hand gesture recognition with class == #####
                     gesture = handsClass.recognize_gesture(hand_landmarks)
@@ -85,7 +86,7 @@ def run_hand_gesture_recognition():
                     ##### == hand position in frame == #####
 
                     alphaHorizontal, alphaVertical, X_real, Y_real, centerFrame = handsClass.displacement(hand_landmarks)
-                    print("alphaHorizontal :", alphaHorizontal, "alphaVertical :", alphaVertical)
+                    # print("alphaHorizontal :", alphaHorizontal, "alphaVertical :", alphaVertical)
                     # print("X_real :", X_real, "Y_real :", Y_real)
 
                     handsClass.orientation(hand_landmarks)
@@ -156,7 +157,7 @@ def run_hand_tracking_on_webcam():
                     finger_tipPIXEL = coordinates[3]
                     scale = 0.1  # Adjust this based on your needs
                     end_point = [int(palm_basePIXEL[0] + scale * FOCAL_LENGTH),int(palm_basePIXEL[1] - scale * FOCAL_LENGTH)]
-                    print("main cross_vect", cross_vect)  
+                    # print("main cross_vect", cross_vect)  
                     cv2.line(frame, tuple(palm_basePIXEL[:2]), tuple(thumb_tipPIXEL[:2]), (0, 255, 0), 2)
                     cv2.line(frame, tuple(palm_basePIXEL[:2]), tuple(finger_tipPIXEL[:2]), (255, 0, 0), 2)
                     cv2.line(frame, tuple(palm_basePIXEL[:2]), tuple(cross_vect), (0, 0, 255), 2)
@@ -169,9 +170,9 @@ def run_hand_tracking_on_webcam():
                         gesture,
                         (100, 100),
                         cv2.FONT_HERSHEY_SIMPLEX,
-                        4,
+                        2,
                         (255, 0, 0),
-                        8,
+                        4,
                     )
 
                     if TEXT_FLIPPED:
