@@ -1,4 +1,17 @@
+# pdm_env_py311/
+# __pycache__/
+# *.pyc
+# .venv/
+
+# Virtual Environment
 pdm_env_py311/
+venv/
+env/
+
+# Python bytecode
 __pycache__/
 *.pyc
-.venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
