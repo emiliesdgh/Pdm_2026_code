@@ -203,5 +203,29 @@ def recognize_gesture2(hand_landmarks, frame):
             return "Rock Sign"
         elif finger_states == [1, 1, 1, 0, 0]:
             return "Three Fingers"
+        elif finger_states == [0, 1, 0, 0, 0]:
+            return "Pointing"
         else:
             return "Unknown Gesture"
+        
+
+def get_index_pointing_vector(hand_landmarks):
+    """
+    Calculates a normalized 3D vector from the index knuckle to the tip.
+    """
+    # Landmark 5: Index MCP (Base), Landmark 8: Index Tip
+    base = hand_landmarks.landmark[5]
+    tip = hand_landmarks.landmark[8]
+    
+    # Create the 3D vector (x, y, z)
+    direction_vec = np.array([
+        tip.x - base.x,
+        tip.y - base.y,
+        tip.z - base.z
+    ])
+    
+    # Normalize the vector so its length is 1
+    magnitude = np.linalg.norm(direction_vec)
+    if magnitude > 0:
+        return direction_vec / magnitude
+    return direction_vec

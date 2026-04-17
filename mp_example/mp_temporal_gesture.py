@@ -27,9 +27,25 @@ class TemporalGestureManager:
         return self.analyze_motion()
 
     def analyze_motion(self):
+        if len(self.gesture_history) < self.window_size:
+            return "Detecting..."
         # Need enough frames to detect a trend
         if len(self.history_dist) < self.window_size:
             return None
+        
+        # --- 1. STOP MOTION DETECTION (Open Palm -> Fist) ---
+        # We look at the first 30% of the window and the last 30%
+        prefix = list(self.gesture_history)[:6]
+        suffix = list(self.gesture_history)[-6:]
+        
+        if "Open Palm" in prefix and "Fist" in suffix:
+            return "Stop Action"
+        
+        # # --- 2. PINCH DETECTION ---
+        # start_dist = self.history_dist[0]
+        # end_dist = self.history_dist[-1]
+        # if start_dist > 0.08 and end_dist < 0.03:
+        #     return "PINCH ACTION"
 
         # --- PINCH DETECTION LOGIC ---
         # A pinch is characterized by the distance decreasing significantly 
