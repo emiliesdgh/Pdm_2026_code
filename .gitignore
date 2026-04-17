@@ -1,0 +1,4 @@
+pdm_env_py311/
+__pycache__/
+*.pyc
+.venv/
