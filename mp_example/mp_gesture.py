@@ -14,45 +14,45 @@ PINKY = (20, 17)
 FOCAL_LENGTH = 1.0  # Focal length of the camera
 
 
-# TRIAL METHOD
-def recognize_gesture(hand_landmarks):
-    """
-    Simple gesture detection based on landmark positions.
-    """
-    landmarks = hand_landmarks.landmark
+# # TRIAL METHOD
+# def recognize_gesture(hand_landmarks):
+#     """
+#     Simple gesture detection based on landmark positions.
+#     """
+#     landmarks = hand_landmarks.landmark
 
-    def is_finger_extended(finger_tip, finger_base):
-        return (
-            landmarks[finger_tip].y < landmarks[finger_base].y
-        )  # Higher y-value = lower in frame
+#     def is_finger_extended(finger_tip, finger_base):
+#         return (
+#             landmarks[finger_tip].y < landmarks[finger_base].y
+#         )  # Higher y-value = lower in frame
 
-    thumb_extended = is_finger_extended(4, 2)
-    index_extended = is_finger_extended(8, 5)
-    middle_extended = is_finger_extended(12, 9)
-    ring_extended = is_finger_extended(16, 13)
-    pinky_extended = is_finger_extended(20, 17)
+#     thumb_extended = is_finger_extended(4, 2)
+#     index_extended = is_finger_extended(8, 5)
+#     middle_extended = is_finger_extended(12, 9)
+#     ring_extended = is_finger_extended(16, 13)
+#     pinky_extended = is_finger_extended(20, 17)
 
-    if not any([thumb_extended, index_extended, middle_extended, ring_extended, pinky_extended]):
-        return "Fist"
-    elif (
-        index_extended and middle_extended and not ring_extended and not pinky_extended
-    ):
-        return "Peace Sign"
-    elif all([thumb_extended, index_extended, middle_extended, ring_extended, pinky_extended]):
-        return "Full Palm"
-    return "Unknown"
+#     if not any([thumb_extended, index_extended, middle_extended, ring_extended, pinky_extended]):
+#         return "Fist"
+#     elif (
+#         index_extended and middle_extended and not ring_extended and not pinky_extended
+#     ):
+#         return "Peace Sign"
+#     elif all([thumb_extended, index_extended, middle_extended, ring_extended, pinky_extended]):
+#         return "Full Palm"
+#     return "Unknown"
 
-def all_fingers_below_palm(finger_tip, finger_base):
-    finger_tip.y
-    THUMB[0].y # y coordinate of tip of thumb
+# def all_fingers_below_palm(finger_tip, finger_base):
+#     finger_tip.y
+#     THUMB[0].y # y coordinate of tip of thumb
 
-def project_point(point3D, cx, cy):
-    x, y, z = point3D
-    if z == 0:
-        z = 1e-6  # prevent divide by zero
-    u = int((x * FOCAL_LENGTH / abs(z)) + cx)
-    v = int((y * FOCAL_LENGTH / abs(z)) + cy)
-    return (u, v)
+# def project_point(point3D, cx, cy):
+#     x, y, z = point3D
+#     if z == 0:
+#         z = 1e-6  # prevent divide by zero
+#     u = int((x * FOCAL_LENGTH / abs(z)) + cx)
+#     v = int((y * FOCAL_LENGTH / abs(z)) + cy)
+#     return (u, v)
 
 
 # Function to define the direction of the cross-product vector between the thumb and the fingers
