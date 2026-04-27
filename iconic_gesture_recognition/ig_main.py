@@ -52,30 +52,44 @@ def detect_hand_state():
 
 
                     fingers_state = handStates.get_fingers_state(hand_landmarks)
-                    # orientation_vector, orientation_angle = get_hand_orientation(hand_landmarks)
                     hand_orientation = handStates.get_hand_orientation(hand_landmarks)
 
-                    # motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, fingers_state, orientation_vector)
                     motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, fingers_state, hand_orientation)
+
+                    finger_state_rule1 = handStates.finger_flexion(hand_landmarks, finger_type='INDEX')
+                    finger_state_rule3 = handStates.finger_contact(hand_landmarks, target_tip_idx=8)
+                    
+                    if fingers_state[0] == 1:
+                        is_thumb_straight = True
+                    finger_state_rule4 = handStates.thumb_direction(hand_landmarks, is_thumb_straight)
+
+                    finger_state_rule5 = handStates.palm_orientation(frame, hand_landmarks, handStates.label)
+                    finger_state_rule6 = handStates.hand_position(hand_landmarks)
+
 
                     if TEXT_FLIPPED:
                         frame = cv2.flip(frame, 1)
 
                     # Display the state and orientation on the image
-                    cv2.putText(frame, f'State: {fingers_state}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Orientation Angle: {orientation_angle:.2f}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    cv2.putText(frame, f'Orientation Angle: {hand_orientation}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    cv2.putText(frame, f'Motion Detected: {motion_detected}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    if motion_detected:
-                        print(f"Motion Type: {motion_type}")
-                    else:
-                        print("Stationary")
+                    # cv2.putText(frame, f'State: {fingers_state}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # cv2.putText(frame, f'Orientation Angle: {hand_orientation}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # cv2.putText(frame, f'Motion Detected: {motion_detected}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    # if motion_detected:
+                    #     print(f"Motion Type: {motion_type}")
+                    # else:
+                    #     print("Stationary")
+
+                    cv2.putText(frame, f'Finger Flexion Rule 1 (Index): {finger_state_rule1}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    cv2.putText(frame, f'Finger Contact Rule 3 (Thumb-Index) : {finger_state_rule3}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    cv2.putText(frame, f'Thumb Direction Rule 4: {finger_state_rule4}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    cv2.putText(frame, f'Palm Orientation Rule 5: {finger_state_rule5}', (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    cv2.putText(frame, f'Hand Position Rule 6: {finger_state_rule6}', (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
                     if TEXT_FLIPPED:
                         frame = cv2.flip(frame, 1)
 
 
-                    handStates.draw_cross_product_vector(frame, hand_landmarks)
+                    # handStates.draw_cross_product_vector(frame, hand_landmarks)
 
                     mp_drawing.draw_landmarks(
                         image=frame,

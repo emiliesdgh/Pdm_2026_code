@@ -6,12 +6,13 @@ import numpy as np
 import cv2
 
 ### === Global for fingers === ###
-# FINGER = (TIP, BASE)
-THUMB = (4, 2)
-INDEX = (8, 5)
-MIDDLE = (12, 9)
-RING = (16, 13)
-PINKY = (20, 17)
+# FINGER = (BASE, PIP, DIP, TIP)
+# !!!! Change in landmark indexing for all fingers !!!!
+THUMB = (1, 2, 3, 4)
+INDEX = (5, 6, 7, 8)
+MIDDLE = (9, 10, 11, 12)
+RING = (13, 14, 15, 16)
+PINKY = (17, 18, 19, 20)
 
 WRIST = 0
 
@@ -205,3 +206,221 @@ class HandState:
         cv2.line(frame, tuple(palm_PIXEL[:2]), tuple(thumb_PIXEL[:2]), (0, 255, 0), 2)
         cv2.line(frame, tuple(palm_PIXEL[:2]), tuple(middle_PIXEL[:2]), (255, 0, 0), 2)
         # cv2.line(frame, tuple(palm_PIXEL[:2]), tuple(fingers_PIXEL[:2]), (255, 0, 0), 2)
+
+
+    # set of 6 rules to encode hand gesture in terms of finger flexion, proximity, contact, direction
+    # pal, orientation and hand position based on paper of GestureGPT
+
+    def vector_angle(self, v1, v2):
+        """Helper function to calculate the angle between two vectors."""
+        unit_v1 = v1 / (np.linalg.norm(v1) + 1e-6)  # Avoid division by zero
+        unit_v2 = v2 / (np.linalg.norm(v2) + 1e-6)
+
+        dot_product = np.dot(unit_v1, unit_v2)
+
+        angle = np.degrees(np.arccos(np.clip(dot_product, -1.0, 1.0)))
+
+        return angle
+    
+    def get_landmark_vector(self, lm):
+        """Convert a landmark to a 3D vector."""
+        return np.array([lm.x, lm.y, lm.z])
+
+    def finger_flexion(self, hand_landmarks, finger_type, th_low=60, th_high=75):
+        # the thresholds are the sum of the angles --> needs to be finetuned 
+        # otherwise function works
+        # it can also give information on the amount of fexion of the finger
+        # and not just the binary information of extended or folded
+        """Rule 1: Figer Flexion
+        Computes if a finger is straight (1), in between (0) or folded (0)
+        by summing the bending angles of its joints
+        """
+        self.landmarks = hand_landmarks.landmark
+        lm = self.landmarks
+        curl = 0.0
+
+        if finger_type == 'thumb':
+            th_low = 15
+            th_high = 40
+            # Vectors: MCP->IP and IP->TIP
+            v1 = self.get_landmark_vector(lm[3]) - self.get_landmark_vector(lm[2])
+            v2 = self.get_landmark_vector(lm[4]) - self.get_landmark_vector(lm[3])
+            curl = self.vector_angle(v1, v2)
+
+        else:
+            # dictionnary mapping finger names to their landmark/joint indices 
+            joints = {'INDEX': INDEX, 'MIDDLE': MIDDLE, 
+                      'RING' :RING, 'PINKY': PINKY}
+            base, pip, dip, tip = joints[finger_type]
+
+            # angle 1: base->pip and pip->dip
+            v1 = self.get_landmark_vector(lm[pip]) - self.get_landmark_vector(lm[base])
+            v2 = self.get_landmark_vector(lm[dip]) - self.get_landmark_vector(lm[pip])
+            curl += self.vector_angle(v1, v2) # because computing based on angle sum
+
+            # angle 2: pip->dip and dip->tip
+            v3 = self.get_landmark_vector(lm[tip]) - self.get_landmark_vector(lm[dip])
+            curl += self.vector_angle(v2, v3)
+
+            # print(f"{finger_type} curl: {curl:.2f} ")
+
+        if curl <= th_low:
+            return 1  # Straight
+        elif curl >= th_high:
+            return -1  # BEnt
+        else:
+            return 0  # In between or unsure
+
+
+    def finger_proximity(self, hand_landmarks, f1_idx, f2_idx, th_low=0.03, th_high=0.06):
+        # needs from refinment because so far the threasholds will depend on the distance of the 
+        # hand to the camera
+        # maybe need to add a normalization factor based on the depth of the hand to make it more robust to distance changes
+        # figure out the entire usefulness of this rule (if really necessary)
+
+        # doesn't seem to be a very robust information to be used
+
+        """
+        Rule 2: Finger Proximity
+        Computes if fingers are pressed to each other (1), apart (-1), or in between (0)
+        by checking the average minimal distance between joints
+        """
+        # Extract the joint landmarks for the two fingers
+        f1_joints = [self.get_landmark_vector(hand_landmarks.landmark[idx]) for idx in f1_idx]
+        f2_joints = [self.get_landmark_vector(hand_landmarks.landmark[idx]) for idx in f2_idx]
+
+        # Compute distances between all pairs of joints
+        distances = []
+        for j1 in f1_joints:
+            for j2 in f2_joints:
+                dist = np.linalg.norm(j1 - j2)
+                distances.append(dist)
+
+        min_dist = np.min(distances) # using just the minimal distance, not the avg min distance
+
+        if min_dist <= th_low:
+            return 1  # Pressed together
+        elif min_dist >= th_high:
+            return -1  # Apart
+        else:
+            return 0  # In between or unsure
+
+    def finger_contact(self, hand_landmarks, target_tip_idx, th_low=0.04, th_high=0.06):
+        # Works well, but has some issues when the contact is facing the camera
+        # it can't distinguish the tip landmaks position properly
+        """
+        Rule 3: Finger Contact
+        Compute the Euclidean distance between the thumb tip and another finger tip
+        """
+        self.landmarks = hand_landmarks.landmark
+
+        thumb_tip = self.get_landmark_vector(self.landmarks[THUMB[3]])  # Thumb tip
+        finger_tip = self.get_landmark_vector(self.landmarks[target_tip_idx])  # Target finger tip
+
+        dist = np.linalg.norm(thumb_tip - finger_tip)
+
+        if dist <= th_low:
+            return 1  # In contact
+        elif dist >= th_high:
+            return -1  # Not in contact
+        else:
+            return 0  # In between or unsure
+
+    def thumb_direction(self, hand_landmarks, is_thumb_straight, th=40):
+        # for now, large threashold but works well
+        """
+        Rule 4: Thumb Pointing Direction    # to be extended to other fingers ?
+        Finds the thumb direction vector against world-axis vectors
+        only applies when the thumb is straight
+        """
+        self.landmarks = hand_landmarks.landmark
+
+        if not is_thumb_straight:
+            return 0  # Not applicable if thumb is not straight
+
+        # Thumb vector from the MCP/PIP to the tipe
+        thumb_vec = self.get_landmark_vector(self.landmarks[THUMB[3]]) - self.get_landmark_vector(self.landmarks[THUMB[1]])
+        
+        # define reference direction 
+        # (Y is down in OpenCV/MediaPipe image coordinates ==> -Y is up)
+        # This may need to be changed with Robot camera !!!
+        up_vec = np.array([0, -1, 0])
+        down_vec = np.array([0, 1, 0])
+
+        angle_up = self.vector_angle(thumb_vec, up_vec)
+        angle_down = self.vector_angle(thumb_vec, down_vec)
+
+        if angle_up < th and angle_up < angle_down:
+            return 1 # Upwards
+        elif angle_down < th and angle_down < angle_up:
+            return -1 # Downwards
+        else:
+            return 0 # In between or unsure
+
+
+    def palm_orientation(self, frame, hand_landmarks, hand_label, th=30):
+        # new way to compute, hopefully more robust
+        """
+        Rule 5: Palm Orientation
+        Compute the cross product of 2 vectors ON the palm to get the palm orientation
+        """
+        self.landmarks = hand_landmarks.landmark
+        
+        # Palm vector 1: Pinky base to Index base
+        palm_vec1 = self.get_landmark_vector(self.landmarks[PINKY[0]]) - self.get_landmark_vector(self.landmarks[INDEX[0]])
+        # Palm vector 2: wrist to Middle base
+        palm_vec2 = self.get_landmark_vector(self.landmarks[WRIST]) - self.get_landmark_vector(self.landmarks[MIDDLE[0]])
+
+
+        if hand_label == 'Left':
+            palm_normal = np.cross(palm_vec1, palm_vec2)
+        else:
+            palm_normal = np.cross(palm_vec2, palm_vec1)
+
+        palm_normal = palm_normal / (np.linalg.norm(palm_normal) + 1e-6)  # Normalize
+
+        # Define reference vectors
+        directions = {
+            # 'Up': np.array([0, -1, 0]),
+            'Up': np.array([0, 1, 0]),
+            # 'Down': np.array([0, 1, 0]),  # i think this is the correct orientation
+            'Down': np.array([0, -1, 0]),
+            'Left': np.array([-1, 0, 0]),
+            'Right': np.array([1, 0, 0]),
+            'Inward': np.array([0, 0, 1]),   # Pointing towards camera
+            'Outward': np.array([0, 0, -1])  # Pointing away from camera
+        }
+
+        wrist_px = (int(self.landmarks[WRIST].x * self.W), int(self.landmarks[WRIST].y * self.H))
+        end_px = (int(wrist_px[0] + palm_normal[0] * -100), int(wrist_px[1] + palm_normal[1] * -100))
+
+        # trace the line of the cross product vector for visualization, from the wrist
+        cv2.line(frame, wrist_px, end_px, (255, 0, 0), 2)
+        
+        min_angle = float('inf')
+        best_dir = 'Unknown'
+        
+        for name, ref_vec in directions.items():
+            angle = self.vector_angle(palm_normal, ref_vec)
+            if angle < min_angle:
+                min_angle = angle
+                best_dir = name
+                
+        if min_angle > th:
+            return 'Unknown'
+        return best_dir
+
+
+
+    def hand_position(self, hand_landmarks):
+        # previously had the hand displacement based on the center of the camera,
+        # check to see if we should combine, if necessary to add or replace
+        """
+        Rule 6: Hand Position
+        Simply the Geometric center of the hand to track general movement over time
+        """
+        self.landmarks = hand_landmarks.landmark
+        
+        all_points = np.array([self.get_landmark_vector(pt) for pt in self.landmarks])
+        center = np.mean(all_points, axis=0)
+        return center.tolist() # returns coordinates [x, y, z] with respect to the camera frame, can be used to track hand movement over time and detect if the hand is moving towards or away from the camera, or moving left/right/up/down in the camera view. This can be useful for temporal gesture recognition and motion analysis.
