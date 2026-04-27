@@ -46,13 +46,13 @@ FOCAL_LENGTH = 1.0  # Focal length of the camera
 #     finger_tip.y
 #     THUMB[0].y # y coordinate of tip of thumb
 
-# def project_point(point3D, cx, cy):
-#     x, y, z = point3D
-#     if z == 0:
-#         z = 1e-6  # prevent divide by zero
-#     u = int((x * FOCAL_LENGTH / abs(z)) + cx)
-#     v = int((y * FOCAL_LENGTH / abs(z)) + cy)
-#     return (u, v)
+def project_point(point3D, cx, cy):
+    x, y, z = point3D
+    if z == 0:
+        z = 1e-6  # prevent divide by zero
+    u = int((x * FOCAL_LENGTH / abs(z)) + cx)
+    v = int((y * FOCAL_LENGTH / abs(z)) + cy)
+    return (u, v)
 
 
 # Function to define the direction of the cross-product vector between the thumb and the fingers

@@ -13,7 +13,8 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-from mp_gesture import recognize_gesture, recognize_gesture2, get_finger_states, cross_product_vector, get_index_pointing_vector
+# from mp_gesture import recognize_gesture, recognize_gesture2, get_finger_states, cross_product_vector, get_index_pointing_vector
+from mp_gesture import recognize_gesture2, get_finger_states, cross_product_vector, get_index_pointing_vector
 import mp_temporal_gesture as MTG
 
 TEXT_FLIPPED = True
@@ -236,4 +237,5 @@ def run_hand_tracking_on_webcam():
 
 if __name__ == "__main__":
     print("Running mp_main...")
-    run_hand_tracking_on_webcam()
+    # run_hand_tracking_on_webcam()
+    run_hand_gesture_recognition()
