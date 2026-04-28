@@ -12,7 +12,40 @@ import ig_hand_state as HS
 import ig_temporal_gesture as temporal_gesture
 
 TEXT_FLIPPED = True
+# FINGER_TYPES = ['THUMB', 'INDEX', 'MIDDLE', 'RING', 'PINKY']
 
+FINGERS ={
+    "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
+    "tip_idx": [4, 8, 12, 16, 20],
+    "dip_idx": [3, 7, 11, 15, 19],
+    "pip_idx": [2, 6, 10, 14, 18],
+    "base_idx": [1, 5, 9, 13, 17]
+}
+
+def get_symbolic_string(flexion_results, contact_results, palm_orientation, motion_detected, motion_type, hand_position):
+    """
+    Converts raw detection data into a natural language description.
+    """
+    # finger_names = ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"]
+    
+    # Map 1/0 to EXTENDED/FOLDED for better LLM reasoning
+    mapping = {1: 'EXTENDED', -1: 'FOLDED', 0: 'UNSURE'}
+    states = [f"{name}: {mapping.get(val, 'UNKNOWN')}" for name, val in flexion_results.items()]
+    
+    finger_description = ", ".join(states)
+    
+    # motion_type comes from TemporalGestureManager
+    symbolic_str = (
+        f"Hand Description: {finger_description}. \n"
+        f"Finger Contact (with Thumb): {contact_results}. \n"
+        f"Palm Orientation Angle: {palm_orientation}. \n" # would need it in degrees ?
+        f"Is a Motion Detected: {motion_detected}. \n"
+        f"Motion Type: {motion_type}. \n"
+        f"Hand Position: {hand_position}."
+    )
+    print(symbolic_str)
+    
+    return symbolic_str
 
 def detect_hand_state():
     cap = cv2.VideoCapture(index=0)
@@ -56,11 +89,21 @@ def detect_hand_state():
 
                     motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, fingers_state, hand_orientation)
 
+                    # i feel that this one is more comprehensive thant the get_fingers_state function
                     finger_state_rule1 = handStates.finger_flexion(hand_landmarks, finger_type='INDEX')
-                    finger_state_rule3 = handStates.finger_contact(hand_landmarks, target_tip_idx=8)
-                    
-                    if fingers_state[0] == 1:
-                        is_thumb_straight = True
+
+                    flexion_results = {}
+                    contact_results = {}
+                    for finger in FINGERS["name"]:
+                        idx = FINGERS["name"].index(finger)
+
+                        flexion_results[finger] = handStates.finger_flexion(hand_landmarks, finger_type=finger)
+
+                        finger_tip_idx = FINGERS["tip_idx"][idx]
+                        contact_result = handStates.finger_contact(hand_landmarks, target_tip_idx=finger_tip_idx)
+                        contact_results[finger] = contact_result
+                        
+                    is_thumb_straight = (flexion_results['THUMB'] == 1)
                     finger_state_rule4 = handStates.thumb_direction(hand_landmarks, is_thumb_straight)
 
                     finger_state_rule5 = handStates.palm_orientation(frame, hand_landmarks, handStates.label)
@@ -80,7 +123,7 @@ def detect_hand_state():
                     #     print("Stationary")
 
                     cv2.putText(frame, f'Finger Flexion Rule 1 (Index): {finger_state_rule1}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    cv2.putText(frame, f'Finger Contact Rule 3 (Thumb-Index) : {finger_state_rule3}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                    cv2.putText(frame, f'Finger Contact Rule 3 (Thumb-Index) : {contact_results["INDEX"]}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
                     cv2.putText(frame, f'Thumb Direction Rule 4: {finger_state_rule4}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
                     cv2.putText(frame, f'Palm Orientation Rule 5: {finger_state_rule5}', (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
                     cv2.putText(frame, f'Hand Position Rule 6: {finger_state_rule6}', (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
@@ -98,6 +141,8 @@ def detect_hand_state():
                         landmark_drawing_spec=mp_drawing_styles.get_default_hand_landmarks_style(),
                         connection_drawing_spec=mp_drawing_styles.get_default_hand_connections_style(),
                     )
+
+                    get_symbolic_string(flexion_results, contact_results, finger_state_rule5, motion_detected, motion_type, finger_state_rule6)
 
                 
             cv2.imshow("Hand Tracking", cv2.flip(frame, 1))

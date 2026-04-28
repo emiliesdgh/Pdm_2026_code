@@ -239,7 +239,10 @@ class HandState:
         lm = self.landmarks
         curl = 0.0
 
-        if finger_type == 'thumb':
+        # works okey but thumb flexion is tricky, maybe the first version is better for
+        # the thumb even though i like this method better for the other fingers,
+        # maybe just need to reajust the thresholds
+        if finger_type == 'THUMB':
             th_low = 15
             th_high = 40
             # Vectors: MCP->IP and IP->TIP
