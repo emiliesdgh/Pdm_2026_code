@@ -25,6 +25,7 @@ WRIST = 0
 
 ### === Camera information === ###
 ## NEED to find the actial focal length of the camera for accurate real-world coordinate conversion
+# will need to do a camera calibration process to get the actual focal length and other intrinsic parameters for accurate real-world coordinate conversion
 FOCAL_LENGTH = 1.0  # Focal length of the camera
 
 class HandState:
@@ -60,8 +61,8 @@ class HandState:
         return (u, v)
 
     def to_pixel_coords(self, hand_landmarks):
-        self.landmarks = hand_landmarks#.landmark
-        return int(self.landmarks.x * self.W), int(self.landmarks.y * self.H), int(self.landmarks.z * self.D)
+        # self.landmarks = hand_landmarks#.landmark
+        return int(hand_landmarks.x * self.W), int(hand_landmarks.y * self.H), int(hand_landmarks.z * self.D)
         
     def vector_angle(self, v1, v2):
         """Helper function to calculate the angle between two vectors."""
@@ -222,16 +223,82 @@ class HandState:
             return 'Unknown', angle_deg
         return best_dir, angle_deg
     
+    def hand_position(self, hand_landmarks):
+        # previously had the hand displacement based on the center of the camera,
+        # check to see if we should combine, if necessary to add or replace
+        """
+        Rule 6: Hand Position
+        Simply the Geometric center of the hand to track general movement over time
+        """
+        self.landmarks = hand_landmarks.landmark
+        
+        all_points = np.array([self.get_landmark_vector(pt) for pt in self.landmarks])
+        center = np.mean(all_points, axis=0)
 
-### ========================================================================================================== ###
+        centerHand = self.landmarks[WRIST]
+        centerHand_px = self.to_pixel_coords(centerHand)
 
-    # set of 6 rules to encode hand gesture in terms of finger flexion, proximity, contact, direction
-    # pal, orientation and hand position based on paper of GestureGPT
+        # Displacement from the center of the camera view
+        dx = self.centerFrame[0] - centerHand_px[0]
+        dy = self.centerFrame[1] - centerHand_px[1]
 
+        # Real Camera coordinates
+        # Left/Right : - = left from center point, + = right from center point
+        x_realCam = dx * self.D / self.FOCAL_LENGTH
+        # Up/Down : - = up from center point, + = down from center point
+        y_realCam = dy * self.D / self.FOCAL_LENGTH
+
+        return center.tolist(), (x_realCam, y_realCam)  # to verify the units of (x_realCam, y_realCam) and how to use this information, if necessary at all
     
-    
-    
+        # returns coordinates [x, y, z] with respect to the camera frame, 
+        # can be used to track hand movement over time and detect if the hand 
+        # is moving towards or away from the camera, or moving left/right/up/down 
+        # in the camera view. This can be useful for temporal gesture recognition
+        # and motion analysis.
 
+### === Other rules for symbolic representation === ###
+    def finger_contact(self, hand_landmarks, target_tip_idx, th_low=0.045, th_high=0.07):
+        # Works well, but has some issues when the contact is facing the camera
+        # it can't distinguish the tip landmaks position properly
+        """
+        Rule 3: Finger Contact
+        Compute the Euclidean distance between the thumb tip and another finger tip
+        """
+        self.landmarks = hand_landmarks.landmark
+
+        thumb_tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])  # Thumb tip
+        finger_tip_vect = self.get_landmark_vector(self.landmarks[target_tip_idx])  # Target finger tip
+
+        dist = np.linalg.norm(thumb_tip_vect - finger_tip_vect)
+        # print(f"Distance between thumb tip and finger tip (idx {target_tip_idx}): {dist}")
+
+        if dist <= th_low:
+            return 1  # In contact
+        elif dist >= th_high:
+            return -1  # Not in contact
+        else:
+            return 0  # In between or unsure
+        
+    def get_finger_contact_state(self, hand_landmarks):
+        """
+        Returns a list of finger contact states using finger_contact(): [THUMB, INDEX, MIDDLE, RING, PINKY]
+        Values:
+        1  -> In contact
+        0  -> In between
+       -1  -> Not in contact
+        """
+        # self.landmarks = hand_landmarks.landmark
+        contact_state = []
+
+        for i, finger in enumerate(FINGERS["name"][1:], start=1):
+            tip_idx = FINGERS["tip_idx"][i]
+            state = self.finger_contact(hand_landmarks, target_tip_idx=tip_idx)
+            contact_state.append(state)
+
+        return contact_state
+
+
+### === Additional hand state rules for symbolic representation -- too see if will be used === ###
 
     def finger_proximity(self, hand_landmarks, f1_idx, f2_idx, th_low=0.03, th_high=0.06):
         # needs from refinment because so far the threasholds will depend on the distance of the 
@@ -263,27 +330,6 @@ class HandState:
             return 1  # Pressed together
         elif min_dist >= th_high:
             return -1  # Apart
-        else:
-            return 0  # In between or unsure
-
-    def finger_contact(self, hand_landmarks, target_tip_idx, th_low=0.04, th_high=0.06):
-        # Works well, but has some issues when the contact is facing the camera
-        # it can't distinguish the tip landmaks position properly
-        """
-        Rule 3: Finger Contact
-        Compute the Euclidean distance between the thumb tip and another finger tip
-        """
-        self.landmarks = hand_landmarks.landmark
-
-        thumb_tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])  # Thumb tip
-        finger_tip_vect = self.get_landmark_vector(self.landmarks[target_tip_idx])  # Target finger tip
-
-        dist = np.linalg.norm(thumb_tip_vect - finger_tip_vect)
-
-        if dist <= th_low:
-            return 1  # In contact
-        elif dist >= th_high:
-            return -1  # Not in contact
         else:
             return 0  # In between or unsure
 
@@ -320,19 +366,4 @@ class HandState:
 
 
 
-    def hand_position(self, hand_landmarks):
-        # previously had the hand displacement based on the center of the camera,
-        # check to see if we should combine, if necessary to add or replace
-        """
-        Rule 6: Hand Position
-        Simply the Geometric center of the hand to track general movement over time
-        """
-        self.landmarks = hand_landmarks.landmark
-        
-        all_points = np.array([self.get_landmark_vector(pt) for pt in self.landmarks])
-        center = np.mean(all_points, axis=0)
-        return center.tolist() # returns coordinates [x, y, z] with respect to the camera frame, 
-                               # can be used to track hand movement over time and detect if the hand 
-                               # is moving towards or away from the camera, or moving left/right/up/down 
-                               # in the camera view. This can be useful for temporal gesture recognition
-                               # and motion analysis.
+    

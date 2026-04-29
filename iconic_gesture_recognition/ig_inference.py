@@ -10,7 +10,7 @@ FINGERS ={
     "base_idx": [1, 5, 9, 13, 17]
 }
 
-def get_symbolic_string(finger_flexion_state, contact_results, palm_orientation, motion_detected, motion_type, hand_position):
+def get_symbolic_string(finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position):
     """
     Converts raw detection data into a natural language description.
     """
@@ -23,17 +23,17 @@ def get_symbolic_string(finger_flexion_state, contact_results, palm_orientation,
     finger_description = ", ".join(states)
 
     mapping_contact = {1: 'YES', -1: 'NO', 0: 'UNSURE'}
-    contact_desc = [f"{name}: {mapping_contact.get(val, 'UNKNOWN')}" for name, val in contact_results.items()]
+    contact_desc = [f"{name}: {mapping_contact.get(val, 'UNKNOWN')}" for name, val in zip(FINGERS["name"][1:], finger_contact_state)]
     contact_results = ", ".join(contact_desc)
     
     # motion_type comes from TemporalGestureManager
     symbolic_str = (
-        f"Hand Description: {finger_description}. \n"
-        f"Finger Contact (with Thumb): {contact_results}. \n" # would need it to be yes, no or maybe rather than 1, 0, -1
-        f"Palm Orientation Angle: {palm_orientation}. \n" # would need it in degrees ?
-        f"Is a Motion Detected: {motion_detected}. \n"
-        f"Motion Type: {motion_type}. \n"
-        f"Hand Position: {hand_position}."
+        # f"Hand Description: {finger_description}. \n"
+        # f"Finger in Contact with Thumb: {contact_results}. \n" # would need it to be yes, no or maybe rather than 1, 0, -1
+        # f"Hand Orientation Angle: {hand_orientation}. \n" # would need it in degrees ?
+        # f"Is a Motion Detected: {motion_detected}. \n"
+        # f"Motion Type: {motion_type}. \n"
+        # f"Hand Position: {hand_position}."
     )
     print(symbolic_str)
     
