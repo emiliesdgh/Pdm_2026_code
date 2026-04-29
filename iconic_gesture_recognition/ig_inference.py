@@ -28,12 +28,13 @@ def get_symbolic_string(finger_flexion_state, finger_contact_state, hand_orienta
     
     # motion_type comes from TemporalGestureManager
     symbolic_str = (
-        # f"Hand Description: {finger_description}. \n"
-        # f"Finger in Contact with Thumb: {contact_results}. \n" # would need it to be yes, no or maybe rather than 1, 0, -1
-        # f"Hand Orientation Angle: {hand_orientation}. \n" # would need it in degrees ?
-        # f"Is a Motion Detected: {motion_detected}. \n"
-        # f"Motion Type: {motion_type}. \n"
-        # f"Hand Position: {hand_position}."
+        f"Fingers Description: {finger_description} \n"
+        f"Finger in Contact with Thumb: {contact_results} \n" 
+        f"Hand Orientation: {hand_orientation} \n" 
+        f"Hand Position: {hand_position} \n"    # Add hand position information, how to have it not in coordinates ?
+        f"Is a Motion Detected: {motion_detected} \n"
+        f"Motion Type: {motion_type} \n"
+        
     )
     print(symbolic_str)
     

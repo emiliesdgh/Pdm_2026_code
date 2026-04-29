@@ -98,26 +98,37 @@ class HandState:
 
 
         if finger_type == 'THUMB':
-            # fintuned
-            th_low = 20 
-            th_high = 40
+            ## This method doesn't work very well, it is not robust
+            # # fintuned
+            # th_low = 20 
+            # th_high = 40
 
-            # Vectors: pip->dip and dip->tip
-            v1 = self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
-            v2 = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]])
-            curl = self.vector_angle(v1, v2)
+            # # Vectors: pip->dip and dip->tip
+            # v1 = self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
+            # v2 = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]])
+            # curl = self.vector_angle(v1, v2)
 
-            # print(f"Thumb curl angle: {curl}")
+            # # print(f"Thumb curl angle: {curl}")
 
-            # Distance based condition
-            tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])
-            pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
+            # # Distance based condition
+            # tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])
+            # pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
 
-            pinky_base_vect = self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][4]])
-            dist_thumb_palm = np.linalg.norm(tip_vect - pinky_base_vect)
-            dist_pip_palm = np.linalg.norm(pip_vect - pinky_base_vect)
+            # pinky_base_vect = self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][4]])
+            # dist_thumb_palm = np.linalg.norm(tip_vect - pinky_base_vect)
+            # dist_pip_palm = np.linalg.norm(pip_vect - pinky_base_vect)
+            # if dist_thumb_palm > dist_pip_palm:
+            #     folded = True
+
+            thumb_tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])  # Thumb tip
+            pinky_base_vect = self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][4]])  # Pinky base
+            thumb_pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])  # Thumb pip
+            dist_thumb_palm = np.linalg.norm(thumb_tip_vect - pinky_base_vect)
+            dist_pip_palm = np.linalg.norm(thumb_pip_vect - pinky_base_vect)
             if dist_thumb_palm > dist_pip_palm:
-                folded = True
+                return 1  # Folded
+            else:
+                return -1  # Extended
 
         else:
             # angle 1: base->pip and pip->dip
