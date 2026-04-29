@@ -13,9 +13,7 @@ FINGERS ={
 def get_symbolic_string(finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position):
     """
     Converts raw detection data into a natural language description.
-    """
-    # finger_names = ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"]
-    
+    """    
     # Map 1/0 to EXTENDED/FOLDED for better LLM reasoning
     mapping_ext_fold = {1: 'EXTENDED', -1: 'FOLDED', 0: 'UNSURE'}
     states = [f"{name}: {mapping_ext_fold.get(val, 'UNKNOWN')}" for name, val in zip(FINGERS["name"], finger_flexion_state)]

@@ -6,14 +6,6 @@ import numpy as np
 import cv2
 
 ### === Global for fingers === ###
-# FINGER = (BASE, PIP, DIP, TIP)
-# # !!!! Change in landmark indexing for all fingers !!!!
-# THUMB = (1, 2, 3, 4)
-# INDEX = (5, 6, 7, 8)
-# MIDDLE = (9, 10, 11, 12)
-# RING = (13, 14, 15, 16)
-# PINKY = (17, 18, 19, 20)
-
 FINGERS ={
     "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
     "tip_idx": [4, 8, 12, 16, 20],
@@ -98,28 +90,6 @@ class HandState:
 
 
         if finger_type == 'THUMB':
-            ## This method doesn't work very well, it is not robust
-            # # fintuned
-            # th_low = 20 
-            # th_high = 40
-
-            # # Vectors: pip->dip and dip->tip
-            # v1 = self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
-            # v2 = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]])
-            # curl = self.vector_angle(v1, v2)
-
-            # # print(f"Thumb curl angle: {curl}")
-
-            # # Distance based condition
-            # tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])
-            # pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
-
-            # pinky_base_vect = self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][4]])
-            # dist_thumb_palm = np.linalg.norm(tip_vect - pinky_base_vect)
-            # dist_pip_palm = np.linalg.norm(pip_vect - pinky_base_vect)
-            # if dist_thumb_palm > dist_pip_palm:
-            #     folded = True
-
             thumb_tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])  # Thumb tip
             pinky_base_vect = self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][4]])  # Pinky base
             thumb_pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])  # Thumb pip
@@ -148,7 +118,6 @@ class HandState:
 
             # print(f"{finger_type} curl angle: {curl}")
             
-
 
         if curl <= th_low:
             return 1  # Extended

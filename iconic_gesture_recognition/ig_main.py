@@ -7,7 +7,6 @@ mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 
-# from ig_hand_state import get_fingers_state, get_hand_orientation, draw_cross_product_vector
 import ig_hand_state as HS
 import ig_temporal_gesture as temporal_gesture
 from ig_inference import get_symbolic_string
@@ -70,28 +69,6 @@ def detect_hand_state():
                     is_thumb_straight = (finger_flexion_state[0] == 1)
                     finger_state_rule4 = handStates.thumb_direction(hand_landmarks, is_thumb_straight)
 
-
-
-                    if TEXT_FLIPPED:
-                        frame = cv2.flip(frame, 1)
-
-                    # Display the state and orientation on the image
-                    # cv2.putText(frame, f'State: {fingers_state}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Orientation Angle: {hand_orientation_angle}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Motion Detected: {motion_detected}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # if motion_detected:
-                    #     print(f"Motion Type: {motion_type}")
-                    # else:
-                    #     print("Stationary")
-
-                    # cv2.putText(frame, f'Finger Flexion Rule 1 (Index): {finger_state_rule1}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Finger Contact Rule 3 (Thumb-Index) : {contact_results["INDEX"]}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Thumb Direction Rule 4: {finger_state_rule4}', (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Hand Orientation Rule 5: {hand_orientation}', (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-                    # cv2.putText(frame, f'Hand Position Rule 6: {hand_position}', (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-
-                    if TEXT_FLIPPED:
-                        frame = cv2.flip(frame, 1)
 
                     mp_drawing.draw_landmarks(
                         image=frame,
