@@ -77,54 +77,71 @@ class HandState:
     def get_landmark_vector(self, lm):
         """Convert a landmark to a 3D vector."""
         return np.array([lm.x, lm.y, lm.z])   
-### === Finger State Function -- Extended, Folded or inbetween === ###
     
-    def finger_flexion(self, hand_landmarks, finger_type, th_low=60, th_high=75):
-        # the thresholds are the sum of the angles --> needs to be finetuned 
-        # otherwise function works
-        # it can also give information on the amount of fexion of the finger
-        # and not just the binary information of extended or folded
+
+### === Finger State Function -- Extended, Folded or inbetween === ###    
+    def finger_flexion(self, hand_landmarks, finger_type, th_low=50, th_high=120):
         """Rule 1: Figer Flexion
         Computes if a finger is straight (1), in between (0) or folded (0)
         by summing the bending angles of its joints
+
+        Adding the distance based version of previous version for added robustness (expecially for the thumb)
+        this can avoir hard setting thresholds that could vary for users
+        distance based method is also orientation independent
+        it can be the condition for folded, while the angle can be the condition for straight, and in between if one of them is in between
         """
         self.landmarks = hand_landmarks.landmark
         curl = 0.0
+        folded = False
+        wrist_vect = self.get_landmark_vector(self.landmarks[WRIST])
 
-        # works okey but thumb flexion is tricky, maybe the first version is better for
-        # the thumb even though i like this method better for the other fingers,
-        # maybe just need to reajust the thresholds
-        # otherwise check old version in commit on the 28.04.2026
+
         if finger_type == 'THUMB':
-            th_low = 30
+            # fintuned
+            th_low = 20 
             th_high = 40
+
             # Vectors: pip->dip and dip->tip
             v1 = self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
             v2 = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]]) - self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][0]])
             curl = self.vector_angle(v1, v2)
-            print(f"{finger_type} curl: {curl:.2f} ")
+
+            # print(f"Thumb curl angle: {curl}")
+
+            # Distance based condition
+            tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][0]])
+            pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][0]])
+
+            pinky_base_vect = self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][4]])
+            dist_thumb_palm = np.linalg.norm(tip_vect - pinky_base_vect)
+            dist_pip_palm = np.linalg.norm(pip_vect - pinky_base_vect)
+            if dist_thumb_palm > dist_pip_palm:
+                folded = True
 
         else:
-
-
             # angle 1: base->pip and pip->dip
             v1 = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][FINGERS["name"].index(finger_type)]]) - self.get_landmark_vector(self.landmarks[FINGERS["base_idx"][FINGERS["name"].index(finger_type)]])
             v2 = self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][FINGERS["name"].index(finger_type)]]) - self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][FINGERS["name"].index(finger_type)]])
-            # v1 = self.get_landmark_vector(lm[pip]) - self.get_landmark_vector(lm[base])
-            # v2 = self.get_landmark_vector(lm[dip]) - self.get_landmark_vector(lm[pip])
             curl += self.vector_angle(v1, v2) # because computing based on angle sum
 
             # angle 2: pip->dip and dip->tip
-            # v3 = self.get_landmark_vector(lm[tip]) - self.get_landmark_vector(lm[dip])
             v3 = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][FINGERS["name"].index(finger_type)]]) - self.get_landmark_vector(self.landmarks[FINGERS["dip_idx"][FINGERS["name"].index(finger_type)]])
             curl += self.vector_angle(v2, v3)
 
-            # print(f"{finger_type} curl: {curl:.2f} ")
+            # Distance based condition
+            tip_vect = self.get_landmark_vector(self.landmarks[FINGERS["tip_idx"][FINGERS["name"].index(finger_type)]]) 
+            pip_vect = self.get_landmark_vector(self.landmarks[FINGERS["pip_idx"][FINGERS["name"].index(finger_type)]])
+            if np.linalg.norm(tip_vect - wrist_vect) > np.linalg.norm(pip_vect - wrist_vect):
+                folded = True
+
+            # print(f"{finger_type} curl angle: {curl}")
+            
+
 
         if curl <= th_low:
-            return 1  # Straight
-        elif curl >= th_high:
-            return -1  # Bent
+            return 1  # Extended
+        elif curl >= th_high or folded:
+            return -1  # Folded
         else:
             return 0  # In between or unsure
         
@@ -132,9 +149,9 @@ class HandState:
         """
         Returns a list of finger flexion states using finger_flexion(): [THUMB, INDEX, MIDDLE, RING, PINKY]
         Values:
-        1  -> Straight
+        1  -> Extended
         0  -> In-between
-       -1  -> Bent
+       -1  -> Folded
         """
         self.landmarks = hand_landmarks.landmark
         finger_types = FINGERS["name"]
