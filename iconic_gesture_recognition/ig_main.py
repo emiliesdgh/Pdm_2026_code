@@ -10,6 +10,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 # from ig_hand_state import get_fingers_state, get_hand_orientation, draw_cross_product_vector
 import ig_hand_state as HS
 import ig_temporal_gesture as temporal_gesture
+from ig_inference import get_symbolic_string
 
 TEXT_FLIPPED = True
 # FINGER_TYPES = ['THUMB', 'INDEX', 'MIDDLE', 'RING', 'PINKY']
@@ -22,30 +23,34 @@ FINGERS ={
     "base_idx": [1, 5, 9, 13, 17]
 }
 
-def get_symbolic_string(flexion_results, contact_results, palm_orientation, motion_detected, motion_type, hand_position):
-    """
-    Converts raw detection data into a natural language description.
-    """
-    # finger_names = ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"]
+# def get_symbolic_string(flexion_results, contact_results, palm_orientation, motion_detected, motion_type, hand_position):
+#     """
+#     Converts raw detection data into a natural language description.
+#     """
+#     # finger_names = ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"]
     
-    # Map 1/0 to EXTENDED/FOLDED for better LLM reasoning
-    mapping = {1: 'EXTENDED', -1: 'FOLDED', 0: 'UNSURE'}
-    states = [f"{name}: {mapping.get(val, 'UNKNOWN')}" for name, val in flexion_results.items()]
+#     # Map 1/0 to EXTENDED/FOLDED for better LLM reasoning
+#     mapping_ext_fold = {1: 'EXTENDED', -1: 'FOLDED', 0: 'UNSURE'}
+#     states = [f"{name}: {mapping_ext_fold.get(val, 'UNKNOWN')}" for name, val in flexion_results.items()]
     
-    finger_description = ", ".join(states)
+#     finger_description = ", ".join(states)
+
+#     mapping_contact = {1: 'YES', -1: 'NO', 0: 'UNSURE'}
+#     contact_desc = [f"{name}: {mapping_contact.get(val, 'UNKNOWN')}" for name, val in contact_results.items()]
+#     contact_results = ", ".join(contact_desc)
     
-    # motion_type comes from TemporalGestureManager
-    symbolic_str = (
-        f"Hand Description: {finger_description}. \n"
-        f"Finger Contact (with Thumb): {contact_results}. \n"
-        f"Palm Orientation Angle: {palm_orientation}. \n" # would need it in degrees ?
-        f"Is a Motion Detected: {motion_detected}. \n"
-        f"Motion Type: {motion_type}. \n"
-        f"Hand Position: {hand_position}."
-    )
-    print(symbolic_str)
+#     # motion_type comes from TemporalGestureManager
+#     symbolic_str = (
+#         f"Hand Description: {finger_description}. \n"
+#         f"Finger Contact (with Thumb): {contact_results}. \n" # would need it to be yes, no or maybe rather than 1, 0, -1
+#         f"Palm Orientation Angle: {palm_orientation}. \n" # would need it in degrees ?
+#         f"Is a Motion Detected: {motion_detected}. \n"
+#         f"Motion Type: {motion_type}. \n"
+#         f"Hand Position: {hand_position}."
+#     )
+#     print(symbolic_str)
     
-    return symbolic_str
+#     return symbolic_str
 
 def detect_hand_state():
     cap = cv2.VideoCapture(index=0)
@@ -87,6 +92,7 @@ def detect_hand_state():
                     fingers_state = handStates.get_fingers_state(hand_landmarks)
                     hand_orientation = handStates.get_hand_orientation(hand_landmarks)
 
+                    # motion detection with the "old" method of finger state determination
                     motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, fingers_state, hand_orientation)
 
                     # i feel that this one is more comprehensive thant the get_fingers_state function

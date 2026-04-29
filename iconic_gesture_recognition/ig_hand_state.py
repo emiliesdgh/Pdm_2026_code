@@ -270,9 +270,18 @@ class HandState:
         if curl <= th_low:
             return 1  # Straight
         elif curl >= th_high:
-            return -1  # BEnt
+            return -1  # Bent
         else:
             return 0  # In between or unsure
+        
+    def get_finger_flexion(self, hand_landmarks,th_low=60, th_high=75):
+        """
+        have a function that computes the finger flexions in the same way as finger_fexion()
+        but returns the states as the function get_finger_state()
+        """
+        self.landmarks = hand_landmarks.landmark
+        curl = 0.0
+        finger_states = []
 
 
     def finger_proximity(self, hand_landmarks, f1_idx, f2_idx, th_low=0.03, th_high=0.06):
