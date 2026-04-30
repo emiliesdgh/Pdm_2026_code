@@ -5,21 +5,6 @@ for the iconic gesture recognition into Symbolic Representation.
 import numpy as np
 import cv2
 
-# ### === Global for fingers === ###
-# FINGERS ={
-#     "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
-#     "tip_idx": [4, 8, 12, 16, 20],
-#     "dip_idx": [3, 7, 11, 15, 19],
-#     "pip_idx": [2, 6, 10, 14, 18],
-#     "base_idx": [1, 5, 9, 13, 17]
-# }
-# WRIST = 0
-
-# ### === Camera information === ###
-# ## NEED to find the actial focal length of the camera for accurate real-world coordinate conversion
-# # will need to do a camera calibration process to get the actual focal length and other intrinsic parameters for accurate real-world coordinate conversion
-# FOCAL_LENGTH = 1.0  # Focal length of the camera
-
 class HandState:
     def __init__(self, global_vars, hand_landmarks, frame):
         self.global_vars = global_vars
@@ -29,18 +14,6 @@ class HandState:
 
         self.landmarks = hand_landmarks.landmark
         self.label = None
-
-        # ### === Camera information === ###
-        # self.frame = frame
-        # self.H = frame.shape[0] # Height
-        # self.W = frame.shape[1] # Width
-        # self.D = frame.shape[2] # Depth
-
-        # self.FOV = 1.32  # radians
-        # self.FOCAL_LENGTH = self.W / (2 * np.tan(self.FOV / 2))  # Focal length of the camera
-        # self.centerFrame = (self.W // 2, self.H // 2)
-
-        # self.camera_view = np.array([0, 0, -1])
 
 ### === Helper Functions === ###
     def get_label(self):
@@ -85,7 +58,6 @@ class HandState:
         distance based method is also orientation independent
         it can be the condition for folded, while the angle can be the condition for straight, and in between if one of them is in between
         """
-        # self.landmarks = hand_landmarks.landmark
         curl = 0.0
         folded = False
         wrist_vect = self.get_landmark_vector(self.landmarks[self.global_vars.WRIST_idx])
@@ -97,6 +69,7 @@ class HandState:
             thumb_pip_vect = self.get_landmark_vector(self.landmarks[self.global_vars.FINGERS["pip_idx"][0]])  # Thumb pip
             dist_thumb_palm = np.linalg.norm(thumb_tip_vect - pinky_base_vect)
             dist_pip_palm = np.linalg.norm(thumb_pip_vect - pinky_base_vect)
+
             if dist_thumb_palm > dist_pip_palm:
                 return 1  # Folded
             else:
@@ -128,7 +101,9 @@ class HandState:
         else:
             return 0  # In between or unsure
         
-    def get_finger_flexion_state(self, th_low=60, th_high=75):
+    def get_finger_flexion_state(self):
+    # def get_finger_flexion_state(self, th_low=60, th_high=75):
+    # different thresholds from finger_flexion function => useless
         """
         Returns a list of finger flexion states using finger_flexion(): [THUMB, INDEX, MIDDLE, RING, PINKY]
         Values:
@@ -136,26 +111,23 @@ class HandState:
         0  -> In-between
        -1  -> Folded
         """
-        # self.landmarks = hand_landmarks.landmark
         finger_types = self.global_vars.FINGERS["name"]
         finger_state = []
 
         for finger in finger_types:
-            state = self.finger_flexion(finger, th_low, th_high)
+            state = self.finger_flexion(finger)
             finger_state.append(state)
 
         return finger_state
 
 ### === Hand Orientation to camera & Position to center(?) === ###
-    def hand_orientation(self, frame, hand_landmarks, hand_label, th=45):
+    def hand_orientation(self, frame, hand_label, th=45):
         # new way to compute, hopefully more robust
         """
         Rule 5: Palm Orientation
         Compute the cross product of 2 vectors ON the palm to get the palm orientation
         the threshold of 45° makes the best direction description in my opinion
-        """
-        # self.landmarks = hand_landmarks.landmark
-        
+        """        
         # Palm vector 1: Pinky base to Index base
         palm_vec1 = self.get_landmark_vector(self.landmarks[self.global_vars.FINGERS["base_idx"][4]]) - self.get_landmark_vector(self.landmarks[self.global_vars.FINGERS["base_idx"][1]])
         # Palm vector 2: wrist to Middle base
@@ -205,15 +177,13 @@ class HandState:
             return 'Unknown', angle_deg
         return best_dir, angle_deg
     
-    def hand_position(self, hand_landmarks):
+    def hand_position(self):
         # previously had the hand displacement based on the center of the camera,
         # check to see if we should combine, if necessary to add or replace
         """
         Rule 6: Hand Position
         Simply the Geometric center of the hand to track general movement over time
-        """
-        # self.landmarks = hand_landmarks.landmark
-        
+        """        
         all_points = np.array([self.get_landmark_vector(pt) for pt in self.landmarks])
         center = np.mean(all_points, axis=0)
 
@@ -239,15 +209,13 @@ class HandState:
         # and motion analysis.
 
 ### === Other rules for symbolic representation === ###
-    def finger_contact(self, hand_landmarks, target_tip_idx, th_low=0.045, th_high=0.07):
+    def finger_contact(self, target_tip_idx, th_low=0.045, th_high=0.07):
         # Works well, but has some issues when the contact is facing the camera
         # it can't distinguish the tip landmaks position properly
         """
         Rule 3: Finger Contact
         Compute the Euclidean distance between the thumb tip and another finger tip
         """
-        # self.landmarks = hand_landmarks.landmark
-
         thumb_tip_vect = self.get_landmark_vector(self.landmarks[self.global_vars.FINGERS["tip_idx"][0]])  # Thumb tip
         finger_tip_vect = self.get_landmark_vector(self.landmarks[target_tip_idx])  # Target finger tip
 
@@ -261,7 +229,7 @@ class HandState:
         else:
             return 0  # In between or unsure
         
-    def get_finger_contact_state(self, hand_landmarks):
+    def get_finger_contact_state(self):
         """
         Returns a list of finger contact states using finger_contact(): [THUMB, INDEX, MIDDLE, RING, PINKY]
         Values:
@@ -269,12 +237,11 @@ class HandState:
         0  -> In between
        -1  -> Not in contact
         """
-        # self.landmarks = hand_landmarks.landmark
         contact_state = []
 
-        for i, finger in enumerate(self.global_vars.FINGERS["name"][1:], start=1):
+        for i, _ in enumerate(self.global_vars.FINGERS["name"][1:], start=1):
             tip_idx = self.global_vars.FINGERS["tip_idx"][i]
-            state = self.finger_contact(hand_landmarks, target_tip_idx=tip_idx)
+            state = self.finger_contact(target_tip_idx=tip_idx)
             contact_state.append(state)
 
         return contact_state
@@ -282,7 +249,7 @@ class HandState:
 
 ### === Additional hand state rules for symbolic representation -- too see if will be used === ###
 
-    def finger_proximity(self, hand_landmarks, f1_idx, f2_idx, th_low=0.03, th_high=0.06):
+    def finger_proximity(self, f1_idx, f2_idx, th_low=0.03, th_high=0.06):
         # needs from refinment because so far the threasholds will depend on the distance of the 
         # hand to the camera
         # maybe need to add a normalization factor based on the depth of the hand to make it more robust to distance changes
@@ -296,8 +263,8 @@ class HandState:
         by checking the average minimal distance between joints
         """
         # Extract the joint landmarks for the two fingers
-        f1_joints = [self.get_landmark_vector(hand_landmarks.landmark[idx]) for idx in f1_idx]
-        f2_joints = [self.get_landmark_vector(hand_landmarks.landmark[idx]) for idx in f2_idx]
+        f1_joints = [self.get_landmark_vector(self.landmarks[idx]) for idx in f1_idx]
+        f2_joints = [self.get_landmark_vector(self.landmarks[idx]) for idx in f2_idx]
 
         # Compute distances between all pairs of joints
         distances = []
@@ -315,15 +282,13 @@ class HandState:
         else:
             return 0  # In between or unsure
 
-    def thumb_direction(self, hand_landmarks, is_thumb_straight, th=40):
+    def thumb_direction(self, is_thumb_straight, th=40):
         # for now, large threashold but works well
         """
         Rule 4: Thumb Pointing Direction    # to be extended to other fingers ?
         Finds the thumb direction vector against world-axis vectors
         only applies when the thumb is straight
         """
-        # self.landmarks = hand_landmarks.landmark
-
         if not is_thumb_straight:
             return 0  # Not applicable if thumb is not straight
 

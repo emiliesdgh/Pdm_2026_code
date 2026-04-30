@@ -6,7 +6,6 @@ to be able to know if iconic gestures are static (ex: thumbs up) or dynamic (ex:
 import numpy as np
 from collections import deque
 
-# from ig_global_variables import GlobalVariables
 
 class TemporalGestureManager:
     def __init__(self, global_vars, window_size=15):
@@ -47,10 +46,6 @@ class TemporalGestureManager:
         # 2. Analyze the detailed trajectory (Speed, Path, Flips)
         displacement, path_length, speed_str, flips_x, flips_y = self.analyze_trajectory()
 
-        # # --- Thresholds --- (tune these based on your camera resolution/distance)
-        # FINGER_STATE_TH = 1     # At least 1 finger state change
-        # ORIENTATION_TH = 1      # If the orientation direction is different
-        # MOVE_TH = 0.05          # Threshold for displacement
         
         magnitude = np.linalg.norm(displacement)
 

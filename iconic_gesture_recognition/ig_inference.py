@@ -2,13 +2,6 @@
 Script to link the gesture recognition to the LLM symbolic representation by determining the hand state (finger positions, hand orientation, etc.)
 """
 
-# FINGERS ={
-#     "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
-#     "tip_idx": [4, 8, 12, 16, 20],
-#     "dip_idx": [3, 7, 11, 15, 19],
-#     "pip_idx": [2, 6, 10, 14, 18],
-#     "base_idx": [1, 5, 9, 13, 17]
-# }
 
 def get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position):
     """

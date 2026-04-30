@@ -13,15 +13,6 @@ from ig_inference import get_symbolic_string
 
 from ig_global_variables import GlobalVariables
 
-# TEXT_FLIPPED = True
-
-# FINGERS ={
-#     "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
-#     "tip_idx": [4, 8, 12, 16, 20],
-#     "dip_idx": [3, 7, 11, 15, 19],
-#     "pip_idx": [2, 6, 10, 14, 18],
-#     "base_idx": [1, 5, 9, 13, 17]
-# }
 
 # def detect_hand_state(global_vars):
 def detect_hand_state():
@@ -66,9 +57,9 @@ def detect_hand_state():
                     
                     ### === Get the hand state information for sending to the LLM for symbolic representation === ###
                     finger_flexion_state = handStates.get_finger_flexion_state()
-                    hand_orientation, hand_orientation_angle = handStates.hand_orientation(frame, hand_landmarks, handStates.label)
-                    hand_position, pos_to_center = handStates.hand_position(hand_landmarks)
-                    finger_contact_state = handStates.get_finger_contact_state(hand_landmarks)
+                    hand_orientation, hand_orientation_angle = handStates.hand_orientation(frame, handStates.label)
+                    hand_position, pos_to_center = handStates.hand_position()
+                    finger_contact_state = handStates.get_finger_contact_state()
 
 
                     motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, finger_flexion_state, hand_orientation, hand_position)
