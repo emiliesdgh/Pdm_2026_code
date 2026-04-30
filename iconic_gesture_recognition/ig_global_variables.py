@@ -37,7 +37,7 @@ class GlobalVariables:
         self.camera_view = np.array([0, 0, -1])
 
         ### === CV2 drawing variables === ###
-        self.TEXT_FLIPPED = True
+        # self.TEXT_FLIPPED = True
 
         ### === Thresholds for gesture recognition === ###
         self.FINGER_STATE_TH = 1     # At least 1 finger state change

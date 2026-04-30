@@ -12,7 +12,9 @@ import ig_temporal_gesture as temporal_gesture
 from ig_inference import get_symbolic_string, get_symbolic_string_2
 
 from ig_global_variables import GlobalVariables
+from ig_llm_agent import LLMInferenceAgent
 
+TEXT_FLIPPED = True
 
 # def detect_hand_state(global_vars):
 def detect_hand_state():
@@ -20,6 +22,9 @@ def detect_hand_state():
     _, frame = cap.read()
     global_vars = GlobalVariables(frame)
     temporal_gesture_detection = temporal_gesture.TemporalGestureManager(global_vars, window_size=15)
+
+    # Initialize the LLM agent (make sure to have run 'ollama run mixtral' in the terminal first)
+    llm_agent = LLMInferenceAgent()
 
     with mp_hands.Hands(
         model_complexity=0,
@@ -62,8 +67,14 @@ def detect_hand_state():
                     motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, finger_flexion_state, hand_orientation, hand_position)
 
                 
-                    is_thumb_straight = (finger_flexion_state[0] == 1)
-                    finger_state_rule4 = handStates.thumb_direction(hand_landmarks, is_thumb_straight)
+                    ## additional hand state rules for symbolic representation, to be added in the future if needed
+                    # is_thumb_straight = (finger_flexion_state[0] == 1)
+                    # finger_state_rule4 = handStates.thumb_direction(hand_landmarks, is_thumb_straight)
+
+                    prompt = get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
+
+                    if motion_detected and not llm_agent.is_inferencing:
+                        llm_agent.analyze_gesture_async(prompt)
 
 
                     mp_drawing.draw_landmarks(
@@ -75,9 +86,19 @@ def detect_hand_state():
                     )
 
                     # get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
-                    get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
+                    # get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
 
-                
+            if TEXT_FLIPPED:
+                frame = cv2.flip(frame, 1)
+
+            # Display the LLM's prediction directly on the screen
+            cv2.putText(frame, f"LLM: {llm_agent.current_prediction}", (10, 40), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            
+            if TEXT_FLIPPED:
+                frame = cv2.flip(frame, 1)
+
+
             cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
