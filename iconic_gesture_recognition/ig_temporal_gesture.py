@@ -6,12 +6,16 @@ to be able to know if iconic gestures are static (ex: thumbs up) or dynamic (ex:
 import numpy as np
 from collections import deque
 
+# from ig_global_variables import GlobalVariables
+
 class TemporalGestureManager:
-    def __init__(self, window_size=15):
+    def __init__(self, global_vars, window_size=15):
         self.history_dist = deque(maxlen=window_size)
         self.gesture_history = deque(maxlen=window_size)
         self.wrist_history = deque(maxlen=window_size)
+
         self.window_size = window_size
+        self.global_vars = global_vars
 
     def update(self, hand_landmarks, finger_states, hand_orientation, hand_position):
         """
@@ -19,7 +23,9 @@ class TemporalGestureManager:
         Returns: (is_moving: bool, motion_type: str)
         """
         wrist = hand_landmarks.landmark[0]
+        print(f"Wrist landmark: {wrist}")
         wrist_pos = np.array([wrist.x, wrist.y])
+        # wrist_pos = np.array([self.global_vars.WRIST.x, self.global_vars.WRIST.y])
 
         # Store the information
         self.gesture_history.append((finger_states, hand_orientation))
@@ -41,10 +47,10 @@ class TemporalGestureManager:
         # 2. Analyze the detailed trajectory (Speed, Path, Flips)
         displacement, path_length, speed_str, flips_x, flips_y = self.analyze_trajectory()
 
-        # --- Thresholds --- (tune these based on your camera resolution/distance)
-        FINGER_STATE_TH = 1     # At least 1 finger state change
-        ORIENTATION_TH = 1      # If the orientation direction is different
-        MOVE_TH = 0.05          # Threshold for displacement
+        # # --- Thresholds --- (tune these based on your camera resolution/distance)
+        # FINGER_STATE_TH = 1     # At least 1 finger state change
+        # ORIENTATION_TH = 1      # If the orientation direction is different
+        # MOVE_TH = 0.05          # Threshold for displacement
         
         magnitude = np.linalg.norm(displacement)
 
@@ -52,10 +58,10 @@ class TemporalGestureManager:
         # If someone waves, they might end up exactly where they started (magnitude = 0), 
         # but the path length will be high!
         is_moving = (
-            finger_state_change >= FINGER_STATE_TH or 
-            orientation_change >= ORIENTATION_TH or 
-            magnitude >= MOVE_TH or 
-            path_length >= (MOVE_TH * 1.5) 
+            finger_state_change >= self.global_vars.FINGER_STATE_TH or 
+            orientation_change >= self.global_vars.ORIENTATION_TH or 
+            magnitude >= self.global_vars.MOVE_TH or 
+            path_length >= (self.global_vars.MOVE_TH * 1.5) 
         )
 
         if not is_moving:

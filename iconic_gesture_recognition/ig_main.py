@@ -11,19 +11,24 @@ import ig_hand_state as HS
 import ig_temporal_gesture as temporal_gesture
 from ig_inference import get_symbolic_string
 
-TEXT_FLIPPED = True
+from ig_global_variables import GlobalVariables
 
-FINGERS ={
-    "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
-    "tip_idx": [4, 8, 12, 16, 20],
-    "dip_idx": [3, 7, 11, 15, 19],
-    "pip_idx": [2, 6, 10, 14, 18],
-    "base_idx": [1, 5, 9, 13, 17]
-}
+# TEXT_FLIPPED = True
 
+# FINGERS ={
+#     "name": ["THUMB", "INDEX", "MIDDLE", "RING", "PINKY"],
+#     "tip_idx": [4, 8, 12, 16, 20],
+#     "dip_idx": [3, 7, 11, 15, 19],
+#     "pip_idx": [2, 6, 10, 14, 18],
+#     "base_idx": [1, 5, 9, 13, 17]
+# }
+
+# def detect_hand_state(global_vars):
 def detect_hand_state():
     cap = cv2.VideoCapture(index=0)
-    temporal_gesture_detection = temporal_gesture.TemporalGestureManager(window_size=15)
+    _, frame = cap.read()
+    global_vars = GlobalVariables(frame)
+    temporal_gesture_detection = temporal_gesture.TemporalGestureManager(global_vars, window_size=15)
 
     with mp_hands.Hands(
         model_complexity=0,
@@ -36,6 +41,9 @@ def detect_hand_state():
             if not success:
                 print("Ignoring empty camera frame.")
                 continue
+            
+            # global_vars = GlobalVariables(frame)
+            # temporal_gesture_detection = temporal_gesture.TemporalGestureManager(global_vars, window_size=15)
 
             # Check the frame for hands
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -45,7 +53,7 @@ def detect_hand_state():
             if results.multi_hand_landmarks:
                 for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
 
-                    handStates = HS.HandState(hand_landmarks.landmark, frame)  # Update hand state with current landmarks and frame
+                    handStates = HS.HandState(global_vars, hand_landmarks, frame)  # Update hand state with current landmarks and frame
                     handStates.label = handedness.classification[0].label  # 'Left' or 'Right'
                     # label = handsClass.label
                     # Manually reverse the label IF USING WEBCAMERA
@@ -57,7 +65,7 @@ def detect_hand_state():
 
                     
                     ### === Get the hand state information for sending to the LLM for symbolic representation === ###
-                    finger_flexion_state = handStates.get_finger_flexion_state(hand_landmarks)
+                    finger_flexion_state = handStates.get_finger_flexion_state()
                     hand_orientation, hand_orientation_angle = handStates.hand_orientation(frame, hand_landmarks, handStates.label)
                     hand_position, pos_to_center = handStates.hand_position(hand_landmarks)
                     finger_contact_state = handStates.get_finger_contact_state(hand_landmarks)
@@ -78,7 +86,7 @@ def detect_hand_state():
                         connection_drawing_spec=mp_drawing_styles.get_default_hand_connections_style(),
                     )
 
-                    get_symbolic_string(finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
+                    get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
 
                 
             cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
@@ -88,4 +96,7 @@ def detect_hand_state():
     cap.release()
                 
 if __name__ == "__main__":
+
+    # global_vars = GlobalVariables(frame)
+    # detect_hand_state(global_vars)
     detect_hand_state()
