@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 
 class HandState:
-    def __init__(self, global_vars, hand_landmarks, frame):
+    def __init__(self, global_vars, hand_landmarks):
         self.global_vars = global_vars
 
         self.gesture_history = []  # Store recent hand states for temporal analysis

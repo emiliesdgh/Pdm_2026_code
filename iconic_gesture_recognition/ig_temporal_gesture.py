@@ -22,7 +22,6 @@ class TemporalGestureManager:
         Returns: (is_moving: bool, motion_type: str)
         """
         wrist = hand_landmarks.landmark[0]
-        print(f"Wrist landmark: {wrist}")
         wrist_pos = np.array([wrist.x, wrist.y])
         # wrist_pos = np.array([self.global_vars.WRIST.x, self.global_vars.WRIST.y])
 

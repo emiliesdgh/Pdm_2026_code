@@ -9,7 +9,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 
 import ig_hand_state as HS
 import ig_temporal_gesture as temporal_gesture
-from ig_inference import get_symbolic_string
+from ig_inference import get_symbolic_string, get_symbolic_string_2
 
 from ig_global_variables import GlobalVariables
 
@@ -32,9 +32,6 @@ def detect_hand_state():
             if not success:
                 print("Ignoring empty camera frame.")
                 continue
-            
-            # global_vars = GlobalVariables(frame)
-            # temporal_gesture_detection = temporal_gesture.TemporalGestureManager(global_vars, window_size=15)
 
             # Check the frame for hands
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -44,9 +41,9 @@ def detect_hand_state():
             if results.multi_hand_landmarks:
                 for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
 
-                    handStates = HS.HandState(global_vars, hand_landmarks, frame)  # Update hand state with current landmarks and frame
+                    handStates = HS.HandState(global_vars, hand_landmarks)  # Update hand state with current landmarks and frame
                     handStates.label = handedness.classification[0].label  # 'Left' or 'Right'
-                    # label = handsClass.label
+
                     # Manually reverse the label IF USING WEBCAMERA
                     # might need to remove with Robot camera !!!
                     if handStates.label == 'Left':
@@ -77,7 +74,8 @@ def detect_hand_state():
                         connection_drawing_spec=mp_drawing_styles.get_default_hand_connections_style(),
                     )
 
-                    get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
+                    # get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
+                    get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
 
                 
             cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
@@ -88,6 +86,4 @@ def detect_hand_state():
                 
 if __name__ == "__main__":
 
-    # global_vars = GlobalVariables(frame)
-    # detect_hand_state(global_vars)
     detect_hand_state()
