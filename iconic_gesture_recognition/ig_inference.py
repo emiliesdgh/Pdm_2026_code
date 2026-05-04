@@ -97,6 +97,6 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
         f"- The hand moves with a {motion_type} motion."
     )
 
-    print(symbolic_str)
+    # print(symbolic_str)
 
     return symbolic_str

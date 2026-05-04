@@ -73,7 +73,9 @@ def detect_hand_state():
 
                     prompt = get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
 
+                    print(f"Status: {motion_type} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
                     if motion_detected and not llm_agent.is_inferencing:
+                        print("!!! LMM TRIGGERED !!!")
                         llm_agent.analyze_gesture_async(prompt)
 
 
@@ -88,20 +90,20 @@ def detect_hand_state():
                     # get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
                     # get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
 
-            if TEXT_FLIPPED:
-                frame = cv2.flip(frame, 1)
+            # if TEXT_FLIPPED:
+            #     frame = cv2.flip(frame, 1)
 
-            # Display the LLM's prediction directly on the screen
-            cv2.putText(frame, f"LLM: {llm_agent.current_prediction}", (10, 40), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            # # Display the LLM's prediction directly on the screen
+            # cv2.putText(frame, f"LLM: {llm_agent.current_prediction}", (10, 40), 
+            #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
             
-            if TEXT_FLIPPED:
-                frame = cv2.flip(frame, 1)
+            # if TEXT_FLIPPED:
+            #     frame = cv2.flip(frame, 1)
 
 
-            cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
-            if cv2.waitKey(1) & 0xFF == ord("q"):
-                break
+            # cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
+            # if cv2.waitKey(1) & 0xFF == ord("q"):
+            #     break
     
     cap.release()
                 

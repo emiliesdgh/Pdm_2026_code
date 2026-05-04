@@ -7,11 +7,11 @@ class LLMInferenceAgent:
     # ==> in this case, use Mistral
     # before using, run in terminal: ollama pull mixtral
     # --> this allows to download the model
-    def __init__(self, model_name="mixtral"):
+    # def __init__(self, model_name="mixtral"):
 
     # to use if mixtral, is too heavy & makes the video feed lag or crash the script
     # if using Mistral instead, make sure to run 'ollama pull mistral' in the terminal first to download the model
-    # def __init__(self, model_name="mistral"):  
+    def __init__(self, model_name="mistral"):  
         self.model_name = model_name
         self.is_inferencing = False
         self.current_prediction = "Waiting for hand gesture..."
@@ -52,19 +52,27 @@ class LLMInferenceAgent:
         the system prompt is defined here to avoid re-defining it every time in the main loop, and to have a single source of truth for the system prompt.
         it gives the context to the LLM about the task and what it should do with the symbolic string that is sent from the main loop.
         """
+        # system_prompt = (
+        #     "You are a helpful assistant for recognizing hand gestures based on the hand state information provided. "
+        #     "The user will perform a hand gesture, and you will receive a detailed description of the hand's state, including finger positions, contacts, orientation, and motion. "
+        #     "Based on this information, your task is to infer the most likely gesture being performed by the user. "
+        #     "You should consider common gestures such as 'Thumbs Up', 'Peace Sign', 'Fist', 'Open Hand', 'Pointing', etc., but also be open to less common gestures based on the provided hand state. "
+        #     "Your response should be concise and focused on identifying the gesture."
+        # )
+
+        # 1. Aggressive System Prompt
         system_prompt = (
-            "You are a helpful assistant for recognizing hand gestures based on the hand state information provided. "
-            "The user will perform a hand gesture, and you will receive a detailed description of the hand's state, including finger positions, contacts, orientation, and motion. "
-            "Based on this information, your task is to infer the most likely gesture being performed by the user. "
-            "You should consider common gestures such as 'Thumbs Up', 'Peace Sign', 'Fist', 'Open Hand', 'Pointing', etc., but also be open to less common gestures based on the provided hand state. "
-            "Your response should be concise and focused on identifying the gesture."
+            "You are a gesture recognition classifier. Read the hand state and output ONLY the name of the gesture. "
+            "Do NOT write full sentences. Do NOT explain your reasoning. "
+            "Example outputs: 'Thumbs Up', 'Waving', 'Fist', 'Open Hand', 'Pointing', 'Swipe Left', 'Unknown'."
         )
 
         try:
             response =ollama.chat(model=self.model_name, messages=[
                 {'role': 'system', 'content': system_prompt},
                 {'role': 'user', 'content': symbolic_str}
-            ])
+            ], options = {'num_predict': 5})
+
             self.current_prediction = response['message']['content'].strip()
             print(f"\n[LLM Prediction]: {self.current_prediction}\n")
         except Exception as e:
