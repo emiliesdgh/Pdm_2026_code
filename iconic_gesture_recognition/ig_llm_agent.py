@@ -61,10 +61,23 @@ class LLMInferenceAgent:
         # )
 
         # 1. Aggressive System Prompt
+        # system_prompt = (
+        #     "You are a gesture recognition classifier. Read the hand state and output ONLY the name of the gesture. "
+        #     "Do NOT write full sentences. Do NOT explain your reasoning. "
+        #     "Example outputs: 'Thumbs Up', 'Waving', 'Fist', 'Open Hand', 'Pointing', 'Swipe Left', 'Unknown'."
+        # )
+
         system_prompt = (
-            "You are a gesture recognition classifier. Read the hand state and output ONLY the name of the gesture. "
-            "Do NOT write full sentences. Do NOT explain your reasoning. "
-            "Example outputs: 'Thumbs Up', 'Waving', 'Fist', 'Open Hand', 'Pointing', 'Swipe Left', 'Unknown'."
+            "System: You are an HRI Intent Interpreter for a humanoid robot."
+            "Context: The robot is in a lab. There are boxes on a table."
+            f"User Input: {symbolic_str}"
+
+            "Task: Infer the user's intent. Here are some examples of intents you might infer based on the user's hand gesture: "
+            " - If they mimic a 'grasp' (all fingers closing), intent is \"PICK_UP\"."
+            " - If they point, intent is \"NAVIGATE\" to that coordinate."
+            " - If they move their hand in a circle, intent is \"SEARCH_AREA\"."
+
+            "Return JSON: {\"intent\": string, \"spatial_hint\": [x, y] or null, \"confidence\": 0.0-1.0}"
         )
 
         try:
