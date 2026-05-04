@@ -71,7 +71,7 @@ class LLMInferenceAgent:
             response =ollama.chat(model=self.model_name, messages=[
                 {'role': 'system', 'content': system_prompt},
                 {'role': 'user', 'content': symbolic_str}
-            ], options = {'num_predict': 5})
+            ], options = {'num_predict': 20})
 
             self.current_prediction = response['message']['content'].strip()
             print(f"\n[LLM Prediction]: {self.current_prediction}\n")
