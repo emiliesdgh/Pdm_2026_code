@@ -194,13 +194,31 @@ class HandState:
         dx = self.global_vars.centerFrame[0] - centerHand_px[0]
         dy = self.global_vars.centerFrame[1] - centerHand_px[1]
 
-        # Real Camera coordinates
-        # Left/Right : - = left from center point, + = right from center point
-        x_realCam = dx * self.global_vars.D / self.global_vars.FOCAL_LENGTH
-        # Up/Down : - = up from center point, + = down from center point
-        y_realCam = dy * self.global_vars.D / self.global_vars.FOCAL_LENGTH
+        # # Real Camera coordinates
+        # # Left/Right : - = left from center point, + = right from center point
+        # x_realCam = dx * self.global_vars.D / self.global_vars.FOCAL_LENGTH
+        # # Up/Down : - = up from center point, + = down from center point
+        # y_realCam = dy * self.global_vars.D / self.global_vars.FOCAL_LENGTH
 
-        return center.tolist(), (x_realCam, y_realCam)  # to verify the units of (x_realCam, y_realCam) and how to use this information, if necessary at all
+        # Convert to Semantic Text using screen percentages (e.g., 20% from center)
+        margin_w = self.global_vars.W * 0.20
+        margin_h = self.global_vars.H * 0.20
+
+        horizontal_pos = "Center"
+        if dx > margin_w: horizontal_pos = "Right"
+        elif dx < -margin_w: horizontal_pos = "Left"
+
+        vertical_pos = "Center"
+        if dy > margin_h: vertical_pos = "Bottom"
+        elif dy < -margin_h: vertical_pos = "Top"
+
+        semantic_position = f"{vertical_pos}-{horizontal_pos}" 
+        if semantic_position == "Center-Center":
+            semantic_position = "Center of vision"
+
+        return center.tolist(), semantic_position # Returns text instead of coordinates
+
+        # return center.tolist(), (x_realCam, y_realCam)  # to verify the units of (x_realCam, y_realCam) and how to use this information, if necessary at all
     
         # returns coordinates [x, y, z] with respect to the camera frame, 
         # can be used to track hand movement over time and detect if the hand 

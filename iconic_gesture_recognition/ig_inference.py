@@ -94,6 +94,7 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
         f"- {flexion_desc}\n"
         f"- {contact_desc}\n"
         f"- The palm orientation is facing {hand_orientation}.\n"
+        f"- The hand is positioned at {hand_position} relative to the center of the view.\n"
         f"- The hand moves with a {motion_type} motion."
     )
 

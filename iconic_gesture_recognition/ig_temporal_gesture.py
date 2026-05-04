@@ -102,6 +102,7 @@ class TemporalGestureManager:
         flips_y = count_flips(y_dirs)
 
         # Calculate Average Speed (Path length per frame)
+        # refine the thresholds for speed categories based on empirical observations !!
         avg_speed = path_length / self.window_size
         if avg_speed > 0.03: speed_str = "Fast"
         elif avg_speed > 0.01: speed_str = "Moderate"

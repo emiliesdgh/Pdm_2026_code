@@ -32,6 +32,12 @@ def detect_hand_state():
         min_detection_confidence=0.5,
         min_tracking_confidence=0.5
     ) as hands:
+        
+        # State Machine Variables
+        hri_state = "SLEEPING"  # States: SLEEPING, LISTENING, INFERENCING
+        static_frame_count = 0
+        HOLD_TH = 30  # Number of frames to consider a gesture as "held" (tune based on frame rate)
+
         while cap.isOpened():
             success, frame = cap.read()
             if not success:
@@ -74,9 +80,42 @@ def detect_hand_state():
                     prompt = get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
 
                     print(f"Status: {motion_type} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
-                    if motion_detected and not llm_agent.is_inferencing:
-                        print("!!! LMM TRIGGERED !!!")
-                        llm_agent.analyze_gesture_async(prompt)
+                    
+                    # if motion_detected and not llm_agent.is_inferencing:
+                    #     print("!!! LMM TRIGGERED !!!")
+                    #     llm_agent.analyze_gesture_async(prompt)
+
+                    ### === LLM Prompting with State Machine Logic === ###
+
+                    # 1. Define the Wake Gesture (e.g., Open Palm facing camera)
+                    # If all fingers extended (1) and facing Inward
+                    is_wake_gesture = (sum(finger_flexion_state) == 5 and hand_orientation == 'Inward')
+
+                    # 2. State Machine Logic
+                    if hri_state == "SLEEPING":
+                        if is_wake_gesture:
+                            hri_state = "LISTENING"
+                            print("\n>>> SYSTEM AWAKE: Listening for command... <<<\n")
+                            
+                    elif hri_state == "LISTENING":
+                        if motion_detected:
+                            static_frame_count = 0  # Reset timer if moving
+                        else:
+                            static_frame_count += 1 # Count stable frames
+
+                        # Trigger LLM if user holds a stable pose for 1 second
+                        if static_frame_count >= HOLD_TH and not llm_agent.is_inferencing:
+                            print("\n>>> GESTURE LOCKED: Sending to LLM... <<<\n")
+                            hri_state = "INFERENCING"
+                            llm_agent.analyze_gesture_async(prompt)
+                            static_frame_count = 0
+                            
+                    elif hri_state == "INFERENCING":
+                        if not llm_agent.is_inferencing:
+                            # LLM is done, go back to sleep
+                            hri_state = "SLEEPING"
+
+                    ###===
 
 
                     mp_drawing.draw_landmarks(
