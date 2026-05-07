@@ -15,7 +15,7 @@ from ig_global_variables import GlobalVariables
 # Change this based on the gesture you are testing
 # (e.g., "NAVIGATE", "PICK_UP", "STOP", "SEARCH_AREA")
 # ==========================================
-GROUND_TRUTH_INTENT = "NAVIGATE_THERE" 
+GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
 
 DATASET_FILE = "gesture_dataset.json"
 
