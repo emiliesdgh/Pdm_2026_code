@@ -34,24 +34,6 @@ class LLMInferenceAgent:
         thread = threading.Thread(target=self._query_ollama, args=(symbolic_str,))
         thread.start()
 
-    
-        # if self.is_inferencing:
-        #     print("Already inferencing, please wait...")
-        #     return
-        
-        # def inference_thread():
-        #     self.is_inferencing = True
-        #     try:
-        #         response = ollama.chat(self.model_name, symbolic_str)
-        #         self.current_prediction = response
-        #         print(f"LLM Prediction: {response}")
-        #     except Exception as e:
-        #         print(f"Error during LLM inference: {e}")
-        #         self.current_prediction = "Error during inference."
-        #     finally:
-        #         self.is_inferencing = False
-
-        # threading.Thread(target=inference_thread).start()
 
     def _query_ollama(self, symbolic_str):
         """
@@ -92,37 +74,67 @@ class LLMInferenceAgent:
         #     "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of how you applied the rules above). Do not output any markdown formatting or extra text outside the JSON."
         # )
 
-        # XX% accuracy with the system_promt below
+        # 75.3% accuracy with the system_promt below
         system_prompt = (
             "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's kinematic hand state to ONE of four intents: "
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
             
             "STEP 1: IDENTIFY THE HAND POSE\n"
-            "- Pointing Pose: The Index finger is straight. (The Thumb can be straight or bent. Other fingers might be bent or missing from the data. CRITICAL: If the Index is straight, it is Pointing).\n"
-            "- Open Palm Pose: All fingers are straight.\n"
-            "- Fist Pose: The Index, Middle, Ring, and Pinky fingers are bent.\n\n"
+            "- Pointing Pose: Index finger is straight, while Middle, Ring, and Pinky are bent. (CRITICAL: In this pose, ignore what the Thumb is doing or touching. Thumb contact is natural when pointing and does NOT mean grabbing).\n"
+            "- Fist Pose: All fingers are bent or Index, Middle, Ring and Pinky are bent (the Thumb might be extended).\n"
+            "- Open Palm Pose: All fingers are straight.\n\n"
 
-            "STEP 2: APPLY RULES IN STRICT ORDER (Stop at the first match)\n\n"
+            "STEP 2: MAP MOTION + POSE TO INTENT (STRICT RULES)\n"
+            "Use these exact rules to determine the intent:\n\n"
             
-            "Rule 1 - SEARCH_AREA (Motion Overrides):\n"
-            "- IF the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is SEARCH_AREA.\n"
-            "- IF the hand is in an Open Palm Pose AND has a 'Linear Translation' motion, it is a sweeping gesture, so the intent is SEARCH_AREA.\n\n"
+            "Rule for NAVIGATE_THERE:\n"
+            "- If the hand is Stationary AND in a Pointing Pose, the intent is NAVIGATE_THERE.\n"
 
-            "Rule 2 - NAVIGATE_THERE (Pointing):\n"
-            "- IF the hand is in a Pointing Pose, the intent is ALWAYS NAVIGATE_THERE. (CRITICAL: If it is Pointing, ignore any thumb contact, and ignore 'Slow Bending Fingers' motion as it is just camera jitter).\n"
-            "- IF the hand is in an Open Palm Pose AND is facing Down AND is Stationary, the intent is NAVIGATE_THERE.\n\n"
+            "Rule for SEARCH_AREA:\n"
+            "- If the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is ALMOST ALWAYS SEARCH_AREA. This applies whether the hand is in an Open Palm Pose or a Pointing Pose (e.g., pointing around the room).\n\n"
 
-            "Rule 3 - STOP (Stationary Halts):\n"
-            "- IF the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward, Outward, or Unknown, the intent is STOP.\n"
-            "- IF the hand is in a Fist Pose AND is strictly 'Stationary', the intent is STOP.\n\n"
+            "Rule for PICK_UP:\n"
+            "- If the motion is 'Bending Fingers' or 'Hand Open/Close', the intent is PICK_UP (active grabbing).\n"
+            "- If the hand is in a Fist Pose AND has a Linear Translation motion (e.g., Up, Down, Left, Right), the intent is PICK_UP (moving a grabbed object).\n"
+            "- If the hand is NOT Pointing, and the Thumb is in contact with multiple fingertips, it is a pinch/grab, meaning PICK_UP.\n\n"
 
-            "Rule 4 - PICK_UP (Grabbing/Lifting):\n"
-            "- IF the motion is 'Bending Fingers' (and it is NOT Pointing), the intent is PICK_UP.\n"
-            "- IF the hand is in a Fist Pose AND has a 'Linear Translation' motion (moving a grabbed object), the intent is PICK_UP.\n"
-            "- IF the Thumb is in contact with multiple fingertips (and it is NOT Pointing), the intent is PICK_UP.\n\n"
+            "Rule for STOP:\n"
+            "- If the hand is Stationary AND in a Fist Pose, the intent is STOP.\n"
+            "- If the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward or Outward, the intent is STOP.\n\n"
 
-            "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of which Step 2 Rule you applied). Do not output any markdown formatting."
+            "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of how you applied the rules above). Do not output any markdown formatting or extra text outside the JSON."
         )
+        # # 64.2% accuracy with the System_prompt below
+        # system_prompt = (
+        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's kinematic hand state to ONE of four intents: "
+        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
+            
+        #     "STEP 1: IDENTIFY THE HAND POSE\n"
+        #     "- Pointing Pose: The Index finger is straight. (The Thumb can be straight or bent. Other fingers might be bent or missing from the data. CRITICAL: If the Index is straight, it is Pointing).\n"
+        #     "- Open Palm Pose: All fingers are straight.\n"
+        #     "- Fist Pose: The Index, Middle, Ring, and Pinky fingers are bent.\n\n"
+
+        #     "STEP 2: APPLY RULES IN STRICT ORDER (Stop at the first match)\n\n"
+            
+        #     "Rule 1 - SEARCH_AREA (Motion Overrides):\n"
+        #     "- IF the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is SEARCH_AREA.\n"
+        #     "- IF the hand is in an Open Palm Pose AND has a 'Linear Translation' motion, it is a sweeping gesture, so the intent is SEARCH_AREA.\n\n"
+
+        #     "Rule 2 - NAVIGATE_THERE (Pointing):\n"
+        #     "- IF the hand is in a Pointing Pose, the intent is ALWAYS NAVIGATE_THERE. (CRITICAL: If it is Pointing, ignore any thumb contact, and ignore 'Slow Bending Fingers' motion as it is just camera jitter).\n"
+        #     "- IF the hand is in an Open Palm Pose AND is facing Down AND is Stationary, the intent is NAVIGATE_THERE.\n\n"
+
+        #     "Rule 3 - STOP (Stationary Halts):\n"
+        #     "- IF the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward, Outward, or Unknown, the intent is STOP.\n"
+        #     "- IF the hand is in a Fist Pose AND is strictly 'Stationary', the intent is STOP.\n\n"
+
+        #     "Rule 4 - PICK_UP (Grabbing/Lifting):\n"
+        #     "- IF the motion is 'Bending Fingers' (and it is NOT Pointing), the intent is PICK_UP.\n"
+        #     "- IF the hand is in a Fist Pose AND has a 'Linear Translation' motion (moving a grabbed object), the intent is PICK_UP.\n"
+        #     "- IF the Thumb is in contact with multiple fingertips (and it is NOT Pointing), the intent is PICK_UP.\n\n"
+
+        #     "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of which Step 2 Rule you applied). Do not output any markdown formatting."
+        # )
         
         try:
             response =ollama.chat(model=self.model_name, messages=[
