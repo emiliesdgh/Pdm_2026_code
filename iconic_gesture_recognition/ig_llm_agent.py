@@ -128,15 +128,51 @@ class LLMInferenceAgent:
 
         # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
         # """
+        # system_prompt = (
+        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's hand state to ONE of four specific robot skills and understanding the user's intent: "
+        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
+
+        #     "These are some guidelines to decode the human's intent based on their hand state:\n"
+
+        #     "1. NAVIGATE_THERE (Deictic): Most ofthen involves pointing (i.e., Index finger extended, others folded, the thumb might be extended as well, but having middle, ring and pinky folded in contrast to the index extended is the important thing to note).The index must be extended for pointing otherwise it is not pointing. The hand is more often stationary or swiping towards a direction.\n"
+
+        #     "2. SEARCH_AREA (Iconic/Deictic): The user wants the robot to look around. They might point and rotate their hand (scanning), or have all fingers mostly extended and making a swiping motion in the scene, or make oscillating/waving motions. They most likely will have their hand facing downwards and they most likely won't have all fingers bent in a fist.\n"
+            
+        #     "3. PICK_UP (Iconic): The user is mimicking grabbing. Look for 'Bending Fingers', 'Hand Open/Close', or all finger tips touching the thumb tip, often paired with upward motions or palm facing down.\n"
+            
+        #     "4. STOP (Iconic): Usually a static/ stationnary gesture to halt the robot. This could be a static Fist (all fingers folded or fingers folded with an extended thumb) or an Open Palm facing mostly outward (all fingers extended) with no motion. If the hand has a motion other than stationary, it it probably NOT a stop gesutre.\n\n"
+            
+        #     "Do not assume 'bent fingers' always means grabbing, especially if the Index is extended (which implies pointing). "
+
+        #     "If all fingers are bent, none can be extended. If only the Index (and possibly the Thumb), but the other fingers (Middle, Ring and Pinky) are bent, the user is most likely pointing. If the Index is NOT extended, the user is most likely NOT pointing."
+
+        #     "Output a JSON with two keys: 'intent' (the exact name of the command) and 'reasoning'."
+        # )
+
         system_prompt = (
-            "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's hand state to ONE of four specific robot intents: "
-            "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
-            "Use these guidelines to decode the human's intent:\n"
-            "1. NAVIGATE_THERE (Deictic): Usually involves pointing (Index finger straight, others folded). The hand is often stationary or swiping towards a direction.\n"
-            "2. SEARCH_AREA (Iconic/Deictic): The user wants the robot to look around. They might point and rotate their hand (scanning), or make oscillating/waving motions.\n"
-            "3. PICK_UP (Iconic): The user is mimicking grabbing. Look for 'Bending Fingers' or 'Hand Open/Close', often paired with upward motions or palm facing down.\n"
-            "4. STOP (Iconic): Usually a static gesture to halt the robot. This could be a static Fist (all fingers folded) or an Open Palm facing outward (all fingers extended) with no motion.\n\n"
-            "Do not assume 'bent fingers' always means grabbing if the Index is extended (which implies pointing). "
+            "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's hand state to ONE of four specific robot skills and understanding the user's intent: " \
+            "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n" 
+            
+            "These are some guidelines to decode the human's intent based on their hand state:\n" 
+
+            "1. NAVIGATE_THERE (Diectic): Stationary mostion. Most often involves pointing (extended Index, Middle, Ring and Pinky bent). The hand is more often stationary. The Thumb state (bent or extended) might vary with the user. \n"
+            
+            "2. SEARCH_AREA (Iconic/Deictic): The user wants the robot to look around. They might perform a sweeping motion with an open hand (all fingers extended) or a pointing hand (Index extended) while rotating the hand back and forth or around, making wrist rotations in the plane (oscillating motion). They most likely will have their hand facing downwards and they most likely won't have all fingers bent in a fist because they might not make a sweeping motion in a fist.\n"
+
+            "3. PICK_UP (Iconic): The user is mimicking grabbing. Look for 'Bending Fingers', 'Hand Open/Close', or all finger tips touching the thumb tip, often paired with translation motions (usually up/down but can be slightly diagonal) or palm facing down. Look for the pinching motion of bending extended fingers or bringing all finger tips to the Thumb.\n"
+
+            "4. STOP (Iconic): Usually a stationary gesture to halt the robot. Some users might do a static Fist (all fingers folded or fingers folded with an extended thumb) while others might do an Open Palm facing mostly outward (all fingers extended) with no motion. If the hand has a motion other than stationary, it is probably NOT a stop gesture. The stationary is an important indicator.\n\n"
+
+            "Here are some other indicators to help you decode the intent:\n"
+            
+            "- If, out of the four fingers (Index, Middle, Ring, Pinky), only the Index is extended while the others are bent, the user is most likely pointing. The Thumb might be bent or extended depending on the user. If the Index is NOT extended, the user is most likely NOT pointing. The extended Index is a key indicator.\n"
+             
+            "- If all finger are bent, none can be extended.\n"
+            
+            "- Do not assume 'bent fingers' always means grabbing, especially if the Index is extended (which most probablyimplies pointing). \n\n"
+
+            
+
             "Output a JSON with two keys: 'intent' (the exact name of the command) and 'reasoning'."
         )
         
