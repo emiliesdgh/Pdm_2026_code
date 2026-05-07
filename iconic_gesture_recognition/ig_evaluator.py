@@ -19,11 +19,14 @@ def evaluate_llm():
         prediction_json = agent._query_ollama(data['symbolic_string']) 
         
         predicted_intent = prediction_json.get("intent", "UNKNOWN")
+        reasoning = prediction_json.get("reasoning", "No reasoning provided.")
         ground_truth = data['ground_truth']
+        print(f"Reasoning: {reasoning}")
         
         if predicted_intent == ground_truth:
             print("✅ CORRECT")
             correct += 1
+        
         else:
             print(f"❌ FAILED. Expected: {ground_truth}, Got: {predicted_intent}")
 
