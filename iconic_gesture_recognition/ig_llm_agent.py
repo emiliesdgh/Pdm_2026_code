@@ -1,5 +1,6 @@
 import ollama
 import threading
+import json
 
 class LLMInferenceAgent:
     # Mixtral requires 24GB to 32GB RAM
@@ -108,10 +109,23 @@ class LLMInferenceAgent:
                                         # temp = 0.1 makes the output more deterministic, less "creative" & forces to be more analytical & follow the rules
             #, format='json', options={'temperature': 0.1, 'num_predict': 100})   # other option to try 
             
-            self.current_prediction = response['message']['content'].strip()
-            print(f"\n[LLM Prediction]: {self.current_prediction}\n")
+            response_text = response['message']['content'].strip()
+            # Parse the string into a Python Dictionary
+            try:
+                prediction_json = json.loads(response_text)
+                return prediction_json
+            except json.JSONDecodeError:
+                print(f"❌ JSON Parse Error. Raw Output: {response_text}")
+                return {"intent": "UNKNOWN"}
+
         except Exception as e:
-            print(f"Ollama Error: {e}")
-        finally:
-            self.is_inferencing = False
+            print(f"❌ Ollama Error: {e}")
+            return {"intent": "UNKNOWN"}
+        
+        #     self.current_prediction = response['message']['content'].strip()
+        #     print(f"\n[LLM Prediction]: {self.current_prediction}\n")
+        # except Exception as e:
+        #     print(f"Ollama Error: {e}")
+        # finally:
+        #     self.is_inferencing = False
 
