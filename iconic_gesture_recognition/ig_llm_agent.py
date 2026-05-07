@@ -87,7 +87,7 @@ class LLMInferenceAgent:
 
             RULES:
             1. If the hand is mimicking a grasp (fingers bent/closed), intent is "PICK_UP".
-            2. If the index finger is straight and others are bent, intent is "NAVIGATE".
+            2. If the index finger is straight and others are bent, intent is "NAVIGATE_THERE".
             3. If the hand is moving in a circular or waving motion, intent is "SEARCH_AREA".
             4. If the hand is flat (all fingers straight) and palm facing the camera (Outward), intent is "STOP".
 
@@ -96,7 +96,7 @@ class LLMInferenceAgent:
             You: {"intent": "PICK_UP", "spatial_hint": null, "confidence": 0.9}
 
             User: "Here is the current state... The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent. Palm is facing Inward."
-            You: {"intent": "NAVIGATE", "spatial_hint": "forward", "confidence": 0.95}
+            You: {"intent": "NAVIGATE_THERE", "spatial_hint": "forward", "confidence": 0.95}
 
             Return ONLY valid JSON.
             """
