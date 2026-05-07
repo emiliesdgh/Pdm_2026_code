@@ -1,3 +1,9 @@
+This is a very insightful analysis of your current system. 
+The fact that you are running an automated evaluator ( ig_evaluator.py) over a 
+recorded dataset ( gesture_dataset.json) is exactly how you build a robust pipeline. 
+Achieving 50% accuracy on a zero-shot, locally hosted model like Mistral is actually 
+a solid starting point for this stage of your thesis.
+
 (pdm_env_py311) emilie@emilie-labpc:~/Desktop/pdm_gesture_recogition/Pdm_2026_code$ /home/emilie/Desktop/pdm_gesture_recogition/installations/Python-3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_evaluator.py
 
 Testing ID: 1778132269480
