@@ -53,9 +53,29 @@ class LLMInferenceAgent:
         the system prompt is defined here to avoid re-defining it every time in the main loop, and to have a single source of truth for the system prompt.
         it gives the context to the LLM about the task and what it should do with the symbolic string that is sent from the main loop.
         """
+        # system_prompt = """
+        # You are the cognitive Intent Inference Layer for a humanoid robot. 
+        # Your task is to interpret human body language and map it to the robot's available actions.
+
+        # ROBOT CAPABILITIES (The Intent Space):
+        # 1. "PICK_UP": The robot grasps or manipulates an object.
+        # 2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
+        # 3. "SEARCH_AREA": The robot looks around to find something.
+        # 4. "STOP": The robot immediately halts all action.
+
+        # INSTRUCTIONS:
+        # Read the kinematic state of the human's hand. Do not rely on strict rules. Instead, use common sense human intuition to infer what the human wants the robot to do. 
+        # - A deictic gesture (pointing, indicating a direction) usually implies navigation or drawing attention.
+        # - An iconic gesture (mimicking an action like grabbing, pushing, or waving) usually implies manipulation or searching.
+        # - A flat, outward-facing palm is a universal human sign for halting or rejection.
+
+        # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
+        # """
+                                                                # reasoning to debeug why the LLM made such predictions, to notice the understanding of the LLM
+        
         system_prompt = """
         You are the cognitive Intent Inference Layer for a humanoid robot. 
-        Your task is to interpret human body language and map it to the robot's available actions.
+        Your task is to interpret the kinematic state of a human's hand and map it to the robot's available actions.
 
         ROBOT CAPABILITIES (The Intent Space):
         1. "PICK_UP": The robot grasps or manipulates an object.
@@ -63,15 +83,23 @@ class LLMInferenceAgent:
         3. "SEARCH_AREA": The robot looks around to find something.
         4. "STOP": The robot immediately halts all action.
 
-        INSTRUCTIONS:
-        Read the kinematic state of the human's hand. Do not rely on strict rules. Instead, use common sense human intuition to infer what the human wants the robot to do. 
-        - A deictic gesture (pointing, indicating a direction) usually implies navigation or drawing attention.
-        - An iconic gesture (mimicking an action like grabbing, pushing, or waving) usually implies manipulation or searching.
-        - A flat, outward-facing palm is a universal human sign for halting or rejection.
+        KINEMATIC TRANSLATION GUIDE:
+        The hand tracking system uses technical terms. Use this guide to understand them:
+        - "Oscillating Left & Right" or "Hand Rotation" -> Usually represents a Waving or Sweeping motion.
+        - "Linear Translation" -> The hand is moving in a line (Swiping or Reaching).
+        - "Bending Fingers" -> The hand is actively opening or closing.
+        - "Stationary" (or "Slow" movements) -> The hand is mostly holding a pose.
+
+        REASONING INSTRUCTIONS:
+        Use common sense to infer intent based on the finger state and motion.
+        - A pointing index finger, even with slight "Linear Translation", implies indicating a direction (NAVIGATE_THERE).
+        - An open, flat palm (all fingers straight), especially if mostly stationary, is a universal sign for halting (STOP).
+        - A waving motion ("Oscillating" or "Hand Rotation") usually implies wanting the robot to look around (SEARCH_AREA).
+        - A fist (fingers bent) or a "Bending Fingers" motion implies grasping or manipulating an object (PICK_UP).
 
         Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
         """
-                                                                # reasoning to debeug why the LLM made such predictions, to notice the understanding of the LLM
+        
         try:
             response =ollama.chat(model=self.model_name, messages=[
                 {'role': 'system', 'content': system_prompt},

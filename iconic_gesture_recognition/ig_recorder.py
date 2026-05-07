@@ -15,7 +15,7 @@ from ig_global_variables import GlobalVariables
 # Change this based on the gesture you are testing
 # (e.g., "NAVIGATE_THERE", "PICK_UP", "STOP", "SEARCH_AREA")
 # ==========================================
-GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
+GROUND_TRUTH_INTENT = "NAVIGATE_THERE"  # Change this to the intent you want to record for
 
 DATASET_FILE = "gesture_dataset.json"
 
@@ -49,9 +49,9 @@ def record_dataset():
     static_frame_count = 0
     HOLD_THRESHOLD = 20  
     feedback_text = "Waiting for hand..."
-    feedback_timer = 0
-    
-    # NEW: Memory buffer for dynamic gestures
+    # --- NEW VARIABLES ---
+    cooldown_timer = 0
+    COOLDOWN_MAX = 90  # 3 seconds at 30 FPS
     last_significant_motion = "Stationary"
 
     with mp_hands.Hands(model_complexity=0, max_num_hands=1, min_detection_confidence=0.5, min_tracking_confidence=0.5) as hands:
@@ -98,27 +98,55 @@ def record_dataset():
                     #     static_frame_count += 1
                     #     feedback_text = f"Holding still... {static_frame_count}/{HOLD_THRESHOLD}"
                    
-                    # --- THE AUTO-RECORD LOGIC ---
-                    if motion_detected:
-                        static_frame_count = 0
-                        feedback_text = f"Moving: {last_significant_motion}" # Shows what the system is seeing
-                    else:
-                        static_frame_count += 1
-                        feedback_text = f"Holding still... {static_frame_count}/{HOLD_THRESHOLD}"
+                    # # --- THE AUTO-RECORD LOGIC ---
+                    # if motion_detected:
+                    #     static_frame_count = 0
+                    #     feedback_text = f"Moving: {last_significant_motion}" # Shows what the system is seeing
+                    # else:
+                    #     static_frame_count += 1
+                    #     feedback_text = f"Holding still... {static_frame_count}/{HOLD_THRESHOLD}"
 
-                    # If hand is held still for 1 second, capture the data!
-                    if static_frame_count == HOLD_THRESHOLD:
-                        data_point = {
-                            "id": int(time.time() * 1000),
-                            "ground_truth": GROUND_TRUTH_INTENT,
-                            "symbolic_string": prompt
-                        }
-                        gesture_dataset.append(data_point)
-                        print(f"RECORDED: {GROUND_TRUTH_INTENT} | Total Dataset Size: {len(gesture_dataset)}")
+                    # # If hand is held still for 1 second, capture the data!
+                    # if static_frame_count == HOLD_THRESHOLD:
+                    #     data_point = {
+                    #         "id": int(time.time() * 1000),
+                    #         "ground_truth": GROUND_TRUTH_INTENT,
+                    #         "symbolic_string": prompt
+                    #     }
+                    #     gesture_dataset.append(data_point)
+                    #     print(f"RECORDED: {GROUND_TRUTH_INTENT} | Total Dataset Size: {len(gesture_dataset)}")
                         
-                        feedback_text = ">>> RECORDED! <<<"
-                        feedback_timer = 15 # Keep text on screen for a moment
-                        static_frame_count = 0 # Reset so it doesn't record 30 times a second
+                    #     feedback_text = ">>> RECORDED! <<<"
+                    #     feedback_timer = 15 # Keep text on screen for a moment
+                    #     static_frame_count = 0 # Reset so it doesn't record 30 times a second
+                    # --- THE COOLDOWN & RECORD LOGIC ---
+                    if cooldown_timer > 0:
+                        # We just recorded! Ignore the user for 3 seconds so they can reset.
+                        cooldown_timer -= 1
+                        static_frame_count = 0
+                        feedback_text = f"RELAX & RESET HAND... ({cooldown_timer})"
+                    else:
+                        # Normal tracking
+                        if motion_detected:
+                            static_frame_count = 0
+                            feedback_text = f"Moving: {last_significant_motion}"
+                        else:
+                            static_frame_count += 1
+                            feedback_text = f"Holding still... {static_frame_count}/{HOLD_THRESHOLD}"
+
+                        # TRIGGER RECORDING
+                        if static_frame_count == HOLD_THRESHOLD:
+                            data_point = {
+                                "id": int(time.time() * 1000),
+                                "ground_truth": GROUND_TRUTH_INTENT,
+                                "symbolic_string": prompt
+                            }
+                            gesture_dataset.append(data_point)
+                            print(f"RECORDED: {GROUND_TRUTH_INTENT} | Total Dataset Size: {len(gesture_dataset)}")
+                            
+                            # Activate the 3-second cooldown!
+                            cooldown_timer = COOLDOWN_MAX
+                            static_frame_count = 0
 
                     mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
@@ -135,10 +163,10 @@ def record_dataset():
             cv2.putText(frame, f"Total Data Points: {len(gesture_dataset)}", (10, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             cv2.putText(frame, "Press 'q' to Save & Quit", (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
-            if feedback_timer > 0:
-                feedback_timer -= 1
-                if feedback_timer == 0:
-                    feedback_text = "Waiting for movement..."
+            # if feedback_timer > 0:
+            #     feedback_timer -= 1
+            #     if feedback_timer == 0:
+            #         feedback_text = "Waiting for movement..."
 
             cv2.imshow("Dataset Recorder", frame)
             if cv2.waitKey(1) & 0xFF == ord("q"):

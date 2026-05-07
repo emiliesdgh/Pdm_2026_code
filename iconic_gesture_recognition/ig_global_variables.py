@@ -42,4 +42,5 @@ class GlobalVariables:
         ### === Thresholds for gesture recognition === ###
         self.FINGER_STATE_TH = 1     # At least 1 finger state change
         self.ORIENTATION_TH = 1      # If the orientation direction is different
-        self.MOVE_TH = 0.05          # Threshold for displacement
+        # self.MOVE_TH = 0.05          # Threshold for displacement
+        self.MOVE_TH = 0.08          # Threshold for displacement  --> increased to make it less sensitive & ignore natual hand shaking
