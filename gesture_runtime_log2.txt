@@ -1,0 +1,966 @@
+2026-05-07 17:02:15 - Testing ID: 1778135546375
+2026-05-07 17:02:15 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:16 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:16 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which is a common gesture for the 'NAVIGATE_THERE' command. The palm orientation facing down and the hand being positioned at Center-Right also support this interpretation.
+2026-05-07 17:02:16 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which is a common gesture for the 'NAVIGATE_THERE' command. The palm orientation facing down and the hand being positioned at Center-Right also support this interpretation.
+2026-05-07 17:02:16 - ✅ CORRECT
+2026-05-07 17:02:16 - Testing ID: 1778135550447
+2026-05-07 17:02:16 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:17 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:17 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:17 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:17 - ✅ CORRECT
+2026-05-07 17:02:17 - Testing ID: 1778135553783
+2026-05-07 17:02:17 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:17 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:17 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:17 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:17 - ✅ CORRECT
+2026-05-07 17:02:17 - Testing ID: 1778135557296
+2026-05-07 17:02:17 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:18 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:18 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which in this context is associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:18 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which in this context is associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:18 - ✅ CORRECT
+2026-05-07 17:02:18 - Testing ID: 1778135560346
+2026-05-07 17:02:18 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:02:19 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:19 - [REASONING]: The user's hand has the Index and Thumb fingers straight, which is similar to mimicking grabbing. Additionally, the Thumb is in contact with the Middle finger tips, suggesting a grasping motion. The slow hand rotation motion might be the user demonstrating how to pick up an object.
+2026-05-07 17:02:19 - LLM reasoning: The user's hand has the Index and Thumb fingers straight, which is similar to mimicking grabbing. Additionally, the Thumb is in contact with the Middle finger tips, suggesting a grasping motion. The slow hand rotation motion might be the user demonstrating how to pick up an object.
+2026-05-07 17:02:19 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:19 - Testing ID: 1778135565633
+2026-05-07 17:02:19 - Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:20 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:20 - [REASONING]: The user's hand has an extended Index finger, which is a key indicator for pointing. However, in this case, the Index finger is not pointing but rather in contact with the Thumb and Middle, Ring fingers, which are bent. This suggests that the user might be mimicking grabbing or picking up an object, as all three fingers (Thumb, Middle, and Ring) are involved in a grasping motion. The stationary motion of the hand also supports this interpretation.
+2026-05-07 17:02:20 - LLM reasoning: The user's hand has an extended Index finger, which is a key indicator for pointing. However, in this case, the Index finger is not pointing but rather in contact with the Thumb and Middle, Ring fingers, which are bent. This suggests that the user might be mimicking grabbing or picking up an object, as all three fingers (Thumb, Middle, and Ring) are involved in a grasping motion. The stationary motion of the hand also supports this interpretation.
+2026-05-07 17:02:20 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:20 - Testing ID: 1778135570098
+2026-05-07 17:02:20 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:21 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:21 - [REASONING]: The user's hand has a pinching motion, as the Thumb is in contact with the Middle, Ring, and Pinky fingers which are bent. The extended Index finger can be interpreted as a pointing gesture but given the pinching motion and the fact that all other fingers are bent, it is more likely that the user is mimicking grabbing or picking up an object.
+2026-05-07 17:02:21 - LLM reasoning: The user's hand has a pinching motion, as the Thumb is in contact with the Middle, Ring, and Pinky fingers which are bent. The extended Index finger can be interpreted as a pointing gesture but given the pinching motion and the fact that all other fingers are bent, it is more likely that the user is mimicking grabbing or picking up an object.
+2026-05-07 17:02:21 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:21 - Testing ID: 1778135575942
+2026-05-07 17:02:21 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:21 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:21 - [REASONING]: The user's hand is stationary, all fingers are straight and the palm orientation is facing down. This indicates that the user might be making a static Fist gesture to halt the robot.
+2026-05-07 17:02:21 - LLM reasoning: The user's hand is stationary, all fingers are straight and the palm orientation is facing down. This indicates that the user might be making a static Fist gesture to halt the robot.
+2026-05-07 17:02:21 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
+2026-05-07 17:02:21 - Testing ID: 1778135581047
+2026-05-07 17:02:21 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:22 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:22 - [REASONING]: The user's hand is stationary, all fingers are straight and the palm orientation is facing down. This indicates that the user might be making a stop gesture.
+2026-05-07 17:02:22 - LLM reasoning: The user's hand is stationary, all fingers are straight and the palm orientation is facing down. This indicates that the user might be making a stop gesture.
+2026-05-07 17:02:22 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
+2026-05-07 17:02:22 - Testing ID: 1778135587539
+2026-05-07 17:02:22 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:23 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:23 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:23 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command.
+2026-05-07 17:02:23 - ✅ CORRECT
+2026-05-07 17:02:23 - Testing ID: 1778135591514
+2026-05-07 17:02:23 - Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:24 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:24 - [REASONING]: The user's hand has an extended Index finger, which is a key indicator for pointing. However, since all other fingers are bent and the thumb is in contact with the Middle fingertips, it suggests that the user might be mimicking grabbing or picking up an object. The slow bending fingers motion also supports this interpretation. The palm orientation facing inward could indicate a more closed grip, which further supports the 'PICK_UP' intent.
+2026-05-07 17:02:24 - LLM reasoning: The user's hand has an extended Index finger, which is a key indicator for pointing. However, since all other fingers are bent and the thumb is in contact with the Middle fingertips, it suggests that the user might be mimicking grabbing or picking up an object. The slow bending fingers motion also supports this interpretation. The palm orientation facing inward could indicate a more closed grip, which further supports the 'PICK_UP' intent.
+2026-05-07 17:02:24 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:24 - Testing ID: 1778135595168
+2026-05-07 17:02:24 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:25 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:25 - [REASONING]: The user's hand has the Thumb and Index fingers straight, which is not typical for pointing. However, the Ring and Pinky fingers are bent, which could indicate that the user is mimicking a grabbing motion. The thumb being in contact with the Middle fingertips also supports this interpretation. Since the hand is stationary and the palm orientation is unknown, we cannot definitively rule out other possibilities such as STOP or SEARCH_AREA, but the bending of multiple fingers and the thumb-fingers contact suggest a PICK_UP intent.
+2026-05-07 17:02:25 - LLM reasoning: The user's hand has the Thumb and Index fingers straight, which is not typical for pointing. However, the Ring and Pinky fingers are bent, which could indicate that the user is mimicking a grabbing motion. The thumb being in contact with the Middle fingertips also supports this interpretation. Since the hand is stationary and the palm orientation is unknown, we cannot definitively rule out other possibilities such as STOP or SEARCH_AREA, but the bending of multiple fingers and the thumb-fingers contact suggest a PICK_UP intent.
+2026-05-07 17:02:25 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:25 - Testing ID: 1778135599251
+2026-05-07 17:02:25 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:26 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:26 - [REASONING]: The user's hand has the thumb and index fingers straight, which is not typically associated with pointing. However, the thumb being in contact with the middle finger tips suggests a grasping or picking motion. The palm orientation facing down and the stationary motion further support this interpretation as it resembles a mimicked grabbing gesture.
+2026-05-07 17:02:26 - LLM reasoning: The user's hand has the thumb and index fingers straight, which is not typically associated with pointing. However, the thumb being in contact with the middle finger tips suggests a grasping or picking motion. The palm orientation facing down and the stationary motion further support this interpretation as it resembles a mimicked grabbing gesture.
+2026-05-07 17:02:26 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:26 - Testing ID: 1778135605490
+2026-05-07 17:02:26 - Input: Here is the current state of the user's hand:
+- The Index, Middle fingers are straight, while the Thumb, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:27 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:27 - [REASONING]: The user's hand is stationary and only the Index and Middle fingers are straight, while the Thumb, Ring, and Pinky fingers are bent. This suggests that the user might be pointing, which is a common gesture for the 'NAVIGATE_THERE' command. However, since the palm orientation is facing outward, it could also imply a different intent if the context changes. The hand being stationary supports the 'NAVIGATE_THERE' interpretation.
+2026-05-07 17:02:27 - LLM reasoning: The user's hand is stationary and only the Index and Middle fingers are straight, while the Thumb, Ring, and Pinky fingers are bent. This suggests that the user might be pointing, which is a common gesture for the 'NAVIGATE_THERE' command. However, since the palm orientation is facing outward, it could also imply a different intent if the context changes. The hand being stationary supports the 'NAVIGATE_THERE' interpretation.
+2026-05-07 17:02:27 - ✅ CORRECT
+2026-05-07 17:02:27 - Testing ID: 1778135613108
+2026-05-07 17:02:27 - Input: Here is the current state of the user's hand:
+- The Thumb, Index, Middle fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:28 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:02:28 - [REASONING]: The user's hand is stationary and most fingers are straight (Thumb, Index, Middle), while only Ring and Pinky are bent. This resembles the pointing gesture as described in guideline 1 for Navigate There. The palm orientation facing down also supports this interpretation.
+2026-05-07 17:02:28 - LLM reasoning: The user's hand is stationary and most fingers are straight (Thumb, Index, Middle), while only Ring and Pinky are bent. This resembles the pointing gesture as described in guideline 1 for Navigate There. The palm orientation facing down also supports this interpretation.
+2026-05-07 17:02:28 - ✅ CORRECT
+2026-05-07 17:02:28 - Testing ID: 1778135619476
+2026-05-07 17:02:28 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:28 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:28 - [REASONING]: The user's hand has the thumb and index fingers straight, which is not typical for pointing. However, the thumb is in contact with the middle and ring fingers, suggesting a grasping motion. The palm orientation facing down and stationary motion further supports the 'PICK_UP' intent.
+2026-05-07 17:02:28 - LLM reasoning: The user's hand has the thumb and index fingers straight, which is not typical for pointing. However, the thumb is in contact with the middle and ring fingers, suggesting a grasping motion. The palm orientation facing down and stationary motion further supports the 'PICK_UP' intent.
+2026-05-07 17:02:28 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:02:28 - Testing ID: 1778135643063
+2026-05-07 17:02:28 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:29 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:29 - [REASONING]: The user's hand is stationary and all fingers are straight, which aligns with the 'STOP' command as described in the guidelines. The palm orientation facing inward might be due to the user's personal preference or posture, but it does not contradict the 'STOP' interpretation.
+2026-05-07 17:02:29 - LLM reasoning: The user's hand is stationary and all fingers are straight, which aligns with the 'STOP' command as described in the guidelines. The palm orientation facing inward might be due to the user's personal preference or posture, but it does not contradict the 'STOP' interpretation.
+2026-05-07 17:02:29 - ✅ CORRECT
+2026-05-07 17:02:29 - Testing ID: 1778135645537
+2026-05-07 17:02:29 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:30 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:30 - [REASONING]: The user's hand is stationary and all fingers are straight, which suggests that they might be making an open palm gesture facing inward. This gesture is often associated with the 'STOP' command.
+2026-05-07 17:02:30 - LLM reasoning: The user's hand is stationary and all fingers are straight, which suggests that they might be making an open palm gesture facing inward. This gesture is often associated with the 'STOP' command.
+2026-05-07 17:02:30 - ✅ CORRECT
+2026-05-07 17:02:30 - Testing ID: 1778135648481
+2026-05-07 17:02:30 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:30 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:30 - [REASONING]: The user's hand is stationary and all fingers are straight, which suggests that they might be making a static Fist gesture with their palm facing inward. This is consistent with the 'STOP' command.
+2026-05-07 17:02:30 - LLM reasoning: The user's hand is stationary and all fingers are straight, which suggests that they might be making a static Fist gesture with their palm facing inward. This is consistent with the 'STOP' command.
+2026-05-07 17:02:30 - ✅ CORRECT
+2026-05-07 17:02:30 - Testing ID: 1778135651364
+2026-05-07 17:02:30 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:31 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:31 - [REASONING]: The user's hand is stationary and all fingers are bent, with the thumb in contact with the middle fingertips. This configuration resembles a static fist, which is often used as a stop gesture. The palm orientation facing inward also supports this interpretation.
+2026-05-07 17:02:31 - LLM reasoning: The user's hand is stationary and all fingers are bent, with the thumb in contact with the middle fingertips. This configuration resembles a static fist, which is often used as a stop gesture. The palm orientation facing inward also supports this interpretation.
+2026-05-07 17:02:31 - ✅ CORRECT
+2026-05-07 17:02:31 - Testing ID: 1778135655266
+2026-05-07 17:02:31 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:31 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:31 - [REASONING]: The user's hand has a stationary gesture, the thumb is straight and not in contact with any other fingertips, and the palm orientation is facing inward. These indicators suggest that the user is most likely making a static Fist gesture to halt the robot.
+2026-05-07 17:02:31 - LLM reasoning: The user's hand has a stationary gesture, the thumb is straight and not in contact with any other fingertips, and the palm orientation is facing inward. These indicators suggest that the user is most likely making a static Fist gesture to halt the robot.
+2026-05-07 17:02:31 - ✅ CORRECT
+2026-05-07 17:02:31 - Testing ID: 1778135658540
+2026-05-07 17:02:31 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:32 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:32 - [REASONING]: The user's hand has a stationary gesture, and all fingers except for the thumb are bent. Since the extended Index is not present, which is a key indicator for pointing, and since the hand is not moving in a sweeping motion (which would suggest searching), we can infer that the user is most likely asking the robot to stop. The palm orientation facing inward does not significantly change this interpretation.
+2026-05-07 17:02:32 - LLM reasoning: The user's hand has a stationary gesture, and all fingers except for the thumb are bent. Since the extended Index is not present, which is a key indicator for pointing, and since the hand is not moving in a sweeping motion (which would suggest searching), we can infer that the user is most likely asking the robot to stop. The palm orientation facing inward does not significantly change this interpretation.
+2026-05-07 17:02:32 - ✅ CORRECT
+2026-05-07 17:02:32 - Testing ID: 1778135661926
+2026-05-07 17:02:32 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:33 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:33 - [REASONING]: The user's hand has a stationary gesture, the thumb is straight and all other fingers are bent. This configuration does not match any of the other commands (PICK_UP, NAVIGATE_THERE, SEARCH_AREA). The stationary motion and the straight thumb are indicative of the 'STOP' command.
+2026-05-07 17:02:33 - LLM reasoning: The user's hand has a stationary gesture, the thumb is straight and all other fingers are bent. This configuration does not match any of the other commands (PICK_UP, NAVIGATE_THERE, SEARCH_AREA). The stationary motion and the straight thumb are indicative of the 'STOP' command.
+2026-05-07 17:02:33 - ✅ CORRECT
+2026-05-07 17:02:33 - Testing ID: 1778135665398
+2026-05-07 17:02:33 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:34 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:34 - [REASONING]: The user's hand has a stationary gesture, the thumb is straight and all other fingers are bent. However, since the palm orientation is facing inward, it might not be a clear 'Open Palm' stop gesture. But considering the stationary motion and the fact that none of the fingers are extended (which would imply pointing), it is most likely a 'STOP' command.
+2026-05-07 17:02:34 - LLM reasoning: The user's hand has a stationary gesture, the thumb is straight and all other fingers are bent. However, since the palm orientation is facing inward, it might not be a clear 'Open Palm' stop gesture. But considering the stationary motion and the fact that none of the fingers are extended (which would imply pointing), it is most likely a 'STOP' command.
+2026-05-07 17:02:34 - ✅ CORRECT
+2026-05-07 17:02:34 - Testing ID: 1778135668527
+2026-05-07 17:02:34 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:34 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:34 - [REASONING]: The user's hand is stationary and all fingers are straight, which suggests that they might be making a static Fist gesture with their palm facing inward. This is consistent with the 'STOP' command.
+2026-05-07 17:02:34 - LLM reasoning: The user's hand is stationary and all fingers are straight, which suggests that they might be making a static Fist gesture with their palm facing inward. This is consistent with the 'STOP' command.
+2026-05-07 17:02:34 - ✅ CORRECT
+2026-05-07 17:02:34 - Testing ID: 1778135671939
+2026-05-07 17:02:34 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:35 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:35 - [REASONING]: The user's hand is stationary and all fingers are straight, which aligns with the 'STOP' command as described in the guidelines. The palm orientation facing inward might be due to the user's personal preference or posture, but it does not contradict the 'STOP' interpretation.
+2026-05-07 17:02:35 - LLM reasoning: The user's hand is stationary and all fingers are straight, which aligns with the 'STOP' command as described in the guidelines. The palm orientation facing inward might be due to the user's personal preference or posture, but it does not contradict the 'STOP' interpretation.
+2026-05-07 17:02:35 - ✅ CORRECT
+2026-05-07 17:02:35 - Testing ID: 1778135675509
+2026-05-07 17:02:35 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:36 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:36 - [REASONING]: The user's hand is stationary and all fingers are straight, which suggests that they might be making a stop gesture. The palm orientation facing inward also supports this interpretation as it is not the typical orientation for pointing or searching gestures. The absence of any other motion further confirms that this is likely a stop gesture.
+2026-05-07 17:02:36 - LLM reasoning: The user's hand is stationary and all fingers are straight, which suggests that they might be making a stop gesture. The palm orientation facing inward also supports this interpretation as it is not the typical orientation for pointing or searching gestures. The absence of any other motion further confirms that this is likely a stop gesture.
+2026-05-07 17:02:36 - ✅ CORRECT
+2026-05-07 17:02:36 - Testing ID: 1778135679729
+2026-05-07 17:02:36 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:37 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:37 - [REASONING]: The user's hand is stationary and all fingers are straight, which suggests that they might be making a stop gesture. Since no other finger is extended except for the possibility of the Index being extended (which is not mentioned), it is less likely that the user is pointing. The fact that the hand is stationary is an important indicator of the 'STOP' intent.
+2026-05-07 17:02:37 - LLM reasoning: The user's hand is stationary and all fingers are straight, which suggests that they might be making a stop gesture. Since no other finger is extended except for the possibility of the Index being extended (which is not mentioned), it is less likely that the user is pointing. The fact that the hand is stationary is an important indicator of the 'STOP' intent.
+2026-05-07 17:02:37 - ✅ CORRECT
+2026-05-07 17:02:37 - Testing ID: 1778135682902
+2026-05-07 17:02:37 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:37 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:37 - [REASONING]: The user's hand is stationary and all fingers are straight, which is consistent with the 'STOP' gesture as described in the guidelines. The palm orientation facing inward and the hand being positioned at Center-Left relative to the center of the view do not contradict this interpretation.
+2026-05-07 17:02:37 - LLM reasoning: The user's hand is stationary and all fingers are straight, which is consistent with the 'STOP' gesture as described in the guidelines. The palm orientation facing inward and the hand being positioned at Center-Left relative to the center of the view do not contradict this interpretation.
+2026-05-07 17:02:37 - ✅ CORRECT
+2026-05-07 17:02:37 - Testing ID: 1778135685429
+2026-05-07 17:02:37 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:38 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:38 - [REASONING]: The user's hand is stationary and all fingers are bent, with the thumb in contact with the middle fingertips. This configuration resembles a static fist, which is commonly used as a stop gesture. The palm orientation facing inward also supports this interpretation.
+2026-05-07 17:02:38 - LLM reasoning: The user's hand is stationary and all fingers are bent, with the thumb in contact with the middle fingertips. This configuration resembles a static fist, which is commonly used as a stop gesture. The palm orientation facing inward also supports this interpretation.
+2026-05-07 17:02:38 - ✅ CORRECT
+2026-05-07 17:02:38 - Testing ID: 1778135688446
+2026-05-07 17:02:38 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:39 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:39 - [REASONING]: The user's hand has a stationary gesture, and all fingers except for the thumb are bent. Since the extended Index is not present, which is a key indicator for pointing, and since the hand is not moving in a sweeping motion (which would suggest searching), we can infer that the user is most likely asking the robot to stop. The palm orientation facing inward does not significantly change this interpretation.
+2026-05-07 17:02:39 - LLM reasoning: The user's hand has a stationary gesture, and all fingers except for the thumb are bent. Since the extended Index is not present, which is a key indicator for pointing, and since the hand is not moving in a sweeping motion (which would suggest searching), we can infer that the user is most likely asking the robot to stop. The palm orientation facing inward does not significantly change this interpretation.
+2026-05-07 17:02:39 - ✅ CORRECT
+2026-05-07 17:02:39 - Testing ID: 1778135692004
+2026-05-07 17:02:39 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:02:40 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:40 - [REASONING]: The user's hand has a stationary gesture, and all fingers except for the thumb are bent. Since the extended index finger is not present, pointing is unlikely. The palm orientation facing inward and the hand being at center-left relative to the view also support this interpretation. However, the absence of contact between the thumb and other fingertips slightly deviates from the typical 'stop' gesture (static fist), but given the stationary motion, it can still be interpreted as a stop command.
+2026-05-07 17:02:40 - LLM reasoning: The user's hand has a stationary gesture, and all fingers except for the thumb are bent. Since the extended index finger is not present, pointing is unlikely. The palm orientation facing inward and the hand being at center-left relative to the view also support this interpretation. However, the absence of contact between the thumb and other fingertips slightly deviates from the typical 'stop' gesture (static fist), but given the stationary motion, it can still be interpreted as a stop command.
+2026-05-07 17:02:40 - ✅ CORRECT
+2026-05-07 17:02:40 - Testing ID: 1778135725585
+2026-05-07 17:02:40 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Linear Translation towards Up motion.
+2026-05-07 17:02:41 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:41 - [REASONING]: The user's hand is in a position that mimics grabbing, as all fingers are straight and in contact with the thumb tip. Additionally, the fast linear translation towards an up motion suggests the user is trying to pick something up.
+2026-05-07 17:02:41 - LLM reasoning: The user's hand is in a position that mimics grabbing, as all fingers are straight and in contact with the thumb tip. Additionally, the fast linear translation towards an up motion suggests the user is trying to pick something up.
+2026-05-07 17:02:41 - ✅ CORRECT
+2026-05-07 17:02:41 - Testing ID: 1778135727897
+2026-05-07 17:02:41 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-07 17:02:41 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:41 - [REASONING]: The user's hand is in a static fist position, with all fingers bent and in contact with the thumb. This gesture is often associated with a stop command. Additionally, the slow linear translation towards an up motion could be interpreted as a deliberate movement to present the fist more clearly, further supporting the 'STOP' interpretation.
+2026-05-07 17:02:41 - LLM reasoning: The user's hand is in a static fist position, with all fingers bent and in contact with the thumb. This gesture is often associated with a stop command. Additionally, the slow linear translation towards an up motion could be interpreted as a deliberate movement to present the fist more clearly, further supporting the 'STOP' interpretation.
+2026-05-07 17:02:41 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:41 - Testing ID: 1778135729581
+2026-05-07 17:02:41 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-07 17:02:42 - [NEW INTENT DECODED]: No clear intent can be determined based on the provided hand state.
+2026-05-07 17:02:42 - [REASONING]: The user's hand is in a bent position, which does not correspond to any of the specific gestures for PICK_UP, NAVIGATE_THERE, or SEARCH_AREA. The slow linear translation towards an up motion could suggest a variety of intentions, but without additional context or the extended index finger, it's difficult to definitively determine the user's intent.
+2026-05-07 17:02:42 - LLM reasoning: The user's hand is in a bent position, which does not correspond to any of the specific gestures for PICK_UP, NAVIGATE_THERE, or SEARCH_AREA. The slow linear translation towards an up motion could suggest a variety of intentions, but without additional context or the extended index finger, it's difficult to definitively determine the user's intent.
+2026-05-07 17:02:42 - ❌ FAILED. Expected: PICK_UP, Got: No clear intent can be determined based on the provided hand state.
+2026-05-07 17:02:42 - Testing ID: 1778135731275
+2026-05-07 17:02:42 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-07 17:02:43 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:02:43 - [REASONING]: The user's hand is moving in an oscillating motion, which suggests they want the robot to look around. All fingers are bent, but since the Index finger is not extended, it indicates that the user is not pointing. The fact that the palm orientation is facing inward and the hand is positioned at the center of vision relative to the center of the view also supports this interpretation.
+2026-05-07 17:02:43 - LLM reasoning: The user's hand is moving in an oscillating motion, which suggests they want the robot to look around. All fingers are bent, but since the Index finger is not extended, it indicates that the user is not pointing. The fact that the palm orientation is facing inward and the hand is positioned at the center of vision relative to the center of the view also supports this interpretation.
+2026-05-07 17:02:43 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-07 17:02:43 - Testing ID: 1778135733849
+2026-05-07 17:02:43 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:02:44 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:44 - [REASONING]: The user's hand is stationary due to the slow hand rotation motion, and all fingers are bent. The thumb being in contact with the Index and Middle fingertips also suggests a static fist-like gesture, which is consistent with the 'STOP' command.
+2026-05-07 17:02:44 - LLM reasoning: The user's hand is stationary due to the slow hand rotation motion, and all fingers are bent. The thumb being in contact with the Index and Middle fingertips also suggests a static fist-like gesture, which is consistent with the 'STOP' command.
+2026-05-07 17:02:44 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:44 - Testing ID: 1778135735865
+2026-05-07 17:02:44 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-07 17:02:45 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:02:45 - [REASONING]: The user's hand is moving in an oscillating motion, which suggests they want the robot to look around. All fingers are bent, but since the Index finger is not extended, it indicates that the user is not pointing. The fact that the palm orientation is facing inward and the hand is positioned at the center of vision relative to the center of the view also supports this interpretation.
+2026-05-07 17:02:45 - LLM reasoning: The user's hand is moving in an oscillating motion, which suggests they want the robot to look around. All fingers are bent, but since the Index finger is not extended, it indicates that the user is not pointing. The fact that the palm orientation is facing inward and the hand is positioned at the center of vision relative to the center of the view also supports this interpretation.
+2026-05-07 17:02:45 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-07 17:02:45 - Testing ID: 1778135738282
+2026-05-07 17:02:45 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-07 17:02:46 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:02:46 - [REASONING]: The user's hand is moving in an oscillating motion, which is consistent with the 'SEARCH_AREA' intent. All fingers are straight, but since the Index finger is not extended, it suggests that the user is not pointing. The palm orientation facing inward and the contact between the Thumb and Index, Middle fingertips might indicate a broader search area rather than a specific point. The hand being stationary at the center of vision relative to the center of the view also supports this interpretation.
+2026-05-07 17:02:46 - LLM reasoning: The user's hand is moving in an oscillating motion, which is consistent with the 'SEARCH_AREA' intent. All fingers are straight, but since the Index finger is not extended, it suggests that the user is not pointing. The palm orientation facing inward and the contact between the Thumb and Index, Middle fingertips might indicate a broader search area rather than a specific point. The hand being stationary at the center of vision relative to the center of the view also supports this interpretation.
+2026-05-07 17:02:46 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-07 17:02:46 - Testing ID: 1778135740236
+2026-05-07 17:02:46 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:47 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:02:47 - [REASONING]: The user's hand is moving with a slow bending fingers motion, all fingers are straight which indicates they might be making a sweeping motion to indicate the robot should look around. The palm orientation facing inward and the hand being at the center of vision relative to the center of the view also supports this interpretation. The thumb being in contact with the Index and Middle fingertips could be a variation in the user's gestures, but it doesn't contradict the 'SEARCH_AREA' interpretation.
+2026-05-07 17:02:47 - LLM reasoning: The user's hand is moving with a slow bending fingers motion, all fingers are straight which indicates they might be making a sweeping motion to indicate the robot should look around. The palm orientation facing inward and the hand being at the center of vision relative to the center of the view also supports this interpretation. The thumb being in contact with the Index and Middle fingertips could be a variation in the user's gestures, but it doesn't contradict the 'SEARCH_AREA' interpretation.
+2026-05-07 17:02:47 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-07 17:02:47 - Testing ID: 1778135741752
+2026-05-07 17:02:47 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up-Left motion.
+2026-05-07 17:02:48 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:48 - [REASONING]: The user's hand is in a static fist position, with all fingers bent and in contact with the thumb. This gesture is typically associated with the 'STOP' command. Additionally, the hand's palm orientation facing inward and its moderate linear translation towards an up-left motion are not indicative of other commands such as PICK_UP or SEARCH_AREA. The stationary nature of the hand also supports the 'STOP' interpretation.
+2026-05-07 17:02:48 - LLM reasoning: The user's hand is in a static fist position, with all fingers bent and in contact with the thumb. This gesture is typically associated with the 'STOP' command. Additionally, the hand's palm orientation facing inward and its moderate linear translation towards an up-left motion are not indicative of other commands such as PICK_UP or SEARCH_AREA. The stationary nature of the hand also supports the 'STOP' interpretation.
+2026-05-07 17:02:48 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:48 - Testing ID: 1778135743679
+2026-05-07 17:02:48 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:48 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:48 - [REASONING]: The user's hand is in a static fist position, all fingers are bent and in contact with each other including the thumb. This gesture is typically used to signal a stop command. Additionally, the slow bending fingers motion suggests that the hand is not moving to perform another action such as picking up or navigating.
+2026-05-07 17:02:48 - LLM reasoning: The user's hand is in a static fist position, all fingers are bent and in contact with each other including the thumb. This gesture is typically used to signal a stop command. Additionally, the slow bending fingers motion suggests that the hand is not moving to perform another action such as picking up or navigating.
+2026-05-07 17:02:48 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:48 - Testing ID: 1778135746290
+2026-05-07 17:02:48 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-07 17:02:49 - [NEW INTENT DECODED]: Not Determined
+2026-05-07 17:02:49 - [REASONING]: The user's hand is in a closed fist, which does not correspond to any specific intent as defined by the guidelines provided. However, the moderate linear translation towards up motion suggests a possible intention of 'PICK_UP', but the bent fingers contradict this interpretation. The thumb being in contact with the index fingertips and the palm orientation facing down also do not provide clear indications.
+2026-05-07 17:02:49 - LLM reasoning: The user's hand is in a closed fist, which does not correspond to any specific intent as defined by the guidelines provided. However, the moderate linear translation towards up motion suggests a possible intention of 'PICK_UP', but the bent fingers contradict this interpretation. The thumb being in contact with the index fingertips and the palm orientation facing down also do not provide clear indications.
+2026-05-07 17:02:49 - ❌ FAILED. Expected: PICK_UP, Got: Not Determined
+2026-05-07 17:02:49 - Testing ID: 1778135748507
+2026-05-07 17:02:49 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Left relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-07 17:02:50 - [NEW INTENT DECODED]: Not Determined
+2026-05-07 17:02:50 - [REASONING]: The user's hand is in a closed fist, which does not correspond to any specific intent as defined by the guidelines provided. However, the slow linear translation towards an upwards motion could suggest a possible intention, but without further context or additional finger movements, it is difficult to definitively determine the user's intent.
+2026-05-07 17:02:50 - LLM reasoning: The user's hand is in a closed fist, which does not correspond to any specific intent as defined by the guidelines provided. However, the slow linear translation towards an upwards motion could suggest a possible intention, but without further context or additional finger movements, it is difficult to definitively determine the user's intent.
+2026-05-07 17:02:50 - ❌ FAILED. Expected: PICK_UP, Got: Not Determined
+2026-05-07 17:02:50 - Testing ID: 1778135750474
+2026-05-07 17:02:50 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:02:51 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:51 - [REASONING]: The user's hand is stationary due to the slow hand rotation motion and all fingers are bent, which could imply a stop gesture. Additionally, the thumb being in contact with the Index and Middle fingertips might also suggest a static or closed fist position, further supporting the 'STOP' interpretation.
+2026-05-07 17:02:51 - LLM reasoning: The user's hand is stationary due to the slow hand rotation motion and all fingers are bent, which could imply a stop gesture. Additionally, the thumb being in contact with the Index and Middle fingertips might also suggest a static or closed fist position, further supporting the 'STOP' interpretation.
+2026-05-07 17:02:51 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:51 - Testing ID: 1778135752570
+2026-05-07 17:02:51 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-07 17:02:52 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:52 - [REASONING]: The user's hand is stationary as all fingers are bent and there is no motion other than the slow linear translation towards up, which is not typical for a stop gesture. However, the thumb being in contact with the Index and Middle fingertips suggests that the user might be forming a fist, which aligns with the 'STOP' command.
+2026-05-07 17:02:52 - LLM reasoning: The user's hand is stationary as all fingers are bent and there is no motion other than the slow linear translation towards up, which is not typical for a stop gesture. However, the thumb being in contact with the Index and Middle fingertips suggests that the user might be forming a fist, which aligns with the 'STOP' command.
+2026-05-07 17:02:52 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:52 - Testing ID: 1778135754654
+2026-05-07 17:02:52 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-07 17:02:53 - [NEW INTENT DECODED]: Not Determined
+2026-05-07 17:02:53 - [REASONING]: The user's hand is in a bent position, which could suggest several intentions such as pointing or grabbing. However, since all fingers are bent and the thumb is in contact with the index fingertips, it might lean towards a grasping motion. The slow linear translation towards an upwards motion also supports this assumption. However, the palm orientation facing down and the hand being positioned at Center-Left relative to the center of the view could suggest a different intent like searching or navigating in that area. More context or additional hand movements are needed to confirm the exact intent.
+2026-05-07 17:02:53 - LLM reasoning: The user's hand is in a bent position, which could suggest several intentions such as pointing or grabbing. However, since all fingers are bent and the thumb is in contact with the index fingertips, it might lean towards a grasping motion. The slow linear translation towards an upwards motion also supports this assumption. However, the palm orientation facing down and the hand being positioned at Center-Left relative to the center of the view could suggest a different intent like searching or navigating in that area. More context or additional hand movements are needed to confirm the exact intent.
+2026-05-07 17:02:53 - ❌ FAILED. Expected: PICK_UP, Got: Not Determined
+2026-05-07 17:02:53 - Testing ID: 1778135756871
+2026-05-07 17:02:53 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-07 17:02:54 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:54 - [REASONING]: The user's hand has the Thumb and Index fingers straight, which is not typical for pointing. However, the bending of Middle, Ring, Pinky fingers suggests that they are not indicating a SEARCH_AREA. The contact between the Thumb and Index fingertips, the upwards motion, and the palm orientation facing down are all indicative of a grasping or picking motion. Therefore, the intent is likely PICK_UP.
+2026-05-07 17:02:54 - LLM reasoning: The user's hand has the Thumb and Index fingers straight, which is not typical for pointing. However, the bending of Middle, Ring, Pinky fingers suggests that they are not indicating a SEARCH_AREA. The contact between the Thumb and Index fingertips, the upwards motion, and the palm orientation facing down are all indicative of a grasping or picking motion. Therefore, the intent is likely PICK_UP.
+2026-05-07 17:02:54 - ✅ CORRECT
+2026-05-07 17:02:54 - Testing ID: 1778135758748
+2026-05-07 17:02:54 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-07 17:02:54 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:02:54 - [REASONING]: The user's hand is moving with a slow linear translation towards an up motion while all fingers are straight and the palm is facing down. This suggests that the user might be making a sweeping motion to indicate they want the robot to look around.
+2026-05-07 17:02:54 - LLM reasoning: The user's hand is moving with a slow linear translation towards an up motion while all fingers are straight and the palm is facing down. This suggests that the user might be making a sweeping motion to indicate they want the robot to look around.
+2026-05-07 17:02:54 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-07 17:02:54 - Testing ID: 1778135761676
+2026-05-07 17:02:54 - Input: Here is the current state of the user's hand:
+- The Thumb, Middle, Ring, Pinky fingers are straight, while the Index fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:55 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:55 - [REASONING]: The user's hand has all fingers straight except for the Index, which are bent and in contact with the Thumb. This gesture is similar to mimicking grabbing or picking up an object. The slow bending motion of the fingers also supports this interpretation.
+2026-05-07 17:02:55 - LLM reasoning: The user's hand has all fingers straight except for the Index, which are bent and in contact with the Thumb. This gesture is similar to mimicking grabbing or picking up an object. The slow bending motion of the fingers also supports this interpretation.
+2026-05-07 17:02:55 - ✅ CORRECT
+2026-05-07 17:02:55 - Testing ID: 1778135763178
+2026-05-07 17:02:55 - Input: Here is the current state of the user's hand:
+- The Thumb, Pinky fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:56 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:02:56 - [REASONING]: The user's hand has the Thumb in contact with the Index fingertips, and all fingers except the Index are bent. This suggests that the user is mimicking grabbing or picking up an object, which aligns with the 'PICK_UP' intent.
+2026-05-07 17:02:56 - LLM reasoning: The user's hand has the Thumb in contact with the Index fingertips, and all fingers except the Index are bent. This suggests that the user is mimicking grabbing or picking up an object, which aligns with the 'PICK_UP' intent.
+2026-05-07 17:02:56 - ✅ CORRECT
+2026-05-07 17:02:56 - Testing ID: 1778135764294
+2026-05-07 17:02:56 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:57 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:57 - [REASONING]: The user's hand is stationary and all fingers are bent, which could imply a stop gesture. Additionally, the thumb being in contact with the middle fingertips and the slow bending fingers motion support this interpretation. The palm orientation facing inward and the hand being at the center of vision do not contradict the stop gesture.
+2026-05-07 17:02:57 - LLM reasoning: The user's hand is stationary and all fingers are bent, which could imply a stop gesture. Additionally, the thumb being in contact with the middle fingertips and the slow bending fingers motion support this interpretation. The palm orientation facing inward and the hand being at the center of vision do not contradict the stop gesture.
+2026-05-07 17:02:57 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:57 - Testing ID: 1778135765980
+2026-05-07 17:02:57 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Left motion.
+2026-05-07 17:02:57 - [NEW INTENT DECODED]: STOP
+2026-05-07 17:02:57 - [REASONING]: The user's hand is in a static fist position, with all fingers bent and in contact with the thumb. This gesture is typically associated with the 'STOP' command. Additionally, the slow linear translation towards the left could be interpreted as an attempt to move the hand closer to a stationary position, which further supports the 'STOP' interpretation.
+2026-05-07 17:02:57 - LLM reasoning: The user's hand is in a static fist position, with all fingers bent and in contact with the thumb. This gesture is typically associated with the 'STOP' command. Additionally, the slow linear translation towards the left could be interpreted as an attempt to move the hand closer to a stationary position, which further supports the 'STOP' interpretation.
+2026-05-07 17:02:57 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-07 17:02:57 - Testing ID: 1778135767308
+2026-05-07 17:02:57 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:02:59 - [NEW INTENT DECODED]: Not Determined
+2026-05-07 17:02:59 - [REASONING]: The user's hand is in a bent position, which could suggest various intentions such as pointing or indicating a grabbing motion. However, the thumb being in contact with the Index and Middle fingertips, along with the slow bending fingers motion, leans more towards a non-grabbing gesture. The palm orientation facing inward also does not align with the typical 'PICK_UP' or 'STOP' gestures. Since the hand is stationary and not pointing, it is less likely to be 'NAVIGATE_THERE'. Therefore, the user's intent cannot be definitively determined based on the provided hand state.
+2026-05-07 17:02:59 - LLM reasoning: The user's hand is in a bent position, which could suggest various intentions such as pointing or indicating a grabbing motion. However, the thumb being in contact with the Index and Middle fingertips, along with the slow bending fingers motion, leans more towards a non-grabbing gesture. The palm orientation facing inward also does not align with the typical 'PICK_UP' or 'STOP' gestures. Since the hand is stationary and not pointing, it is less likely to be 'NAVIGATE_THERE'. Therefore, the user's intent cannot be definitively determined based on the provided hand state.
+2026-05-07 17:02:59 - ❌ FAILED. Expected: PICK_UP, Got: Not Determined
+2026-05-07 17:02:59 - Testing ID: 1778135768347
+2026-05-07 17:02:59 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-07 17:03:00 - [NEW INTENT DECODED]: No clear intent can be determined based on the provided hand state.
+2026-05-07 17:03:00 - [REASONING]: The user's hand is in a bent position, which does not correspond to any specific intent as described in the guidelines. The thumb being in contact with the Index and Middle fingertips could suggest a grasping motion, but the slow bending fingers motion and the palm facing inward do not align with the 'PICK_UP' or 'STOP' gestures. The hand being stationary and moving slowly also does not match the 'NAVIGATE_THERE' or 'SEARCH_AREA' gestures.
+2026-05-07 17:03:00 - LLM reasoning: The user's hand is in a bent position, which does not correspond to any specific intent as described in the guidelines. The thumb being in contact with the Index and Middle fingertips could suggest a grasping motion, but the slow bending fingers motion and the palm facing inward do not align with the 'PICK_UP' or 'STOP' gestures. The hand being stationary and moving slowly also does not match the 'NAVIGATE_THERE' or 'SEARCH_AREA' gestures.
+2026-05-07 17:03:00 - ❌ FAILED. Expected: PICK_UP, Got: No clear intent can be determined based on the provided hand state.
+2026-05-07 17:03:00 - Testing ID: 1778135794278
+2026-05-07 17:03:00 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-07 17:03:01 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:01 - [REASONING]: The user's hand is moving in an oscillating motion, which is typically associated with the 'SEARCH_AREA' command. All fingers are straight, and the palm orientation is facing outward, which further supports this interpretation. The hand is not in a stationary position, but it is moving moderately, which is consistent with the user wanting the robot to look around.
+2026-05-07 17:03:01 - LLM reasoning: The user's hand is moving in an oscillating motion, which is typically associated with the 'SEARCH_AREA' command. All fingers are straight, and the palm orientation is facing outward, which further supports this interpretation. The hand is not in a stationary position, but it is moving moderately, which is consistent with the user wanting the robot to look around.
+2026-05-07 17:03:01 - ✅ CORRECT
+2026-05-07 17:03:01 - Testing ID: 1778135796624
+2026-05-07 17:03:01 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-07 17:03:02 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:02 - [REASONING]: The user's hand state matches the description for 'SEARCH_AREA'. All fingers are straight, which is not typical for 'PICK_UP'. The hand rotation motion suggests that the user is making a sweeping or oscillating motion, which is common in 'SEARCH_AREA'. The palm orientation facing down and the hand being at the center of vision also support this interpretation.
+2026-05-07 17:03:02 - LLM reasoning: The user's hand state matches the description for 'SEARCH_AREA'. All fingers are straight, which is not typical for 'PICK_UP'. The hand rotation motion suggests that the user is making a sweeping or oscillating motion, which is common in 'SEARCH_AREA'. The palm orientation facing down and the hand being at the center of vision also support this interpretation.
+2026-05-07 17:03:02 - ✅ CORRECT
+2026-05-07 17:03:02 - Testing ID: 1778135798787
+2026-05-07 17:03:02 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-07 17:03:03 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:03:03 - [REASONING]: The user's hand state shows that only the Index and Thumb fingers are straight, which is not typically associated with pointing or grabbing. The moderate hand rotation motion suggests a deictic gesture, likely indicating a direction. However, since the Ring and Pinky fingers are bent, it might not be a completely stationary pointing gesture. Given these factors, the most reasonable interpretation is that the user is navigating the robot towards a certain direction.
+2026-05-07 17:03:03 - LLM reasoning: The user's hand state shows that only the Index and Thumb fingers are straight, which is not typically associated with pointing or grabbing. The moderate hand rotation motion suggests a deictic gesture, likely indicating a direction. However, since the Ring and Pinky fingers are bent, it might not be a completely stationary pointing gesture. Given these factors, the most reasonable interpretation is that the user is navigating the robot towards a certain direction.
+2026-05-07 17:03:03 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-07 17:03:03 - Testing ID: 1778135802041
+2026-05-07 17:03:03 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:04 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:04 - [REASONING]: The user's hand has the Index and Thumb fingers straight, which is not typically associated with pointing. However, the Middle, Ring, Pinky fingers are bent, indicating they are not extended for a 'pointing' gesture. The Thumb being in contact with the Middle fingertips suggests a grasping motion. The slow hand rotation motion also supports the 'PICK_UP' intent as it could be the user mimicking the act of picking something up.
+2026-05-07 17:03:04 - LLM reasoning: The user's hand has the Index and Thumb fingers straight, which is not typically associated with pointing. However, the Middle, Ring, Pinky fingers are bent, indicating they are not extended for a 'pointing' gesture. The Thumb being in contact with the Middle fingertips suggests a grasping motion. The slow hand rotation motion also supports the 'PICK_UP' intent as it could be the user mimicking the act of picking something up.
+2026-05-07 17:03:04 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:04 - Testing ID: 1778135804929
+2026-05-07 17:03:04 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-07 17:03:05 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:03:05 - [REASONING]: The user's hand state shows that only the Index and Thumb fingers are straight, while the other three are bent. This suggests a pointing gesture, which is typically associated with the 'NAVIGATE_THERE' command. The moderate hand rotation motion also supports this interpretation as it could be a sweeping or oscillating motion used to indicate a broader area of interest.
+2026-05-07 17:03:05 - LLM reasoning: The user's hand state shows that only the Index and Thumb fingers are straight, while the other three are bent. This suggests a pointing gesture, which is typically associated with the 'NAVIGATE_THERE' command. The moderate hand rotation motion also supports this interpretation as it could be a sweeping or oscillating motion used to indicate a broader area of interest.
+2026-05-07 17:03:05 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-07 17:03:05 - Testing ID: 1778135807568
+2026-05-07 17:03:05 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-07 17:03:05 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:05 - [REASONING]: The user's hand state matches the description for SEARCH_AREA. All fingers are straight (extended), the palm is facing down, and there is a moderate hand rotation motion. This suggests that the user wants the robot to look around.
+2026-05-07 17:03:05 - LLM reasoning: The user's hand state matches the description for SEARCH_AREA. All fingers are straight (extended), the palm is facing down, and there is a moderate hand rotation motion. This suggests that the user wants the robot to look around.
+2026-05-07 17:03:05 - ✅ CORRECT
+2026-05-07 17:03:05 - Testing ID: 1778135811876
+2026-05-07 17:03:05 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Down-Left motion.
+2026-05-07 17:03:06 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:06 - [REASONING]: The user's hand is moving with a moderate linear translation towards down-left motion while all fingers are straight, which suggests an oscillating or sweeping motion. The palm orientation facing outward and the hand being at the center of vision relative to the center of the view further supports this interpretation as it resembles the 'SEARCH_AREA' gesture.
+2026-05-07 17:03:06 - LLM reasoning: The user's hand is moving with a moderate linear translation towards down-left motion while all fingers are straight, which suggests an oscillating or sweeping motion. The palm orientation facing outward and the hand being at the center of vision relative to the center of the view further supports this interpretation as it resembles the 'SEARCH_AREA' gesture.
+2026-05-07 17:03:06 - ✅ CORRECT
+2026-05-07 17:03:06 - Testing ID: 1778135815613
+2026-05-07 17:03:06 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up-Left motion.
+2026-05-07 17:03:07 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:07 - [REASONING]: The user's hand is moving with a moderate linear translation towards up-left while keeping all fingers straight and the palm facing down. This motion suggests that the user wants the robot to look around in the area, which corresponds to the 'SEARCH_AREA' intent.
+2026-05-07 17:03:07 - LLM reasoning: The user's hand is moving with a moderate linear translation towards up-left while keeping all fingers straight and the palm facing down. This motion suggests that the user wants the robot to look around in the area, which corresponds to the 'SEARCH_AREA' intent.
+2026-05-07 17:03:07 - ✅ CORRECT
+2026-05-07 17:03:07 - Testing ID: 1778135818181
+2026-05-07 17:03:07 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-07 17:03:07 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:07 - [REASONING]: The user's hand is moving with a moderate hand rotation motion, all fingers are straight and the palm orientation is facing down. This suggests that the user wants the robot to look around or search an area.
+2026-05-07 17:03:07 - LLM reasoning: The user's hand is moving with a moderate hand rotation motion, all fingers are straight and the palm orientation is facing down. This suggests that the user wants the robot to look around or search an area.
+2026-05-07 17:03:07 - ✅ CORRECT
+2026-05-07 17:03:07 - Testing ID: 1778135820900
+2026-05-07 17:03:07 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:08 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:03:08 - [REASONING]: The user's hand state matches the guidelines for Navigate There. The Thumb and Index fingers are straight, while the Middle, Ring, Pinky fingers are bent. The palm orientation is facing down, and the hand moves with a slow hand rotation motion. Although the index finger is extended, it does not necessarily imply pointing in this case due to the rotating motion of the hand.
+2026-05-07 17:03:08 - LLM reasoning: The user's hand state matches the guidelines for Navigate There. The Thumb and Index fingers are straight, while the Middle, Ring, Pinky fingers are bent. The palm orientation is facing down, and the hand moves with a slow hand rotation motion. Although the index finger is extended, it does not necessarily imply pointing in this case due to the rotating motion of the hand.
+2026-05-07 17:03:08 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-07 17:03:08 - Testing ID: 1778135824044
+2026-05-07 17:03:08 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Down-Left motion.
+2026-05-07 17:03:09 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:09 - [REASONING]: The user's hand has bent fingers (excluding the thumb), and the thumb is in contact with the Index fingertips, which suggests a mimicking grabbing gesture. The moderate linear translation towards Down-Left motion could be interpreted as the user guiding the robot to pick up an object located at Center-Left relative to the center of the view and moving downwards and slightly left. However, since the palm orientation is facing inward, it might also imply a different intent if the context changes. But given the current state, 'PICK_UP' seems the most likely intent.
+2026-05-07 17:03:09 - LLM reasoning: The user's hand has bent fingers (excluding the thumb), and the thumb is in contact with the Index fingertips, which suggests a mimicking grabbing gesture. The moderate linear translation towards Down-Left motion could be interpreted as the user guiding the robot to pick up an object located at Center-Left relative to the center of the view and moving downwards and slightly left. However, since the palm orientation is facing inward, it might also imply a different intent if the context changes. But given the current state, 'PICK_UP' seems the most likely intent.
+2026-05-07 17:03:09 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:09 - Testing ID: 1778135826754
+2026-05-07 17:03:09 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:10 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:03:10 - [REASONING]: The user's hand state matches the guidelines for the 'NAVIGATE_THERE' command. The Thumb and Index fingers are straight, while the Middle, Ring, Pinky fingers are bent. The palm orientation is facing down, and the hand moves with a slow rotation motion. Although the index finger is straight, it is not extended as in a pointing gesture, but rather bent slightly. This suggests that the user might be indicating a direction or area for the robot to navigate towards.
+2026-05-07 17:03:10 - LLM reasoning: The user's hand state matches the guidelines for the 'NAVIGATE_THERE' command. The Thumb and Index fingers are straight, while the Middle, Ring, Pinky fingers are bent. The palm orientation is facing down, and the hand moves with a slow rotation motion. Although the index finger is straight, it is not extended as in a pointing gesture, but rather bent slightly. This suggests that the user might be indicating a direction or area for the robot to navigate towards.
+2026-05-07 17:03:10 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-07 17:03:10 - Testing ID: 1778135829263
+2026-05-07 17:03:10 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Right motion.
+2026-05-07 17:03:11 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:11 - [REASONING]: The user's hand is moving with a moderate linear translation towards right while all fingers are straight and the palm is facing down. This suggests that the user might be making a sweeping motion to indicate they want the robot to look around or search an area.
+2026-05-07 17:03:11 - LLM reasoning: The user's hand is moving with a moderate linear translation towards right while all fingers are straight and the palm is facing down. This suggests that the user might be making a sweeping motion to indicate they want the robot to look around or search an area.
+2026-05-07 17:03:11 - ✅ CORRECT
+2026-05-07 17:03:11 - Testing ID: 1778135833165
+2026-05-07 17:03:11 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-07 17:03:12 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:12 - [REASONING]: The user's hand is moving in an oscillating motion, which suggests they want the robot to look around. All fingers are straight, and the palm orientation is facing outward, which further supports the 'SEARCH_AREA' interpretation. The hand is not pointing or mimicking grabbing, as no finger is bent except for all of them being straight.
+2026-05-07 17:03:12 - LLM reasoning: The user's hand is moving in an oscillating motion, which suggests they want the robot to look around. All fingers are straight, and the palm orientation is facing outward, which further supports the 'SEARCH_AREA' interpretation. The hand is not pointing or mimicking grabbing, as no finger is bent except for all of them being straight.
+2026-05-07 17:03:12 - ✅ CORRECT
+2026-05-07 17:03:12 - Testing ID: 1778135836066
+2026-05-07 17:03:12 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-07 17:03:13 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:13 - [REASONING]: The user's hand is moving with an oscillating motion, all fingers are straight and the palm is facing down. This suggests that the user wants the robot to look around or search a specific area.
+2026-05-07 17:03:13 - LLM reasoning: The user's hand is moving with an oscillating motion, all fingers are straight and the palm is facing down. This suggests that the user wants the robot to look around or search a specific area.
+2026-05-07 17:03:13 - ✅ CORRECT
+2026-05-07 17:03:13 - Testing ID: 1778135840609
+2026-05-07 17:03:13 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-07 17:03:13 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:13 - [REASONING]: The user's hand has the thumb and index fingers straight, which is not typically associated with pointing. However, the thumb is in contact with the middle, ring, and pinky fingers, suggesting a grasping motion. The moderate oscillating left & right motion could be interpreted as an attempt to adjust or stabilize the grip. The palm orientation facing inward also supports this interpretation.
+2026-05-07 17:03:13 - LLM reasoning: The user's hand has the thumb and index fingers straight, which is not typically associated with pointing. However, the thumb is in contact with the middle, ring, and pinky fingers, suggesting a grasping motion. The moderate oscillating left & right motion could be interpreted as an attempt to adjust or stabilize the grip. The palm orientation facing inward also supports this interpretation.
+2026-05-07 17:03:13 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:13 - Testing ID: 1778135842735
+2026-05-07 17:03:13 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:14 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:14 - [REASONING]: The user's hand has the thumb, index fingers straight and middle, ring, pinky fingers bent, which is indicative of mimicking grabbing. Additionally, the thumb is in contact with the other fingers, suggesting a grasping motion. The slow hand rotation motion further supports this interpretation as it could be akin to turning the wrist while holding an object.
+2026-05-07 17:03:14 - LLM reasoning: The user's hand has the thumb, index fingers straight and middle, ring, pinky fingers bent, which is indicative of mimicking grabbing. Additionally, the thumb is in contact with the other fingers, suggesting a grasping motion. The slow hand rotation motion further supports this interpretation as it could be akin to turning the wrist while holding an object.
+2026-05-07 17:03:14 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:14 - Testing ID: 1778135846672
+2026-05-07 17:03:14 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Fast Hand Rotation motion.
+2026-05-07 17:03:15 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:15 - [REASONING]: The user's hand has the thumb in contact with the index and middle fingers, which is indicative of a mimicked grabbing motion. The fast hand rotation motion suggests that the user might be trying to simulate the action of picking something up. Additionally, the palm orientation facing outward and the hand being at the center of vision relative to the center of the view further supports this interpretation.
+2026-05-07 17:03:15 - LLM reasoning: The user's hand has the thumb in contact with the index and middle fingers, which is indicative of a mimicked grabbing motion. The fast hand rotation motion suggests that the user might be trying to simulate the action of picking something up. Additionally, the palm orientation facing outward and the hand being at the center of vision relative to the center of the view further supports this interpretation.
+2026-05-07 17:03:15 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:15 - Testing ID: 1778135883638
+2026-05-07 17:03:15 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-07 17:03:16 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:16 - [REASONING]: The user's hand is moving with a moderate linear translation towards left while all fingers are straight, which suggests an oscillating or sweeping motion. The palm orientation facing outward and the hand being positioned at top-center also support this interpretation as it resembles the 'SEARCH_AREA' gesture.
+2026-05-07 17:03:16 - LLM reasoning: The user's hand is moving with a moderate linear translation towards left while all fingers are straight, which suggests an oscillating or sweeping motion. The palm orientation facing outward and the hand being positioned at top-center also support this interpretation as it resembles the 'SEARCH_AREA' gesture.
+2026-05-07 17:03:16 - ✅ CORRECT
+2026-05-07 17:03:16 - Testing ID: 1778135886852
+2026-05-07 17:03:16 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:17 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:17 - [REASONING]: The user's hand has the Index and Thumb fingers straight, which could imply pointing but in this case, they are also in contact with the Middle and Ring fingers. This suggests that the user might be mimicking a grabbing motion. The slow hand rotation motion further supports this interpretation as it resembles the action of turning an object in one's hand. The palm orientation facing down is consistent with a picking-up gesture.
+2026-05-07 17:03:17 - LLM reasoning: The user's hand has the Index and Thumb fingers straight, which could imply pointing but in this case, they are also in contact with the Middle and Ring fingers. This suggests that the user might be mimicking a grabbing motion. The slow hand rotation motion further supports this interpretation as it resembles the action of turning an object in one's hand. The palm orientation facing down is consistent with a picking-up gesture.
+2026-05-07 17:03:17 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:17 - Testing ID: 1778135890117
+2026-05-07 17:03:17 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:18 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:18 - [REASONING]: The user's hand has the Index and Thumb fingers straight, which could imply pointing but in this case, they are also in contact with the Middle finger tips. This suggests that the user might be mimicking grabbing or picking up an object. The slow hand rotation motion further supports this interpretation as it could indicate the act of grasping or manipulating an object.
+2026-05-07 17:03:18 - LLM reasoning: The user's hand has the Index and Thumb fingers straight, which could imply pointing but in this case, they are also in contact with the Middle finger tips. This suggests that the user might be mimicking grabbing or picking up an object. The slow hand rotation motion further supports this interpretation as it could indicate the act of grasping or manipulating an object.
+2026-05-07 17:03:18 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:18 - Testing ID: 1778135893462
+2026-05-07 17:03:18 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-07 17:03:19 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:03:19 - [REASONING]: The user's hand has the Thumb and Index fingers straight, which is not typically associated with pointing. However, the Middle fingers being bent could suggest a grasping motion. The absence of contact between the Thumb and other fingertips and the moderate linear translation towards left motion further support the 'PICK_UP' intent as it resembles a translational motion often associated with mimicking grabbing.
+2026-05-07 17:03:19 - LLM reasoning: The user's hand has the Thumb and Index fingers straight, which is not typically associated with pointing. However, the Middle fingers being bent could suggest a grasping motion. The absence of contact between the Thumb and other fingertips and the moderate linear translation towards left motion further support the 'PICK_UP' intent as it resembles a translational motion often associated with mimicking grabbing.
+2026-05-07 17:03:19 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-07 17:03:19 - Testing ID: 1778135896712
+2026-05-07 17:03:19 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-07 17:03:19 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:19 - [REASONING]: The user's hand is moving with an oscillating motion, all fingers are straight and the palm is facing down. This indicates that the user wants the robot to look around or search an area.
+2026-05-07 17:03:19 - LLM reasoning: The user's hand is moving with an oscillating motion, all fingers are straight and the palm is facing down. This indicates that the user wants the robot to look around or search an area.
+2026-05-07 17:03:19 - ✅ CORRECT
+2026-05-07 17:03:19 - Testing ID: 1778135899267
+2026-05-07 17:03:19 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Up.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:03:20 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:20 - [REASONING]: The user's hand is moving slowly in a rotational motion, all fingers are straight and the palm is facing up. This suggests that the user wants the robot to look around or search an area.
+2026-05-07 17:03:20 - LLM reasoning: The user's hand is moving slowly in a rotational motion, all fingers are straight and the palm is facing up. This suggests that the user wants the robot to look around or search an area.
+2026-05-07 17:03:20 - ✅ CORRECT
+2026-05-07 17:03:20 - Testing ID: 1778135901493
+2026-05-07 17:03:20 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-07 17:03:21 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:21 - [REASONING]: The user's hand state shows an extended Index finger and bent Middle, Ring, Pinky fingers, which is similar to the description for 'SEARCH_AREA'. The thumb being in contact with the index finger and the slow oscillating left & right motion of the hand also support this interpretation. The palm orientation facing downwards and the hand being at the center of vision relative to the center of the view do not contradict the 'SEARCH_AREA' interpretation.
+2026-05-07 17:03:21 - LLM reasoning: The user's hand state shows an extended Index finger and bent Middle, Ring, Pinky fingers, which is similar to the description for 'SEARCH_AREA'. The thumb being in contact with the index finger and the slow oscillating left & right motion of the hand also support this interpretation. The palm orientation facing downwards and the hand being at the center of vision relative to the center of the view do not contradict the 'SEARCH_AREA' interpretation.
+2026-05-07 17:03:21 - ✅ CORRECT
+2026-05-07 17:03:21 - Testing ID: 1778135903807
+2026-05-07 17:03:21 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-07 17:03:22 - [NEW INTENT DECODED]: SEARCH_AREA
+2026-05-07 17:03:22 - [REASONING]: The user's hand state shows an open hand (Index and Thumb straight) with the Ring and Pinky fingers bent, which is consistent with the 'SEARCH_AREA' intent as described in guideline 3. The slow oscillating left & right motion of the hand also supports this interpretation as it suggests a sweeping or scanning motion, which is characteristic of the 'SEARCH_AREA' gesture. Additionally, the palm orientation facing downwards and the hand being stationary at the center of vision further support this interpretation.
+2026-05-07 17:03:22 - LLM reasoning: The user's hand state shows an open hand (Index and Thumb straight) with the Ring and Pinky fingers bent, which is consistent with the 'SEARCH_AREA' intent as described in guideline 3. The slow oscillating left & right motion of the hand also supports this interpretation as it suggests a sweeping or scanning motion, which is characteristic of the 'SEARCH_AREA' gesture. Additionally, the palm orientation facing downwards and the hand being stationary at the center of vision further support this interpretation.
+2026-05-07 17:03:22 - ✅ CORRECT
+2026-05-07 17:03:22 - 
+--- FINAL ACCURACY: 50.617283950617285% ---
+2026-05-07 17:04:28 - Testing ID: 1778135546375
+2026-05-07 17:04:28 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:04:29 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:04:29 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command. The palm orientation facing down and the hand being positioned at Center-Right also support this interpretation.
+2026-05-07 17:04:29 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This resembles a pointing gesture which is typically associated with the 'NAVIGATE_THERE' command. The palm orientation facing down and the hand being positioned at Center-Right also support this interpretation.
+2026-05-07 17:04:29 - ✅ CORRECT
+2026-05-07 17:04:29 - Testing ID: 1778135550447
+2026-05-07 17:04:29 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:04:29 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:04:29 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which aligns with the 'NAVIGATE_THERE' intent as described in the guidelines.
+2026-05-07 17:04:29 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which aligns with the 'NAVIGATE_THERE' intent as described in the guidelines.
+2026-05-07 17:04:29 - ✅ CORRECT
+2026-05-07 17:04:29 - Testing ID: 1778135553783
+2026-05-07 17:04:29 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:04:30 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:04:30 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which aligns with the 'Diectic' category for indicating a specific location. The palm orientation facing down and the hand being at the center of vision also support this interpretation.
+2026-05-07 17:04:30 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which aligns with the 'Diectic' category for indicating a specific location. The palm orientation facing down and the hand being at the center of vision also support this interpretation.
+2026-05-07 17:04:30 - ✅ CORRECT
+2026-05-07 17:04:30 - Testing ID: 1778135557296
+2026-05-07 17:04:30 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:04:31 - [NEW INTENT DECODED]: NAVIGATE_THERE
+2026-05-07 17:04:31 - [REASONING]: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which aligns with the 'Diectic' category for indicating a specific direction. However, since the palm orientation is unknown, it's not definitive. But considering the hand is stationary and the extended Index finger is a key indicator, it's reasonable to infer that the user intends to navigate there.
+2026-05-07 17:04:31 - LLM reasoning: The user's hand is stationary and only the Thumb and Index fingers are straight while the Middle, Ring, Pinky fingers are bent. This suggests that the user might be pointing, which aligns with the 'Diectic' category for indicating a specific direction. However, since the palm orientation is unknown, it's not definitive. But considering the hand is stationary and the extended Index finger is a key indicator, it's reasonable to infer that the user intends to navigate there.
+2026-05-07 17:04:31 - ✅ CORRECT
+2026-05-07 17:04:31 - Testing ID: 1778135560346
+2026-05-07 17:04:31 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-07 17:04:33 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:04:33 - [REASONING]: The user's hand has the Index and Thumb fingers straight, which is similar to mimicking grabbing. Additionally, the Thumb is in contact with the Middle finger tips, suggesting a grasping motion. The slow hand rotation motion could be interpreted as preparing for or adjusting the grip. However, since the Middle, Ring, Pinky fingers are bent, it's not a clear-cut case of 'Bending Fingers' or 'Hand Open/Close'. But considering the other factors, it's reasonable to infer that the user is intending to pick something up.
+2026-05-07 17:04:33 - LLM reasoning: The user's hand has the Index and Thumb fingers straight, which is similar to mimicking grabbing. Additionally, the Thumb is in contact with the Middle finger tips, suggesting a grasping motion. The slow hand rotation motion could be interpreted as preparing for or adjusting the grip. However, since the Middle, Ring, Pinky fingers are bent, it's not a clear-cut case of 'Bending Fingers' or 'Hand Open/Close'. But considering the other factors, it's reasonable to infer that the user is intending to pick something up.
+2026-05-07 17:04:33 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:04:33 - Testing ID: 1778135565633
+2026-05-07 17:04:33 - Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-07 17:04:34 - [NEW INTENT DECODED]: PICK_UP
+2026-05-07 17:04:34 - [REASONING]: The user's hand has an extended Index finger, which is a key indicator for pointing. However, in this case, the Index finger is not pointing but rather it is in contact with the Thumb and the Middle, Ring fingers are bent. This suggests that the user might be mimicking grabbing or picking up an object, as all three fingers (Thumb, Index, and Bent Middle and Ring fingers) are involved in a grasping motion. The stationary motion of the hand also supports this interpretation.
+2026-05-07 17:04:34 - LLM reasoning: The user's hand has an extended Index finger, which is a key indicator for pointing. However, in this case, the Index finger is not pointing but rather it is in contact with the Thumb and the Middle, Ring fingers are bent. This suggests that the user might be mimicking grabbing or picking up an object, as all three fingers (Thumb, Index, and Bent Middle and Ring fingers) are involved in a grasping motion. The stationary motion of the hand also supports this interpretation.
+2026-05-07 17:04:34 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-07 17:04:34 - Testing ID: 1778135570098
+2026-05-07 17:04:34 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
