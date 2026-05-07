@@ -14,7 +14,7 @@ from ig_global_variables import GlobalVariables
 # 1. SET THIS BEFORE YOU RUN THE SCRIPT
 # (e.g., "NAVIGATE_THERE", "PICK_UP", "STOP", "SEARCH_AREA")
 # ==========================================
-GROUND_TRUTH_INTENT = "SEARCH_AREA"  
+GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
 
 DATASET_FILE = "gesture_dataset.json"
 

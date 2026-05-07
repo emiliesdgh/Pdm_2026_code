@@ -132,23 +132,9 @@ class TemporalGestureManager:
     def classify_motion(self, finger_change, orientation_change, displacement, speed_str, flips_x, flips_y):
         dx, dy = displacement
         magnitude = np.linalg.norm(displacement)
-
-        # -- 1. Wave Detection (Oscillation) --
-        # If the direction flips back and forth 2 or more times, it's a wave
-        if flips_x >= 2 or flips_y >= 2:
-            return f"{speed_str} Oscillating Left & Right"
-
-        # -- 2. Articulation --
-        if finger_change >= 4:
-            return f"{speed_str} All fingers rapidly bending towards the palm"
-        if finger_change >= 1 and finger_change < 4:
-            return f"{speed_str} Bending Fingers"
+    
         
-        # -- 3. Rotation --
-        if orientation_change: 
-            return f"{speed_str} Hand Rotation"
-        
-        # -- 4. Swipe / Translation (8-way directional mapping) --
+        # -- 1. Start with checking for significant spatial movements --
         if magnitude > 0.05: 
             # Calculate angle of displacement (-180 to 180 degrees)
             angle = np.degrees(np.arctan2(dy, dx))
@@ -177,5 +163,21 @@ class TemporalGestureManager:
                 dir_str = dir_str.replace("Right", "Left")
             
             return f"{speed_str} Linear Translation towards {dir_str}"
+        
+        # -- 2. Check for wrist Rotations --
+        if orientation_change: 
+            return f"{speed_str} Hand Rotation"
+        
+        # -- 3. Wave Detection (Oscillation) --
+        # If the direction flips back and forth 2 or more times, it's a wave
+        if flips_x >= 2 or flips_y >= 2:
+            return f"{speed_str} Oscillating Left & Right"
+
+        # -- 4. Articulation --> only if the hand is relatively stable --
+        if finger_change >= 4:
+            return f"{speed_str} All fingers rapidly bending towards the palm"
+        if finger_change >= 1 and finger_change < 4:
+            return f"{speed_str} Bending Fingers"
+        
             
         return f"{speed_str} Unknown Motion"

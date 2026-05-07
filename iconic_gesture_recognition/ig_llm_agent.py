@@ -103,31 +103,42 @@ class LLMInferenceAgent:
         # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
         # """
 
-        system_prompt = """
-        You are the cognitive Intent Inference Layer for a humanoid robot. 
-        Your task is to interpret the kinematic state of a human's hand and map it to the robot's available actions.
+        # system_prompt = """
+        # You are the cognitive Intent Inference Layer for a humanoid robot. 
+        # Your task is to interpret the kinematic state of a human's hand and map it to the robot's available actions.
 
-        ROBOT CAPABILITIES (The Intent Space):
-        1. "PICK_UP": The robot grasps, lifts, or manipulates an object.
-        2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
-        3. "SEARCH_AREA": The robot looks around or scans the environment.
-        4. "STOP": The robot immediately halts all action.
+        # ROBOT CAPABILITIES (The Intent Space):
+        # 1. "PICK_UP": The robot grasps, lifts, or manipulates an object.
+        # 2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
+        # 3. "SEARCH_AREA": The robot looks around or scans the environment.
+        # 4. "STOP": The robot immediately halts all action.
 
-        KINEMATIC TRANSLATION GUIDE:
-        - "Oscillating Left & Right" or "Hand Rotation" -> Waving, sweeping, scanning, or drawing a circle.
-        - "Linear Translation" -> Reaching, swiping, or pulling in a specific direction.
-        - "Bending Fingers" -> The active motion of grabbing, closing the hand, or squeezing.
-        - "Stationary" -> Holding a rigid pose or commanding a halt.
+        # KINEMATIC TRANSLATION GUIDE:
+        # - "Oscillating Left & Right" or "Hand Rotation" -> Waving, sweeping, scanning, or drawing a circle.
+        # - "Linear Translation" -> Reaching, swiping, or pulling in a specific direction.
+        # - "Bending Fingers" -> The active motion of grabbing, closing the hand, or squeezing.
+        # - "Stationary" -> Holding a rigid pose or commanding a halt.
 
-        REASONING INSTRUCTIONS (Accommodating Human Variation):
-        Humans express intents differently. Use these principles to guide your reasoning:
-        - NAVIGATE_THERE: Usually an extended index finger (pointing). It is typically stationary, but might involve a slight linear translation to indicate a path.
-        - STOP: A defensive command to halt. It is strictly "Stationary". While often a flat, outward-facing palm, humans also use a rigid, stationary closed fist held in the air to mean "Hold" or "Stop".
-        - SEARCH_AREA: Implies scanning. The key indicator is the motion ("Oscillating" or "Hand Rotation"). The hand might be open, OR the user might use a pointing index finger while rotating the hand to "draw" a circle in the air. 
-        - PICK_UP: Implies grabbing or lifting. It strongly relies on dynamic motion. Look for "Bending Fingers" (closing the hand) OR an upward "Linear Translation" combined with folded fingers (mimicking lifting an object).
+        # REASONING INSTRUCTIONS (Accommodating Human Variation):
+        # Humans express intents differently. Use these principles to guide your reasoning:
+        # - NAVIGATE_THERE: Usually an extended index finger (pointing). It is typically stationary, but might involve a slight linear translation to indicate a path.
+        # - STOP: A defensive command to halt. It is strictly "Stationary". While often a flat, outward-facing palm, humans also use a rigid, stationary closed fist held in the air to mean "Hold" or "Stop".
+        # - SEARCH_AREA: Implies scanning. The key indicator is the motion ("Oscillating" or "Hand Rotation"). The hand might be open, OR the user might use a pointing index finger while rotating the hand to "draw" a circle in the air. 
+        # - PICK_UP: Implies grabbing or lifting. It strongly relies on dynamic motion. Look for "Bending Fingers" (closing the hand) OR an upward "Linear Translation" combined with folded fingers (mimicking lifting an object).
 
-        Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
-        """
+        # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
+        # """
+        system_prompt = (
+            "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's hand state to ONE of four specific robot intents: "
+            "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
+            "Use these guidelines to decode the human's intent:\n"
+            "1. NAVIGATE_THERE (Deictic): Usually involves pointing (Index finger straight, others folded). The hand is often stationary or swiping towards a direction.\n"
+            "2. SEARCH_AREA (Iconic/Deictic): The user wants the robot to look around. They might point and rotate their hand (scanning), or make oscillating/waving motions.\n"
+            "3. PICK_UP (Iconic): The user is mimicking grabbing. Look for 'Bending Fingers' or 'Hand Open/Close', often paired with upward motions or palm facing down.\n"
+            "4. STOP (Iconic): Usually a static gesture to halt the robot. This could be a static Fist (all fingers folded) or an Open Palm facing outward (all fingers extended) with no motion.\n\n"
+            "Do not assume 'bent fingers' always means grabbing if the Index is extended (which implies pointing). "
+            "Output a JSON with two keys: 'intent' (the exact name of the command) and 'reasoning'."
+        )
         
         try:
             response =ollama.chat(model=self.model_name, messages=[
