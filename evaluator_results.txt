@@ -1,1059 +1,723 @@
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-✅ CORRECT
+(pdm_env_py311) emilie@emilie-labpc:~/Desktop/pdm_gesture_recogition/Pdm_2026_code$ /home/emilie/Desktop/pdm_gesture_recogition/installations/Python-3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_evaluator.py
 
-Testing ID: 1778127833200
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127835312
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127835963
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127840292
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-✅ CORRECT
-
-Testing ID: 1778127842545
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Up.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
-
-Testing ID: 1778127843220
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Up.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
-
-Testing ID: 1778127844476
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Right motion.
-✅ CORRECT
-
-Testing ID: 1778127848079
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127849800
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up motion.
-✅ CORRECT
-
-Testing ID: 1778127853549
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
-
-Testing ID: 1778127854204
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-✅ CORRECT
-
-Testing ID: 1778127856238
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Left motion.
-✅ CORRECT
-
-Testing ID: 1778127858563
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Right motion.
-✅ CORRECT
-
-Testing ID: 1778127861002
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-✅ CORRECT
-
-Testing ID: 1778127862751
-Input: Here is the current state of the user's hand:
-- The Index, Middle, Ring, Pinky fingers are straight, while the Thumb fingers are bent.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Top-Right relative to the center of the view.
-- The hand moves with a Fast Linear Translation towards Down motion.
-✅ CORRECT
-
-Testing ID: 1778127863982
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Fast Linear Translation towards Up-Left motion.
-✅ CORRECT
-
-Testing ID: 1778127870340
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
-
-Testing ID: 1778127870998
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: INTERPRETATION_NEEDED
-
-Testing ID: 1778127878440
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Right motion.
-✅ CORRECT
-
-Testing ID: 1778127880443
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Top-Right relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127883581
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
-
-Testing ID: 1778127888906
+Testing ID: 1778129855143
 Input: Here is the current state of the user's hand:
 - The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle, Ring fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
-
-Testing ID: 1778127891593
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Fast Linear Translation towards Up-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127892252
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Fast Linear Translation towards Up-Right motion.
-✅ CORRECT
-
-Testing ID: 1778127894011
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Bottom-Center relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-✅ CORRECT
-
-Testing ID: 1778127896444
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The Thumb is not in contact with any other fingertips.
 - The palm orientation is facing Inward.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
 ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
 
-Testing ID: 1778127901044
+Testing ID: 1778129859845
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129864161
 Input: Here is the current state of the user's hand:
 - The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129868524
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
 ❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
 
-Testing ID: 1778127938155
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-✅ CORRECT
-
-Testing ID: 1778127941547
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127944055
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: PICK_UP, Got: INTERPRET_FURTHER_INFORMATION
-
-Testing ID: 1778127946461
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Left.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127947114
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127948988
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
-
-Testing ID: 1778127952278
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-✅ CORRECT
-
-Testing ID: 1778127954253
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: PICK_UP, Got: INTERPRETATION_NEEDED
-
-Testing ID: 1778127955755
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127956423
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127958797
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Left.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127961452
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127962984
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: PICK_UP, Got: STOP
-
-Testing ID: 1778127965050
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-✅ CORRECT
-
-Testing ID: 1778127971626
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Moderate Linear Translation towards Up motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127974334
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127976852
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-✅ CORRECT
-
-Testing ID: 1778127977532
-Input: Here is the current state of the user's hand:
-- The Thumb, Pinky fingers are straight, while the Index fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127979289
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-✅ CORRECT
-
-Testing ID: 1778127981624
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127984151
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Bottom-Center relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127986616
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Bottom-Center relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778127988761
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-❌ FAILED. Expected: PICK_UP, Got: STOP
-
-Testing ID: 1778127990581
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-✅ CORRECT
-
-Testing ID: 1778127992727
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Bottom-Center relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128000858
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
-
-Testing ID: 1778128003226
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-✅ CORRECT
-
-Testing ID: 1778128007257
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Left.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128009658
-Input: Here is the current state of the user's hand:
-- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
-
-Testing ID: 1778128011992
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-✅ CORRECT
-
-Testing ID: 1778128031727
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128032400
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128033054
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128034529
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128035200
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128035857
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128037568
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128038218
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128038895
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128040370
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128041020
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128044370
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128045024
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128046497
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128047167
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128047826
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128050669
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128053327
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128053995
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128056594
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128059630
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128060300
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128062029
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128062704
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128065037
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128066560
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128067232
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: STOP, Got: SEARCH_AREA
-
-Testing ID: 1778128070031
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Right motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128071196
-Input: Here is the current state of the user's hand:
-- All fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: STOP, Got: PICK_UP
-
-Testing ID: 1778128073838
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
-
-Testing ID: 1778128095766
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
-
-Testing ID: 1778128099317
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Left motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128103253
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Top-Center relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128103923
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Top-Center relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128109557
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
-
-Testing ID: 1778128110228
+Testing ID: 1778129872439
 Input: Here is the current state of the user's hand:
 - The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129875975
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129879189
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Middle fingertips.
 - The palm orientation is facing Inward.
 - The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
 
-Testing ID: 1778128119394
+Testing ID: 1778129884086
 Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128125187
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128129891
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128133763
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128138630
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Right motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128143265
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is currently in contact with the Index fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Top-Center relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
-
-Testing ID: 1778128150130
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Right motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128154997
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128158932
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128163059
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128168368
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
+- The Thumb, Index, Middle fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
 - The hand is positioned at Center-Right relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
 
-Testing ID: 1778128173363
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle fingers are bent.
-- The Thumb is currently in contact with the Index, Middle fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Oscillating Left & Right motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128177640
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Down.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128182334
-Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
-- The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Outward.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Bending Fingers motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
-
-Testing ID: 1778128187172
+Testing ID: 1778129888800
 Input: Here is the current state of the user's hand:
 - The Thumb, Index fingers are straight, while the Ring fingers are bent.
 - The Thumb is currently in contact with the Middle fingertips.
 - The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
 
-Testing ID: 1778128195142
+Testing ID: 1778129892646
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129903013
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129907186
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129910824
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129914158
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129918517
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129921781
 Input: Here is the current state of the user's hand:
 - All fingers are straight.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
+
+Testing ID: 1778129925893
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129932904
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
 - The Thumb is not in contact with any other fingertips.
 - The palm orientation is facing Outward.
 - The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Down-Left motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
 
-Testing ID: 1778128199468
+Testing ID: 1778129936085
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129939185
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+Testing ID: 1778129961342
 Input: Here is the current state of the user's hand:
 - All fingers are straight.
 - The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778129965530
+Input: Here is the current state of the user's hand:
+- The Index, Middle, Ring, Pinky fingers are straight, while the Thumb fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Right.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778129969143
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778129972676
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778129976551
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778129983995
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778129988795
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778129992666
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778129996205
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778130001101
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130005897
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130009789
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130014144
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130017568
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130021311
+Input: Here is the current state of the user's hand:
+- The Index, Middle, Ring, Pinky fingers are straight, while the Thumb fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Left.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778130025021
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778130028879
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778130032796
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+❌ FAILED. Expected: STOP, Got: PICK_UP
+
+Testing ID: 1778130036663
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130039899
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+✅ CORRECT
+
+Testing ID: 1778130070892
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Oscillating Left & Right motion.
+❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+
+Testing ID: 1778130073406
+Input: Here is the current state of the user's hand:
+- The Thumb, Index, Middle, Ring fingers are straight, while the Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Oscillating Left & Right motion.
+❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+
+Testing ID: 1778130076015
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+❌ FAILED. Expected: PICK_UP, Got: STOP
+
+Testing ID: 1778130077931
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+✅ CORRECT
+
+Testing ID: 1778130080381
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130083179
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+✅ CORRECT
+
+Testing ID: 1778130084782
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+
+Testing ID: 1778130090208
+Input: Here is the current state of the user's hand:
+- The Thumb, Index, Ring, Pinky fingers are straight, while the Middle fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+✅ CORRECT
+
+Testing ID: 1778130092382
+Input: Here is the current state of the user's hand:
+- The Thumb, Index, Ring, Pinky fingers are straight, while the Middle fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Left.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+✅ CORRECT
+
+Testing ID: 1778130097953
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+✅ CORRECT
+
+Testing ID: 1778130102012
+Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+✅ CORRECT
+
+Testing ID: 1778130107859
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130109583
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+❌ FAILED. Expected: PICK_UP, Got: STOP
+
+Testing ID: 1778130111999
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up-Left motion.
+❌ FAILED. Expected: PICK_UP, Got: STOP
+
+Testing ID: 1778130113949
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Ring fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+
+Testing ID: 1778130116058
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+✅ CORRECT
+
+Testing ID: 1778130118226
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up-Right motion.
+✅ CORRECT
+
+Testing ID: 1778130122458
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
 - The palm orientation is facing Down.
 - The hand is positioned at Center of vision relative to the center of the view.
 - The hand moves with a Slow Bending Fingers motion.
 ✅ CORRECT
 
-Testing ID: 1778128204184
+Testing ID: 1778130124750
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130127159
+Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+✅ CORRECT
+
+Testing ID: 1778130153362
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130158005
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130160035
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130162258
 Input: Here is the current state of the user's hand:
 - The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
 - The Thumb is currently in contact with the Middle fingertips.
-- The palm orientation is facing Inward.
+- The palm orientation is facing Outward.
 - The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Right motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
 
-Testing ID: 1778128209509
+Testing ID: 1778130164072
 Input: Here is the current state of the user's hand:
 - The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
 - The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Unknown.
-- The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Hand Rotation motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
-
-Testing ID: 1778128215941
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
 - The palm orientation is facing Outward.
 - The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Right motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
 
-Testing ID: 1778128221543
+Testing ID: 1778130166563
 Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
 - The palm orientation is facing Outward.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Left motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
-
-Testing ID: 1778128225468
-Input: Here is the current state of the user's hand:
-- All fingers are straight.
-- The Thumb is not in contact with any other fingertips.
-- The palm orientation is facing Up.
 - The hand is positioned at Center of vision relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
 
-Testing ID: 1778128229375
+Testing ID: 1778130168879
 Input: Here is the current state of the user's hand:
-- The Thumb, Index fingers are straight, while the Middle fingers are bent.
-- The Thumb is not in contact with any other fingertips.
+- The Thumb, Index fingers are straight, while the Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
 - The palm orientation is facing Down.
 - The hand is positioned at Center of vision relative to the center of the view.
 - The hand moves with a Slow Hand Rotation motion.
 ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
 
-Testing ID: 1778128237779
+Testing ID: 1778130170802
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130173823
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130175937
+Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130178962
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130181080
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: STOP
+
+Testing ID: 1778130183234
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
+
+Testing ID: 1778130184718
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130186945
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130189047
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Left.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130191764
+Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130193583
+Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: STOP
+
+Testing ID: 1778130195428
+Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+
+Testing ID: 1778130198133
 Input: Here is the current state of the user's hand:
 - All fingers are straight.
 - The Thumb is not in contact with any other fingertips.
 - The palm orientation is facing Outward.
-- The hand is positioned at Center-Left relative to the center of the view.
-- The hand moves with a Slow Linear Translation towards Up-Left motion.
-❌ FAILED. Expected: SEARCH_AREA, Got: STOP
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+✅ CORRECT
 
---- FINAL ACCURACY: 24.166666666666668% ---
+--- FINAL ACCURACY: 40.0% ---
