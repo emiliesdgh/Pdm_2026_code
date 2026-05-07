@@ -59,154 +59,69 @@ class LLMInferenceAgent:
         the system prompt is defined here to avoid re-defining it every time in the main loop, and to have a single source of truth for the system prompt.
         it gives the context to the LLM about the task and what it should do with the symbolic string that is sent from the main loop.
         """
-        # system_prompt = """
-        # You are the cognitive Intent Inference Layer for a humanoid robot. 
-        # Your task is to interpret human body language and map it to the robot's available actions.
-
-        # ROBOT CAPABILITIES (The Intent Space):
-        # 1. "PICK_UP": The robot grasps or manipulates an object.
-        # 2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
-        # 3. "SEARCH_AREA": The robot looks around to find something.
-        # 4. "STOP": The robot immediately halts all action.
-
-        # INSTRUCTIONS:
-        # Read the kinematic state of the human's hand. Do not rely on strict rules. Instead, use common sense human intuition to infer what the human wants the robot to do. 
-        # - A deictic gesture (pointing, indicating a direction) usually implies navigation or drawing attention.
-        # - An iconic gesture (mimicking an action like grabbing, pushing, or waving) usually implies manipulation or searching.
-        # - A flat, outward-facing palm is a universal human sign for halting or rejection.
-
-        # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
-        # """
-                                                                # reasoning to debeug why the LLM made such predictions, to notice the understanding of the LLM
         
-        # system_prompt = """
-        # You are the cognitive Intent Inference Layer for a humanoid robot. 
-        # Your task is to interpret the kinematic state of a human's hand and map it to the robot's available actions.
-
-        # ROBOT CAPABILITIES (The Intent Space):
-        # 1. "PICK_UP": The robot grasps or manipulates an object.
-        # 2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
-        # 3. "SEARCH_AREA": The robot looks around to find something.
-        # 4. "STOP": The robot immediately halts all action.
-
-        # KINEMATIC TRANSLATION GUIDE:
-        # The hand tracking system uses technical terms. Use this guide to understand them:
-        # - "Oscillating Left & Right" or "Hand Rotation" -> Usually represents a Waving or Sweeping motion.
-        # - "Linear Translation" -> The hand is moving in a line (Swiping or Reaching).
-        # - "Bending Fingers" -> The hand is actively opening or closing.
-        # - "Stationary" (or "Slow" movements) -> The hand is mostly holding a pose.
-
-        # REASONING INSTRUCTIONS:
-        # Use common sense to infer intent based on the finger state and motion.
-        # - A pointing index finger, even with slight "Linear Translation", implies indicating a direction (NAVIGATE_THERE).
-        # - An open, flat palm (all fingers straight), especially if mostly stationary, is a universal sign for halting (STOP).
-        # - A waving motion ("Oscillating" or "Hand Rotation"), even if some fingers are bent, usually implies wanting the robot to look around (SEARCH_AREA).
-        # - A fist (fingers bent) or a "Bending Fingers" motion implies grasping or manipulating an object (PICK_UP).
-
-        # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
-        # """
-
-        # system_prompt = """
-        # You are the cognitive Intent Inference Layer for a humanoid robot. 
-        # Your task is to interpret the kinematic state of a human's hand and map it to the robot's available actions.
-
-        # ROBOT CAPABILITIES (The Intent Space):
-        # 1. "PICK_UP": The robot grasps, lifts, or manipulates an object.
-        # 2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
-        # 3. "SEARCH_AREA": The robot looks around or scans the environment.
-        # 4. "STOP": The robot immediately halts all action.
-
-        # KINEMATIC TRANSLATION GUIDE:
-        # - "Oscillating Left & Right" or "Hand Rotation" -> Waving, sweeping, scanning, or drawing a circle.
-        # - "Linear Translation" -> Reaching, swiping, or pulling in a specific direction.
-        # - "Bending Fingers" -> The active motion of grabbing, closing the hand, or squeezing.
-        # - "Stationary" -> Holding a rigid pose or commanding a halt.
-
-        # REASONING INSTRUCTIONS (Accommodating Human Variation):
-        # Humans express intents differently. Use these principles to guide your reasoning:
-        # - NAVIGATE_THERE: Usually an extended index finger (pointing). It is typically stationary, but might involve a slight linear translation to indicate a path.
-        # - STOP: A defensive command to halt. It is strictly "Stationary". While often a flat, outward-facing palm, humans also use a rigid, stationary closed fist held in the air to mean "Hold" or "Stop".
-        # - SEARCH_AREA: Implies scanning. The key indicator is the motion ("Oscillating" or "Hand Rotation"). The hand might be open, OR the user might use a pointing index finger while rotating the hand to "draw" a circle in the air. 
-        # - PICK_UP: Implies grabbing or lifting. It strongly relies on dynamic motion. Look for "Bending Fingers" (closing the hand) OR an upward "Linear Translation" combined with folded fingers (mimicking lifting an object).
-
-        # Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
-        # """
+        # # 75.3% accuracy with the system_prompt below
         # system_prompt = (
-        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's hand state to ONE of four specific robot skills and understanding the user's intent: "
+        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's kinematic hand state to ONE of four intents: "
         #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
-
-        #     "These are some guidelines to decode the human's intent based on their hand state:\n"
-
-        #     "1. NAVIGATE_THERE (Deictic): Most ofthen involves pointing (i.e., Index finger extended, others folded, the thumb might be extended as well, but having middle, ring and pinky folded in contrast to the index extended is the important thing to note).The index must be extended for pointing otherwise it is not pointing. The hand is more often stationary or swiping towards a direction.\n"
-
-        #     "2. SEARCH_AREA (Iconic/Deictic): The user wants the robot to look around. They might point and rotate their hand (scanning), or have all fingers mostly extended and making a swiping motion in the scene, or make oscillating/waving motions. They most likely will have their hand facing downwards and they most likely won't have all fingers bent in a fist.\n"
             
-        #     "3. PICK_UP (Iconic): The user is mimicking grabbing. Look for 'Bending Fingers', 'Hand Open/Close', or all finger tips touching the thumb tip, often paired with upward motions or palm facing down.\n"
-            
-        #     "4. STOP (Iconic): Usually a static/ stationnary gesture to halt the robot. This could be a static Fist (all fingers folded or fingers folded with an extended thumb) or an Open Palm facing mostly outward (all fingers extended) with no motion. If the hand has a motion other than stationary, it it probably NOT a stop gesutre.\n\n"
-            
-        #     "Do not assume 'bent fingers' always means grabbing, especially if the Index is extended (which implies pointing). "
+        #     "STEP 1: IDENTIFY THE HAND POSE\n"
+        #     "- Pointing Pose: Index finger is straight, while Middle, Ring, and Pinky are bent. (CRITICAL: In this pose, ignore what the Thumb is doing or touching. Thumb contact is natural when pointing and does NOT mean grabbing).\n"
+        #     "- Fist Pose: All fingers are bent.\n"
+        #     "- Open Palm Pose: All fingers are straight.\n\n"
 
-        #     "If all fingers are bent, none can be extended. If only the Index (and possibly the Thumb), but the other fingers (Middle, Ring and Pinky) are bent, the user is most likely pointing. If the Index is NOT extended, the user is most likely NOT pointing."
+        #     "STEP 2: MAP POSE + MOTION TO INTENT (STRICT RULES)\n"
+        #     "Use these exact rules to determine the intent:\n\n"
+            
+        #     "Rule for NAVIGATE_THERE:\n"
+        #     "- If the hand is in a Pointing Pose AND is mostly Stationary, the intent is NAVIGATE_THERE.\n"
+        #     "- If the hand is in an Open Palm Pose AND the palm is facing Down AND is Stationary, the intent is NAVIGATE_THERE (indicating a flat path).\n\n"
 
-        #     "Output a JSON with two keys: 'intent' (the exact name of the command) and 'reasoning'."
+        #     "Rule for SEARCH_AREA:\n"
+        #     "- If the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is ALMOST ALWAYS SEARCH_AREA. This applies whether the hand is in an Open Palm Pose or a Pointing Pose (e.g., pointing around the room).\n\n"
+
+        #     "Rule for PICK_UP:\n"
+        #     "- If the motion is 'Bending Fingers' or 'Hand Open/Close', the intent is PICK_UP (active grabbing).\n"
+        #     "- If the hand is in a Fist Pose AND has a Linear Translation motion (e.g., Up, Down, Left, Right), the intent is PICK_UP (moving a grabbed object).\n"
+        #     "- If the hand is NOT Pointing, and the Thumb is in contact with multiple fingertips, it is a pinch/grab, meaning PICK_UP.\n\n"
+
+        #     "Rule for STOP:\n"
+        #     "- If the hand is in a Fist Pose AND is strictly 'Stationary', the intent is STOP.\n"
+        #     "- If the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward or Outward, the intent is STOP.\n\n"
+
+        #     "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of how you applied the rules above). Do not output any markdown formatting or extra text outside the JSON."
         # )
 
-        # system_prompt = (
-        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's hand state to ONE of four specific robot skills and understanding the user's intent: " \
-        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n" 
-            
-        #     "These are some guidelines to decode the human's intent based on their hand state:\n" 
-
-        #     "1. NAVIGATE_THERE (Diectic): Stationary mostion. Most often involves pointing (extended Index, Middle, Ring and Pinky bent). The hand is more often stationary. The Thumb state (bent or extended) might vary with the user. \n"
-            
-        #     "2. SEARCH_AREA (Iconic/Deictic): The user wants the robot to look around. They might perform a sweeping motion with an open hand (all fingers extended) or a pointing hand (Index extended) while rotating the hand back and forth or around, making wrist rotations in the plane (oscillating motion). They most likely will have their hand facing downwards and they most likely won't have all fingers bent in a fist because they might not make a sweeping motion in a fist.\n"
-
-        #     "3. PICK_UP (Iconic): The user is mimicking grabbing. Look for 'Bending Fingers', 'Hand Open/Close', or all finger tips touching the thumb tip, often paired with translation motions (usually up/down but can be slightly diagonal) or palm facing down. Look for the pinching motion of bending extended fingers or bringing all finger tips to the Thumb.\n"
-
-        #     "4. STOP (Iconic): Usually a stationary gesture to halt the robot. Some users might do a static Fist (all fingers folded or fingers folded with an extended thumb) while others might do an Open Palm facing mostly outward (all fingers extended) with no motion. If the hand has a motion other than stationary, it is probably NOT a stop gesture. The stationary is an important indicator.\n\n"
-
-        #     "Here are some other indicators to help you decode the intent:\n"
-            
-        #     "- If, out of the four fingers (Index, Middle, Ring, Pinky), only the Index is extended while the others are bent, the user is most likely pointing. The Thumb might be bent or extended depending on the user. If the Index is NOT extended, the user is most likely NOT pointing. The extended Index is a key indicator.\n"
-             
-        #     "- If all finger are bent, none can be extended.\n"
-            
-        #     "- Do not assume 'bent fingers' always means grabbing, especially if the Index is extended (which most probablyimplies pointing). \n\n"
-
-            
-
-        #     "Output a JSON with two keys: 'intent' (the exact name of the command) and 'reasoning'."
-        # )
+        # XX% accuracy with the system_promt below
         system_prompt = (
             "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's kinematic hand state to ONE of four intents: "
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
             
             "STEP 1: IDENTIFY THE HAND POSE\n"
-            "- Pointing Pose: Index finger is straight, while Middle, Ring, and Pinky are bent. (CRITICAL: In this pose, ignore what the Thumb is doing or touching. Thumb contact is natural when pointing and does NOT mean grabbing).\n"
-            "- Fist Pose: All fingers are bent.\n"
-            "- Open Palm Pose: All fingers are straight.\n\n"
+            "- Pointing Pose: The Index finger is straight. (The Thumb can be straight or bent. Other fingers might be bent or missing from the data. CRITICAL: If the Index is straight, it is Pointing).\n"
+            "- Open Palm Pose: All fingers are straight.\n"
+            "- Fist Pose: The Index, Middle, Ring, and Pinky fingers are bent.\n\n"
 
-            "STEP 2: MAP POSE + MOTION TO INTENT (STRICT RULES)\n"
-            "Use these exact rules to determine the intent:\n\n"
+            "STEP 2: APPLY RULES IN STRICT ORDER (Stop at the first match)\n\n"
             
-            "Rule for NAVIGATE_THERE:\n"
-            "- If the hand is in a Pointing Pose AND is mostly Stationary, the intent is NAVIGATE_THERE.\n"
-            "- If the hand is in an Open Palm Pose AND the palm is facing Down AND is Stationary, the intent is NAVIGATE_THERE (indicating a flat path).\n\n"
+            "Rule 1 - SEARCH_AREA (Motion Overrides):\n"
+            "- IF the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is SEARCH_AREA.\n"
+            "- IF the hand is in an Open Palm Pose AND has a 'Linear Translation' motion, it is a sweeping gesture, so the intent is SEARCH_AREA.\n\n"
 
-            "Rule for SEARCH_AREA:\n"
-            "- If the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is ALMOST ALWAYS SEARCH_AREA. This applies whether the hand is in an Open Palm Pose or a Pointing Pose (e.g., pointing around the room).\n\n"
+            "Rule 2 - NAVIGATE_THERE (Pointing):\n"
+            "- IF the hand is in a Pointing Pose, the intent is ALWAYS NAVIGATE_THERE. (CRITICAL: If it is Pointing, ignore any thumb contact, and ignore 'Slow Bending Fingers' motion as it is just camera jitter).\n"
+            "- IF the hand is in an Open Palm Pose AND is facing Down AND is Stationary, the intent is NAVIGATE_THERE.\n\n"
 
-            "Rule for PICK_UP:\n"
-            "- If the motion is 'Bending Fingers' or 'Hand Open/Close', the intent is PICK_UP (active grabbing).\n"
-            "- If the hand is in a Fist Pose AND has a Linear Translation motion (e.g., Up, Down, Left, Right), the intent is PICK_UP (moving a grabbed object).\n"
-            "- If the hand is NOT Pointing, and the Thumb is in contact with multiple fingertips, it is a pinch/grab, meaning PICK_UP.\n\n"
+            "Rule 3 - STOP (Stationary Halts):\n"
+            "- IF the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward, Outward, or Unknown, the intent is STOP.\n"
+            "- IF the hand is in a Fist Pose AND is strictly 'Stationary', the intent is STOP.\n\n"
 
-            "Rule for STOP:\n"
-            "- If the hand is in a Fist Pose AND is strictly 'Stationary', the intent is STOP.\n"
-            "- If the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward or Outward, the intent is STOP.\n\n"
+            "Rule 4 - PICK_UP (Grabbing/Lifting):\n"
+            "- IF the motion is 'Bending Fingers' (and it is NOT Pointing), the intent is PICK_UP.\n"
+            "- IF the hand is in a Fist Pose AND has a 'Linear Translation' motion (moving a grabbed object), the intent is PICK_UP.\n"
+            "- IF the Thumb is in contact with multiple fingertips (and it is NOT Pointing), the intent is PICK_UP.\n\n"
 
-            "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of how you applied the rules above). Do not output any markdown formatting or extra text outside the JSON."
+            "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of which Step 2 Rule you applied). Do not output any markdown formatting."
         )
         
         try:
