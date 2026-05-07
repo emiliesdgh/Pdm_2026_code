@@ -191,7 +191,7 @@ class LLMInferenceAgent:
             "Use these exact rules to determine the intent:\n\n"
             
             "Rule for NAVIGATE_THERE:\n"
-            "- If the hand is in a Pointing Pose AND is mostly Stationary or has a Linear Translation, the intent is NAVIGATE_THERE.\n"
+            "- If the hand is in a Pointing Pose AND is mostly Stationary, the intent is NAVIGATE_THERE.\n"
             "- If the hand is in an Open Palm Pose AND the palm is facing Down AND is Stationary, the intent is NAVIGATE_THERE (indicating a flat path).\n\n"
 
             "Rule for SEARCH_AREA:\n"
