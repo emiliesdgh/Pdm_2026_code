@@ -136,11 +136,11 @@ class TemporalGestureManager:
         # -- 1. Wave Detection (Oscillation) --
         # If the direction flips back and forth 2 or more times, it's a wave
         if flips_x >= 2 or flips_y >= 2:
-            return f"{speed_str} Waving"
+            return f"{speed_str} Oscillating Left & Right"
 
         # -- 2. Articulation --
         if finger_change >= 4:
-            return f"{speed_str} Hand Open/Close"
+            return f"{speed_str} All fingers rapidly bending towards the palm"
         if finger_change >= 1 and finger_change < 4:
             return f"{speed_str} Bending Fingers"
         
@@ -176,6 +176,6 @@ class TemporalGestureManager:
             elif dir_str.endswith("Right"):
                 dir_str = dir_str.replace("Right", "Left")
             
-            return f"{speed_str} Swipe {dir_str}"
+            return f"{speed_str} Linear Translation towards {dir_str}"
             
         return f"{speed_str} Unknown Motion"

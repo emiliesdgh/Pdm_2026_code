@@ -53,54 +53,25 @@ class LLMInferenceAgent:
         the system prompt is defined here to avoid re-defining it every time in the main loop, and to have a single source of truth for the system prompt.
         it gives the context to the LLM about the task and what it should do with the symbolic string that is sent from the main loop.
         """
-        # system_prompt = (
-        #     "You are a helpful assistant for recognizing hand gestures based on the hand state information provided. "
-        #     "The user will perform a hand gesture, and you will receive a detailed description of the hand's state, including finger positions, contacts, orientation, and motion. "
-        #     "Based on this information, your task is to infer the most likely gesture being performed by the user. "
-        #     "You should consider common gestures such as 'Thumbs Up', 'Peace Sign', 'Fist', 'Open Hand', 'Pointing', etc., but also be open to less common gestures based on the provided hand state. "
-        #     "Your response should be concise and focused on identifying the gesture."
-        # )
-
-        # 1. Aggressive System Prompt
-        # system_prompt = (
-        #     "You are a gesture recognition classifier. Read the hand state and output ONLY the name of the gesture. "
-        #     "Do NOT write full sentences. Do NOT explain your reasoning. "
-        #     "Example outputs: 'Thumbs Up', 'Waving', 'Fist', 'Open Hand', 'Pointing', 'Swipe Left', 'Unknown'."
-        # )
-
-        # system_prompt = (
-        #     "System: You are an HRI Intent Interpreter for a humanoid robot."
-        #     "Context: The robot is in a lab. There are boxes on a table."
-        #     f"User Input: {symbolic_str}"
-
-        #     "Task: Infer the user's intent. Here are some examples of intents you might infer based on the user's hand gesture: "
-        #     " - If they mimic a 'grasp' (all fingers closing), intent is \"PICK_UP\"."
-        #     " - If they point, intent is \"NAVIGATE\" to that coordinate."
-        #     " - If they move their hand in a circle, intent is \"SEARCH_AREA\"."
-
-        #     "Return JSON: {\"intent\": string, \"spatial_hint\": [x, y] or null, \"confidence\": 0.0-1.0}"
-        # )
-
         system_prompt = """
-            You are an HRI Intent Interpreter for a humanoid robot.
-            Your job is to read the state of a human's hand and output their intent in strict JSON format.
+        You are the cognitive Intent Inference Layer for a humanoid robot. 
+        Your task is to interpret human body language and map it to the robot's available actions.
 
-            RULES:
-            1. If the hand is mimicking a grasp (fingers bent/closed), intent is "PICK_UP".
-            2. If the index finger is straight and others are bent, intent is "NAVIGATE_THERE".
-            3. If the hand is moving in a circular or waving motion, intent is "SEARCH_AREA".
-            4. If the hand is flat (all fingers straight) and palm facing the camera (Outward), intent is "STOP".
+        ROBOT CAPABILITIES (The Intent Space):
+        1. "PICK_UP": The robot grasps or manipulates an object.
+        2. "NAVIGATE_THERE": The robot walks to a specific location or direction.
+        3. "SEARCH_AREA": The robot looks around to find something.
+        4. "STOP": The robot immediately halts all action.
 
-            EXAMPLES:
-            User: "Here is the current state... All fingers are bent. Palm is facing Down. Hand moves with a Slow swipe."
-            You: {"intent": "PICK_UP", "spatial_hint": null, "confidence": 0.9}
+        INSTRUCTIONS:
+        Read the kinematic state of the human's hand. Do not rely on strict rules. Instead, use common sense human intuition to infer what the human wants the robot to do. 
+        - A deictic gesture (pointing, indicating a direction) usually implies navigation or drawing attention.
+        - An iconic gesture (mimicking an action like grabbing, pushing, or waving) usually implies manipulation or searching.
+        - A flat, outward-facing palm is a universal human sign for halting or rejection.
 
-            User: "Here is the current state... The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent. Palm is facing Inward."
-            You: {"intent": "NAVIGATE_THERE", "spatial_hint": "forward", "confidence": 0.95}
-
-            Return ONLY valid JSON.
-            """
-
+        Respond ONLY with a JSON object: {"intent": string, "reasoning": string}
+        """
+                                                                # reasoning to debeug why the LLM made such predictions, to notice the understanding of the LLM
         try:
             response =ollama.chat(model=self.model_name, messages=[
                 {'role': 'system', 'content': system_prompt},

@@ -13,7 +13,7 @@ from ig_global_variables import GlobalVariables
 # ==========================================
 # 1. SET THIS BEFORE YOU RUN THE SCRIPT
 # Change this based on the gesture you are testing
-# (e.g., "NAVIGATE", "PICK_UP", "STOP", "SEARCH_AREA")
+# (e.g., "NAVIGATE_THERE", "PICK_UP", "STOP", "SEARCH_AREA")
 # ==========================================
 GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
 
@@ -88,7 +88,7 @@ def record_dataset():
                         last_significant_motion = "Stationary"
 
                     # Get the string you want the LLM to see
-                    prompt = get_symbolic_string_2(global_vars, finger_flexion, finger_contact, hand_orient, motion_detected, motion_type, pos_text)
+                    prompt = get_symbolic_string_2(global_vars, finger_flexion, finger_contact, hand_orient, motion_detected, last_significant_motion, pos_text)
 
                     # # --- THE AUTO-RECORD LOGIC ---
                     # if motion_detected:
@@ -101,7 +101,7 @@ def record_dataset():
                     # --- THE AUTO-RECORD LOGIC ---
                     if motion_detected:
                         static_frame_count = 0
-                        feedback_text = f"Moving: {motion_type}" # Shows what the system is seeing
+                        feedback_text = f"Moving: {last_significant_motion}" # Shows what the system is seeing
                     else:
                         static_frame_count += 1
                         feedback_text = f"Holding still... {static_frame_count}/{HOLD_THRESHOLD}"
