@@ -146,16 +146,19 @@ class LLMInferenceAgent:
                 
                 print(f"\n[NEW INTENT DECODED]: {self.current_intent}")
                 print(f"[REASONING]: {self.current_reasoning}\n")
-                # return prediction_json
+                return prediction_json
+            
             except json.JSONDecodeError:
                 print(f"❌ JSON Parse Error. Raw Output: {response_text}")
                 # return {"intent": "UNKNOWN"}
                 self.current_intent = "UNKNOWN"
+                return {"intent": "UNKNOWN", "reasoning": "Failed to parse LLM response."}
 
         except Exception as e:
             print(f"❌ Ollama Error: {e}")
             # return {"intent": "UNKNOWN"}
             self.current_intent = "UNKNOWN"
+            return {"intent": "UNKNOWN", "reasoning": f"Ollama Error: {e}"}
         finally:
             self.is_inferencing = False
         
