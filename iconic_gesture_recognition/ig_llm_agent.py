@@ -80,8 +80,8 @@ class LLMInferenceAgent:
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
             
             "STEP 1: IDENTIFY THE HAND POSE\n"
-            "- Pointing Pose: Index finger is straight, while Middle, Ring, and Pinky are bent. (CRITICAL: In this pose, ignore what the Thumb is doing or touching. Thumb contact is natural when pointing and does NOT mean grabbing).\n"
-            "- Fist Pose: All fingers are bent or Index, Middle, Ring and Pinky are bent (the Thumb might be extended).\n"
+            "- Pointing Pose: Index finger is straight, while Middle, Ring, and Pinky are bent. (CRITICAL: In this pose, IGNORE what the Thumb is doing or touching (the Thumb could be straight or bent). Thumb contact, especially only to the Middle fingertip, is natural when pointing and does NOT mean grabbing).\n"
+            "- Fist Pose: All fingers (especially Index, Middle, Ring, Pinky) are bent, the Thumb might be extended. \n"# or Index, Middle, Ring and Pinky are bent (the Thumb might be extended).\n"
             "- Open Palm Pose: All fingers are straight.\n\n"
 
             "STEP 2: MAP MOTION + POSE TO INTENT (STRICT RULES)\n"
@@ -89,18 +89,21 @@ class LLMInferenceAgent:
             
             "Rule for NAVIGATE_THERE:\n"
             "- If the hand is Stationary AND in a Pointing Pose, the intent is NAVIGATE_THERE.\n"
+            "- If the hand is in a Pointing Pose and has a 'Slow...' motion (e.g. 'Slow Bending Fingers'), ignore the motion and consider it as NAVIGATE_THERE, because it is likely just camera jitter while pointing.\n\n"
 
             "Rule for SEARCH_AREA:\n"
-            "- If the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is ALMOST ALWAYS SEARCH_AREA. This applies whether the hand is in an Open Palm Pose or a Pointing Pose (e.g., pointing around the room).\n\n"
+            "- If the motion is 'Oscillating Left & Right' OR 'Hand Rotation', the intent is ALMOST ALWAYS SEARCH_AREA. This applies whether the hand is in an Open Palm Pose or a Pointing Pose (e.g., pointing around the room), but NOT in a Fist Pose.\n\n"
 
             "Rule for PICK_UP:\n"
+            "- If the motion is different from 'Stationary' AND the hand pose is different from 'Open Palm' AND the rules below apply, the intent is PICK_UP. \n" #(Motion can override pose for PICK_UP, but not for NAVIGATE_THERE. For example, if the hand is Pointing but has a 'Bending Fingers' motion, it is likely a quick grab while pointing, so PICK_UP overrides NAVIGATE_THERE in this case.)
             "- If the motion is 'Bending Fingers' or 'Hand Open/Close', the intent is PICK_UP (active grabbing).\n"
+            "- If the hand is in a Fist pose AND the motion is different from 'Stationary'.\n"
             "- If the hand is in a Fist Pose AND has a Linear Translation motion (e.g., Up, Down, Left, Right), the intent is PICK_UP (moving a grabbed object).\n"
-            "- If the hand is NOT Pointing, and the Thumb is in contact with multiple fingertips, it is a pinch/grab, meaning PICK_UP.\n\n"
+            "- If the hand is NOT Pointing, and the Thumb is in contact with MULTIPLE fingertips, it is a pinch/grab, meaning PICK_UP.\n\n"
 
             "Rule for STOP:\n"
             "- If the hand is Stationary AND in a Fist Pose, the intent is STOP.\n"
-            "- If the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is facing Inward or Outward, the intent is STOP.\n\n"
+            "- If the hand is in an Open Palm Pose AND is strictly 'Stationary' AND the palm is strictly facing Inward or Outward, the intent is STOP.\n\n"
 
             "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of how you applied the rules above). Do not output any markdown formatting or extra text outside the JSON."
         )
