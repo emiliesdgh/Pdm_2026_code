@@ -11,7 +11,7 @@ class LLMInferenceAgent:
     # ==> in this case, use Mistral
     # before using, run in terminal: ollama pull mixtral
     # --> this allows to download the model
-    # def __init__(self, model_name="mixtral"):
+    # def __init__(self, model_name="mixtral"): # too slow and not necessarily better
 
     # to use if mixtral, is too heavy & makes the video feed lag or crash the script
     # if using Mistral instead, make sure to run 'ollama pull mistral' in the terminal first to download the model

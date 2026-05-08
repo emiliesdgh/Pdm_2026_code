@@ -6,6 +6,7 @@ from ig_logger import setup_logger
 
 def evaluate_llm():
     agent = LLMInferenceAgent(model_name="mistral")
+    # agent = LLMInferenceAgent(model_name="mixtral")   # too slow and not necessarily better
     
     with open("gesture_dataset.json", "r") as f:
         dataset = json.load(f)
@@ -44,6 +45,6 @@ def evaluate_llm():
     
 
 if __name__ == "__main__":
-    logger = setup_logger("gesture_log_evaluator.txt")
+    logger = setup_logger("gesture_log_evaluatorMixtral.txt")
 
     evaluate_llm()
