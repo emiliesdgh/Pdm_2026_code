@@ -108,6 +108,38 @@ class LLMInferenceAgent:
         #     "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (a brief explanation of how you applied the rules above). Do not output any markdown formatting or extra text outside the JSON."
         # )
 
+        # # 46.9% accuracy with the system prompt below
+        # system_prompt = (
+        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to interpret a user's free-form hand gesture and map it to ONE of four intents: "
+        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
+            
+        #     "To understand the user's intent, analyze the physical metaphor of their hand pose and motion:\n\n"
+
+        #     "1. NAVIGATE_THERE (Metaphor: Directing or Pathing)\n"
+        #     "- Look for the Index finger being straight (Pointing). If the user is pointing, they are directing the robot. Ignore what the thumb is doing.\n"
+        #     "- Alternatively, look for a flat Open Palm (all fingers straight) facing Down and held Stationary, representing a flat path.\n\n"
+
+        #     "2. SEARCH_AREA (Metaphor: Scanning or Exploring)\n"
+        #     "- The defining feature of searching is the motion. Look for 'Oscillating Left & Right', 'Hand Rotation', or a sweeping 'Linear Translation' with an Open Palm.\n"
+        #     "- This motion overrides most hand poses, as users scan the room differently.\n\n"
+
+        #     "3. PICK_UP (Metaphor: Grabbing, Pinching, or Lifting)\n"
+        #     "- Look for 'Bending Fingers' or 'Hand Open/Close' (the act of grasping).\n"
+        #     "- Look at Thumb Contact: If the Thumb is in contact with exactly one 'fingertip' (singular), it is a precise pinch. If it is in contact with multiple 'fingertips' (plural), it is a full grab. Both mean PICK_UP.\n"
+        #     "- Look for a Fist (all fingers bent) moving with a 'Linear Translation' (mimicking carrying an object).\n\n"
+
+        #     "4. STOP (Metaphor: Blocking or Halting)\n"
+        #     "- Look for rigid, Stationary poses intended to halt action.\n"
+        #     "- This is usually an Open Palm facing Outward/Inward (like a stop sign), or a tight, Stationary Fist.\n\n"
+
+        #     "STEP-BY-STEP REASONING REQUIRED:\n"
+        #     "1. What is the physical shape of the hand (Pointing, Flat, Fist, Pinching)?\n"
+        #     "2. What is the motion doing (Scanning, Lifting, Halting)?\n"
+        #     "3. Which of the 4 metaphors does this combination best fit?\n\n"
+
+        #     "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (your step-by-step logic). Do not output markdown formatting."
+        # )
+
         # XX% accuracy with the system prompt below
         system_prompt = (
             "You are the visual reasoning cortex for an autonomous robot. Your task is to interpret a user's free-form hand gesture and map it to ONE of four intents: "
@@ -115,18 +147,27 @@ class LLMInferenceAgent:
             
             "To understand the user's intent, analyze the physical metaphor of their hand pose and motion:\n\n"
 
-            "1. NAVIGATE_THERE (Metaphor: Directing or Pathing)\n"
-            "- Look for the Index finger being straight (Pointing). If the user is pointing, they are directing the robot. Ignore what the thumb is doing.\n"
-            "- Alternatively, look for a flat Open Palm (all fingers straight) facing Down and held Stationary, representing a flat path.\n\n"
+            "STEP 1: IDENTIFY THE HAND POSE\n"
+            "- Pointing Pose: Index finger is straight, while Middle, Ring, and Pinky are bent. (CRITICAL: In this pose, if all four fingers are bent, ignore what the Thumb is doing or touching. Thumb contact to other fingertips is possible and is natural when pointing).\n"
+            "- Fist Pose: All fingers are bent or Index, Middle, Ring, and Pinky are bent (the Thumb might be straight or bent).\n"
+            "- Open Palm Pose: All fingers are straight.\n\n"
 
-            "2. SEARCH_AREA (Metaphor: Scanning or Exploring)\n"
-            "- The defining feature of searching is the motion. Look for 'Oscillating Left & Right', 'Hand Rotation', or a sweeping 'Linear Translation' with an Open Palm.\n"
+            # "STEP 2: IDENTIFY THE MOTION TO INTENT (STRICT RULES)\n"
+            # "- Stationary: \n"
+
+            "1. NAVIGATE_THERE (Metaphor: Directing or Pointing or Indicating a Direction)\n"
+            "- Look for the Index finger being straight (Pointing Pose). If the user is pointing, they are directing the robot.\n"
+            "- The Motion is Stationary. Ignore what the thumb is doing.\n\n"
+            # "- Alternatively, look for a flat Open Palm (all fingers straight) facing Down and held Stationary, representing a flat path.\n\n"
+
+            "2. SEARCH_AREA (Metaphor: Scanning or Exploring or looking around)\n"
+            "- The defining feature of searching is the motion. Look for 'Oscillating Left & Right', 'Hand Rotation', or a sweeping 'Linear Translation' with an Open Palm or with a Pointing Pose.\n"
             "- This motion overrides most hand poses, as users scan the room differently.\n\n"
 
             "3. PICK_UP (Metaphor: Grabbing, Pinching, or Lifting)\n"
-            "- Look for 'Bending Fingers' or 'Hand Open/Close' (the act of grasping).\n"
-            "- Look at Thumb Contact: If the Thumb is in contact with exactly one 'fingertip' (singular), it is a precise pinch. If it is in contact with multiple 'fingertips' (plural), it is a full grab. Both mean PICK_UP.\n"
-            "- Look for a Fist (all fingers bent) moving with a 'Linear Translation' (mimicking carrying an object).\n\n"
+            "- Look for 'Bending Fingers' or 'Hand Open/Close' (the act of grasping, the gesture is in motion).\n"
+            "- Look at Thumb Contact: If the Thumb is in contact with several 'fingertips' (plural), it is a pinch, meaning PICK_UP.\n"
+            "- Look for a Fist Pose moving with a 'Linear Translation' (mimicking carrying an object, or grabbing from down to up).\n\n"
 
             "4. STOP (Metaphor: Blocking or Halting)\n"
             "- Look for rigid, Stationary poses intended to halt action.\n"
@@ -134,7 +175,7 @@ class LLMInferenceAgent:
 
             "STEP-BY-STEP REASONING REQUIRED:\n"
             "1. What is the physical shape of the hand (Pointing, Flat, Fist, Pinching)?\n"
-            "2. What is the motion doing (Scanning, Lifting, Halting)?\n"
+            "2. What is the motion doing (Scanning, Grabbing, Lifting, Halting, Stationary)?\n"
             "3. Which of the 4 metaphors does this combination best fit?\n\n"
 
             "Output ONLY a valid JSON object with exactly two keys: 'intent' (one of the 4 commands) and 'reasoning' (your step-by-step logic). Do not output markdown formatting."
