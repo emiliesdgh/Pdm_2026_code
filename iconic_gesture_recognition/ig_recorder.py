@@ -102,9 +102,20 @@ def record_dataset():
                         is_grabbing = "Closing" in articulation or "Pinching" in articulation
                         
                         if is_grabbing:
+                            # data_point = {
+                            #     "id": int(time.time() * 1000),
+                            #     "ground_truth": GROUND_TRUTH_INTENT,
+                            #     "symbolic_string": prompt
+                            # }
                             data_point = {
                                 "id": int(time.time() * 1000),
                                 "ground_truth": GROUND_TRUTH_INTENT,
+                                "raw_data": {
+                                    "flexion": finger_flexion,
+                                    "contact": finger_contact,
+                                    "spatial": spatial_motion,
+                                    "articulation": articulation
+                                },
                                 "symbolic_string": prompt
                             }
                             gesture_dataset.append(data_point)
@@ -157,6 +168,12 @@ def record_dataset():
                     data_point = {
                         "id": int(time.time() * 1000),
                         "ground_truth": GROUND_TRUTH_INTENT,
+                        "raw_data": {
+                            "flexion": finger_flexion,
+                            "contact": finger_contact,
+                            "spatial": spatial_motion,
+                            "articulation": articulation
+                        },
                         "symbolic_string": prompt
                     }
                     gesture_dataset.append(data_point)
