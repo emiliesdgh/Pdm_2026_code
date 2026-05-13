@@ -15,8 +15,8 @@ from ig_global_variables import GlobalVariables
 # (e.g., "NAVIGATE_THERE", "PICK_UP", "STOP", "SEARCH_AREA")
 # ==========================================
 # GROUND_TRUTH_INTENT = "NAVIGATE_THERE"  # Change this to the intent you want to record for
-# GROUND_TRUTH_INTENT = "PICK_UP"  # Change this to the intent you want to record for
 # GROUND_TRUTH_INTENT = "STOP"  # Change this to the intent you want to record for
+# GROUND_TRUTH_INTENT = "PICK_UP"  # Change this to the intent you want to record for
 GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
 
 DATASET_FILE = "gesture_dataset_good.json"
@@ -46,6 +46,11 @@ def record_dataset():
     feedback_text = "Press SPACEBAR to record"
     feedback_timer = 0
 
+    # --- NEW: Armed State Variable ---
+    recording_armed = False
+    feedback_text = "Press SPACE to Arm or Record"
+    feedback_timer = 0
+
     with mp_hands.Hands(model_complexity=0, max_num_hands=1, min_detection_confidence=0.5, min_tracking_confidence=0.5) as hands:
         while cap.isOpened():
             success, frame = cap.read()
@@ -54,6 +59,10 @@ def record_dataset():
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             results = hands.process(frame_rgb)
             prompt = ""  # Default empty prompt
+            spatial_motion = "Waiting for hand..."
+            articulation = "Waiting for hand..."
+
+            articulation_text = "None"
 
             if results.multi_hand_landmarks:
                 for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
@@ -68,8 +77,9 @@ def record_dataset():
                     hand_pos, pos_text = handStates.hand_position() 
                     finger_contact = handStates.get_finger_contact_state()
 
-                    motion_detected, spatial_motion, articulation = temporal_manager.update(hand_landmarks, finger_flexion, hand_orient, hand_pos)
-                    
+                    motion_detected, spatial_motion, articulation = temporal_manager.update(hand_landmarks, finger_flexion, finger_contact, hand_orient, hand_pos)
+                    articulation_text = articulation
+
                     # --- MEMORY LOGIC ---
                     if motion_detected:
                         frames_since_motion = 0
@@ -87,8 +97,27 @@ def record_dataset():
 
                     mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
+                    # --- THE SMART ARMED RECORDER ---
+                    if recording_armed and GROUND_TRUTH_INTENT == "PICK_UP" and prompt != "":
+                        is_grabbing = "Closing" in articulation or "Pinching" in articulation
+                        
+                        if is_grabbing:
+                            data_point = {
+                                "id": int(time.time() * 1000),
+                                "ground_truth": GROUND_TRUTH_INTENT,
+                                "symbolic_string": prompt
+                            }
+                            gesture_dataset.append(data_point)
+                            print(f"PERFECT FRAME RECORDED: PICK_UP | Size: {len(gesture_dataset)}")
+                            
+                            # Disarm the recorder so it only fires ONCE!
+                            recording_armed = False 
+                            feedback_text = ">>> PERFECT GRAB SAVED! <<<"
+                            feedback_timer = 60 # Show success message for 2 seconds
+
+                    
+
             # --- UI VISUALS ---
-            motion_detected, spatial_motion, articulation = temporal_manager.update(hand_landmarks, finger_flexion, hand_orient, hand_pos) 
             frame = cv2.flip(frame, 1)
             
             cv2.putText(frame, f"Target Intent: {GROUND_TRUTH_INTENT}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
@@ -99,7 +128,7 @@ def record_dataset():
             # Show you what the computer is currently thinking the motion is
             cv2.putText(frame, f"Motion memory: {last_significant_motion}", (10, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 2)
 
-            cv2.putText(frame, f"Articulation: {articulation}", (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 2)
+            cv2.putText(frame, f"Articulation: {articulation_text}", (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 2)
 
             cv2.putText(frame, f"Total Data Points: {len(gesture_dataset)}", (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             cv2.putText(frame, "[SPACEBAR] Record | [Q] Save & Quit", (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
@@ -118,16 +147,23 @@ def record_dataset():
             
             # If Spacebar is pressed AND a hand is on screen
             if key == 32 and prompt != "": 
-                data_point = {
-                    "id": int(time.time() * 1000),
-                    "ground_truth": GROUND_TRUTH_INTENT,
-                    "symbolic_string": prompt
-                }
-                gesture_dataset.append(data_point)
-                print(f"RECORDED: {GROUND_TRUTH_INTENT} | Total Dataset Size: {len(gesture_dataset)}")
-                
-                feedback_text = ">>> RECORDED! <<<"
-                feedback_timer = 15 # Flash text for half a second
+                if GROUND_TRUTH_INTENT == "PICK_UP":
+                    # Just ARM the system. Don't record yet.
+                    recording_armed = True
+                    feedback_text = "ARMED: Waiting for Grab/Pinch..."
+                    feedback_timer = 9999 # Keep text on screen until they grab
+                else:
+                    # Manual instant record for other static intents (Navigate, Stop, etc)
+                    data_point = {
+                        "id": int(time.time() * 1000),
+                        "ground_truth": GROUND_TRUTH_INTENT,
+                        "symbolic_string": prompt
+                    }
+                    gesture_dataset.append(data_point)
+                    print(f"RECORDED: {GROUND_TRUTH_INTENT} | Total Dataset Size: {len(gesture_dataset)}")
+                    
+                    feedback_text = f">>> {GROUND_TRUTH_INTENT} SAVED! <<<"
+                    feedback_timer = 30
                 
             elif key == ord("q"):
                 break

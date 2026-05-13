@@ -16,7 +16,7 @@ class TemporalGestureManager:
         self.window_size = window_size
         self.global_vars = global_vars
 
-    def update(self, hand_landmarks, finger_states, hand_orientation, hand_position):
+    def update(self, hand_landmarks, finger_states, finger_contacts, hand_orientation, hand_position):
         """
         Processes new frame data and returns if there is a temporal gesture detected.
         Returns: (is_moving: bool, motion_type: str)
@@ -26,7 +26,7 @@ class TemporalGestureManager:
         # wrist_pos = np.array([self.global_vars.WRIST.x, self.global_vars.WRIST.y])
 
         # Store the information
-        self.gesture_history.append((finger_states, hand_orientation))
+        self.gesture_history.append((finger_states, finger_contacts, hand_orientation))
         self.wrist_history.append(wrist_pos)
 
         return self.analyze_motion()
@@ -127,8 +127,10 @@ class TemporalGestureManager:
         Calculates how many fingers changed state AND the direction of the change (Opening vs Closing).
         1 = Extended, -1 = Folded.
         """
-        prefix_states = np.array([state for state, _ in prefix])
-        suffix_states = np.array([state for state, _ in suffix])
+        prefix_states = np.array([state for state, _, _ in prefix])
+        suffix_states = np.array([state for state, _, _ in suffix])
+        suffix_contacts = np.array([contacts for _, contacts, _ in suffix])
+
 
         # Get the average state in the first half vs second half of the window
         prefix_mean = prefix_states.mean(axis=0)
@@ -140,21 +142,35 @@ class TemporalGestureManager:
         # A finger opens if it goes from < 0 (folded) to > 0 (extended)
         opening_fingers = np.sum((prefix_mean < 0) & (suffix_mean > 0))
 
+        is_prefix_open = np.sum(prefix_mean > 0) >= 3   # at least 3 fingers extended
+        # --- THE REFINED PINCH MATH ---
+        # suffix_contacts represents [Index, Middle, Ring, Pinky]
+        latest_contacts = suffix_contacts[-1]
+        
+        # Check if the Index finger specifically is touching the thumb
+        is_index_pinching = latest_contacts[0] == 1
+
+        # Or if it is a full grab (2 or more fingers touching the thumb)
+        total_fingers_touching = np.sum(latest_contacts == 1)
+        is_true_pinch = is_index_pinching or (total_fingers_touching >= 2)
+
         total_changes = closing_fingers + opening_fingers
 
         # Determine the primary articulation direction
-        if closing_fingers > opening_fingers:
-            direction = "Closing (Grabbing)"
+        if is_prefix_open and is_true_pinch:
+            direction = "Pinching"
+        elif closing_fingers > opening_fingers:
+            direction = "Closing"# (Grabbing)"
         elif opening_fingers > closing_fingers:
-            direction = "Opening (Releasing)"
+            direction = "Opening"# (Releasing)"
         else:
             direction = "Shifting"
 
         return total_changes, direction
     
     def orientation_change_score(self, prefix, suffix):
-        prefix_dirs = [d for _, d in prefix]
-        suffix_dirs = [d for _, d in suffix]
+        prefix_dirs = [d for _, _, d in prefix]
+        suffix_dirs = [d for _, _, d in suffix]
 
         prefix_majority = max(set(prefix_dirs), key=prefix_dirs.count)
         suffix_majority = max(set(suffix_dirs), key=suffix_dirs.count)
@@ -170,9 +186,11 @@ class TemporalGestureManager:
 
         # -- 1. Evaluate Articulation --
         if finger_change >= 4:
-            articulation = f"Dynamic Hand {finger_dir}"     # e.g., "Dynamic Hand Closing (Grabbing)"
+            # articulation = f"Dynamic Hand {finger_dir}"     # e.g., "Dynamic Hand Closing (Grabbing)"
+            articulation = f"{finger_dir}"     # e.g., "Dynamic Hand Closing (Grabbing)"
         elif finger_change >= 2: 
-            articulation = f"Dynamic Fingers {finger_dir}"  # e.g., "Dynamic Fingers Opening (Releasing)"
+            # articulation = f"Dynamic Fingers {finger_dir}"  # e.g., "Dynamic Fingers Opening (Releasing)"
+            articulation = f"{finger_dir}"  # e.g., "Dynamic Fingers Opening (Releasing)"
         else:
             articulation = "Static Fingers (No articulation change)"
 
@@ -216,13 +234,6 @@ class TemporalGestureManager:
             
             spatial_motion = f"{speed_str} Linear Translation towards {dir_str}"
         
-        
-        
-        
-
-        
-        
-            
         return spatial_motion, articulation
     
     # def classify_motion(self, finger_change, finger_dir, orientation_change, displacement, speed_str, flips_x, flips_y):

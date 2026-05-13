@@ -136,7 +136,7 @@ class LLMInferenceAgent:
             "- If the pose is Open Palm AND Spatial Motion is a 'Linear Translation', the intent is SEARCH_AREA.\n\n"
 
             "PICK_UP (Grabbing / Lifting):\n"
-            "- If Articulation contains 'Closing' or 'Grabbing', the intent is PICK_UP.\n"
+            "- If Articulation contains 'Closing' or 'Pinching', the intent is PICK_UP.\n"
             "- If the pose is Pinching AND Spatial Motion is 'Stationary', the intent is PICK_UP. (Exception: If the hand is in a Pointing Pose, do NOT trigger this).\n"
             "- If the pose is Fist AND Spatial Motion is a 'Linear Translation', the intent is PICK_UP.\n\n"
 
