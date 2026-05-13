@@ -114,7 +114,7 @@ class LLMInferenceAgent:
         #     "Output ONLY a valid JSON object with exactly four keys: 'intent', 'target', 'confidence_score' (float 0.0 to 1.0), and 'reasoning' (explain your Step 1 and Step 2 logic)."
         # )
 
-        # # 79% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
+        # # 79% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- test 1
         # system_prompt = (
         #     "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
         #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
@@ -166,7 +166,7 @@ class LLMInferenceAgent:
         #     "}"
         # )
 
-        # # 81% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
+        # # 81% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- test 2
         # system_prompt = (
         #     "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
         #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
@@ -221,7 +221,8 @@ class LLMInferenceAgent:
         #     "}"
         # )
 
-        # 83% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
+        # 83% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- previous version gave test3 => i hope this one is better lol
+        # 89% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- previous version gave test3 => i hope this one is better lol
         system_prompt = (
             "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"

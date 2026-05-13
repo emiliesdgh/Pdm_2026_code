@@ -4,7 +4,7 @@ from ig_logger import setup_logger
 from pathlib import Path
 
 # dataset_path = Path("datasets_and_logs/gesture_dataset.json")
-dataset_path = Path("gesture_dataset_good.json")
+dataset_path = Path("gesture_dataset_v2.json")
 
 # logger = setup_logger("gesture_log_evaluator.txt")
 
@@ -49,6 +49,6 @@ def evaluate_llm():
     
 
 if __name__ == "__main__":
-    logger = setup_logger("gesture_log_evaluator_test3.txt")
+    logger = setup_logger("gesture_log_evaluator_test4.txt")
 
     evaluate_llm()
