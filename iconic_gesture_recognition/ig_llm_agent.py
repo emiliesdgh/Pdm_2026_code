@@ -77,17 +77,40 @@ class LLMInferenceAgent:
             "- Fist Pose: All fingers are bent.\n"
             "- Open Palm Pose: All fingers are straight.\n\n"
             
-            "To understand the user's intent, analyze the physical metaphor of their hand pose combined with their TEMPORAL MOTION LOG:\n"
-            "1. NAVIGATE_THERE: Pointing (Index straight) or Flat Open Palm facing Down. Spatial Trajectory is Stationary. \n"# or a smooth Linear Translation.\n"
-            "2. SEARCH_AREA: Spatial Trajectory shows scanning motions ('Oscillating', 'Hand Rotation', or sweeping 'Linear Translation'). Hand Articulation is 'None' or 'Pointing' in motion different from Stationary.\n"
-            "3. PICK_UP: Look for 'Bending Fingers' or 'All fingers bending towards the palm' in the Hand Articulation. This is often combined with a 'Linear Translation' in the Spatial Trajectory (mimicking lifting an object). Fingertips going into contact with the Thumb tip is also a strong indicator.\n"
-            "4. STOP: Rigid poses (Open Palm facing Outward/Inward or a Fist). Both Spatial Trajectory and Hand Articulation MUST be 'Stationary' and 'None'.\n\n"
+            # "To understand the user's intent, analyze the physical metaphor of their hand pose combined with their TEMPORAL MOTION LOG:\n"
+            # "1. NAVIGATE_THERE: Pointing (Index straight) or Flat Open Palm facing Down. Spatial Trajectory is Stationary. \n"# or a smooth Linear Translation.\n"
+            # "2. SEARCH_AREA: Spatial Trajectory shows scanning motions ('Oscillating', 'Hand Rotation', or sweeping 'Linear Translation'). Hand Articulation is 'None' or 'Pointing' in motion different from Stationary.\n"
+            # "3. PICK_UP: Look for 'Bending Fingers' or 'All fingers bending towards the palm' in the Hand Articulation. This is often combined with a 'Linear Translation' in the Spatial Trajectory (mimicking lifting an object). Fingertips going into contact with the Thumb tip is also a strong indicator.\n"
+            # "4. STOP: Rigid poses (Open Palm facing Outward/Inward or a Fist). Both Spatial Trajectory and Hand Articulation MUST be 'Stationary' and 'None'.\n\n"
+
+            # "STEP-BY-STEP REASONING REQUIRED:\n"
+            # "1. Identify the hand pose based on finger flexion states.\n"
+            # "2. Match the Hand State and Temporal Motions to an intent.\n"
+            # "3. Look at the ROBOT VISION data. Does the hand position logically align with an object in the scene? If so, identify the 'target'. If no object is relevant, the target is 'None'.\n"
+            # "4. Assess your confidence (0.0 to 1.0). Give > 0.8 for clear matches, and < 0.6 if the gesture is ambiguous.\n\n"
+            "To understand the user's intent, strictly follow the physical metaphors of their Hand Pose combined with their TEMPORAL MOTION LOG:\n\n"
+
+            "1. SEARCH_AREA (Metaphor: Scanning or Exploring)\n"
+            "- CRITICAL RULE: If the Spatial Motion contains 'Oscillating', 'Hand Rotation', or a sweeping 'Linear Translation', the intent is ALWAYS SEARCH_AREA. This sweeping motion overrides all hand poses (even Fists).\n\n"
+
+            "2. PICK_UP (Metaphor: Grabbing, Pinching, or Lifting)\n"
+            "- If the Articulation is 'Dynamic Closing (Grabbing)', it is a PICK_UP action.\n"
+            "- THE STATIONARY PINCH: If the Spatial Motion is 'Stationary', BUT the Thumb is currently in contact with one or more fingertips, the user is holding a pinch. This means PICK_UP.\n"
+            "- THE CARRYING FIST: If the hand is in a Fist (all fingers bent) AND has a 'Linear Translation' Spatial Motion, they are carrying an object. This means PICK_UP.\n\n"
+
+            "3. NAVIGATE_THERE (Metaphor: Directing or Pathing)\n"
+            "- Look for the Index finger being straight (Pointing). If the user is pointing, they are directing the robot. (Ignore the thumb in this case).\n"
+            "- Alternatively, look for a flat Open Palm (all fingers straight) facing Down and held Stationary.\n\n"
+
+            "4. STOP (Metaphor: Blocking or Halting)\n"
+            "- Look for rigid poses with 'Stationary' Spatial Motion and 'Static Fingers' Articulation.\n"
+            "- This is usually an Open Palm facing Outward/Inward (like a stop sign), or a Stationary Fist.\n\n"
 
             "STEP-BY-STEP REASONING REQUIRED:\n"
             "1. Identify the hand pose based on finger flexion states.\n"
-            "2. Match the Hand State and Temporal Motions to an intent.\n"
-            "3. Look at the ROBOT VISION data. Does the hand position logically align with an object in the scene? If so, identify the 'target'. If no object is relevant, the target is 'None'.\n"
-            "4. Assess your confidence (0.0 to 1.0). Give > 0.8 for clear matches, and < 0.6 if the gesture is ambiguous.\n\n"
+            "2. Check Spatial Motion: Is it a scanning/rotating motion (SEARCH)?\n"
+            "3. Check Articulation & Contact: Are they actively closing their hand or holding a pinch (PICK_UP)?\n"
+            "4. Check Pose: Are they pointing (NAVIGATE) or holding up a flat hand/fist (STOP)?\n\n"
 
             "Output ONLY a valid JSON object with exactly four keys: 'intent', 'target', 'confidence_score' (float), and 'reasoning'. Do not output markdown formatting."
         )
