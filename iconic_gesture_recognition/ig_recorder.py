@@ -14,6 +14,9 @@ from ig_global_variables import GlobalVariables
 # 1. SET THIS BEFORE YOU RUN THE SCRIPT
 # (e.g., "NAVIGATE_THERE", "PICK_UP", "STOP", "SEARCH_AREA")
 # ==========================================
+# GROUND_TRUTH_INTENT = "NAVIGATE_THERE"  # Change this to the intent you want to record for
+# GROUND_TRUTH_INTENT = "PICK_UP"  # Change this to the intent you want to record for
+# GROUND_TRUTH_INTENT = "STOP"  # Change this to the intent you want to record for
 GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
 
 DATASET_FILE = "gesture_dataset_good.json"
@@ -85,6 +88,7 @@ def record_dataset():
                     mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
             # --- UI VISUALS ---
+            motion_detected, spatial_motion, articulation = temporal_manager.update(hand_landmarks, finger_flexion, hand_orient, hand_pos) 
             frame = cv2.flip(frame, 1)
             
             cv2.putText(frame, f"Target Intent: {GROUND_TRUTH_INTENT}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
@@ -94,7 +98,9 @@ def record_dataset():
             
             # Show you what the computer is currently thinking the motion is
             cv2.putText(frame, f"Motion memory: {last_significant_motion}", (10, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 2)
-            
+
+            cv2.putText(frame, f"Articulation: {articulation}", (10, 130), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 2)
+
             cv2.putText(frame, f"Total Data Points: {len(gesture_dataset)}", (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             cv2.putText(frame, "[SPACEBAR] Record | [Q] Save & Quit", (10, 450), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
 

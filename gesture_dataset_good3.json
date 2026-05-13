@@ -1,0 +1,202 @@
+[
+    {
+        "id": 1778645819846,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645822759,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645825702,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645828616,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645833352,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Slow Hand Rotation motion.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645837243,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645840200,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645843671,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645847252,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645853550,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645876854,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645880489,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645883787,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center-Left relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645894726,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645899751,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645904697,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645908918,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Top-Right relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645912363,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center-Right relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645915321,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645917944,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645936127,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Fast Hand Rotation motion.\n- Articulation: Dynamic Hand Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645940058,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Hand Rotation motion.\n- Articulation: Dynamic Fingers Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645944586,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: Dynamic Hand Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645945868,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: Dynamic Hand Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645947467,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is currently in contact with the Index, Middle, Ring fingertips.\n- The palm orientation is facing Right.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645950238,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is currently in contact with the Index, Middle, Ring fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Slow Hand Rotation motion.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645952096,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: None\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645953473,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Fast Oscillating / Waving motion.\n- Articulation: Dynamic Hand Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645955306,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Hand Rotation motion.\n- Articulation: Dynamic Hand Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645960127,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: Dynamic Hand Closing (Grabbing)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645981147,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645982937,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index, Middle fingers are straight, while the Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645986162,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Left.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645987615,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle fingers are bent.\n- The Thumb is currently in contact with the Index, Middle fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645989568,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index, Middle fingers are straight, while the Pinky finger is bent.\n- The Thumb is currently in contact with the Middle, Ring fingertips.\n- The palm orientation is facing Up.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645993390,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Hand Rotation motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645994971,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is stationary, motionless.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645997167,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Fast Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778645999795,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.\n- The palm orientation is facing Left.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    },
+    {
+        "id": 1778646004350,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Top-Center relative to the center of the view.\n--- TEMPORAL MOTION LOG ---\n- Spatial Motion: The hand is moving with a Fast Oscillating / Waving motion.\n- Articulation: Static Fingers (No articulation change)\n\n--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\nNo additional context from robot vision."
+    }
+]
