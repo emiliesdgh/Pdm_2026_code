@@ -1,0 +1,425 @@
+2026-05-13 12:15:18 - Testing ID: 1778641634885
+2026-05-13 12:15:18 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:19 - LLM reasoning: The hand is in a Pointing Pose, but the Thumb is in contact with multiple fingertips, indicating a pinch/grab action. Since the motion is Stationary, it suggests that the user might be holding onto something.
+2026-05-13 12:15:19 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 12:15:19 - Testing ID: 1778641639965
+2026-05-13 12:15:19 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:19 - LLM reasoning: The Thumb is in contact with the Middle fingertip, and the hand is stationary. This indicates an active grabbing motion (PICK_UP).
+2026-05-13 12:15:19 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 12:15:19 - Testing ID: 1778641643791
+2026-05-13 12:15:19 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:20 - LLM reasoning: The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent (Pointing Pose). The Thumb is in contact with the Middle fingertip, indicating a pinch/grab. The hand moves with a Stationary motion.
+2026-05-13 12:15:20 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 12:15:20 - Testing ID: 1778641648484
+2026-05-13 12:15:20 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Pinky finger is bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:20 - LLM reasoning: The Thumb is in contact with the Middle fingertip, and the hand is stationary. This indicates an active grabbing motion (Pick_Up).
+2026-05-13 12:15:20 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 12:15:20 - Testing ID: 1778641662919
+2026-05-13 12:15:20 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:21 - LLM reasoning: The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent (Pointing Pose). The hand is NOT in a Fist Pose and has a Linear Translation motion (moving with a Stationary motion). However, the Thumb is in contact with the Middle fingertip, which indicates a pinch/grab, making it a PICK_UP.
+2026-05-13 12:15:21 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 12:15:21 - Testing ID: 1778641667222
+2026-05-13 12:15:21 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:22 - LLM reasoning: The hand is in a Pointing Pose and is mostly Stationary.
+2026-05-13 12:15:22 - ✅ CORRECT
+2026-05-13 12:15:22 - Testing ID: 1778641670563
+2026-05-13 12:15:22 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:22 - LLM reasoning: The hand is in a Pointing Pose and is mostly Stationary.
+2026-05-13 12:15:22 - ✅ CORRECT
+2026-05-13 12:15:22 - Testing ID: 1778641674454
+2026-05-13 12:15:22 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:22 - LLM reasoning: The hand is in a Pointing Pose and is mostly Stationary.
+2026-05-13 12:15:22 - ✅ CORRECT
+2026-05-13 12:15:22 - Testing ID: 1778641678733
+2026-05-13 12:15:22 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Right.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:23 - LLM reasoning: The hand is in a Pointing Pose and is mostly Stationary.
+2026-05-13 12:15:23 - ✅ CORRECT
+2026-05-13 12:15:23 - Testing ID: 1778641686651
+2026-05-13 12:15:23 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:23 - LLM reasoning: The hand is in a Pointing Pose, but the Thumb is in contact with multiple fingertips, indicating a pinch/grab, which means the intent is PICK_UP.
+2026-05-13 12:15:23 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 12:15:23 - Testing ID: 1778641709071
+2026-05-13 12:15:23 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:24 - LLM reasoning: The hand is in an Open Palm Pose and is strictly 'Stationary' AND the palm is facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:24 - ✅ CORRECT
+2026-05-13 12:15:24 - Testing ID: 1778641713359
+2026-05-13 12:15:24 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:24 - LLM reasoning: The hand is in a Fist Pose and is strictly 'Stationary' while facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:24 - ✅ CORRECT
+2026-05-13 12:15:24 - Testing ID: 1778641716609
+2026-05-13 12:15:24 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:25 - LLM reasoning: The hand is in a Fist Pose and is strictly 'Stationary' while facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:25 - ✅ CORRECT
+2026-05-13 12:15:25 - Testing ID: 1778641720012
+2026-05-13 12:15:25 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:25 - LLM reasoning: The hand is in an Open Palm Pose and is strictly 'Stationary' AND the palm is facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:25 - ✅ CORRECT
+2026-05-13 12:15:25 - Testing ID: 1778641723123
+2026-05-13 12:15:25 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:26 - LLM reasoning: The hand is in an Open Palm Pose and is strictly 'Stationary' AND the palm is facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:26 - ✅ CORRECT
+2026-05-13 12:15:26 - Testing ID: 1778641726453
+2026-05-13 12:15:26 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:26 - LLM reasoning: The hand is in an Open Palm Pose and is strictly 'Stationary' AND the palm is facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:26 - ✅ CORRECT
+2026-05-13 12:15:26 - Testing ID: 1778641729584
+2026-05-13 12:15:26 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:27 - LLM reasoning: The hand is in a Fist Pose and is strictly 'Stationary'. The palm orientation facing Inward also supports this intent.
+2026-05-13 12:15:27 - ✅ CORRECT
+2026-05-13 12:15:27 - Testing ID: 1778641733092
+2026-05-13 12:15:27 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:27 - LLM reasoning: The hand is in a Fist Pose and is strictly 'Stationary'. The palm orientation facing Inward also supports this intent.
+2026-05-13 12:15:27 - ✅ CORRECT
+2026-05-13 12:15:27 - Testing ID: 1778641736579
+2026-05-13 12:15:27 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:27 - LLM reasoning: The hand is in an Open Palm Pose and is strictly 'Stationary' AND the palm is facing Inward, which matches the rule for STOP.
+2026-05-13 12:15:27 - ✅ CORRECT
+2026-05-13 12:15:27 - Testing ID: 1778641739629
+2026-05-13 12:15:27 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-13 12:15:28 - LLM reasoning: The hand is in an Open Palm Pose and is stationary, which according to our rules indicates a navigation intent.
+2026-05-13 12:15:28 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-13 12:15:28 - Testing ID: 1778641764884
+2026-05-13 12:15:28 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Linear Translation towards Up motion.
+2026-05-13 12:15:28 - LLM reasoning: The hand is in a Pointing Pose and has a Fast Linear Translation motion towards Up, which according to the rules for PICK_UP indicates an active grabbing action.
+2026-05-13 12:15:28 - ✅ CORRECT
+2026-05-13 12:15:28 - Testing ID: 1778641767653
+2026-05-13 12:15:28 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-13 12:15:29 - LLM reasoning: The hand is in a Fist Pose and the Thumb is in contact with multiple fingertips, indicating a pinch/grab. The slow linear translation motion towards Up suggests that the robot might be picking up an object.
+2026-05-13 12:15:29 - ✅ CORRECT
+2026-05-13 12:15:29 - Testing ID: 1778641770620
+2026-05-13 12:15:29 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-13 12:15:30 - LLM reasoning: The hand is in an Open Palm Pose and has a 'Slow Oscillating Left & Right' motion, which according to the rules, indicates the intent is SEARCH_AREA.
+2026-05-13 12:15:30 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 12:15:30 - Testing ID: 1778641820211
+2026-05-13 12:15:30 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Linear Translation towards Up motion.
+2026-05-13 12:15:30 - LLM reasoning: The hand is in an Open Palm Pose and has a Linear Translation motion (Up). This matches the rule for PICK_UP.
+2026-05-13 12:15:30 - ✅ CORRECT
+2026-05-13 12:15:30 - Testing ID: 1778641822110
+2026-05-13 12:15:30 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Linear Translation towards Up motion.
+2026-05-13 12:15:31 - LLM reasoning: The hand is in an Open Palm Pose, but it has a Linear Translation motion towards Up, which according to the rules for PICK_UP means that the intent is PICK_UP (active grabbing).
+2026-05-13 12:15:31 - ✅ CORRECT
+2026-05-13 12:15:31 - Testing ID: 1778641844460
+2026-05-13 12:15:31 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index fingertip.
+- The palm orientation is facing Right.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-13 12:15:31 - LLM reasoning: The hand is in a Fist Pose and there is contact between Thumb and Index fingertip. Additionally, the hand is moving with a Slow Bending Fingers motion, which suggests an active grabbing action.
+2026-05-13 12:15:31 - ✅ CORRECT
+2026-05-13 12:15:31 - Testing ID: 1778641863162
+2026-05-13 12:15:31 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-13 12:15:32 - LLM reasoning: The hand is in a Fist Pose and has a Slow Bending Fingers motion, which according to our rules indicates an active grabbing intent (PICK_UP).
+2026-05-13 12:15:32 - ✅ CORRECT
+2026-05-13 12:15:32 - Testing ID: 1778641866493
+2026-05-13 12:15:32 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-13 12:15:32 - LLM reasoning: The hand is in a Fist Pose and there is a contact between Thumb and Middle fingertip, indicating a pinch/grab action. The slow bending fingers motion suggests the hand is preparing to close further for grasping.
+2026-05-13 12:15:32 - ✅ CORRECT
+2026-05-13 12:15:32 - Testing ID: 1778641869064
+2026-05-13 12:15:32 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Linear Translation towards Up motion.
+2026-05-13 12:15:33 - LLM reasoning: The hand is in an Open Palm Pose and has a Linear Translation motion (Up). This matches the rule for PICK_UP.
+2026-05-13 12:15:33 - ✅ CORRECT
+2026-05-13 12:15:33 - Testing ID: 1778641870493
+2026-05-13 12:15:33 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-13 12:15:33 - LLM reasoning: The hand is in an Open Palm Pose, and it has a Linear Translation motion (Up). This matches the rule for PICK_UP.
+2026-05-13 12:15:33 - ✅ CORRECT
+2026-05-13 12:15:33 - Testing ID: 1778641877674
+2026-05-13 12:15:33 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow All fingers rapidly bending towards the palm motion.
+2026-05-13 12:15:34 - LLM reasoning: The hand is in a Fist Pose and the Thumb is in contact with multiple fingertips, indicating a pinch/grab action.
+2026-05-13 12:15:34 - ✅ CORRECT
+2026-05-13 12:15:34 - Testing ID: 1778641880728
+2026-05-13 12:15:34 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-13 12:15:34 - LLM reasoning: The hand is in a Fist Pose and the Thumb is in contact with multiple fingertips, indicating a pinch/grab action. The slow bending fingers motion suggests that the user might be picking up an object.
+2026-05-13 12:15:34 - ✅ CORRECT
+2026-05-13 12:15:34 - Testing ID: 1778641890694
+2026-05-13 12:15:34 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-13 12:15:35 - LLM reasoning: The hand is in a Fist Pose and the Thumb is in contact with multiple fingertips, indicating a pinch/grab. The hand also moves with a Moderate Linear Translation towards Up motion, suggesting an attempt to lift or move an object.
+2026-05-13 12:15:35 - ✅ CORRECT
+2026-05-13 12:15:35 - Testing ID: 1778641914438
+2026-05-13 12:15:35 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-13 12:15:36 - LLM reasoning: The hand is in an Open Palm Pose and there is a Moderate Linear Translation towards Left motion, which according to the rules indicates active grabbing (Bending Fingers or Hand Open/Close was not observed).
+2026-05-13 12:15:36 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-13 12:15:36 - Testing ID: 1778641915795
+2026-05-13 12:15:36 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-13 12:15:36 - LLM reasoning: The hand is in an Open Palm Pose and has a Linear Translation motion towards Left, which according to the rules for PICK_UP means that the intent is PICK_UP (active grabbing). The thumb not being in contact with fingertips does not contradict this interpretation.
+2026-05-13 12:15:36 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-13 12:15:36 - Testing ID: 1778641917708
+2026-05-13 12:15:36 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-13 12:15:37 - LLM reasoning: The hand is moving with a Moderate Oscillating Left & Right motion, which according to the rules, indicates an intent of SEARCH_AREA.
+2026-05-13 12:15:37 - ✅ CORRECT
+2026-05-13 12:15:37 - Testing ID: 1778641925029
+2026-05-13 12:15:37 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up-Left motion.
+2026-05-13 12:15:37 - LLM reasoning: The hand is in an Open Palm Pose and has a Linear Translation motion (Up-Left). This matches the rule for PICK_UP.
+2026-05-13 12:15:37 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-13 12:15:37 - Testing ID: 1778641928165
+2026-05-13 12:15:37 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-13 12:15:38 - LLM reasoning: The hand is in an Open Palm Pose and has a 'Hand Rotation' motion, which according to the rules, indicates the intent is SEARCH_AREA.
+2026-05-13 12:15:38 - ✅ CORRECT
+2026-05-13 12:15:38 - Testing ID: 1778641930324
+2026-05-13 12:15:38 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-13 12:15:38 - LLM reasoning: The Index finger is straight, Thumb is in contact with multiple fingertips, and there is a Moderate Hand Rotation motion. These indicate a pinch/grab action, which corresponds to the PICK_UP intent.
+2026-05-13 12:15:38 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-13 12:15:38 - Testing ID: 1778641933700
+2026-05-13 12:15:38 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-13 12:15:39 - LLM reasoning: The hand is in a Pointing Pose and has a 'Hand Rotation' motion, which according to the rules, indicates an intent of SEARCH_AREA.
+2026-05-13 12:15:39 - ✅ CORRECT
+2026-05-13 12:15:39 - Testing ID: 1778641936470
+2026-05-13 12:15:39 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-13 12:15:39 - LLM reasoning: The hand is in a Pointing Pose and has a 'Hand Rotation' motion, which according to the rules, indicates an intent of SEARCH_AREA.
+2026-05-13 12:15:39 - ✅ CORRECT
+2026-05-13 12:15:39 - Testing ID: 1778641944401
+2026-05-13 12:15:39 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-13 12:15:40 - LLM reasoning: The hand is in a Pointing Pose and has a 'Hand Rotation' motion, which according to the rules, indicates an intent of SEARCH_AREA.
+2026-05-13 12:15:40 - ✅ CORRECT
+2026-05-13 12:15:40 - Testing ID: 1778641950535
+2026-05-13 12:15:40 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Left.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-13 12:15:41 - LLM reasoning: The hand is in an Open Palm Pose and has a 'Slow Oscillating Left & Right' motion, which according to the rules, indicates the intent is SEARCH_AREA.
+2026-05-13 12:15:41 - ✅ CORRECT
+2026-05-13 12:15:41 - Testing ID: 1778641952583
+2026-05-13 12:15:41 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-13 12:15:41 - LLM reasoning: The hand is in an Open Palm Pose and has a 'Hand Rotation' motion, which according to the rules, indicates the intent is SEARCH_AREA.
+2026-05-13 12:15:41 - ✅ CORRECT
+2026-05-13 12:15:41 - Testing ID: 1778641953462
+2026-05-13 12:15:41 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-13 12:15:41 - LLM reasoning: The hand is in an Open Palm Pose and has a Linear Translation motion (Up). This matches the rule for PICK_UP.
+2026-05-13 12:15:41 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-13 12:15:41 - Testing ID: 1778641966803
+2026-05-13 12:15:41 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-13 12:15:42 - LLM reasoning: The hand is in an Open Palm Pose and has a 'Moderate Oscillating Left & Right' motion, which according to the rules, indicates the intent is SEARCH_AREA.
+2026-05-13 12:15:42 - ✅ CORRECT
+2026-05-13 12:15:42 - Testing ID: 1778641979269
+2026-05-13 12:15:42 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-13 12:15:43 - LLM reasoning: The hand is in an Open Palm Pose and has a Linear Translation motion towards Left, which according to the rules, indicates a PICK_UP intent.
+2026-05-13 12:15:43 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-13 12:15:43 - 
+--- FINAL ACCURACY: 70.2127659574468% ---
