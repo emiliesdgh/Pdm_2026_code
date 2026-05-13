@@ -27,12 +27,13 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
 
     # 2. Group finger contacts
     in_contact = [name.capitalize() for name, val in zip(global_vars.FINGERS["name"][1:], finger_contact_state) if val == 1]
-    if in_contact:
+    if in_contact and flexion_desc != "All fingers are straight.":  # Only mention contact if not all fingers are straight (since that would be contradictory)
         if len(in_contact) == 1:
             contact_desc = f"The Thumb is currently in contact with the {', '.join(in_contact)} fingertip."
         else:
             contact_desc = f"The Thumb is currently in contact with the {', '.join(in_contact)} fingertips."
     else:
+        # the thumb cannot have a contact if all fingers are straight
         contact_desc = "The Thumb is NOT in contact with fingertips."#any other fingertips."
 
     if spatial_motion == "Stationary":
