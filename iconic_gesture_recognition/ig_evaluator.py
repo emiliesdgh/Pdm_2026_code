@@ -49,6 +49,6 @@ def evaluate_llm():
     
 
 if __name__ == "__main__":
-    logger = setup_logger("gesture_log_evaluator_goodDataset.txt")
+    logger = setup_logger("gesture_log_evaluator_goodDataset_otherPrompt.txt")
 
     evaluate_llm()

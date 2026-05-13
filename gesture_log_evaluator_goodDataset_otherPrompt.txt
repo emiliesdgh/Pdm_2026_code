@@ -1,0 +1,1403 @@
+2026-05-13 15:07:03 - Testing ID: 1778651034259
+2026-05-13 15:07:03 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:06 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the Spatial Motion is 'Stationary', and the pose is Fist AND Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:06 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-13 15:07:06 - Testing ID: 1778651038150
+2026-05-13 15:07:06 - Input: Here is the current state of the user's hand:
+- The Pinky finger is straight, while the Thumb, Index, Ring fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:07 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Articulation contains 'Closing', the intent is determined as PICK_UP."}
+2026-05-13 15:07:07 - ✅ CORRECT
+2026-05-13 15:07:07 - Testing ID: 1778651041831
+2026-05-13 15:07:07 - Input: Here is the current state of the user's hand:
+- The Ring, Pinky fingers are straight, while the Thumb, Index fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:08 - LLM reasoning: {'Step 1': 'The hand pose is Fist Pose.', 'Step 2': "Since Articulation contains 'Closing', the intent is ALWAYS PICK_UP."}
+2026-05-13 15:07:08 - ✅ CORRECT
+2026-05-13 15:07:08 - Testing ID: 1778651044886
+2026-05-13 15:07:08 - Input: Here is the current state of the user's hand:
+- The Ring, Pinky fingers are straight, while the Thumb, Index, Middle fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:09 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since Articulation contains 'Closing', the intent is ALWAYS PICK_UP."}
+2026-05-13 15:07:09 - ✅ CORRECT
+2026-05-13 15:07:09 - Testing ID: 1778651049311
+2026-05-13 15:07:09 - Input: Here is the current state of the user's hand:
+- The Middle, Ring, Pinky fingers are straight, while the Thumb, Index fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:10 - LLM reasoning: {'Step 1': 'The hand pose is a Fist Pose.', 'Step 2': "Since the Articulation contains 'Closing', the intent is ALWAYS PICK_UP."}
+2026-05-13 15:07:10 - ✅ CORRECT
+2026-05-13 15:07:10 - Testing ID: 1778651052691
+2026-05-13 15:07:10 - Input: Here is the current state of the user's hand:
+- The Ring, Pinky fingers are straight, while the Thumb, Index, Middle fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:10 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation contains 'Closing', the intent is ALWAYS PICK_UP."}
+2026-05-13 15:07:10 - ✅ CORRECT
+2026-05-13 15:07:10 - Testing ID: 1778651056199
+2026-05-13 15:07:10 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Pinching
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:11 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose with Pinching.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:07:11 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:11 - Testing ID: 1778651059992
+2026-05-13 15:07:11 - Input: Here is the current state of the user's hand:
+- The Thumb, Index, Pinky fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Left.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Hand Rotation motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:12 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the Spatial Motion contains 'Oscillating' (Slow Hand Rotation), the intent is SEARCH_AREA."}
+2026-05-13 15:07:12 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:12 - Testing ID: 1778651063333
+2026-05-13 15:07:12 - Input: Here is the current state of the user's hand:
+- The Thumb, Pinky fingers are straight, while the Index, Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index fingertip.
+- The palm orientation is facing Left.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Hand Rotation motion.
+- Articulation: Pinching
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:13 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Articulation contains 'Pinching', the intent is SEARCH_AREA as per The Grab Override."}
+2026-05-13 15:07:13 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:13 - Testing ID: 1778651065734
+2026-05-13 15:07:13 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:14 - LLM reasoning: Step 1: The user's hand pose is Fist Pose. Step 2: Since the hand is stationary and the articulation contains 'Closing', the intent is STOP according to rule 5.
+2026-05-13 15:07:14 - ❌ FAILED. Expected: PICK_UP, Got: STOP
+2026-05-13 15:07:14 - Testing ID: 1778651068071
+2026-05-13 15:07:14 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:15 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:07:15 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:15 - Testing ID: 1778651071926
+2026-05-13 15:07:15 - Input: Here is the current state of the user's hand:
+- The Thumb, Pinky fingers are straight, while the Middle finger is bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Linear Translation towards Up motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:16 - LLM reasoning: {'Step 1': 'The hand pose is not Pointing Pose, Fist Pose, or Pinching Pose. The Thumb is straight and the Middle finger is bent. The palm orientation is facing Down.', 'Step 2': "Since Articulation contains 'Closing', the intent is ALWAYS PICK_UP."}
+2026-05-13 15:07:16 - ✅ CORRECT
+2026-05-13 15:07:16 - Testing ID: 1778651074421
+2026-05-13 15:07:16 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Fast Oscillating / Waving motion.
+- Articulation: Pinching
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:17 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose with Pinching.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:07:17 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:17 - Testing ID: 1778651076759
+2026-05-13 15:07:17 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Pinky finger is bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Linear Translation towards Up motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:18 - LLM reasoning: {'Step 1': 'The hand pose is not Pointing Pose, Fist Pose, Open Palm Pose or Pinching Pose. In this case, the Thumb finger is straight while the Pinky finger is bent and the palm orientation is facing Down.', 'Step 2': "Since Articulation contains 'Closing', the intent is ALWAYS PICK_UP according to The Grab Override."}
+2026-05-13 15:07:18 - ✅ CORRECT
+2026-05-13 15:07:18 - Testing ID: 1778651078967
+2026-05-13 15:07:18 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Linear Translation towards Up-Right motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:18 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since Articulation contains 'Closing', the intent is PICK_UP."}
+2026-05-13 15:07:18 - ✅ CORRECT
+2026-05-13 15:07:18 - Testing ID: 1778651081367
+2026-05-13 15:07:18 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Linear Translation towards Up-Right motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:19 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since Articulation contains 'Closing', the intent is PICK_UP."}
+2026-05-13 15:07:19 - ✅ CORRECT
+2026-05-13 15:07:19 - Testing ID: 1778651083798
+2026-05-13 15:07:19 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Pinky finger is bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Linear Translation towards Up motion.
+- Articulation: Closing
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:20 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose (Thumb and Index fingers are straight).', 'Step 2': "Since Articulation contains 'Closing', the intent is ALWAYS PICK_UP."}
+2026-05-13 15:07:20 - ✅ CORRECT
+2026-05-13 15:07:20 - Testing ID: 1778651085862
+2026-05-13 15:07:20 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Pinching
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:21 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose and Pinching Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:07:21 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:21 - Testing ID: 1778651087734
+2026-05-13 15:07:21 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Pinching
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:22 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose and the Thumb is in contact with Index and Middle fingertips (Pinching Pose).", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:07:22 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:22 - Testing ID: 1778651090726
+2026-05-13 15:07:22 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Hand Rotation motion.
+- Articulation: Pinching
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:23 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating' (Hand Rotation), the intent is SEARCH_AREA."}
+2026-05-13 15:07:23 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-13 15:07:23 - Testing ID: 1778651178676
+2026-05-13 15:07:23 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Center relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:24 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': 'Since the Articulation contains no motion and the Spatial Motion is Stationary, the intent is determined by the hand pose. As the hand is in a Pinching Pose, the intent is PICK_UP.'}
+2026-05-13 15:07:24 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:24 - Testing ID: 1778651196847
+2026-05-13 15:07:24 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:25 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': "The hand is stationary and the palm orientation is facing 'Inward'. According to Step 2, this matches the STOP intent."}
+2026-05-13 15:07:25 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: STOP
+2026-05-13 15:07:25 - Testing ID: 1778651200351
+2026-05-13 15:07:25 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:26 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the pose is Open Palm and Spatial Motion is a 'Linear Translation', the intent is determined as PICK_UP."}
+2026-05-13 15:07:26 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:26 - Testing ID: 1778651206854
+2026-05-13 15:07:26 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Right motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:27 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by Step 3. The Spatial Motion is a Slow Linear Translation towards Right motion, which matches the criteria for PICK_UP."}
+2026-05-13 15:07:27 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:27 - Testing ID: 1778651209060
+2026-05-13 15:07:27 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:28 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by the hand pose. As the hand is in a Pinching Pose, the intent is PICK_UP."}
+2026-05-13 15:07:28 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:28 - Testing ID: 1778651211820
+2026-05-13 15:07:28 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:29 - LLM reasoning: Step 1: The hand pose is Open Palm Pose. Step 2: Since the pose is Open Palm and Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.
+2026-05-13 15:07:29 - ✅ CORRECT
+2026-05-13 15:07:29 - Testing ID: 1778651242353
+2026-05-13 15:07:29 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:29 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the palm orientation is facing 'Down', and the hand is stationary, the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:29 - ✅ CORRECT
+2026-05-13 15:07:29 - Testing ID: 1778651244388
+2026-05-13 15:07:29 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:30 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the palm orientation is facing 'Down' and the hand is stationary, the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:30 - ✅ CORRECT
+2026-05-13 15:07:30 - Testing ID: 1778651255069
+2026-05-13 15:07:30 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Down motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:31 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the pose is Open Palm and Spatial Motion is 'Linear Translation' towards Down motion, the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:31 - ✅ CORRECT
+2026-05-13 15:07:31 - Testing ID: 1778651259121
+2026-05-13 15:07:31 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb, Ring fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:32 - LLM reasoning: {'Step 1': "The user's hand pose is Pointing Pose.", 'Step 2': "Since the Spatial Motion is 'Stationary', and the palm orientation is facing 'Down', the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:32 - ✅ CORRECT
+2026-05-13 15:07:32 - Testing ID: 1778651259705
+2026-05-13 15:07:32 - Input: Here is the current state of the user's hand:
+- The Index, Middle fingers are straight, while the Thumb, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:33 - LLM reasoning: {'Step 1': 'The hand pose is a Fist Pose.', 'Step 2': "Since the Spatial Motion is 'Stationary', and the palm orientation is facing 'Down', the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:33 - ✅ CORRECT
+2026-05-13 15:07:33 - Testing ID: 1778651260702
+2026-05-13 15:07:33 - Input: Here is the current state of the user's hand:
+- The Index, Middle fingers are straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Ring fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:34 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by the hand pose. As the hand is in a Pinching Pose, the intent is PICK_UP."}
+2026-05-13 15:07:34 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:34 - Testing ID: 1778651261803
+2026-05-13 15:07:34 - Input: Here is the current state of the user's hand:
+- The Index, Middle fingers are straight, while the Thumb, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Ring fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:35 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is stationary and the pose is Pinching, which matches the criteria for PICK_UP.']}
+2026-05-13 15:07:35 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:35 - Testing ID: 1778651268324
+2026-05-13 15:07:35 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:36 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by Step 3: PICK_UP (Stationary or Carrying). The Spatial Motion is a Slow Linear Translation towards Up motion, and since the hand is stationary in this case, the intent is PICK_UP."}
+2026-05-13 15:07:36 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:36 - Testing ID: 1778651269269
+2026-05-13 15:07:36 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:37 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by the hand pose. In this case, the hand is pinching, so the intent is PICK_UP."}
+2026-05-13 15:07:37 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:37 - Testing ID: 1778651271951
+2026-05-13 15:07:37 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Down motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:38 - LLM reasoning: Step 1: The hand pose is Open Palm Pose. Step 2: Since the pose is Open Palm and Spatial Motion is 'Linear Translation' towards Down motion, the intent is NAVIGATE_THERE.
+2026-05-13 15:07:38 - ✅ CORRECT
+2026-05-13 15:07:38 - Testing ID: 1778651291122
+2026-05-13 15:07:38 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:39 - LLM reasoning: Step 1: The hand pose is Open Palm Pose (Thumb and Index fingers are straight while Middle, Ring, Pinky fingers are bent and Thumb is not in contact with fingertips).
+Step 2: Since the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.
+2026-05-13 15:07:39 - ✅ CORRECT
+2026-05-13 15:07:39 - Testing ID: 1778651296131
+2026-05-13 15:07:39 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Left motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:40 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is in a Pinching Pose (Thumb in contact with Middle fingertip).', "Spatial Motion is 'Slow Linear Translation', which does not conflict with any other motion categories.", 'Since the Grab Override rule applies, the intent is PICK_UP.']}
+2026-05-13 15:07:40 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:40 - Testing ID: 1778651296774
+2026-05-13 15:07:40 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:41 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the pose is Open Palm and Spatial Motion is 'Stationary', the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:41 - ✅ CORRECT
+2026-05-13 15:07:41 - Testing ID: 1778651297826
+2026-05-13 15:07:41 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Right motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:42 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Articulation is Static Fingers (No articulation change), and Spatial Motion is a 'Linear Translation', the intent is determined as PICK_UP."}
+2026-05-13 15:07:42 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:42 - Testing ID: 1778651301228
+2026-05-13 15:07:42 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:43 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by the hand pose. As the hand is in a Pinching Pose, the intent is PICK_UP."}
+2026-05-13 15:07:43 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:43 - Testing ID: 1778651303891
+2026-05-13 15:07:43 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:44 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', the intent is determined by Step 3: PICK_UP (Stationary or Carrying). The Spatial Motion is a Slow Linear Translation towards Up motion, and since the hand is stationary in this case, the intent is PICK_UP."}
+2026-05-13 15:07:44 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:44 - Testing ID: 1778651304685
+2026-05-13 15:07:44 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:45 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Spatial Motion is 'Stationary', according to rule 3 in Step 2, the intent is PICK_UP."}
+2026-05-13 15:07:45 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:45 - Testing ID: 1778651306758
+2026-05-13 15:07:45 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Left motion.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:46 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Spatial Motion is a 'Linear Translation', according to Step 3 of the mapping logic, the intent is PICK_UP."}
+2026-05-13 15:07:46 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:46 - Testing ID: 1778651307630
+2026-05-13 15:07:46 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:47 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Spatial Motion is 'Stationary', according to rule 3 in Step 2, the intent is PICK_UP."}
+2026-05-13 15:07:47 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:47 - Testing ID: 1778651311563
+2026-05-13 15:07:47 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:48 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the palm orientation is facing 'Down' and the hand is stationary, the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:48 - ✅ CORRECT
+2026-05-13 15:07:48 - Testing ID: 1778651314309
+2026-05-13 15:07:48 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:49 - LLM reasoning: {'Step 1': 'The hand pose is Pinching Pose.', 'Step 2': "Since the Articulation does not contain 'Closing' or 'Grabbing', we apply the next rule. As the Spatial Motion is 'Stationary', the intent is PICK_UP."}
+2026-05-13 15:07:49 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-13 15:07:49 - Testing ID: 1778651315024
+2026-05-13 15:07:49 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:50 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the palm orientation is facing 'Down', and the hand is stationary, the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:50 - ✅ CORRECT
+2026-05-13 15:07:50 - Testing ID: 1778651323665
+2026-05-13 15:07:50 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:51 - LLM reasoning: {'Step 1': 'The hand pose is Open Palm Pose.', 'Step 2': "Since the palm orientation is facing 'Down' and the hand is stationary, the intent is NAVIGATE_THERE."}
+2026-05-13 15:07:51 - ✅ CORRECT
+2026-05-13 15:07:51 - Testing ID: 1778651544445
+2026-05-13 15:07:51 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Center relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:51 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is stationary and the pose is Open Palm, so according to Step 3 of the mapping process, the intent is STOP.']}
+2026-05-13 15:07:51 - ✅ CORRECT
+2026-05-13 15:07:51 - Testing ID: 1778651545764
+2026-05-13 15:07:51 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Center relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:52 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is stationary and the pose is Open Palm, so the intent is determined by Step 5: STOP.']}
+2026-05-13 15:07:52 - ✅ CORRECT
+2026-05-13 15:07:52 - Testing ID: 1778651549543
+2026-05-13 15:07:52 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:53 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:53 - ✅ CORRECT
+2026-05-13 15:07:53 - Testing ID: 1778651550760
+2026-05-13 15:07:53 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:54 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:54 - ✅ CORRECT
+2026-05-13 15:07:54 - Testing ID: 1778651551604
+2026-05-13 15:07:54 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:55 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:55 - ✅ CORRECT
+2026-05-13 15:07:55 - Testing ID: 1778651553572
+2026-05-13 15:07:55 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:55 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:55 - ✅ CORRECT
+2026-05-13 15:07:55 - Testing ID: 1778651554228
+2026-05-13 15:07:55 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:56 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:56 - ✅ CORRECT
+2026-05-13 15:07:56 - Testing ID: 1778651558660
+2026-05-13 15:07:56 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:57 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:57 - ✅ CORRECT
+2026-05-13 15:07:57 - Testing ID: 1778651559303
+2026-05-13 15:07:57 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:58 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:07:58 - ✅ CORRECT
+2026-05-13 15:07:58 - Testing ID: 1778651562415
+2026-05-13 15:07:58 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:59 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': "The hand is stationary and the palm faces 'Inward'. According to Step 2 (Stop), the intent is STOP."}
+2026-05-13 15:07:59 - ✅ CORRECT
+2026-05-13 15:07:59 - Testing ID: 1778651563538
+2026-05-13 15:07:59 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:07:59 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': "The hand is stationary and the palm faces 'Inward'. According to Step 2 of the mapping process, this indicates a STOP intent."}
+2026-05-13 15:07:59 - ✅ CORRECT
+2026-05-13 15:07:59 - Testing ID: 1778651567881
+2026-05-13 15:07:59 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:00 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is stationary and the pose is Open Palm, so according to Step 3 of the mapping process, the intent is STOP.']}
+2026-05-13 15:08:00 - ✅ CORRECT
+2026-05-13 15:08:00 - Testing ID: 1778651571013
+2026-05-13 15:08:00 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:01 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': "The hand is stationary and the palm orientation is facing 'Inward'. According to Step 2, this matches the STOP intent."}
+2026-05-13 15:08:01 - ✅ CORRECT
+2026-05-13 15:08:01 - Testing ID: 1778651572598
+2026-05-13 15:08:01 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:02 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': "The hand is stationary and the palm orientation is facing 'Inward'. This matches the criteria for the STOP intent."}
+2026-05-13 15:08:02 - ✅ CORRECT
+2026-05-13 15:08:02 - Testing ID: 1778651573731
+2026-05-13 15:08:02 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:02 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': "The hand is stationary and the palm orientation is facing 'Inward'. According to Step 2, this matches the STOP intent."}
+2026-05-13 15:08:02 - ✅ CORRECT
+2026-05-13 15:08:02 - Testing ID: 1778651576295
+2026-05-13 15:08:02 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:03 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:03 - ✅ CORRECT
+2026-05-13 15:08:03 - Testing ID: 1778651577092
+2026-05-13 15:08:03 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:04 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:04 - ✅ CORRECT
+2026-05-13 15:08:04 - Testing ID: 1778651578041
+2026-05-13 15:08:04 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:05 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:05 - ✅ CORRECT
+2026-05-13 15:08:05 - Testing ID: 1778651579847
+2026-05-13 15:08:05 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:06 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:06 - ✅ CORRECT
+2026-05-13 15:08:06 - Testing ID: 1778651580347
+2026-05-13 15:08:06 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:06 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:06 - ✅ CORRECT
+2026-05-13 15:08:06 - Testing ID: 1778651580773
+2026-05-13 15:08:06 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:07 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:07 - ✅ CORRECT
+2026-05-13 15:08:07 - Testing ID: 1778651582934
+2026-05-13 15:08:07 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:08 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:08 - ✅ CORRECT
+2026-05-13 15:08:08 - Testing ID: 1778651585202
+2026-05-13 15:08:08 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:09 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:09 - ✅ CORRECT
+2026-05-13 15:08:09 - Testing ID: 1778651585816
+2026-05-13 15:08:09 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:10 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:10 - ✅ CORRECT
+2026-05-13 15:08:10 - Testing ID: 1778651592373
+2026-05-13 15:08:10 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:11 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:11 - ❌ FAILED. Expected: STOP, Got: Fist
+2026-05-13 15:08:11 - Testing ID: 1778651594341
+2026-05-13 15:08:11 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:11 - LLM reasoning: {'Step 1': "The user's hand pose is Fist Pose.", 'Step 2': "Since the pose is Fist and Spatial Motion is 'Stationary', the intent is STOP."}
+2026-05-13 15:08:11 - ❌ FAILED. Expected: STOP, Got: Fist
+2026-05-13 15:08:11 - Testing ID: 1778651699581
+2026-05-13 15:08:11 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:12 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion).', "Since the pose is Open Palm and Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."]}
+2026-05-13 15:08:12 - ✅ CORRECT
+2026-05-13 15:08:12 - Testing ID: 1778651700249
+2026-05-13 15:08:12 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:14 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion).', "Since the pose is Open Palm and Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."]}
+2026-05-13 15:08:14 - ✅ CORRECT
+2026-05-13 15:08:14 - Testing ID: 1778651700716
+2026-05-13 15:08:14 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:14 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:14 - ✅ CORRECT
+2026-05-13 15:08:14 - Testing ID: 1778651701196
+2026-05-13 15:08:14 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Right relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Hand Rotation motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:15 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is moving with a Moderate Hand Rotation motion (SEARCH_AREA)', 'All fingers are straight and the thumb is not in contact with fingertips (Not Pinching Pose)']}
+2026-05-13 15:08:15 - ✅ CORRECT
+2026-05-13 15:08:15 - Testing ID: 1778651703332
+2026-05-13 15:08:15 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:17 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion).', "Since the pose is Open Palm and Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."]}
+2026-05-13 15:08:17 - ✅ CORRECT
+2026-05-13 15:08:17 - Testing ID: 1778651704589
+2026-05-13 15:08:17 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:17 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:17 - ✅ CORRECT
+2026-05-13 15:08:17 - Testing ID: 1778651708001
+2026-05-13 15:08:17 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:18 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:08:18 - ✅ CORRECT
+2026-05-13 15:08:18 - Testing ID: 1778651710235
+2026-05-13 15:08:18 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:19 - LLM reasoning: {'Step 1': "The user's hand pose is Pinching Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:08:19 - ✅ CORRECT
+2026-05-13 15:08:19 - Testing ID: 1778651711083
+2026-05-13 15:08:19 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:20 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:20 - ✅ CORRECT
+2026-05-13 15:08:20 - Testing ID: 1778651712588
+2026-05-13 15:08:20 - Input: Here is the current state of the user's hand:
+- The Index finger is straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:21 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (SEARCH_AREA)', "The pose is Pinching AND Spatial Motion is 'Oscillating' (SEARCH_AREA)"]}
+2026-05-13 15:08:21 - ✅ CORRECT
+2026-05-13 15:08:21 - Testing ID: 1778651714073
+2026-05-13 15:08:21 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:22 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:08:22 - ✅ CORRECT
+2026-05-13 15:08:22 - Testing ID: 1778651717305
+2026-05-13 15:08:22 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:23 - LLM reasoning: {'Step 1': 'Open Palm Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion)', "Since the pose is Open Palm AND Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."]}
+2026-05-13 15:08:23 - ✅ CORRECT
+2026-05-13 15:08:23 - Testing ID: 1778651719246
+2026-05-13 15:08:23 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:24 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:24 - ✅ CORRECT
+2026-05-13 15:08:24 - Testing ID: 1778651723327
+2026-05-13 15:08:24 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Up.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:24 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:08:24 - ✅ CORRECT
+2026-05-13 15:08:24 - Testing ID: 1778651725827
+2026-05-13 15:08:24 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:25 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:25 - ✅ CORRECT
+2026-05-13 15:08:25 - Testing ID: 1778651727936
+2026-05-13 15:08:25 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:26 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:26 - ✅ CORRECT
+2026-05-13 15:08:26 - Testing ID: 1778651731383
+2026-05-13 15:08:26 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:27 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:27 - ✅ CORRECT
+2026-05-13 15:08:27 - Testing ID: 1778651732924
+2026-05-13 15:08:27 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:28 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:28 - ✅ CORRECT
+2026-05-13 15:08:28 - Testing ID: 1778651734923
+2026-05-13 15:08:28 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Left.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:28 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:08:28 - ✅ CORRECT
+2026-05-13 15:08:28 - Testing ID: 1778651735905
+2026-05-13 15:08:28 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:29 - LLM reasoning: {'Step 1': "The user's hand pose is Open Palm Pose.", 'Step 2': "Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA."}
+2026-05-13 15:08:29 - ✅ CORRECT
+2026-05-13 15:08:29 - Testing ID: 1778651740733
+2026-05-13 15:08:29 - Input: Here is the current state of the user's hand:
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertip.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:30 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion) which matches the criteria for SEARCH_AREA intent.']}
+2026-05-13 15:08:30 - ✅ CORRECT
+2026-05-13 15:08:30 - Testing ID: 1778651743513
+2026-05-13 15:08:30 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:31 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion).', 'Since the pose is Pinching, the intent is SEARCH_AREA.']}
+2026-05-13 15:08:31 - ✅ CORRECT
+2026-05-13 15:08:31 - Testing ID: 1778651744861
+2026-05-13 15:08:31 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle finger is bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:32 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion) which matches the criteria for SEARCH_AREA.', 'The Pinching Pose does not match any other intent.']}
+2026-05-13 15:08:32 - ✅ CORRECT
+2026-05-13 15:08:32 - Testing ID: 1778651747293
+2026-05-13 15:08:32 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring finger is bent.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:33 - LLM reasoning: {'Step 1': 'Pinching Pose', 'Step 2': ['The hand is moving with a Moderate Oscillating / Waving motion (Spatial Motion). This matches the criteria for SEARCH_AREA.', 'The Pinching Pose does not match any other intent.']}
+2026-05-13 15:08:33 - ✅ CORRECT
+2026-05-13 15:08:33 - Testing ID: 1778651749451
+2026-05-13 15:08:33 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+2026-05-13 15:08:34 - LLM reasoning: Step 1: The user's hand pose is Open Palm Pose. Step 2: Since the Spatial Motion contains 'Oscillating', the intent is SEARCH_AREA.
+2026-05-13 15:08:34 - ✅ CORRECT
+2026-05-13 15:08:34 - 
+--- FINAL ACCURACY: 71.0% ---
