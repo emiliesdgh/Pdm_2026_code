@@ -65,13 +65,13 @@ def record_dataset():
                     hand_pos, pos_text = handStates.hand_position() 
                     finger_contact = handStates.get_finger_contact_state()
 
-                    motion_detected, motion_type = temporal_manager.update(hand_landmarks, finger_flexion, hand_orient, hand_pos)
+                    motion_detected, spatial_motion, articulation = temporal_manager.update(hand_landmarks, finger_flexion, hand_orient, hand_pos)
                     
                     # --- MEMORY LOGIC ---
                     if motion_detected:
                         frames_since_motion = 0
-                        if "Unknown" not in motion_type:
-                            last_significant_motion = motion_type
+                        if "Unknown" not in spatial_motion:
+                            last_significant_motion = spatial_motion
                     else:
                         frames_since_motion += 1
                         # If you hold still for 1 second, it forgets the previous motion
@@ -79,7 +79,8 @@ def record_dataset():
                             last_significant_motion = "Stationary"
 
                     # Generate the string constantly in the background
-                    prompt = get_symbolic_string_2(global_vars, finger_flexion, finger_contact, hand_orient, motion_detected, last_significant_motion, pos_text)
+                    prompt = get_symbolic_string_2(global_vars, finger_flexion, finger_contact, hand_orient, motion_detected, last_significant_motion, articulation, pos_text)
+                    # prompt = get_symbolic_string_2(global_vars, finger_flexion, finger_contact, hand_orient, motion_detected, spatial_motion, articulation, pos_text)
 
                     mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 

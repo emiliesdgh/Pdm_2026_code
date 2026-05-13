@@ -33,7 +33,7 @@ class TemporalGestureManager:
     
     def analyze_motion(self):
         if len(self.gesture_history) < self.window_size:
-            return False, "Detecting..."  # Need enough frames to detect a trend
+            return False, "Detecting...", "None"  # Need enough frames to detect a trend
 
         # 1. Detect if there is a change in finger states or orientation
         prefix = list(self.gesture_history)[:self.window_size//2]
@@ -59,7 +59,7 @@ class TemporalGestureManager:
         )
 
         if not is_moving:
-            return False, "Stationary"
+            return False, "Stationary", "None"
         
         # --- Determine type of motion ---
         motion_type = self.classify_motion(
@@ -71,7 +71,17 @@ class TemporalGestureManager:
             flips_y
         )
 
-        return True, motion_type
+        spatial_motion, articulation = self.classify_motion(
+            finger_state_change, 
+            orientation_change, 
+            displacement,
+            speed_str,
+            flips_x,
+            flips_y
+        )
+
+        # return True, motion_type, articulation
+        return True, spatial_motion, articulation
     
     def analyze_trajectory(self):
         """
@@ -132,9 +142,13 @@ class TemporalGestureManager:
     def classify_motion(self, finger_change, orientation_change, displacement, speed_str, flips_x, flips_y):
         dx, dy = displacement
         magnitude = np.linalg.norm(displacement)
+
+        spatial_motion = "Stationary"
+        articulation = "None"
     
         
         # -- 1. Start with checking for significant spatial movements --
+        # check if possible several ==> append and have more than 1 in spatial motion
         if magnitude > 0.05: 
             # Calculate angle of displacement (-180 to 180 degrees)
             angle = np.degrees(np.arctan2(dy, dx))
@@ -162,22 +176,22 @@ class TemporalGestureManager:
             elif dir_str.endswith("Right"):
                 dir_str = dir_str.replace("Right", "Left")
             
-            return f"{speed_str} Linear Translation towards {dir_str}"
+            spatial_motion = f"{speed_str} Linear Translation towards {dir_str}"
         
         # -- 2. Check for wrist Rotations --
-        if orientation_change: 
-            return f"{speed_str} Hand Rotation"
+        elif orientation_change: 
+            spatial_motion = f"{speed_str} Hand Rotation"
         
         # -- 3. Wave Detection (Oscillation) --
         # If the direction flips back and forth 2 or more times, it's a wave
-        if flips_x >= 2 or flips_y >= 2:
-            return f"{speed_str} Oscillating Left & Right"
+        elif flips_x >= 2 or flips_y >= 2:
+            spatial_motion = f"{speed_str} Oscillating Left & Right"
 
         # -- 4. Articulation --> only if the hand is relatively stable --
         if finger_change >= 4:
-            return f"{speed_str} All fingers rapidly bending towards the palm"
+            articulation = f"{speed_str} All fingers bending towards the palm"
         if finger_change >= 1 and finger_change < 4:
-            return f"{speed_str} Bending Fingers"
+            articulation = f"{speed_str} Bending Fingers"
         
             
-        return f"{speed_str} Unknown Motion"
+        return spatial_motion, articulation

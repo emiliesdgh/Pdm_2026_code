@@ -2,9 +2,7 @@
 Script to link the gesture recognition to the LLM symbolic representation by determining the hand state (finger positions, hand orientation, etc.)
 """
 
-
-
-def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position):
+def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, spatial_motion, articulation, hand_position, environmental_context=""):
     """
     Formats the hand state into descriptive bullet points modeled after the GestureGPT paper.
     """
@@ -37,6 +35,11 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
     else:
         contact_desc = "The Thumb is NOT in contact with fingertips."#any other fingertips."
 
+    if spatial_motion == "Stationary":
+        motion_desc = "The hand is stationary, motionless."
+    else:
+        motion_desc = f"The hand is moving with a {spatial_motion} motion."
+
     # 3. Format the final bulleted prompt
     symbolic_str = (
         "Here is the current state of the user's hand:\n"
@@ -44,7 +47,12 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
         f"- {contact_desc}\n"
         f"- The palm orientation is facing {hand_orientation}.\n"
         f"- The hand is positioned at {hand_position} relative to the center of the view.\n"
-        f"- The hand moves with a {motion_type} motion."
+        f"--- TEMPORAL MOTION LOG ---\n"
+        # f"- Spatial Motion: {spatial_motion}\n"
+        f"- Spatial Motion: {motion_desc}\n"
+        f"- Articulation: {articulation}\n\n"
+        f"--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\n"
+        f"{environmental_context if environmental_context else 'No additional context from robot vision.'}"
     )
 
     # print(symbolic_str)
