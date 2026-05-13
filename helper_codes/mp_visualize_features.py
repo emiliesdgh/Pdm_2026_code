@@ -63,8 +63,7 @@ class IGFeatureVisualizer:
         # 1. Geometric Center of Hand
         all_px = np.array([self.to_px(lm) for lm in landmarks])
         geo_center = np.mean(all_px, axis=0).astype(int)
-        # cv2.circle(frame, tuple(geo_center), 8, (0, 165, 255), -1) # Orange geometric center
-        cv2.circle(frame, tuple(geo_center), 8, (255, 255, 255), -1) # Orange geometric center
+        cv2.circle(frame, tuple(geo_center), 8, (255, 255, 255), -1) # White geometric center
         
         # 2. Frame Center and Margins (20%)
         cv2.circle(frame, self.center_frame, 5, (255, 0, 255), -1)
@@ -81,8 +80,6 @@ class IGFeatureVisualizer:
         cv2.line(frame, self.center_frame, intersect, (0, 0, 255), 2) # dy
         cv2.line(frame, intersect, wrist_px, (255, 0, 0), 2) # dx
         
-        # cv2.putText(frame, f"dx: {dx}", (intersect[0] + 10, intersect[1] + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
-        # cv2.putText(frame, f"dy: {dy}", (self.center_frame[0] - 80, self.center_frame[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
         # Display text cleanly on the side
         cv2.putText(frame, "--- Position ---", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
         cv2.putText(frame, f"dx (Blue): {dx}", (30, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
@@ -139,12 +136,8 @@ class IGFeatureVisualizer:
         # Draw Lines
         cv2.line(frame, tip_px, p_base_px, (0, 255, 0), 2)
         cv2.line(frame, pip_px, p_base_px, (0, 0, 255), 2)
-        
-        # cv2.putText(frame, f"Tip Dist: {dist_thumb_palm:.3f}", (tip_px[0]+10, tip_px[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-        # cv2.putText(frame, f"PIP Dist: {dist_pip_palm:.3f}", (pip_px[0]+10, pip_px[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
         state = "EXTENDED" if dist_thumb_palm > dist_pip_palm else "FOLDED"
-        # cv2.putText(frame, f"Thumb: {state}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
 
         # Display text cleanly on the side
         cv2.putText(frame, f"Thumb: {state}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
@@ -182,26 +175,48 @@ class IGFeatureVisualizer:
         cv2.line(frame, pip_px, dip_px, (0, 255, 255), 3)
         cv2.line(frame, dip_px, tip_px, (0, 255, 255), 3)
 
-        # # Drawing
-        # cv2.line(frame, self.to_px(landmarks[base]), self.to_px(landmarks[pip]), (0, 255, 255), 3)
-        # cv2.line(frame, self.to_px(landmarks[pip]), self.to_px(landmarks[dip]), (0, 255, 255), 3)
-        # cv2.line(frame, self.to_px(landmarks[dip]), self.to_px(landmarks[tip]), (0, 255, 255), 3)
+        # # --- DRAWING THE ARCS ---
+        # # Arc 1: Angle at PIP joint -> Green
+        # self.draw_angle_arc(frame, base_px, pip_px, dip_px, radius=20, color=(0, 255, 0), thickness=2)
+        
+        # # Arc 2: Angle at DIP joint -> Blue
+        # self.draw_angle_arc(frame, pip_px, dip_px, tip_px, radius=20, color=(255, 0, 0), thickness=2)
 
-        # cv2.putText(frame, f"A1: {int(angle1)}", self.to_px(landmarks[pip]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-        # cv2.putText(frame, f"A2: {int(angle2)}", self.to_px(landmarks[dip]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        # # Arc 3: Total Angle (Virtual representation) -> Orange
+        # # We translate the DIP-Tip vector to start at the PIP joint to visualize the total bend sum
+        # v3_2d_x = tip_px[0] - dip_px[0]
+        # v3_2d_y = tip_px[1] - dip_px[1]
+        # virtual_tip_px = (pip_px[0] + v3_2d_x, pip_px[1] + v3_2d_y)
+        
+        # # Draw a thin reference line for the virtual vector
+        # cv2.line(frame, pip_px, virtual_tip_px, (0, 165, 255), 1) 
+        # # Draw the larger total arc
+        # self.draw_angle_arc(frame, base_px, pip_px, virtual_tip_px, radius=35, color=(0, 165, 255), thickness=3)
+
+        # Drawing
+        cv2.line(frame, self.to_px(landmarks[base]), self.to_px(landmarks[pip]), (0, 255, 255), 3)
+        cv2.line(frame, self.to_px(landmarks[pip]), self.to_px(landmarks[dip]), (0, 255, 255), 3)
+        cv2.line(frame, self.to_px(landmarks[dip]), self.to_px(landmarks[tip]), (0, 255, 255), 3)
+
 
         # Distance backup check
         tip_w_dist = np.linalg.norm(self.get_vec(landmarks[tip]) - self.get_vec(landmarks[wrist]))
         pip_w_dist = np.linalg.norm(self.get_vec(landmarks[pip]) - self.get_vec(landmarks[wrist]))
         folded_by_dist = tip_w_dist < pip_w_dist
-
-        # cv2.putText(frame, f"{f_name} Curl: {int(total_curl)} | Dist Fold: {folded_by_dist}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
         
+        # # Display text cleanly on the side
+        # cv2.putText(frame, f"{f_name} Curl: {int(total_curl)} | Dist Fold: {folded_by_dist}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+        # cv2.putText(frame, f"Angle 1: {int(angle1)} deg", (30, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+        # cv2.putText(frame, f"Angle 2: {int(angle2)} deg", (30, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+
         # Display text cleanly on the side
-        cv2.putText(frame, f"{f_name} Curl: {int(total_curl)} | Dist Fold: {folded_by_dist}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
-        cv2.putText(frame, f"Angle 1: {int(angle1)} deg", (30, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
-        cv2.putText(frame, f"Angle 2: {int(angle2)} deg", (30, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
-   
+        cv2.putText(frame, f"--- {f_name} Flexion ---", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+        cv2.putText(frame, f"Angle 1 (Green): {int(angle1)} deg", (30, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+        cv2.putText(frame, f"Angle 2 (Blue): {int(angle2)} deg", (30, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
+        cv2.putText(frame, f"Total Curl (Orange): {int(total_curl)} deg", (30, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 165, 255), 2)
+        cv2.putText(frame, f"Dist Folded Backup: {folded_by_dist}", (30, 200), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
+
+
     # ==========================================
     # RULE 3: Contact (Key 8)
     # ==========================================
@@ -224,7 +239,8 @@ class IGFeatureVisualizer:
             dist = np.linalg.norm(thumb_tip - f_tip)
             
             # Check contact for the current finger
-            if dist <= 0.045:
+            # if dist <= 0.045:
+            if dist <= 0.1:
                 color = (0, 255, 0)
                 circle = -1
                 thumb_is_touching = True # Trigger the flag!
@@ -268,11 +284,6 @@ def main():
             frame = cv2.flip(frame, 1) 
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             results = hands.process(frame_rgb)
-            
-            # Instructions UI
-            # cv2.putText(frame, "1:Pos | 2:Orient | 3:Thumb | 4:Idx | 5:Mid | 6:Rng | 7:Pnk | 8:Cont | 9:Path | 0:Off", 
-            #             (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-
 
             if results.multi_hand_landmarks:
                 for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
@@ -283,8 +294,6 @@ def main():
                     wrist_history.append(wrist_px)
 
                     # Custom, smaller drawing specs & connection lines for the landmarks
-                    custom_landmark_style = mp_drawing.DrawingSpec(color=(0, 255, 255), thickness=-1, circle_radius=2)
-                    custom_connection_style = mp_drawing.DrawingSpec(color=(100, 100, 100), thickness=2)
                     # Grab the default colorful dictionary
                     custom_rainbow_spec = mp_drawing_styles.get_default_hand_landmarks_style()
                     custom_rainbow_connection = mp_drawing_styles.get_default_hand_connections_style()
@@ -303,10 +312,7 @@ def main():
                                                   landmark_drawing_spec=custom_rainbow_spec,
                                                   connection_drawing_spec=custom_rainbow_connection)
 
-                    # label = 'Right' if handedness.classification[0].label == 'Left' else 'Left'
                     label = handedness.classification[0].label
-
-                    # print(f"Detected {label} Hand - Visualization Mode: {viz_mode}")
 
                     # Router
                     if viz_mode == 1: vis.draw_position(frame, hand_landmarks.landmark)
