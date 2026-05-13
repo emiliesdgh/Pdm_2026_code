@@ -16,7 +16,7 @@ from ig_global_variables import GlobalVariables
 # ==========================================
 GROUND_TRUTH_INTENT = "SEARCH_AREA"  # Change this to the intent you want to record for
 
-DATASET_FILE = "gesture_dataset.json"
+DATASET_FILE = "gesture_dataset_good.json"
 
 def record_dataset():
     gesture_dataset = []

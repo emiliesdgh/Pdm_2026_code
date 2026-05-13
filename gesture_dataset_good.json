@@ -1,0 +1,237 @@
+[
+    {
+        "id": 1778641634885,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641639965,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641643791,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641648484,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Pinky finger is bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641662919,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641667222,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641670563,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641674454,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Bottom-Center relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641678733,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Right.\n- The hand is positioned at Center-Left relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641686651,
+        "ground_truth": "NAVIGATE_THERE",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Down.\n- The hand is positioned at Center-Left relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641709071,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641713359,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641716609,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641720012,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641723123,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641726453,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641729584,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641733092,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641736579,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center-Left relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641739629,
+        "ground_truth": "STOP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Center-Left relative to the center of the view.\n- The hand moves with a Stationary motion."
+    },
+    {
+        "id": 1778641764884,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Bottom-Center relative to the center of the view.\n- The hand moves with a Fast Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641767653,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Index, Middle fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641770620,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow Oscillating Left & Right motion."
+    },
+    {
+        "id": 1778641820211,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Bottom-Center relative to the center of the view.\n- The hand moves with a Fast Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641822110,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Bottom-Center relative to the center of the view.\n- The hand moves with a Fast Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641844460,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index fingertip.\n- The palm orientation is facing Right.\n- The hand is positioned at Top-Center relative to the center of the view.\n- The hand moves with a Slow Bending Fingers motion."
+    },
+    {
+        "id": 1778641863162,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow Bending Fingers motion."
+    },
+    {
+        "id": 1778641866493,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow Bending Fingers motion."
+    },
+    {
+        "id": 1778641869064,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Bottom-Center relative to the center of the view.\n- The hand moves with a Fast Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641870493,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Bottom-Center relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641877674,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow All fingers rapidly bending towards the palm motion."
+    },
+    {
+        "id": 1778641880728,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow Bending Fingers motion."
+    },
+    {
+        "id": 1778641890694,
+        "ground_truth": "PICK_UP",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are bent.\n- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.\n- The palm orientation is facing Inward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641914438,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Left motion."
+    },
+    {
+        "id": 1778641915795,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Left motion."
+    },
+    {
+        "id": 1778641917708,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Oscillating Left & Right motion."
+    },
+    {
+        "id": 1778641925029,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Up-Left motion."
+    },
+    {
+        "id": 1778641928165,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Hand Rotation motion."
+    },
+    {
+        "id": 1778641930324,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Index finger is straight, while the Thumb, Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Index, Middle fingertips.\n- The palm orientation is facing Unknown.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Hand Rotation motion."
+    },
+    {
+        "id": 1778641933700,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Hand Rotation motion."
+    },
+    {
+        "id": 1778641936470,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Hand Rotation motion."
+    },
+    {
+        "id": 1778641944401,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.\n- The Thumb is currently in contact with the Middle fingertip.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Hand Rotation motion."
+    },
+    {
+        "id": 1778641950535,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Left.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Slow Oscillating Left & Right motion."
+    },
+    {
+        "id": 1778641952583,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Hand Rotation motion."
+    },
+    {
+        "id": 1778641953462,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Outward.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Up motion."
+    },
+    {
+        "id": 1778641966803,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center of vision relative to the center of the view.\n- The hand moves with a Moderate Oscillating Left & Right motion."
+    },
+    {
+        "id": 1778641979269,
+        "ground_truth": "SEARCH_AREA",
+        "symbolic_string": "Here is the current state of the user's hand:\n- All fingers are straight.\n- The Thumb is NOT in contact with fingertips.\n- The palm orientation is facing Down.\n- The hand is positioned at Center-Left relative to the center of the view.\n- The hand moves with a Moderate Linear Translation towards Left motion."
+    }
+]
