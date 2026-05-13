@@ -1,0 +1,762 @@
+2026-05-08 14:10:25 - Testing ID: 1778135546375
+2026-05-08 14:10:25 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:28 - LLM reasoning: The hand pose shows that only the Thumb and Index fingers are straight, which resembles a pointing gesture. The stationary motion indicates that the user is directing the robot to navigate towards the Center-Right relative to the center of the view.
+2026-05-08 14:10:28 - ✅ CORRECT
+2026-05-08 14:10:28 - Testing ID: 1778135550447
+2026-05-08 14:10:28 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:29 - LLM reasoning: The hand pose shows that only the Thumb and Index fingers are straight, which resembles a pointing gesture. The thumb is not in contact with any other fingertips. The palm orientation facing down can be considered as the user directing the robot from their perspective. The hand moves with a Stationary motion, indicating a clear direction.
+2026-05-08 14:10:29 - ✅ CORRECT
+2026-05-08 14:10:29 - Testing ID: 1778135553783
+2026-05-08 14:10:29 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:30 - LLM reasoning: The hand pose is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent). The Thumb not being in contact with other fingertips does not affect the interpretation as it is natural when pointing. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:30 - ✅ CORRECT
+2026-05-08 14:10:30 - Testing ID: 1778135557296
+2026-05-08 14:10:30 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:31 - LLM reasoning: The hand pose shows that only the Thumb and Index fingers are straight, which resembles a pointing gesture. The motion is stationary, indicating a direction. Since the thumb is not in contact with other fingertips, it does not suggest a pinch or lift. The palm orientation is unknown but this does not affect the interpretation as the hand pose and motion align with the 'NAVIGATE_THERE' metaphor.
+2026-05-08 14:10:31 - ✅ CORRECT
+2026-05-08 14:10:31 - Testing ID: 1778135560346
+2026-05-08 14:10:31 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:10:32 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent).
+2. The motion is 'Hand Rotation'.
+3. This combination best fits the SEARCH_AREA metaphor as the user's slow rotation of the hand mimics scanning or exploring the area.
+2026-05-08 14:10:32 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: SEARCH_AREA
+2026-05-08 14:10:32 - Testing ID: 1778135565633
+2026-05-08 14:10:32 - Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:33 - LLM reasoning: 1. The physical shape of the hand is a Pointing Pose (Index finger straight, Thumb, Middle, Ring, Pinky fingers bent).
+2. The motion is Stationary.
+3. Since the user's hand is in a pointing pose and stationary with thumb contact to multiple fingertips, it best fits the 'PICK_UP' metaphor.
+2026-05-08 14:10:33 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+
+2026-05-08 14:10:33 - Testing ID: 1778135570098
+2026-05-08 14:10:33 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:33 - LLM reasoning: 1. The physical shape of the hand is a Pinching pose. 2. The motion is Stationary. 3. Since the user's hand is in a pinch gesture and stationary, this combination best fits the PICK_UP metaphor.
+2026-05-08 14:10:33 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+
+2026-05-08 14:10:33 - Testing ID: 1778135575942
+2026-05-08 14:10:33 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:34 - LLM reasoning: The physical shape of the hand is Open Palm Pose. The motion doing is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:34 - ✅ CORRECT
+
+
+2026-05-08 14:10:34 - Testing ID: 1778135581047
+2026-05-08 14:10:34 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:35 - LLM reasoning: ['The physical shape of the hand is Open Palm.', 'The motion doing is Stationary.', "This combination best fits the 'OPEN_PALM_STATIONARY' metaphor, which does not directly correspond to any of the four commands (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, this gesture could be interpreted as a request for the robot to remain still or pause its actions."]
+2026-05-08 14:10:35 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: OPEN_PALM_STATIONARY
+2026-05-08 14:10:35 - Testing ID: 1778135587539
+2026-05-08 14:10:35 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:36 - LLM reasoning: The hand pose is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent). The thumb is not in contact with any other fingertips. The palm orientation is facing Down which is not a critical factor for this intent. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:36 - ✅ CORRECT
+2026-05-08 14:10:36 - Testing ID: 1778135591514
+2026-05-08 14:10:36 - Input: Here is the current state of the user's hand:
+- The Index fingers are straight, while the Thumb, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:10:37 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Thumb, Middle, Ring, Pinky fingers bent).
+2. The motion is Slow Bending Fingers.
+3. This combination best fits the metaphor of Grabbing or Lifting, which corresponds to the intent PICK_UP.
+2026-05-08 14:10:37 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-08 14:10:37 - Testing ID: 1778135595168
+2026-05-08 14:10:37 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:38 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Thumb and Index fingers are straight). 2. The motion is Stationary. 3. Since the user's hand is in a pointing pose with stationary motion, it best fits the 'PICK_UP' metaphor as the Thumb is in contact with the Middle fingertips, mimicking a pinch.
+2026-05-08 14:10:38 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-08 14:10:38 - Testing ID: 1778135599251
+2026-05-08 14:10:38 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:38 - LLM reasoning: 1. The physical shape of the hand is a Pinching pose. 2. The motion is Stationary. 3. Since the user's hand is in a pinch position and stationary, this combination best fits the PICK_UP metaphor.
+2026-05-08 14:10:38 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-08 14:10:38 - Testing ID: 1778135605490
+2026-05-08 14:10:38 - Input: Here is the current state of the user's hand:
+- The Index, Middle fingers are straight, while the Thumb, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:39 - LLM reasoning: The Index finger is straight (Pointing Pose). The hand is stationary, indicating a direction. The thumb not being in contact with other fingertips does not affect the interpretation as it is natural when pointing.
+2026-05-08 14:10:39 - ✅ CORRECT
+2026-05-08 14:10:39 - Testing ID: 1778135613108
+2026-05-08 14:10:39 - Input: Here is the current state of the user's hand:
+- The Thumb, Index, Middle fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:40 - LLM reasoning: The hand pose shows three fingers (Thumb, Index, Middle) straight which resembles a pointing gesture. The motion is stationary, indicating the user is directing the robot. The thumb not being in contact with other fingertips does not affect the interpretation as such contact is possible and natural when pointing.
+2026-05-08 14:10:40 - ✅ CORRECT
+2026-05-08 14:10:40 - Testing ID: 1778135619476
+2026-05-08 14:10:40 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:40 - LLM reasoning: 1. The physical shape of the hand is a Pinching pose, as the Thumb is in contact with the Middle and Ring fingers. 2. The motion is Stationary. 3. This combination best fits the PICK_UP metaphor, as it mimics pinching or grabbing.
+2026-05-08 14:10:40 - ❌ FAILED. Expected: NAVIGATE_THERE, Got: PICK_UP
+2026-05-08 14:10:40 - Testing ID: 1778135643063
+2026-05-08 14:10:40 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:42 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination best fits the 'OPEN_PALM_STATIONARY' metaphor, which does not directly correspond to any of the four predefined intents (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, this gesture could potentially be interpreted as a request for the robot to 'STOP' if it is in motion and the user is facing the robot. But without additional context or training, it is difficult to definitively assign an intent.
+2026-05-08 14:10:42 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_STATIONARY
+2026-05-08 14:10:42 - Testing ID: 1778135645537
+2026-05-08 14:10:42 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:43 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination does not directly fit any of the predefined commands (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, since the palm is facing inward and stationary, it could be interpreted as a request for the robot to approach or move towards the user. So, this gesture can be considered as an indirect indication of 'NAVIGATE_THERE'.
+2026-05-08 14:10:43 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_FACING_INWARD
+2026-05-08 14:10:43 - Testing ID: 1778135648481
+2026-05-08 14:10:43 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:44 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination best fits the 'Open Palm Pose' metaphor, which does not directly correspond to any of the four commands (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, it could be interpreted as a request for the robot to remain stationary or pause its actions.
+2026-05-08 14:10:44 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_STATIONARY
+2026-05-08 14:10:44 - Testing ID: 1778135651364
+2026-05-08 14:10:44 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:45 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion doing is Stationary. 3. This combination best fits PINCH_UP as the Thumb is in contact with Middle fingertips.
+2026-05-08 14:10:45 - ❌ FAILED. Expected: STOP, Got: PINCH_UP
+2026-05-08 14:10:45 - Testing ID: 1778135655266
+2026-05-08 14:10:45 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:45 - LLM reasoning: The hand pose is Pointing Pose (Index finger straight, while Middle, Ring, and Pinky are bent). The thumb is straight and not in contact with any other fingertips. The palm orientation is facing Inward. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:45 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-08 14:10:45 - Testing ID: 1778135658540
+2026-05-08 14:10:45 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:46 - LLM reasoning: The hand pose is Pointing Pose (Index finger straight, while Middle, Ring, and Pinky are bent). The thumb is not in contact with any other fingertips. The palm orientation is facing Inward. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:46 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-08 14:10:46 - Testing ID: 1778135661926
+2026-05-08 14:10:46 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:47 - LLM reasoning: The hand pose is Pointing Pose (Index finger is straight, while Middle, Ring, and Pinky are bent). The Thumb is not in contact with any other fingertips. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:47 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-08 14:10:47 - Testing ID: 1778135665398
+2026-05-08 14:10:47 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:48 - LLM reasoning: The hand pose is Pointing Pose (Index finger straight, while Middle, Ring, and Pinky are bent). The Thumb is not in contact with any other fingertips. The palm orientation is facing Inward. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:48 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-08 14:10:48 - Testing ID: 1778135668527
+2026-05-08 14:10:48 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:49 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination does not directly fit any of the four metaphors (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, an open palm facing inward could be interpreted as a request for the robot to move towards the center or stop depending on the context. Without additional information about the user's behavior or environment, it is difficult to definitively determine the intent.
+2026-05-08 14:10:49 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_FACING_INWARD
+2026-05-08 14:10:49 - Testing ID: 1778135671939
+2026-05-08 14:10:49 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:50 - LLM reasoning: ['The physical shape of the hand is Open Palm.', 'The motion doing is Stationary.', "This combination best fits the 'OPEN_PALM_STATIONARY' metaphor, which does not directly correspond to any of the four predefined intents. However, this gesture could be interpreted as a request for the robot to STOP if it is in motion, or as a signal to PAY ATTENTION if the robot is idle."]
+2026-05-08 14:10:50 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_STATIONARY
+2026-05-08 14:10:50 - Testing ID: 1778135675509
+2026-05-08 14:10:50 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:52 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination best fits the 'OPEN_PALM_STATIONARY' metaphor, which does not correspond directly to any of the four predefined intents (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, this gesture could potentially be interpreted as a request for the robot to 'STOP' if it is in motion and the user is facing the robot. But without additional context or training, it is not possible to definitively determine the intent.
+2026-05-08 14:10:52 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_STATIONARY
+2026-05-08 14:10:52 - Testing ID: 1778135679729
+2026-05-08 14:10:52 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:53 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination best fits the 'OPEN_PALM_STATIONARY' metaphor, which does not directly correspond to any of the predefined intents (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, this gesture could potentially be interpreted as a request for the robot to 'STOP' if it is in motion and the user is facing the robot. But without additional context or training, it is difficult to definitively assign an intent.
+2026-05-08 14:10:53 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_STATIONARY
+2026-05-08 14:10:53 - Testing ID: 1778135682902
+2026-05-08 14:10:53 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:54 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion doing is Stationary. 3. This combination does not directly fit any of the predefined intents (PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA). However, since the palm is facing inward and stationary, it could be interpreted as a request for the robot to move towards the center-left of its current position. This interpretation is based on common human gestures used to guide others or objects.
+2026-05-08 14:10:54 - ❌ FAILED. Expected: STOP, Got: OPEN_PALM_FACING_INWARD
+2026-05-08 14:10:54 - Testing ID: 1778135685429
+2026-05-08 14:10:54 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:55 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Stationary. 3. With a bent hand and stationary motion, the combination best fits the PICK_UP metaphor as it resembles grasping or holding an object.
+2026-05-08 14:10:55 - ❌ FAILED. Expected: STOP, Got: PICK_UP
+2026-05-08 14:10:55 - Testing ID: 1778135688446
+2026-05-08 14:10:55 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:56 - LLM reasoning: The hand pose is Pointing Pose (Index finger is straight, while Middle, Ring, and Pinky are bent). The thumb is straight and not in contact with any other fingertips. The motion is Stationary. This combination best fits the metaphor of Directing or Pointing or Indicating a Direction.
+2026-05-08 14:10:56 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-08 14:10:56 - Testing ID: 1778135692004
+2026-05-08 14:10:56 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Stationary motion.
+2026-05-08 14:10:56 - LLM reasoning: The hand pose is Pointing Pose (Index finger straight, while Middle, Ring, and Pinky are bent). The Thumb fingers being straight does not affect the pointing gesture. The hand is stationary, which is a characteristic of directing or pointing. Therefore, the user's intent is NAVIGATE_THERE.
+2026-05-08 14:10:56 - ❌ FAILED. Expected: STOP, Got: NAVIGATE_THERE
+2026-05-08 14:10:56 - Testing ID: 1778135725585
+2026-05-08 14:10:56 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Fast Linear Translation towards Up motion.
+2026-05-08 14:10:57 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The hand moves with a Fast Linear Translation towards Up, mimicking lifting an object. 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:10:57 - ✅ CORRECT
+2026-05-08 14:10:57 - Testing ID: 1778135727897
+2026-05-08 14:10:57 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-08 14:10:58 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Linear Translation, which implies lifting or grabbing. 3. Since the user's hand is in a fist pose and moving with a linear translation towards up, this best fits the PICK_UP metaphor.
+2026-05-08 14:10:58 - ✅ CORRECT
+2026-05-08 14:10:58 - Testing ID: 1778135729581
+2026-05-08 14:10:58 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-08 14:10:58 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Slow Linear Translation towards Up, which can be interpreted as scanning or exploring. 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:10:58 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-08 14:10:58 - Testing ID: 1778135731275
+2026-05-08 14:10:58 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-08 14:10:59 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion doing is Scanning (Oscillating Left & Right). 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:10:59 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-08 14:10:59 - Testing ID: 1778135733849
+2026-05-08 14:10:59 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:00 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion doing is Scanning (Slow Hand Rotation). However, since the thumb is in contact with multiple fingertips and the palm orientation is facing Inward, this combination best fits the PINCH_UP metaphor.
+2026-05-08 14:11:00 - ❌ FAILED. Expected: PICK_UP, Got: PINCH_UP
+2026-05-08 14:11:00 - Testing ID: 1778135735865
+2026-05-08 14:11:00 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-08 14:11:00 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion doing is Scanning (Oscillating Left & Right). 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:00 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-08 14:11:00 - Testing ID: 1778135738282
+2026-05-08 14:11:00 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-08 14:11:01 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion is Oscillating Left & Right. 3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:01 - ❌ FAILED. Expected: PICK_UP, Got: SEARCH_AREA
+2026-05-08 14:11:01 - Testing ID: 1778135740236
+2026-05-08 14:11:01 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:02 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The motion is 'Bending Fingers'. 3. This combination best fits the PICK_UP metaphor as the user's gesture mimics the act of grasping or picking up an object.
+2026-05-08 14:11:02 - ✅ CORRECT
+2026-05-08 14:11:02 - Testing ID: 1778135741752
+2026-05-08 14:11:02 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up-Left motion.
+2026-05-08 14:11:02 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The hand moves with a Linear Translation, mimicking lifting an object. 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:02 - ✅ CORRECT
+2026-05-08 14:11:02 - Testing ID: 1778135743679
+2026-05-08 14:11:02 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:03 - LLM reasoning: 1. The physical shape of the hand is a Fist. 2. The motion doing is Grabbing (Bending Fingers). 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:03 - ✅ CORRECT
+2026-05-08 14:11:03 - Testing ID: 1778135746290
+2026-05-08 14:11:03 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-08 14:11:03 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Linear Translation towards Up, mimicking lifting an object. 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:03 - ✅ CORRECT
+2026-05-08 14:11:03 - Testing ID: 1778135748507
+2026-05-08 14:11:03 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Bottom-Left relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-08 14:11:04 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The hand moves with a Linear Translation, mimicking lifting an object. 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:04 - ✅ CORRECT
+2026-05-08 14:11:04 - Testing ID: 1778135750474
+2026-05-08 14:11:04 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:05 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion doing is Hand Rotation. 3. This combination best fits PICK_UP as the user's fist with thumb contact to multiple fingertips mimics a pinching or lifting gesture.
+2026-05-08 14:11:05 - ✅ CORRECT
+2026-05-08 14:11:05 - Testing ID: 1778135752570
+2026-05-08 14:11:05 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-08 14:11:05 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Linear Translation (mimicking lifting an object). 3. Since the user's hand is in a fist pose and moving with a linear translation towards up, this combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:05 - ✅ CORRECT
+2026-05-08 14:11:05 - Testing ID: 1778135754654
+2026-05-08 14:11:05 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-08 14:11:06 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Linear Translation, which suggests an action like lifting or grabbing. 3. Since the thumb is in contact with the index fingertips (pinching), this combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:06 - ✅ CORRECT
+2026-05-08 14:11:06 - Testing ID: 1778135756871
+2026-05-08 14:11:06 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up motion.
+2026-05-08 14:11:07 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Thumb and Index fingers are straight). 2. The hand moves with a Linear Translation towards Up motion, mimicking lifting or grabbing an object. 3. This combination best fits the 'PICK_UP' metaphor.
+2026-05-08 14:11:07 - ✅ CORRECT
+2026-05-08 14:11:07 - Testing ID: 1778135758748
+2026-05-08 14:11:07 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Bottom-Center relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Up motion.
+2026-05-08 14:11:08 - LLM reasoning: The physical shape of the hand is Open Palm Pose. The motion doing is Slow Linear Translation towards Up motion, which indicates directing or pointing a direction. Therefore, the combination best fits the metaphor of NAVIGATE_THERE.
+2026-05-08 14:11:08 - ❌ FAILED. Expected: PICK_UP, Got: NAVIGATE_THERE
+2026-05-08 14:11:08 - Testing ID: 1778135761676
+2026-05-08 14:11:08 - Input: Here is the current state of the user's hand:
+- The Thumb, Middle, Ring, Pinky fingers are straight, while the Index fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:08 - LLM reasoning: 1. The physical shape of the hand is a Pinching pose. 2. The motion doing is Grabbing (Slow Bending Fingers). 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:08 - ✅ CORRECT
+2026-05-08 14:11:08 - Testing ID: 1778135763178
+2026-05-08 14:11:08 - Input: Here is the current state of the user's hand:
+- The Thumb, Pinky fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:09 - LLM reasoning: 1. The physical shape of the hand is a Pinching pose. 2. The hand is moving with a Slow Bending Fingers motion, which indicates grasping or picking up an object. 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:09 - ✅ CORRECT
+2026-05-08 14:11:09 - Testing ID: 1778135764294
+2026-05-08 14:11:09 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:10 - LLM reasoning: 1. The physical shape of the hand is a Fist. 2. The motion doing is Grabbing (Bending Fingers). 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:10 - ✅ CORRECT
+2026-05-08 14:11:10 - Testing ID: 1778135765980
+2026-05-08 14:11:10 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Linear Translation towards Left motion.
+2026-05-08 14:11:10 - LLM reasoning: 1. The physical shape of the hand is Fist. 2. The motion is Linear Translation, which implies movement towards an object. 3. Since all fingers are bent and the thumb is in contact with several fingertips, this combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:10 - ✅ CORRECT
+2026-05-08 14:11:10 - Testing ID: 1778135767308
+2026-05-08 14:11:10 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:11 - LLM reasoning: 1. The physical shape of the hand is a Fist. 2. The motion doing is Grabbing (Bending Fingers). 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:11 - ✅ CORRECT
+2026-05-08 14:11:11 - Testing ID: 1778135768347
+2026-05-08 14:11:11 - Input: Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Bending Fingers motion.
+2026-05-08 14:11:12 - LLM reasoning: 1. The physical shape of the hand is a Fist. 2. The motion doing is Grabbing (Bending Fingers). 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:12 - ✅ CORRECT
+2026-05-08 14:11:12 - Testing ID: 1778135794278
+2026-05-08 14:11:12 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-08 14:11:12 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The hand is moving with a Moderate Oscillating Left & Right motion. 3. This combination best fits the SEARCH_AREA metaphor as the user is scanning the area.
+2026-05-08 14:11:12 - ✅ CORRECT
+2026-05-08 14:11:12 - Testing ID: 1778135796624
+2026-05-08 14:11:12 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-08 14:11:13 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Hand Rotation. 3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:13 - ✅ CORRECT
+2026-05-08 14:11:13 - Testing ID: 1778135798787
+2026-05-08 14:11:13 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-08 14:11:14 - LLM reasoning: 1. The physical shape of the hand is a Pointing Pose (Index finger straight, Thumb also straight).
+2. The motion doing is 'Hand Rotation' which is a part of scanning or exploring.
+3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:14 - ✅ CORRECT
+2026-05-08 14:11:14 - Testing ID: 1778135802041
+2026-05-08 14:11:14 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:15 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent).
+2. The motion is 'Hand Rotation'.
+3. This combination best fits the SEARCH_AREA metaphor as the user's slow rotation of a pointing hand can be interpreted as scanning or exploring the area.
+2026-05-08 14:11:15 - ✅ CORRECT
+2026-05-08 14:11:15 - Testing ID: 1778135804929
+2026-05-08 14:11:15 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Unknown.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-08 14:11:15 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent).
+2. The motion is Hand Rotation.
+3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:15 - ✅ CORRECT
+2026-05-08 14:11:15 - Testing ID: 1778135807568
+2026-05-08 14:11:15 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-08 14:11:16 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Hand Rotation. 3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:16 - ✅ CORRECT
+2026-05-08 14:11:16 - Testing ID: 1778135811876
+2026-05-08 14:11:16 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Down-Left motion.
+2026-05-08 14:11:17 - LLM reasoning: 1. The physical shape of the hand is Open Palm. 2. The hand moves with a Linear Translation. 3. This combination best fits the SEARCH_AREA metaphor as the user's motion suggests scanning or exploring the area.
+2026-05-08 14:11:17 - ✅ CORRECT
+2026-05-08 14:11:17 - Testing ID: 1778135815613
+2026-05-08 14:11:17 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Up-Left motion.
+2026-05-08 14:11:17 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion is Linear Translation with a sweeping motion towards Up-Left, which can be interpreted as scanning or exploring the area. Therefore, the combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:17 - ✅ CORRECT
+2026-05-08 14:11:17 - Testing ID: 1778135818181
+2026-05-08 14:11:17 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Hand Rotation motion.
+2026-05-08 14:11:18 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Hand Rotation. 3. This combination best fits the SEARCH_AREA metaphor as the user is scanning the area.
+2026-05-08 14:11:18 - ✅ CORRECT
+2026-05-08 14:11:18 - Testing ID: 1778135820900
+2026-05-08 14:11:18 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:19 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent).
+2. The motion is 'Hand Rotation'.
+3. This combination best fits the SEARCH_AREA metaphor as the user's slow hand rotation mimics scanning or exploring the area.
+2026-05-08 14:11:19 - ✅ CORRECT
+2026-05-08 14:11:19 - Testing ID: 1778135824044
+2026-05-08 14:11:19 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Down-Left motion.
+2026-05-08 14:11:20 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, and Pinky fingers bent).
+2. The motion is Linear Translation towards Down-Left.
+3. This combination best fits the metaphor for PICK_UP as the user's hand gesture mimics grabbing or lifting an object.
+2026-05-08 14:11:20 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-08 14:11:20 - Testing ID: 1778135826754
+2026-05-08 14:11:20 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:20 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent).
+2. The motion is 'Hand Rotation'.
+3. This combination best fits the SEARCH_AREA metaphor as the user is scanning the area.
+2026-05-08 14:11:20 - ✅ CORRECT
+2026-05-08 14:11:20 - Testing ID: 1778135829263
+2026-05-08 14:11:20 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Right motion.
+2026-05-08 14:11:21 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The hand moves with a Moderate Linear Translation towards Right motion, which can be interpreted as scanning or exploring. 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:21 - ✅ CORRECT
+2026-05-08 14:11:21 - Testing ID: 1778135833165
+2026-05-08 14:11:21 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center-Left relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-08 14:11:22 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The hand is moving with a Moderate Oscillating Left & Right motion. 3. This combination best fits the SEARCH_AREA metaphor as the user is scanning the area.
+2026-05-08 14:11:22 - ✅ CORRECT
+2026-05-08 14:11:22 - Testing ID: 1778135836066
+2026-05-08 14:11:22 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-08 14:11:22 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Oscillating Left & Right. 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:22 - ✅ CORRECT
+2026-05-08 14:11:22 - Testing ID: 1778135840609
+2026-05-08 14:11:22 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-08 14:11:23 - LLM reasoning: 1. The physical shape of the hand is a Pointing Pose (Index finger straight, Thumb in contact with Middle, Ring, Pinky).
+2. The hand moves with an Oscillating Left & Right motion.
+3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:23 - ✅ CORRECT
+2026-05-08 14:11:23 - Testing ID: 1778135842735
+2026-05-08 14:11:23 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring, Pinky fingertips.
+- The palm orientation is facing Inward.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:24 - LLM reasoning: 1. The physical shape of the hand is a Pinching pose. 2. The hand is moving with a Slow Hand Rotation motion, which can be interpreted as rotating to grasp an object. 3. This combination best fits the PICK_UP metaphor.
+2026-05-08 14:11:24 - ❌ FAILED. Expected: SEARCH_AREA, Got: PICK_UP
+2026-05-08 14:11:24 - Testing ID: 1778135846672
+2026-05-08 14:11:24 - Input: Here is the current state of the user's hand:
+- The Thumb fingers are straight, while the Index, Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Fast Hand Rotation motion.
+2026-05-08 14:11:25 - LLM reasoning: 1. The physical shape of the hand is a Pointing Pose (Index, Middle, Ring fingers are bent).
+2. The motion doing is 'Hand Rotation'.
+3. This combination best fits the SEARCH_AREA metaphor as the user's hand rotation mimics scanning or exploring the area.
+2026-05-08 14:11:25 - ✅ CORRECT
+2026-05-08 14:11:25 - Testing ID: 1778135883638
+2026-05-08 14:11:25 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-08 14:11:26 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Linear Translation towards Left, which can be interpreted as scanning or exploring. 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:26 - ✅ CORRECT
+2026-05-08 14:11:26 - Testing ID: 1778135886852
+2026-05-08 14:11:26 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center-Right relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:26 - LLM reasoning: The user's hand pose shows the Index finger straight (Pointing Pose), and the hand is moving with a slow rotation motion. This combination best fits the 'NAVIGATE_THERE' metaphor, as the user appears to be directing the robot.
+2026-05-08 14:11:26 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-08 14:11:26 - Testing ID: 1778135890117
+2026-05-08 14:11:26 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Top-Right relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:27 - LLM reasoning: The user's hand pose shows the Index finger straight (Pointing Pose), and the hand is moving with a slow rotation motion. This combination best fits the 'NAVIGATE_THERE' metaphor, as the user appears to be directing the robot.
+2026-05-08 14:11:27 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-08 14:11:27 - Testing ID: 1778135893462
+2026-05-08 14:11:27 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle fingers are bent.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Outward.
+- The hand is positioned at Top-Center relative to the center of the view.
+- The hand moves with a Moderate Linear Translation towards Left motion.
+2026-05-08 14:11:28 - LLM reasoning: The Thumb, Index fingers are straight (Pointing Pose). The hand is moving with a Moderate Linear Translation towards Left motion. This combination best fits the 'NAVIGATE_THERE' metaphor.
+2026-05-08 14:11:28 - ❌ FAILED. Expected: SEARCH_AREA, Got: NAVIGATE_THERE
+2026-05-08 14:11:28 - Testing ID: 1778135896712
+2026-05-08 14:11:28 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Moderate Oscillating Left & Right motion.
+2026-05-08 14:11:28 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Oscillating Left & Right. 3. This combination best fits the SEARCH_AREA metaphor.
+2026-05-08 14:11:28 - ✅ CORRECT
+2026-05-08 14:11:28 - Testing ID: 1778135899267
+2026-05-08 14:11:28 - Input: Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is not in contact with any other fingertips.
+- The palm orientation is facing Up.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Hand Rotation motion.
+2026-05-08 14:11:29 - LLM reasoning: 1. The physical shape of the hand is Open Palm Pose. 2. The motion doing is Hand Rotation. 3. This combination best fits the SEARCH_AREA metaphor as the user is scanning the area.
+2026-05-08 14:11:29 - ✅ CORRECT
+2026-05-08 14:11:29 - Testing ID: 1778135901493
+2026-05-08 14:11:29 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Index fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-08 14:11:30 - LLM reasoning: 1. The physical shape of the hand is Pointing Pose (Index finger straight, Middle, Ring, Pinky fingers bent).
+2. The motion is Oscillating Left & Right.
+3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:30 - ✅ CORRECT
+2026-05-08 14:11:30 - Testing ID: 1778135903807
+2026-05-08 14:11:30 - Input: Here is the current state of the user's hand:
+- The Thumb, Index fingers are straight, while the Ring, Pinky fingers are bent.
+- The Thumb is currently in contact with the Middle fingertips.
+- The palm orientation is facing Down.
+- The hand is positioned at Center of vision relative to the center of the view.
+- The hand moves with a Slow Oscillating Left & Right motion.
+2026-05-08 14:11:30 - LLM reasoning: 1. The physical shape of the hand is a Pointing Pose (Index finger straight, Thumb in contact with Middle fingertips).
+2. The hand is moving with an Oscillating Left & Right motion.
+3. This combination best fits the SEARCH_AREA metaphor as the user's hand motion resembles scanning or exploring the area.
+2026-05-08 14:11:30 - ✅ CORRECT
+2026-05-08 14:11:30 - 
+--- FINAL ACCURACY: 56.79012345679012% ---

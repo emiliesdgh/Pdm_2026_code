@@ -1,6 +1,9 @@
 import json
 from ig_llm_agent import LLMInferenceAgent
 from ig_logger import setup_logger
+from pathlib import Path
+
+dataset_path = Path("datasets_and_logs/gesture_dataset.json")
 
 # logger = setup_logger("gesture_log_evaluator.txt")
 
@@ -8,7 +11,7 @@ def evaluate_llm():
     agent = LLMInferenceAgent(model_name="mistral")
     # agent = LLMInferenceAgent(model_name="mixtral")   # too slow and not necessarily better
     
-    with open("gesture_dataset.json", "r") as f:
+    with open(dataset_path, "r") as f:
         dataset = json.load(f)
 
     correct = 0
@@ -45,6 +48,6 @@ def evaluate_llm():
     
 
 if __name__ == "__main__":
-    logger = setup_logger("gesture_log_evaluatorMixtral.txt")
+    logger = setup_logger("gesture_log_evaluator_metaphoricalMapping4_2.txt")
 
     evaluate_llm()
