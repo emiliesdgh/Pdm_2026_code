@@ -27,7 +27,8 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
 
     # 2. Group finger contacts
     in_contact = [name.capitalize() for name, val in zip(global_vars.FINGERS["name"][1:], finger_contact_state) if val == 1]
-    if in_contact and flexion_desc != "All fingers are straight.":  # Only mention contact if not all fingers are straight (since that would be contradictory)
+    # if in_contact and flexion_desc != "All fingers are straight.":  # Only mention contact if not all fingers are straight (since that would be contradictory)
+    if in_contact and finger_flexion_state[0] == -1:  # Only mention contact if thumb is bent (otherwise i can get contradictory)
         if len(in_contact) == 1:
             contact_desc = f"The Thumb is currently in contact with the {', '.join(in_contact)} fingertip."
         else:
@@ -43,15 +44,20 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
 
     # 3. Format the final bulleted prompt
     symbolic_str = (
-        "Here is the current state of the user's hand:\n"
-        f"- {flexion_desc}\n"
-        f"- {contact_desc}\n"
-        f"- The palm orientation is facing {hand_orientation}.\n"
-        f"- The hand is positioned at {hand_position} relative to the center of the view.\n"
+        
         f"--- TEMPORAL MOTION LOG ---\n"
         # f"- Spatial Motion: {spatial_motion}\n"
         f"- Spatial Motion: {motion_desc}\n"
         f"- Articulation: {articulation}\n\n"
+        # trying to see if having articulation at the top makes it more salient for the LLM because sometimes
+        # it hallucinates when it is grabing or pinching as something else like stop
+
+        "Here is the current state of the user's hand:\n"
+        f"- {flexion_desc}\n"
+        f"- {contact_desc}\n"
+        f"- The palm orientation is {hand_orientation}.\n"
+        f"- The hand is positioned at {hand_position} relative to the center of the view.\n"
+        
         f"--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\n"
         f"{environmental_context if environmental_context else 'No additional context from robot vision.'}"
     )

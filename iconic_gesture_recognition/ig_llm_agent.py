@@ -221,7 +221,7 @@ class LLMInferenceAgent:
         #     "}"
         # )
 
-        # xx% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
+        # 83% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
         system_prompt = (
             "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
@@ -229,8 +229,8 @@ class LLMInferenceAgent:
             "STEP 1: IDENTIFY THE TRUE HAND POSE\n"
             "Define the user's state using these mutually exclusive categories:\n"
             "- Pointing Pose: Index finger is straight or Index finger AND Thumb are straight (CRITICAL: If the Index is straight, it is ALWAYS Pointing. Ignore any thumb contact).\n"
+            "- Open Palm Pose: All fingers are straight exclusively.\n"
             "- Fist Pose: All fingers are bent excusively AND Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
-            "- Open Palm Pose: All fingers are straight.\n"
             "- Pinching Pose: Thumb is in contact with the Index and possible with more fingertips.\n\n"# (CRITICAL: Do NOT classify as Pinching if the hand is in a Pointing Pose or a Fist Pose).\n\n"
             # the pinching needs the index in contact with the thumb to be a pinch
 
@@ -252,12 +252,13 @@ class LLMInferenceAgent:
             "3. NAVIGATE_THERE (Directing):\n"
             "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
             "- If the pose is Pointing AND Spatial Motion is 'Stationary' or a 'Linear Translation', the intent is NAVIGATE_THERE.\n"
-            "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.\n\n"
+            "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm orientation is 'Down', the intent is NAVIGATE_THERE.\n\n"
 
             "4. STOP (Halting):\n"
             "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
             "- If the pose is Fist AND Spatial Motion is 'Stationary', the intent is STOP.\n"
-            "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Inward' or 'Outward', the intent is STOP.\n\n"
+            "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm orientation is 'Inward' or 'Outward', the intent is STOP.\n\n"
+            # have palm orientation rather than palm facing to avoid hallucination
 
             "STEP 3: ENVIRONMENT TARGETING\n"
             "Look at the ROBOT VISION data. If the user's Spatial Motion or Pointing direction aligns with a detected object, that object is the 'target'. If no object aligns, target is 'None'.\n\n"
