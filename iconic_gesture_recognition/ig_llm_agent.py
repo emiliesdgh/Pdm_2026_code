@@ -149,13 +149,20 @@ class LLMInferenceAgent:
             "  \"analysis\": {\n"
             "    \"articulation_state\": \"(Copy the Articulation from the log)\",\n"
             "    \"spatial_motion\": \"(Copy the Spatial Motion from the log)\",\n"
+            "    \"GRAB_OVERRIDE_TRIGGERED\": true/false, // MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching'\n"
+            "    \"SCAN_OVERRIDE_TRIGGERED\": true/false, // MUST BE true IF spatial_motion contains 'Oscillating' or 'Waving' or 'Hand Rotation'\n"
+            # "    \"final_logic\": \"IF GRAB_OVERRIDE_TRIGGERED is true,Intent MUST be PICK_UP, ignore SCAN_OVERRIDE_TRIGGERED.\"\n"
             "    \"is_index_straight\": \"true/false\",\n"
             "    \"is_thumb_touching\": \"true/false\"\n"
+            "    \"POINTING_POSE_DETECTED\": true/false // MUST BE true IF index finger is straight regardless of thumb state, since the index being straight is a pointing pose and overrides any thumb contact for the pinch\n"
+            "    \"final_logic\": \"IF GRAB_OVERRIDE_TRIGGERED is true,Intent MUST be PICK_UP, ignore SCAN_OVERRIDE_TRIGGERED. IF POINTING_POSE_DETECTED is true,Intent is either NAVIGATE_THERE or SEARCH_AREA depending on the spatial motion.\"\n"
+
             "  },\n"
             "  \"intent\": \"(ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Object or None)\",\n"
             "  \"confidence_score\": 0.0,\n"
-            "  \"reasoning\": \"(Brief explanation of the rule matched)\"\n"
+            # "  \"reasoning\": \"(Brief explanation of the rule matched)\"\n"
+            "  \"reasoning\": \"(Explain based on the final_logic)\"\n"
             "}"
         )
 

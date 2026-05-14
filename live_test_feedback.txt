@@ -60,3 +60,407 @@ Here is the current state of the user's hand:
 - The hand is positioned at [0.6528396805127462, 0.5426174302895864, -0.13482071585677635] relative to the center of the view.
 --- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
 No additional context from robot vision.
+
+
+
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+##############TEST 2####################
+
+
+
+3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778730516.567804  509160 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
+I0000 00:00:1778730516.645677  509258 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 570.133.20), renderer: NVIDIA GeForce RTX 4090/PCIe/SSE2
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.8
+
+[REASONING]: The hand is in a static pose and performing a slow hand rotation motion, which matches the SEARCH_AREA intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.8)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Hand Rotation motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- The Thumb, Index, Pinky fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5746057203837803, 0.5685001185962132, -0.0078663616919624] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.85
+
+[REASONING]: The hand is in an Open Palm Pose and the Spatial Motion contains 'Oscillating'. This matches the rule for SEARCH_AREA.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.85)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.91/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Fast Oscillating / Waving motion.
+- Articulation: Opening
+
+Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4129977652004787, 0.7296607153756278, -0.07053898607669366] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in an Open Palm Pose and the Spatial Motion contains 'Oscillating', making it a SEARCH_AREA intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.9)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- The Pinky finger is straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5194816575163886, 0.5146111221540541, -0.09072049173836302] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.98
+
+[REASONING]: The hand is in a Pinching Pose according to Step 1 definitions. According to the GRABBING & LIFTING rules defined in Step 2, if the hand is in a Pinching pose or if Articulation contains 'Closing' or 'Grabbing', the intent is ALWAYS PICK_UP.
+
+[EXECUTE] -> PICK_UP on None (Confidence: 0.98)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Pinching
+
+Here is the current state of the user's hand:
+- The Thumb, Index, Middle, Ring fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.42430810701279414, 0.5303487479686737, -0.03606836273763307] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.8
+
+[REASONING]: The hand is in a Fist Pose and the Spatial Motion is 'Stationary'. According to rule 4, the intent is STOP.
+
+[EXECUTE] -> STOP on None (Confidence: 0.8)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- The Thumb, Index, Middle, Ring fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Index, Middle fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4858783682187398, 0.1359435490199498, -0.034002037301557805] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.95
+
+[REASONING]: The hand is in a Pinching Pose and the Articulation contains 'Pinching'. This matches the rule for GRABBING & LIFTING with intent PICK_UP.
+
+[EXECUTE] -> PICK_UP on None (Confidence: 0.95)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Fast Hand Rotation motion.
+- Articulation: Pinching
+
+Here is the current state of the user's hand:
+- The Thumb, Middle, Ring fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Index, Middle, Ring, Pinky fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4543846618561518, 0.21229222558793567, -0.05150307832969747] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Fist Pose and the Spatial Motion is a 'Linear Translation'. According to rule 1, the intent is PICK_UP.
+
+[EXECUTE] -> PICK_UP on None (Confidence: 0.9)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- The Thumb, Index, Middle, Ring fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.46264921057791936, 0.11432007132541566, -0.04065773811977337] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.8
+
+[REASONING]: The hand is in an Open Palm Pose and the Spatial Motion contains 'Oscillating', making it a SEARCH_AREA intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.8)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- The Pinky finger is straight, while the Thumb finger is bent.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.47832412237212774, 0.1781871953890437, -0.04012340250711964] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.95
+
+[REASONING]: The hand is in a Fist Pose and the Spatial Motion is a 'Linear Translation'. According to rule 1 for GRABBING & LIFTING, the intent is PICK_UP.
+
+[EXECUTE] -> PICK_UP on None (Confidence: 0.95)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- The Thumb fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.48458101352055866, 0.17632071319080533, -0.037390385610364105] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.8
+
+[REASONING]: The hand is in a neutral position (Open Palm) and the motion is 'Detecting...'. This matches the rule for SEARCH_AREA.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.8)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Detecting... motion.
+- Articulation: None
+
+Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.27597402603853316, 0.6281974996839251, -0.0198752693681041] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.8
+
+[REASONING]: The hand is in Open Palm Pose and the Spatial Motion contains 'Detecting...'. This matches the rule for SEARCH_AREA.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.8)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.94/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Detecting... motion.
+- Articulation: None
+
+Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.42031969200997127, 0.4558101707980746, -0.05251995058826968] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a Slow Oscillating / Waving motion and the articulation state is 'Closing'. This matches the rule for SEARCH_AREA.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.9)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Closing
+
+Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4862635589781262, 0.5315162780739012, -0.028979726934863375] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a Slow Oscillating / Waving motion and the articulation state is Closing, which matches the SEARCH_AREA intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.9)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Closing
+
+Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.475992005495798, 0.5181637718563988, -0.031248157717744723] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+##############TEST 3####################
+
+
+

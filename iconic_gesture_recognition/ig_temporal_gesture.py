@@ -33,7 +33,8 @@ class TemporalGestureManager:
     
     def analyze_motion(self):
         if len(self.gesture_history) < self.window_size:
-            return False, "Detecting...", "None"  # Need enough frames to detect a trend
+            # return False, "Detecting...", "None"  # Need enough frames to detect a trend
+            return False, "Stationary", "None"  # Need enough frames to detect a trend
 
         # 1. Detect if there is a change in finger states or orientation
         prefix = list(self.gesture_history)[:self.window_size//2]

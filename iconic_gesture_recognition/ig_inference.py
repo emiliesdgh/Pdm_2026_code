@@ -63,11 +63,12 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
         # trying to see if having articulation at the top makes it more salient for the LLM because sometimes
         # it hallucinates when it is grabing or pinching as something else like stop
 
-        "Here is the current state of the user's hand:\n"
+        # "Here is the current state of the user's hand:\n"
+        "--- HAND STATE ---\n"
         f"- {flexion_desc}\n"
         f"- {contact_desc}\n"
         f"- The palm orientation is {hand_orientation}.\n"
-        f"- The hand is positioned at {hand_position} relative to the center of the view.\n"
+        f"- The hand is positioned at {hand_position} relative to the center of the view.\n\n"
         
         f"--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---\n"
         f"{environmental_context if environmental_context else 'No additional context from robot vision.'}"
