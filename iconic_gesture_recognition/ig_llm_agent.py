@@ -16,6 +16,10 @@ class LLMInferenceAgent:
         self.current_prediction = "Waiting..."
         self.current_reasoning = "Waiting..."
 
+        self.current_intent = "Waiting..."
+        self.current_target = "None"
+        self.current_confidence = 0.0
+
     def analyze_gesture_async(self, symbolic_str):
         """
         Starts a background thread to ask Ollama what gesture is.
@@ -167,9 +171,11 @@ class LLMInferenceAgent:
             try:
                 prediction_json = json.loads(response_text)
                 self.current_intent = prediction_json.get("intent", "UNKNOWN")
+                self.current_target = prediction_json.get("target", "None")
+                self.current_confidence = prediction_json.get("confidence_score", 0.0)
                 self.current_reasoning = prediction_json.get("reasoning", "No reasoning.")
                 
-                print(f"\n[NEW INTENT DECODED]: {self.current_intent}")
+                print(f"\n[NEW INTENT DECODED]: {self.current_intent} | Target: {self.current_target} | Confidence: {self.current_confidence}\n")
                 print(f"[REASONING]: {self.current_reasoning}\n")
 
                 return prediction_json

@@ -71,16 +71,16 @@ def detect_hand_state():
                     hand_position, pos_to_center = handStates.hand_position()
                     finger_contact_state = handStates.get_finger_contact_state()
 
-                    motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, finger_flexion_state, hand_orientation, hand_position)
+                    motion_detected, spatial_motion, articulation = temporal_gesture_detection.update(hand_landmarks, finger_flexion_state, finger_contact_state, hand_orientation, hand_position)
 
                     prompt = get_symbolic_string_2(
                         global_vars, 
                         finger_flexion_state, finger_contact_state, hand_orientation, 
-                        motion_detected, motion_type, hand_position, 
+                        motion_detected, spatial_motion, articulation, hand_position, 
                         sensor_confidence
                     )
 
-                    print(f"Status: {motion_type} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
+                    # print(f"Status: {spatial_motion} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
 
                     ### === LLM Prompting with State Machine Logic === ###
 
