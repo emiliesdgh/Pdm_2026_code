@@ -499,3 +499,92 @@ Camera Tracking Confidence: 0.99/1.0
 
 --- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
 No additional context from robot vision.
+
+
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+####################################################################################
+##############TEST 3####################
+
+
+
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.92)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.94/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.3555578461715153, 0.6499449639093309, -0.040887478846944214] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.97
+
+[REASONING]: The hand is stationary and in an Open Palm Pose with the palm orientation being 'Down'. This matches the rules for the NAVIGATE_THERE intent.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.97)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.681824959459759, 0.7100569066547212, -0.035673030458754654] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.97
+
+[REASONING]: The hand is stationary and in an Open Palm Pose, which matches the criteria for SEARCH_AREA intent. The confidence score is high due to excellent camera tracking.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.97)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.5453233534381503, 0.6481776748384748, -0.05390214133015336] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
