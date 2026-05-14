@@ -100,6 +100,9 @@ def detect_hand_state():
                             listening_timer = 45 # give user 1.5 seconds to make a gesture command
                             static_frame_count = 0  # Reset for next time
 
+                            # -- Initialize a latching variable --
+                            best_prompt = ""
+
                             # wipe the memory of the stationary wakeup hold
                             temporal_gesture_detection.gesture_history.clear()
                             temporal_gesture_detection.wrist_history.clear()
@@ -113,10 +116,22 @@ def detect_hand_state():
                         # RECORDING WINDOW
                         listening_timer -= 1
 
+                        # -- Latching Logic ---
+                        is_dynamic_articulation = "CLosing" in articulation or "Pinching" in articulation or "Grabbing" in articulation
+                        is_dynamic_spatial = spatial_motion != "Stationary"
+
+                        if is_dynamic_articulation or is_dynamic_spatial:
+                            best_prompt = prompt  # Update the best prompt with the most recent dynamic gesture information
+
+
                         if listening_timer <= 0:
                             hri_state = "INFERENCING"
                             print("[SNAPSHOT TAKEN] - Sending to LLM")
-                            llm_agent.analyze_gesture_async(prompt)
+
+                            # if they did a moving gesture, send the latched prompt
+                            # if they just held a static pose, send the current prompt
+                            final_prompt = best_prompt if best_prompt != "" else prompt
+                            llm_agent.analyze_gesture_async(final_prompt)
 
                     elif hri_state == "INFERENCING":
                         if not llm_agent.is_inferencing:
@@ -128,7 +143,9 @@ def detect_hand_state():
 
                                 if confidence >= 0.75:
                                     print(f"[EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
-                                
+                                    print(f"Protompt sent to LLM:\n{final_prompt}\n")
+                                    # below line added but is necessary ?
+                                    best_prompt = ""  # Clear the latched prompt after execution
                                 else:
                                     print(f"[IGNORED] -> {intent} (Confidence too low: {confidence})")
 

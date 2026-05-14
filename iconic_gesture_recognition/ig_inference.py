@@ -21,9 +21,18 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
             flexion_desc = f"The {', '.join(extended)} finger is straight, while the {', '.join(folded)} finger is bent."
         # check if do a condition for several fingers for the conjugaison
     elif extended:
-        flexion_desc = "All fingers are straight."
+        if len(extended) == 5:
+            flexion_desc = "All fingers are straight."
+        else: 
+            flexion_desc = f"The {', '.join(extended)} fingers are straight, while the other fingers are relaxed."
+    elif folded:
+        if len(folded) == 5:
+            flexion_desc = "All fingers are bent."
+        else:
+            flexion_desc = f"The {', '.join(folded)} fingers are bent, while the other fingers are relaxed."
+    # should we interprete relaxed as straight ? so that only when the fingers are bent they are bent and otherwise taken into account as if straight for the intent prediction ?
     else:
-        flexion_desc = "All fingers are bent."
+        flexion_desc = "All fingers are in a relaxed, natural state."
 
     # 2. Group finger contacts
     in_contact = [name.capitalize() for name, val in zip(global_vars.FINGERS["name"][1:], finger_contact_state) if val == 1]

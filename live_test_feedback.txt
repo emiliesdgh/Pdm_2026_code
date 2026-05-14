@@ -1,0 +1,62 @@
+(pdm_env_py311) emilie@emilie-labpc:~/Desktop/pdm_gesture_recogition/Pdm_2026_code$ /home/emilie/Desktop/pdm_gesture_recogition/installations/Python-3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778729812.250461  507754 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
+I0000 00:00:1778729812.354228  507855 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 570.133.20), renderer: NVIDIA GeForce RTX 4090/PCIe/SSE2
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a static pose and moving with an oscillating motion, which matches the 'Scanning' rule.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.9)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+Here is the current state of the user's hand:
+- All fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.615229396593003, 0.632780617191678, -0.020653477399458005] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.85
+
+[REASONING]: The hand is moving with a Slow Oscillating / Waving motion and the articulation state is 'Closing'. This matches the rule for SEARCH_AREA.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.85)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.93/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Closing
+
+Here is the current state of the user's hand:
+- All fingers are straight.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.6528396805127462, 0.5426174302895864, -0.13482071585677635] relative to the center of the view.
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
