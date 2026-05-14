@@ -9,7 +9,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 
 import ig_hand_state as HS
 import ig_temporal_gesture as temporal_gesture
-from ig_inference import get_symbolic_string, get_symbolic_string_2
+from ig_inference import get_symbolic_string_2
 
 from ig_global_variables import GlobalVariables
 from ig_llm_agent import LLMInferenceAgent
@@ -52,6 +52,9 @@ def detect_hand_state():
             if results.multi_hand_landmarks:
                 for hand_landmarks, handedness in zip(results.multi_hand_landmarks, results.multi_handedness):
 
+                    # Extract sensor confidence (0.0 - 1.0) & pass it to the string generator
+                    sensor_confidence = handedness.classification[0].score
+
                     handStates = HS.HandState(global_vars, hand_landmarks)  # Update hand state with current landmarks and frame
                     handStates.label = handedness.classification[0].label  # 'Left' or 'Right'
 
@@ -61,7 +64,6 @@ def detect_hand_state():
                         handStates.label = 'Right'
                     elif handStates.label == 'Right':
                         handStates.label = 'Left'
-
                     
                     ### === Get the hand state information for sending to the LLM for symbolic representation === ###
                     finger_flexion_state = handStates.get_finger_flexion_state()
@@ -69,21 +71,16 @@ def detect_hand_state():
                     hand_position, pos_to_center = handStates.hand_position()
                     finger_contact_state = handStates.get_finger_contact_state()
 
-
                     motion_detected, motion_type = temporal_gesture_detection.update(hand_landmarks, finger_flexion_state, hand_orientation, hand_position)
 
-                
-                    ## additional hand state rules for symbolic representation, to be added in the future if needed
-                    # is_thumb_straight = (finger_flexion_state[0] == 1)
-                    # finger_state_rule4 = handStates.thumb_direction(hand_landmarks, is_thumb_straight)
-
-                    prompt = get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
+                    prompt = get_symbolic_string_2(
+                        global_vars, 
+                        finger_flexion_state, finger_contact_state, hand_orientation, 
+                        motion_detected, motion_type, hand_position, 
+                        sensor_confidence
+                    )
 
                     print(f"Status: {motion_type} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
-                    
-                    # if motion_detected and not llm_agent.is_inferencing:
-                    #     print("!!! LMM TRIGGERED !!!")
-                    #     llm_agent.analyze_gesture_async(prompt)
 
                     ### === LLM Prompting with State Machine Logic === ###
 
@@ -112,11 +109,24 @@ def detect_hand_state():
                             
                     elif hri_state == "INFERENCING":
                         if not llm_agent.is_inferencing:
+                            # --- THE LIVE SAFETY GATE ---
+                            # Extract the LLM's final reasoning
+                            intent = llm_agent.current_intent
+                            confidence = getattr(llm_agent, 'current_confidence', 0.0)
+                            target = getattr(llm_agent, 'current_target', 'None')
+
+                            # Only execute if the LLM is highly confident
+                            if confidence >= 0.75:
+                                print(f"\n[ROBOT COMMAND EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
+                                # This is where you will eventually call your robot's movement API
+                                # e.g., robot_controller.send_command(intent, target)
+                            else:
+                                print(f"\n[ROBOT COMMAND IGNORED] -> {intent} (Confidence too low: {confidence})")
+                                # The robot stays safe and does nothing
                             # LLM is done, go back to sleep
                             hri_state = "SLEEPING"
 
                     ###===
-
 
                     mp_drawing.draw_landmarks(
                         image=frame,
@@ -126,19 +136,38 @@ def detect_hand_state():
                         connection_drawing_spec=mp_drawing_styles.get_default_hand_connections_style(),
                     )
 
-                    # get_symbolic_string(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
-                    # get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, motion_type, hand_position)
-
             if TEXT_FLIPPED:
                 frame = cv2.flip(frame, 1)
 
-            # Display the LLM's prediction directly on the screen
-            cv2.putText(frame, f"LLM: {llm_agent.current_prediction}", (10, 40), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            # # Display the LLM's prediction directly on the screen
+            # cv2.putText(frame, f"LLM: {llm_agent.current_prediction}", (10, 40), 
+            #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+            # --- DYNAMIC UI DISPLAY ---
+            confidence = getattr(llm_agent, 'current_confidence', 0.0)
+            intent = llm_agent.current_intent
+            
+            # If the LLM is currently thinking, show that
+            if llm_agent.is_inferencing:
+                display_text = "LLM: Thinking..."
+                text_color = (0, 255, 255) # Yellow
+            # If it finished and passed the safety gate
+            elif confidence >= 0.75 and intent != "Waiting...":
+                display_text = f"EXECUTE: {intent} ({confidence:.2f})"
+                text_color = (0, 255, 0) # Green
+            # If it finished but failed the safety gate
+            elif confidence < 0.75 and intent != "Waiting...":
+                display_text = f"IGNORED: {intent} (Conf: {confidence:.2f})"
+                text_color = (0, 0, 255) # Red
+            # Default standby text
+            else:
+                display_text = f"LLM: {intent}"
+                text_color = (255, 255, 255) # White
+
+            cv2.putText(frame, display_text, (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, text_color, 2)
             
             if TEXT_FLIPPED:
                 frame = cv2.flip(frame, 1)
-
 
             cv2.imshow("Hand Tracking", cv2.flip(frame, 1))
             if cv2.waitKey(1) & 0xFF == ord("q"):

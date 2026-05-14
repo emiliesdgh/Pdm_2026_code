@@ -34,97 +34,19 @@ class LLMInferenceAgent:
         the system prompt is defined here to avoid re-defining it every time in the main loop, and to have a single source of truth for the system prompt.
         it gives the context to the LLM about the task and what it should do with the symbolic string that is sent from the main loop.
         """
-        
-               
-        # # 74% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
-        # system_prompt = (
-        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's kinematic hand state to ONE of four intents: "
-        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
-            
-        #     "STEP 1: IDENTIFY THE HAND POSE AND MOTIONS\n"
-        #     "Define the user's state using these strict categories:\n"
-        #     "- Pointing Pose: Index finger is straight. (Thumb state is irrelevant here).\n"
-        #     "- Fist Pose: All fingers are bent.\n"
-        #     "- Open Palm Pose: All fingers are straight.\n"
-        #     "- Pinching Pose: Thumb is explicitly in contact with one or more fingertips.\n\n"
-
-        #     "STEP 2: MAP TO INTENT (APPLY IN ORDER)\n"
-        #     "Match the Step 1 definitions and the Temporal Motion Log to determine intent:\n\n"
-            
-        #     "SEARCH_AREA (Scanning):\n"
-        #     "- If Spatial Motion contains 'Oscillating', 'Waving', or 'Hand Rotation', the intent is SEARCH_AREA. (This motion overrides all hand poses).\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is a 'Linear Translation', the intent is SEARCH_AREA.\n\n"
-
-        #     "PICK_UP (Grabbing / Lifting):\n"
-        #     "- If Articulation contains 'Closing' or 'Pinching', the intent is PICK_UP.\n"
-        #     "- If the pose is Pinching AND Spatial Motion is 'Stationary', the intent is PICK_UP. (Exception: If the hand is in a Pointing Pose, do NOT trigger this).\n"
-        #     "- If the pose is Fist AND Spatial Motion is a 'Linear Translation', the intent is PICK_UP.\n\n"
-
-        #     "NAVIGATE_THERE (Directing):\n"
-        #     "- If the pose is Pointing AND Spatial Motion is 'Stationary' or a 'Linear Translation', the intent is NAVIGATE_THERE.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.\n\n"
-
-        #     "STOP (Halting):\n"
-        #     "- If the pose is Fist AND Spatial Motion is 'Stationary' (with NO thumb contact), the intent is STOP.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Inward' or 'Outward', the intent is STOP.\n\n"
-
-        #     "STEP 3: ENVIRONMENT TARGETING\n"
-        #     "Look at the ROBOT VISION data. If the user's Spatial Motion or Pointing direction aligns with a detected object, that object is the 'target'. If no object aligns, target is 'None'.\n\n"
-
-        #     "Output ONLY a valid JSON object with exactly four keys: 'intent', 'target', 'confidence_score' (float 0.0 to 1.0), and 'reasoning' (explain your Step 1 and Step 2 logic)."
-        # )
-
-        # # 71% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good
-        # system_prompt = (
-        #     "You are the visual reasoning cortex for an autonomous robot. Your task is to map the user's kinematic hand state to ONE of four intents: "
-        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
-            
-        #     "STEP 1: IDENTIFY THE TRUE HAND POSE\n"
-        #     "Define the user's state using these mutually exclusive categories:\n"
-        #     "- Pointing Pose: Index finger is straight. (CRITICAL: If the Index is straight, it is ALWAYS Pointing. Ignore any thumb contact).\n"
-        #     "- Fist Pose: All fingers are bent.\n"
-        #     "- Open Palm Pose: All fingers are straight.\n"
-        #     "- Pinching Pose: Thumb is in contact with one or more fingertips. (CRITICAL: Do NOT classify as Pinching if the hand is in a Pointing Pose or a Fist Pose).\n\n"
-
-        #     "STEP 2: MAP TO INTENT (APPLY IN EXACT ORDER)\n"
-        #     "Match the Step 1 definitions and the Temporal Motion Log to determine intent:\n\n"
-            
-        #     "1. THE GRAB OVERRIDE (Intent: PICK_UP):\n"
-        #     "- If Articulation contains 'Closing' or 'Grabbing', the intent is ALWAYS PICK_UP. (This overrides all other motions like Rotation or Oscillating).\n\n"
-
-        #     "2. SEARCH_AREA (Scanning):\n"
-        #     "- If Spatial Motion contains 'Oscillating', 'Waving', or 'Hand Rotation', the intent is SEARCH_AREA.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is a 'Linear Translation', the intent is SEARCH_AREA.\n\n"
-
-        #     "3. PICK_UP (Stationary or Carrying):\n"
-        #     "- If the pose is Pinching AND Spatial Motion is 'Stationary', the intent is PICK_UP.\n"
-        #     "- If the pose is Fist AND Spatial Motion is a 'Linear Translation', the intent is PICK_UP.\n\n"
-
-        #     "4. NAVIGATE_THERE (Directing):\n"
-        #     "- If the pose is Pointing AND Spatial Motion is 'Stationary' or a 'Linear Translation', the intent is NAVIGATE_THERE.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.\n\n"
-
-        #     "5. STOP (Halting):\n"
-        #     "- If the pose is Fist AND Spatial Motion is 'Stationary', the intent is STOP.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Inward' or 'Outward', the intent is STOP.\n\n"
-
-        #     "STEP 3: ENVIRONMENT TARGETING\n"
-        #     "Look at the ROBOT VISION data. If the user's Spatial Motion or Pointing direction aligns with a detected object, that object is the 'target'. If no object aligns, target is 'None'.\n\n"
-
-        #     "Output ONLY a valid JSON object with exactly four keys: 'intent', 'target', 'confidence_score' (float 0.0 to 1.0), and 'reasoning' (explain your Step 1 and Step 2 logic)."
-        # )
-
-        # # 79% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- test 1
+        # # 89% Accuracy with system prompt below (13.05.2026) with gesture_dataset_v2
         # system_prompt = (
         #     "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
         #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
             
         #     "STEP 1: IDENTIFY THE TRUE HAND POSE\n"
         #     "Define the user's state using these mutually exclusive categories:\n"
-        #     "- Pointing Pose: Index finger is straight. (CRITICAL: If the Index is straight, it is ALWAYS Pointing. Ignore any thumb contact).\n"
-        #     "- Fist Pose: All fingers are bent.\n"
-        #     "- Open Palm Pose: All fingers are straight.\n"
+        #     "- Pointing Pose: Index finger is straight or Index finger AND Thumb are straight (CRITICAL: If the Index is straight, it is ALWAYS Pointing. Ignore any thumb contact).\n"
+        #     "- Open Palm Pose: All fingers are straight exclusively.\n"
+        #     "- Fist Pose: All fingers are bent excusively AND Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
         #     "- Pinching Pose: Thumb is in contact with the Index and possible with more fingertips.\n\n"# (CRITICAL: Do NOT classify as Pinching if the hand is in a Pointing Pose or a Fist Pose).\n\n"
+        #     # the pinching needs the index in contact with the thumb to be a pinch
+
 
         #     "STEP 2: MAP TO INTENT (APPLY IN EXACT ORDER)\n"
         #     "Match the Step 1 definitions and the Temporal Motion Log to determine intent:\n\n"
@@ -132,20 +54,24 @@ class LLMInferenceAgent:
             
         #     "1. GRABBING & LIFTING (Intent: PICK_UP):\n"
         #     "- IF Articulation contains 'Closing' or 'Grabbing' or 'Pinching', the intent is ALWAYS PICK_UP. (This overrides all other rules).\n"
-        #     "- IF the hand is holding a Pinch (Thumb in contact with Index and possibly other fingertips), the Intent is PICK_UP.\n"
+        #     "- IF the hand is holding a Pinch (Thumb in contact with Index and possibly other fingertips), the Intent is PICK_UP. (CRITICAL: the Index finger must be in contact with the Thumb)\n"
         #     "- IF the hand is a Fist AND Spatial Motion is a 'Linear Translation', the Intent is PICK_UP.\n\n"
 
         #     "2. SEARCH_AREA (Scanning):\n"
+        #     "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
         #     "- If Spatial Motion contains 'Oscillating', 'Waving', or 'Hand Rotation', the intent is SEARCH_AREA.\n"
         #     "- If the pose is Open Palm AND Spatial Motion is a 'Linear Translation', the intent is SEARCH_AREA.\n\n"
 
         #     "3. NAVIGATE_THERE (Directing):\n"
+        #     "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
         #     "- If the pose is Pointing AND Spatial Motion is 'Stationary' or a 'Linear Translation', the intent is NAVIGATE_THERE.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.\n\n"
+        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm orientation is 'Down', the intent is NAVIGATE_THERE.\n\n"
 
         #     "4. STOP (Halting):\n"
+        #     "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
         #     "- If the pose is Fist AND Spatial Motion is 'Stationary', the intent is STOP.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Inward' or 'Outward', the intent is STOP.\n\n"
+        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm orientation is 'Inward' or 'Outward', the intent is STOP.\n\n"
+        #     # have palm orientation rather than palm facing to avoid hallucination
 
         #     "STEP 3: ENVIRONMENT TARGETING\n"
         #     "Look at the ROBOT VISION data. If the user's Spatial Motion or Pointing direction aligns with a detected object, that object is the 'target'. If no object aligns, target is 'None'.\n\n"
@@ -166,63 +92,7 @@ class LLMInferenceAgent:
         #     "}"
         # )
 
-        # # 81% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- test 2
-        # system_prompt = (
-        #     "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
-        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
-            
-        #     "STEP 1: IDENTIFY THE TRUE HAND POSE\n"
-        #     "Define the user's state using these mutually exclusive categories:\n"
-        #     "- Pointing Pose: Index finger is straight. (CRITICAL: If the Index is straight, it is ALWAYS Pointing. Ignore any thumb contact).\n"
-        #     "- Fist Pose: All fingers are bent AND Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
-        #     "- Open Palm Pose: All fingers are straight.\n"
-        #     "- Pinching Pose: Thumb is in contact with the Index and possible with more fingertips.\n\n"# (CRITICAL: Do NOT classify as Pinching if the hand is in a Pointing Pose or a Fist Pose).\n\n"
-
-        #     "STEP 2: MAP TO INTENT (APPLY IN EXACT ORDER)\n"
-        #     "Match the Step 1 definitions and the Temporal Motion Log to determine intent:\n\n"
-        #     # "Follow this EXACT logical sequence. The first match determines the intent:\n\n"
-            
-        #     "1. GRABBING & LIFTING (Intent: PICK_UP):\n"
-        #     "- IF Articulation contains 'Closing' or 'Grabbing' or 'Pinching', the intent is ALWAYS PICK_UP. (This overrides all other rules).\n"
-        #     "- IF the hand is holding a Pinch (Thumb in contact with Index and possibly other fingertips), the Intent is PICK_UP.\n"
-        #     "- IF the hand is a Fist AND Spatial Motion is a 'Linear Translation', the Intent is PICK_UP.\n\n"
-
-        #     "2. SEARCH_AREA (Scanning):\n"
-        #     "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
-        #     "- If Spatial Motion contains 'Oscillating', 'Waving', or 'Hand Rotation', the intent is SEARCH_AREA.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is a 'Linear Translation', the intent is SEARCH_AREA.\n\n"
-
-        #     "3. NAVIGATE_THERE (Directing):\n"
-        #     "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
-        #     "- If the pose is Pointing AND Spatial Motion is 'Stationary' or a 'Linear Translation', the intent is NAVIGATE_THERE.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Down', the intent is NAVIGATE_THERE.\n\n"
-
-        #     "4. STOP (Halting):\n"
-        #     "- IF Articulation contains 'None' or 'Opening' or 'Static Fingers'.\n"
-        #     "- If the pose is Fist AND Spatial Motion is 'Stationary', the intent is STOP.\n"
-        #     "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm faces 'Inward' or 'Outward', the intent is STOP.\n\n"
-
-        #     "STEP 3: ENVIRONMENT TARGETING\n"
-        #     "Look at the ROBOT VISION data. If the user's Spatial Motion or Pointing direction aligns with a detected object, that object is the 'target'. If no object aligns, target is 'None'.\n\n"
-
-        #     # "Output ONLY a valid JSON object with exactly four keys: 'intent', 'target', 'confidence_score' (float 0.0 to 1.0), and 'reasoning' (explain your Step 1 and Step 2 logic)."
-        #     "You MUST output a valid JSON object strictly matching this structure. Fill out the 'analysis' section FIRST:\n"
-        #     "{\n"
-        #     "  \"analysis\": {\n"
-        #     "    \"articulation_state\": \"(Copy the Articulation from the log)\",\n"
-        #     "    \"spatial_motion\": \"(Copy the Spatial Motion from the log)\",\n"
-        #     "    \"is_index_straight\": \"true/false\",\n"
-        #     "    \"is_thumb_touching\": \"true/false\"\n"
-        #     "  },\n"
-        #     "  \"intent\": \"(ONE OF THE 4 INTENTS)\",\n"
-        #     "  \"target\": \"(Object or None)\",\n"
-        #     "  \"confidence_score\": 0.9,\n"
-        #     "  \"reasoning\": \"(Brief explanation of the rule matched)\"\n"
-        #     "}"
-        # )
-
-        # 83% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- previous version gave test3 => i hope this one is better lol
-        # 89% Accuracy with system prompt below (13.05.2026) with gesture_dataset_good -- previous version gave test3 => i hope this one is better lol
+        # 89% Accuracy with system prompt below (13.05.2026) with gesture_dataset_v2
         system_prompt = (
             "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
@@ -261,7 +131,12 @@ class LLMInferenceAgent:
             "- If the pose is Open Palm AND Spatial Motion is 'Stationary' AND the palm orientation is 'Inward' or 'Outward', the intent is STOP.\n\n"
             # have palm orientation rather than palm facing to avoid hallucination
 
-            "STEP 3: ENVIRONMENT TARGETING\n"
+            "STEP 3: CONFIDENCE SCORING (CRITICAL)\n"
+            "Your final 'confidence_score' MUST be grounded in the Sensor Data Quality.\n"
+            "- If Camera Tracking Confidence is low (< 0.75), your final confidence MUST NOT exceed the camera's confidence.\n"
+            "- Deduct 0.2 from your confidence if the gesture feels ambiguous or partially matches two rules.\n\n"
+
+            "STEP 4: ENVIRONMENT TARGETING\n"
             "Look at the ROBOT VISION data. If the user's Spatial Motion or Pointing direction aligns with a detected object, that object is the 'target'. If no object aligns, target is 'None'.\n\n"
 
             # "Output ONLY a valid JSON object with exactly four keys: 'intent', 'target', 'confidence_score' (float 0.0 to 1.0), and 'reasoning' (explain your Step 1 and Step 2 logic)."
@@ -275,7 +150,7 @@ class LLMInferenceAgent:
             "  },\n"
             "  \"intent\": \"(ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Object or None)\",\n"
-            "  \"confidence_score\": 0.9,\n"
+            "  \"confidence_score\": 0.0,\n"
             "  \"reasoning\": \"(Brief explanation of the rule matched)\"\n"
             "}"
         )
