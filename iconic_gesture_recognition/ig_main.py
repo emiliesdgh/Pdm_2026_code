@@ -86,45 +86,92 @@ def detect_hand_state():
 
                     # 1. Define the Wake Gesture (e.g., Open Palm facing camera)
                     # If all fingers extended (1) and facing Inward
-                    is_wake_gesture = (sum(finger_flexion_state) == 5 and hand_orientation == 'Inward')
+                    is_wake_gesture = (sum(finger_flexion_state) == 2 and hand_orientation == 'Inward')
 
-                    # 2. State Machine Logic
                     if hri_state == "SLEEPING":
-                        if is_wake_gesture:
+                        if spatial_motion == "Stationary":
+                            static_frame_count += 1
+                        else:
+                            static_frame_count = 0
+
+                        if static_frame_count >= HOLD_TH:
                             hri_state = "LISTENING"
                             print("\n>>> SYSTEM AWAKE: Listening for command... <<<\n")
-                            
-                    elif hri_state == "LISTENING":
-                        if motion_detected:
-                            static_frame_count = 0  # Reset timer if moving
-                        else:
-                            static_frame_count += 1 # Count stable frames
+                            listening_timer = 45 # give user 1.5 seconds to make a gesture command
+                            static_frame_count = 0  # Reset for next time
 
-                        # Trigger LLM if user holds a stable pose for 1 second
-                        if static_frame_count >= HOLD_TH and not llm_agent.is_inferencing:
-                            print("\n>>> GESTURE LOCKED: Sending to LLM... <<<\n")
+                            # wipe the memory of the stationary wakeup hold
+                            temporal_gesture_detection.gesture_history.clear()
+                            temporal_gesture_detection.wrist_history.clear()
+
+                            # reset the LLM state for the UI
+                            llm_agent.current_intent = "Listening..."
+                            llm_agent.current_confidence = 0.0
+                            print("\n[SYSTEM AWAKE] - Listening for dynamic gesture command...\n")
+
+                    elif hri_state == "LISTENING":
+                        # RECORDING WINDOW
+                        listening_timer -= 1
+
+                        if listening_timer <= 0:
                             hri_state = "INFERENCING"
+                            print("[SNAPSHOT TAKEN] - Sending to LLM")
                             llm_agent.analyze_gesture_async(prompt)
-                            static_frame_count = 0
-                            
+
                     elif hri_state == "INFERENCING":
                         if not llm_agent.is_inferencing:
-                            # --- THE LIVE SAFETY GATE ---
-                            # Extract the LLM's final reasoning
-                            intent = llm_agent.current_intent
-                            confidence = getattr(llm_agent, 'current_confidence', 0.0)
-                            target = getattr(llm_agent, 'current_target', 'None')
+                            # SAFETY GATE
+                            if not llm_agent.is_inferencing:
+                                intent = llm_agent.current_intent
+                                confidence = getattr(llm_agent, 'current_confidence', 0.0)
+                                target = getattr(llm_agent, 'current_target', 'None')
 
-                            # Only execute if the LLM is highly confident
-                            if confidence >= 0.75:
-                                print(f"\n[ROBOT COMMAND EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
-                                # This is where you will eventually call your robot's movement API
-                                # e.g., robot_controller.send_command(intent, target)
-                            else:
-                                print(f"\n[ROBOT COMMAND IGNORED] -> {intent} (Confidence too low: {confidence})")
-                                # The robot stays safe and does nothing
-                            # LLM is done, go back to sleep
-                            hri_state = "SLEEPING"
+                                if confidence >= 0.75:
+                                    print(f"[EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
+                                
+                                else:
+                                    print(f"[IGNORED] -> {intent} (Confidence too low: {confidence})")
+
+                                hri_state = "SLEEPING"
+                                static_frame_count = 0  # Reset for next time
+
+                    # # 2. State Machine Logic
+                    # if hri_state == "SLEEPING":
+                    #     if is_wake_gesture:
+                    #         hri_state = "LISTENING"
+                    #         print("\n>>> SYSTEM AWAKE: Listening for command... <<<\n")
+                            
+                    # elif hri_state == "LISTENING":
+                    #     if motion_detected:
+                    #         static_frame_count = 0  # Reset timer if moving
+                    #     else:
+                    #         static_frame_count += 1 # Count stable frames
+
+                    #     # Trigger LLM if user holds a stable pose for 1 second
+                    #     if static_frame_count >= HOLD_TH and not llm_agent.is_inferencing:
+                    #         print("\n>>> GESTURE LOCKED: Sending to LLM... <<<\n")
+                    #         hri_state = "INFERENCING"
+                    #         llm_agent.analyze_gesture_async(prompt)
+                    #         static_frame_count = 0
+                            
+                    # elif hri_state == "INFERENCING":
+                    #     if not llm_agent.is_inferencing:
+                    #         # --- THE LIVE SAFETY GATE ---
+                    #         # Extract the LLM's final reasoning
+                    #         intent = llm_agent.current_intent
+                    #         confidence = getattr(llm_agent, 'current_confidence', 0.0)
+                    #         target = getattr(llm_agent, 'current_target', 'None')
+
+                    #         # Only execute if the LLM is highly confident
+                    #         if confidence >= 0.75:
+                    #             print(f"\n[ROBOT COMMAND EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
+                    #             # This is where you will eventually call your robot's movement API
+                    #             # e.g., robot_controller.send_command(intent, target)
+                    #         else:
+                    #             print(f"\n[ROBOT COMMAND IGNORED] -> {intent} (Confidence too low: {confidence})")
+                    #             # The robot stays safe and does nothing
+                    #         # LLM is done, go back to sleep
+                    #         hri_state = "SLEEPING"
 
                     ###===
 
