@@ -464,3 +464,38 @@ No additional context from robot vision.
 
 
 
+Pdm_2026_code$ ^C
+(pdm_env_py311) emilie@emilie-labpc:~/Desktop/pdm_gesture_recogition/Pdm_2026_code$ /home/emilie/Desktop/pdm_gesture_recogition/installations/Python-3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1778731640.912146  513006 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
+I0000 00:00:1778731640.988675  513106 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 570.133.20), renderer: NVIDIA GeForce RTX 4090/PCIe/SSE2
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.98
+
+[REASONING]: The final logic states that since GRAB_OVERRIDE_TRIGGERED is false and POINTING_POSE_DETECTED is false, the intent will be determined based on the spatial motion. As the hand is stationary, the intent cannot be NAVIGATE_THERE or SEARCH_AREA. Therefore, the intent is STOP.
+
+[EXECUTE] -> STOP on None (Confidence: 0.98)
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The Thumb, Index fingers are straight, while the Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.7017921862148103, 0.8045753921781268, -0.04658787318897265] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
