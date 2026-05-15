@@ -6,7 +6,7 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
     """
     Formats the hand state into descriptive bullet points modeled after the GestureGPT paper.
     """
-    # 1. Group fingers by state
+    ### === Finger Flexion State === ###
     extended = [name.capitalize() for name, val in zip(global_vars.FINGERS["name"], finger_flexion_state) if val == 1]
     folded = [name.capitalize() for name, val in zip(global_vars.FINGERS["name"], finger_flexion_state) if val == -1]
     hand_pose = "Unknown"
@@ -16,9 +16,6 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
             flexion_desc = f"The {', '.join(extended)} fingers are straight, while the {', '.join(folded)} finger is bent."
         elif len(extended)==1 and len(folded)>=2:
             flexion_desc = f"The {', '.join(extended)} finger is straight, while the {', '.join(folded)} fingers are bent."
-            # # if the only straight finger is the index
-            # if extended[0] == "Index":
-            #     hand_pose = "Pointing"
 
         elif len(extended)>=2 and len(folded)>=2:
             flexion_desc = f"The {', '.join(extended)} fingers are straight, while the {', '.join(folded)} fingers are bent."
@@ -43,13 +40,9 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
     else:
         flexion_desc = "All fingers are in a relaxed, natural state."
 
-    # if the only straight finger is the index
-    if len(extended) == 1 and "Index" in extended:
-        hand_pose = "Pointing"
-    elif len(extended)==2 and "Thumb" in extended and "Index" in extended:
-        hand_pose = "Pointing"
+    
 
-    # 2. Group finger contacts
+    ### === Contact State (Thumb) === ###
     in_contact = [name.capitalize() for name, val in zip(global_vars.FINGERS["name"][1:], finger_contact_state) if val == 1]
     # if in_contact and flexion_desc != "All fingers are straight.":  # Only mention contact if not all fingers are straight (since that would be contradictory)
     if in_contact and finger_flexion_state[0] == -1:  # Only mention contact if thumb is bent (otherwise i can get contradictory)
@@ -61,10 +54,20 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
         # the thumb cannot have a contact if all fingers are straight
         contact_desc = "The Thumb is NOT in contact with fingertips."#any other fingertips."
 
+    ### === Spatial Motion === ###
     if spatial_motion == "Stationary":
         motion_desc = "The hand is stationary, motionless."
     else:
         motion_desc = f"The hand is moving with a {spatial_motion} motion."
+
+    ### === Hand Pose === ###
+    if len(extended) == 1 and "Index" in extended:
+        hand_pose = "Pointing"
+    elif len(extended)==2 and "Thumb" in extended and "Index" in extended:
+        hand_pose = "Pointing"
+
+    if len(in_contact) != 0 and "Index" in in_contact:
+        hand_pose = "Pinching"
 
     if hand_pose != "Unknown":
         hand_state = f"The hand is in a {hand_pose} pose."
