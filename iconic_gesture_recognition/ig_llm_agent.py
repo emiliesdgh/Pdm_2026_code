@@ -211,7 +211,7 @@ class LLMInferenceAgent:
 
             "STEP 2: MAP TO INTENT (APPLY IN EXACT ORDER)\n"
             "A. GRABBING (PICK_UP):\n"
-            "- IF Articulation contains 'Closing', 'Grabbing', or 'Pinching' -> Intent is PICK_UP. (Overrides everything).\n"
+            "- IF Articulation contains 'Closing', 'Grabbing', or 'Pinching' -> Intent is exclusivelyPICK_UP. (Overrides everything).\n"
             "- IF the Hand Pose is Pinching AND Index is touching Thumb -> Intent is PICK_UP.\n\n"
 
             "B. SCANNING (SEARCH_AREA):\n"
@@ -233,11 +233,12 @@ class LLMInferenceAgent:
             "    \"articulation_state\": \"(Copy from log)\",\n"
             "    \"spatial_motion\": \"(Copy from log)\"\n"
             "    \"determined_pose\": \"(Write Pointing Pose, Open Palm Pose, Fist Pose, or Pinching Pose)\",\n"
-            "    \"final_logic\": \"(Explain which rule from Step 2 matched to determine the intent)\"\n"
+            "    \"is_grab_override_active\": true/false (MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching')\,\n"
+            "    \"final_logic\": \"IF is_grab_override_active is true,Intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent)\"\n"
             "  },\n"
             "  \"intent\": \"(ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Object or None)\",\n"
-            "  \"confidence_score\": 0.9,\n"
+            "  \"confidence_score\": 0.0,\n"
             "  \"reasoning\": \"(Explain based on the final_logic)\"\n"
             "}"
         )

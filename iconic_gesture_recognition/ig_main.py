@@ -79,7 +79,7 @@ def detect_hand_state():
                         motion_detected, spatial_motion, articulation, hand_position, 
                         sensor_confidence
                     )
-                    print(f"Generated Prompt:\n{prompt}\n")
+                    # print(f"Generated Prompt:\n{prompt}\n")
 
                     # print(f"Status: {spatial_motion} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
 
