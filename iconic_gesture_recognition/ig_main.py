@@ -214,3 +214,93 @@ def detect_hand_state():
 if __name__ == "__main__":
 
     detect_hand_state()
+
+
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The action is blocked due to an obstacle in the path.
+
+[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 2.02s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.92/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4464698717707679, 0.5333906000568753, -0.05076232706636566] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Large object in the path ahead. No clear path to navigate.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The action is blocked due to an obstacle in the path.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.24s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up-Left motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.6411414600553966, 0.7071508311090016, -0.07397138561609937] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Large object in the path ahead. No clear path to navigate.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.9
+
+[REASONING]: The action is not blocked as there are no objects or boxes detected by the robot vision.
+
+[EXECUTE] -> PICK_UP on None (Confidence: 0.9) | Latency: 2.02s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.98/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Pinching
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.2527830260140555, 0.6081352773166838, -0.04347845008307903] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Large object in the path ahead. No clear path to navigate."""
