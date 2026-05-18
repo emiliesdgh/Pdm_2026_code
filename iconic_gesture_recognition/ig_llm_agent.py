@@ -244,7 +244,7 @@ class LLMInferenceAgent:
             "    \"vision_context\": \"(Copy the exact text from ROBOT VISION)\",\n"
             "    \"applied_rule\": \"(State EXACTLY which Rule number from Step 3 applies. e.g., 'Rule 1' or 'Rule 4')\",\n"
             "    \"action_status\": \"(Write 'Safe' or 'Blocked' based ONLY on the applied_rule)\",\n"
-            "    \"final_logic\": \"(Explain your reasoning)\"\n"
+            # "    \"final_logic\": \"(Explain your intent mapping and if action is Safe or Blocked)\"\n"
             "  },\n"
             "  \"intent\": \"(The base_intent, ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Extract target object name from ROBOT VISION if applicable, otherwise None)\",\n"
