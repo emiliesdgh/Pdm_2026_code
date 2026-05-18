@@ -145,7 +145,66 @@ class LLMInferenceAgent:
         #     "}"
         # )
         
-        #cleaned up version :
+        # #cleaned up version :
+        # system_prompt = (
+        #     "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
+        #     "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
+
+        #     "STEP 1: IDENTIFY THE HAND POSE\n"
+        #     "Check if the hand is a known or unknown pose described in the 'HAND STATE' block.\n\n"
+
+        #     "STEP 2: MAP TO INTENT (APPLY IN EXACT ORDER)\n"
+        #     "A. HALTING (STOP):\n"
+        #     "- IF the Hand Pose is Fist AND Spatial Motion is 'Stationary' -> Intent is STOP.\n"
+        #     "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Stationary' AND palm orientation is 'Inward' or 'Outward' -> Intent is STOP.\n\n"
+
+        #     "B. SCANNING (SEARCH_AREA):\n"
+        #     "- IF Spatial Motion contains 'Oscillating', 'Waving', or 'Rotation' -> Intent is SEARCH_AREA.\n"
+        #     "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Linear Translation' -> Intent is SEARCH_AREA.\n\n"
+
+        #     "C. GRABBING (PICK_UP):\n"
+        #     "- IF Articulation contains 'Closing', 'Grabbing', or 'Pinching' -> Intent is exclusively PICK_UP. (Overrides everything).\n"
+        #     "- IF the Hand Pose is Pinching AND Index is touching Thumb -> Intent is PICK_UP.\n\n"
+
+        #     "D. DIRECTING (NAVIGATE_THERE):\n"
+        #     "- IF the Hand Pose is Pointing AND Spatial Motion is 'Stationary' or 'Linear Translation' -> Intent is NAVIGATE_THERE.\n"
+        #     "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Stationary' AND palm orientation is 'Down' -> Intent is NAVIGATE_THERE.\n\n"
+
+        #     "STEP 3: ENVIRONMENTAL CONTEXT\n"
+        #     "Consider the Intent matched in Step 2 and the'ROBOT VISION' context to inform the status of the action. Evaluate in this EXACT order AND skip to Step 4 as soon as a condition is met:\n\n"
+        #     # "- IF Intent is STOP, ingore the vision, the action is ALWAYS safe and possible -> action status is Safe.\n"
+        #     # "- IF Intent is SEARCH_AREA, ignore the vision, the action is ALWAYS safe and possible -> action status is Safe.\n"
+        #     "- IF Intent is PICK_UP but the vision contains 'No objects visible', 'No box', 'Empty' or 'Obstacle'  -> The action is Blocked. \n"
+        #     "- IF Intent is NAVIGATE_THERE but the vision contains 'Obstacle' -> The action is Blocked.\n"
+        #     "- For ALL other cases (including STOP and SEARCH_AREA)-> action status is Safe.\n\n"
+
+
+        #     "STEP 4: OUTPUT FORMAT\n"
+        #     "Output ONLY a valid JSON object. Do not add comments. Fill out the 'analysis' section FIRST:\n"
+        #     "{\n"
+        #     "  \"analysis\": {\n"
+        #     "    \"articulation_state\": \"(Copy from log)\",\n"
+        #     "    \"spatial_motion\": \"(Copy from log)\",\n"
+        #     "    \"determined_pose\": \"(Write Pointing Pose, Open Palm Pose, Fist Pose, or Pinching Pose)\",\n"
+        #     "    \"base_intent\": \"(Which Intent matched in Step 2)\",\n"
+        #     "    \"action_status\": \"(Write 'Safe' or 'Blocked'. CRITICAL RULE: IF base_intent is STOP or SEARCH_AREA, you MUST write 'Safe' regardless of vision!)\",\n"
+
+        #     # "    \"stop_override_active\": \"true or false (MUST BE true IF base_intent is STOP. Otherwise, write false)\",\n"
+        #     "    \"is_grab_override_active\": \"true or false (MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching')\",\n"
+        #     "    \"vision_context\": \"(Summarize the ROBOT VISION data)\",\n"
+                        
+        #     "    \"final_logic\": \"IF is_grab_override_active is true, base_intent MUST be PICK_UP. (Explain why the intent was chosen, and why the action status is 'Safe' or 'Blocked').\"\n"
+        #     # "    \"final_logic\": \"IF stop_override_active is true, base_intent MUST be STOP AND confidence_score MUST be 0.9. IF is_grab_override_active is true, base_intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent).\"\n"
+        #     "  },\n"
+        #     "  \"intent\": \"(The base_intent, ONE OF THE 4 INTENTS)\",\n"
+        #     "  \"target\": \"(Extract target object name from ROBOT VISION if applicable, otherwise None)\",\n"
+        #     # "  \"confidence_score\": 0.0,\n"
+        #     "  \"confidence_score\":(Write 0.9 IF stop_override_active is true or action_status is 'Safe'. Write 0.0 if action_status is Blocked)\",\n"
+        #     "  \"reasoning\": \"(Explain based on the final_logic.)\"\n"
+        #     "}"
+        # )
+
+        # last try of today 18.05.2026
         system_prompt = (
             "You are the reasoning cortex for an autonomous robot. Map the user's kinematic hand state to ONE of four intents: "
             "[PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
@@ -170,36 +229,29 @@ class LLMInferenceAgent:
             "- IF the Hand Pose is Pointing AND Spatial Motion is 'Stationary' or 'Linear Translation' -> Intent is NAVIGATE_THERE.\n"
             "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Stationary' AND palm orientation is 'Down' -> Intent is NAVIGATE_THERE.\n\n"
 
-            "STEP 3: ENVIRONMENTAL CONTEXT\n"
-            "Consider the Intent matched in Step 2 and the'ROBOT VISION' context to inform the status of the action. Evaluate in this EXACT order AND skip to Step 4 as soon as a condition is met:\n\n"
-            # "- IF Intent is STOP, ingore the vision, the action is ALWAYS safe and possible -> action status is Safe.\n"
-            # "- IF Intent is SEARCH_AREA, ignore the vision, the action is ALWAYS safe and possible -> action status is Safe.\n"
-            "- IF Intent is PICK_UP but the vision contains 'No objects visible', 'No box', 'Empty' or 'Obstacle'  -> The action is Blocked. \n"
-            "- IF Intent is NAVIGATE_THERE but the vision contains 'Obstacle' -> The action is Blocked.\n"
-            "- For ALL other cases (including STOP and SEARCH_AREA)-> action status is Safe.\n\n"
-
+            "STEP 3: ENVIRONMENTAL CONTEXT (CRITICAL OVERRIDES)\n"
+            "Determine if the action is Safe or Blocked based on the Intent and 'ROBOT VISION'.\n"
+            "- RULE 1: IF Intent is STOP or SEARCH_AREA -> Action status is ALWAYS 'Safe'. Ignore vision context completely.\n"
+            "- RULE 2: IF Intent is PICK_UP AND vision contains 'No objects', 'No box', 'Empty', or 'Obstacle' -> Action status is 'Blocked'.\n"
+            "- RULE 3: IF Intent is NAVIGATE_THERE AND vision contains 'Obstacle' -> Action status is 'Blocked'.\n"
+            "- RULE 4: For all other scenarios -> Action status is 'Safe'.\n\n"
 
             "STEP 4: OUTPUT FORMAT\n"
-            "Output ONLY a valid JSON object. Do not add comments. Fill out the 'analysis' section FIRST:\n"
+            "Output ONLY a valid JSON object. Do not add comments. Set 'confidence_score' to 0.9 if Safe, or 0.0 if Blocked. Fill out the 'analysis' section FIRST:\n"
             "{\n"
             "  \"analysis\": {\n"
             "    \"articulation_state\": \"(Copy from log)\",\n"
             "    \"spatial_motion\": \"(Copy from log)\",\n"
             "    \"determined_pose\": \"(Write Pointing Pose, Open Palm Pose, Fist Pose, or Pinching Pose)\",\n"
             "    \"base_intent\": \"(Which Intent matched in Step 2)\",\n"
-            "    \"action_status\": \"(Write 'Safe' or 'Blocked'. CRITICAL RULE: IF base_intent is STOP or SEARCH_AREA, you MUST write 'Safe' regardless of vision!)\",\n"
-
-            # "    \"stop_override_active\": \"true or false (MUST BE true IF base_intent is STOP. Otherwise, write false)\",\n"
-            "    \"is_grab_override_active\": \"true or false (MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching')\",\n"
+            "    \"action_status\": \"(Write 'Safe' or 'Blocked' based strictly on Step 3)\",\n"
+            "    \"is_grab_override_active\": \"(true or false)\",\n"
             "    \"vision_context\": \"(Summarize the ROBOT VISION data)\",\n"
-                        
-            "    \"final_logic\": \"IF is_grab_override_active is true, base_intent MUST be PICK_UP. (Explain why the intent was chosen, and why the action status is 'Safe' or 'Blocked').\"\n"
-            # "    \"final_logic\": \"IF stop_override_active is true, base_intent MUST be STOP AND confidence_score MUST be 0.9. IF is_grab_override_active is true, base_intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent).\"\n"
+            "    \"final_logic\": \"(Explain why the intent was chosen. If STOP or SEARCH_AREA, explicitly state vision was ignored. State why action is Safe or Blocked.)\"\n"
             "  },\n"
             "  \"intent\": \"(The base_intent, ONE OF THE 4 INTENTS)\",\n"
-            "  \"target\": \"(Extract target object name from ROBOT VISION if applicable, otherwise None)\",\n"
-            # "  \"confidence_score\": 0.0,\n"
-            "  \"confidence_score\":(Write 0.9 IF stop_override_active is true or action_status is 'Safe'. Write 0.0 if action_status is Blocked)\",\n"
+            "  \"target\": \"(Extract target object name from vision if applicable, otherwise None)\",\n"
+            "  \"confidence_score\": 0.9,\n"
             "  \"reasoning\": \"(Explain based on the final_logic.)\"\n"
             "}"
         )
