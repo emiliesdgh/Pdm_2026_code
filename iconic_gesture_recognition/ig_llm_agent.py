@@ -169,12 +169,12 @@ class LLMInferenceAgent:
             "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Stationary' AND palm orientation is 'Inward' or 'Outward' -> Intent is STOP.\n\n"
 
             "STEP 3: ENVIRONMENTAL FEASIBILITY (CRITICAL SAFETY CHECK)\n"
-            "Determine if the action is blocked by the environment. Evaluate in this EXACT order:\n"
-            "a. IF base_intent is STOP -> is_action_blocked is 'false'. (Action is ALWAYS safe, ignore vision).\n"
-            "b. IF base_intent is SEARCH_AREA -> is_action_blocked is 'false'. (Action is ALWAYS safe, ignore vision).\n"
-            "c. IF base_intent is PICK_UP AND vision says 'No objects' or 'No box' -> is_action_blocked is 'true'.\n" # DOESn't work You MUST output a confidence_score of 0.0.\n"
-            "d. IF base_intent is NAVIGATE_THERE AND vision says 'Obstacle' -> is_action_blocked is 'true'.\n" # DOESN't work You MUST output a confidence_score of 0.0.\n"
-            "e. Otherwise -> is_action_blocked is 'false'.\n\n"
+            "Determine if the 'action_status'. Evaluate in this EXACT order:\n"
+            "a. IF base_intent is STOP -> action_status is 'Safe'. (Halting is the safest response to an obstacle).\n"
+            "b. IF base_intent is SEARCH_AREA -> action_status is 'Safe'. (Looking around is always safe).\n"
+            "c. IF base_intent is PICK_UP AND vision says 'No objects' or 'No box' -> action_status is 'Blocked'.\n"
+            "d. IF base_intent is NAVIGATE_THERE AND vision says 'Obstacle' or 'Large object' -> action_status is 'Blocked'.\n"
+            "e. Otherwise -> action_status is 'Safe'.\n\n"
 
             "STEP 4: OUTPUT FORMAT\n"
             "Output ONLY a valid JSON object. Do not add comments. Fill out the 'analysis' section FIRST:\n"
@@ -185,17 +185,17 @@ class LLMInferenceAgent:
             "    \"determined_pose\": \"(Write Pointing Pose, Open Palm Pose, Fist Pose, or Pinching Pose)\",\n"
             "    \"base_intent\": \"(Which intent matched in Step 2)\",\n"
 
-            "    \"is_grab_override_active\": \"true or false\",\n"
+            "    \"is_grab_override_active\": \"true or false (MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching')\",\n"
             "    \"vision_context\": \"(Summarize the ROBOT VISION data)\",\n"
-            "    \"is_action_blocked\": \"true or false (Evaluate using Step 3)\",\n"
+            "    \"action_status\": \"(Write 'Safe' or 'Blocked' using the rules in Step 3)\",\n"
             
-            "    \"final_logic\": \"(Explain intent mapping and if action is blocked)\"\n"
+            "    \"final_logic\": \"(Explain intent mapping and if action is Safe or Blocked)\"\n"
             "  },\n"
             "  \"intent\": \"(The base_intent, ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Extract target object name from ROBOT VISION if applicable, otherwise None)\",\n"
-            "  \"confidence_score\": 0.9,\n"
-            # "  \"confidence_score\": 0.9 (IF is_action_blocked is true, confidence_score MUST be 0.0.),\n"
-            "  \"reasoning\": \"(IF is_action_blocked is true, confidence_score MUST be 0.0. Explain why.)\"\n"
+            # "  \"confidence_score\": 0.9,\n"
+            "  \"confidence_score\":(Write 0.9 if action_status is Safe. Write 0.0 if action_status is Blocked),\n"
+            "  \"reasoning\": \"(Explain your logic)\"\n"
             "}"
         )
 
