@@ -79,7 +79,7 @@ def detect_hand_state():
                         motion_detected, spatial_motion, articulation, hand_position, 
                         sensor_confidence, 
                         # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
-                        environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test NAVIGATE_THERE
+                        environmental_context="ROBOT VISION: Large object in the path ahead. No clear path to navigate."    # test NAVIGATE_THERE
                         # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
                         # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
@@ -214,17 +214,3 @@ def detect_hand_state():
 if __name__ == "__main__":
 
     detect_hand_state()
-
-
-""">>> SYSTEM AWAKE: Listening for command... <<<
-
-
-[SYSTEM AWAKE] - Listening for dynamic gesture command...
-
-[SNAPSHOT TAKEN] - Sending to LLM
-
-[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
-
-[REASONING]: The hand is in an Open Palm Pose and the spatial motion is 'Stationary'. However, since there's a large object blocking the path ahead making navigation unsafe, the does_vision_block_intent is true. As a result, the environment is not safe and the confidence score is 0.0.
-
-[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.73s"""
