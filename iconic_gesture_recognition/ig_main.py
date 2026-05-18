@@ -215,4 +215,51 @@ if __name__ == "__main__":
 
     detect_hand_state()
 
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+❌ JSON Parse Error. Raw Output: {
+  "analysis": {
+    "articulation_state": "None",
+    "spatial_motion": "The hand is stationary, motionless.",
+    "determined_pose": "Open Palm Pose",
+    "base_intent": "STOP",
+    "is_grab_override_active": "false",
+    "vision_context": "Large object in the path ahead. No clear path to navigate.",
+    "applied_rule": "Rule 4",
+    "action_status": "Blocked",
+    "final_logic": "The hand is in an Open Palm Pose, which matches the STOP intent (Rule 5). The vision context indicates a large object in the path ahead, blocking navigation. Therefore, the action status is Blocked.",
+  "intent": "STOP",
+  "target": "None",
+  "confidence_score": "0.0",
+  "reasoning": "The hand's Open Palm Pose matches the STOP intent and the vision context indicates an obstacle in the path, making it impossible to navigate."
+}
+[IGNORED] -> UNKNOWN (Confidence too low: 0.0) | Latency: 2.50s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+❌ JSON Parse Error. Raw Output: {
+  "analysis": {
+    "articulation_state": "None",
+    "spatial_motion": "The hand is stationary, motionless.",
+    "determined_pose": "Open Palm Pose",
+    "base_intent": "STOP",
+    "is_grab_override_active": "false",
+    "vision_context": "Large object in the path ahead. No clear path to navigate.",
+    "applied_rule": "Rule 4",
+    "action_status": "Blocked",
+    "final_logic": "The hand is in an Open Palm Pose, which matches the STOP intent (Rule 5: palm orientation is 'Inward'). The environmental context indicates a large object in the path ahead, blocking navigation. Therefore, the action_status is 'Blocked' according to Rule 4.",
+  "intent": "STOP",
+  "target": "None",
+  "confidence_score": "0.0",
+  "reasoning": "The hand is stationary and in an Open Palm Pose with palm orientation 'Inward', which matches the STOP intent. However, the environmental context indicates a large object in the path ahead, making navigation impossible. Therefore, the action_status is 'Blocked'."
+}
+[IGNORED] -> UNKNOWN (Confidence too low: 0.0) | Latency: 2.80s"""
 
