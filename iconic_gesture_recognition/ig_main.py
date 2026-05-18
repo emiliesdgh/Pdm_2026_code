@@ -78,7 +78,10 @@ def detect_hand_state():
                         finger_flexion_state, finger_contact_state, hand_orientation, 
                         motion_detected, spatial_motion, articulation, hand_position, 
                         sensor_confidence, 
-                        environmental_context=""
+                        # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
+                        environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test NAVIGATE_THERE
+                        # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
+                        # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
                     )
                     # pass simulatedenvironmental context to test out the llm reasoning with the same gesture
@@ -211,3 +214,17 @@ def detect_hand_state():
 if __name__ == "__main__":
 
     detect_hand_state()
+
+
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is in an Open Palm Pose and the spatial motion indicates that the hand is stationary. Since the environment is not safe due to a large object blocking the path, the intent is STOP.
+
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.09s"""
