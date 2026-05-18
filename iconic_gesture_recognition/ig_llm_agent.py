@@ -172,7 +172,7 @@ class LLMInferenceAgent:
             "Determine if the 'action_status'. Evaluate in this EXACT order:\n"
             "a. IF base_intent is STOP -> action_status is 'Safe'. (Halting is the safest response to an obstacle).\n"
             "b. IF base_intent is SEARCH_AREA -> action_status is 'Safe'. (Looking around is always safe).\n"
-            "c. IF base_intent is PICK_UP AND vision says 'No objects' or 'No box' -> action_status is 'Blocked'.\n"
+            "c. IF base_intent is PICK_UP AND vision says 'No objects', 'No box', 'Empty', 'Obstacle' or 'Large object' -> action_status is 'Blocked'. (Robot can ONLY pick up target boxes)\n"
             "d. IF base_intent is NAVIGATE_THERE AND vision says 'Obstacle' or 'Large object' -> action_status is 'Blocked'.\n"
             "e. Otherwise -> action_status is 'Safe'.\n\n"
 
@@ -215,7 +215,14 @@ class LLMInferenceAgent:
                 prediction_json = json.loads(response_text)
                 self.current_intent = prediction_json.get("intent", "UNKNOWN")
                 self.current_target = prediction_json.get("target", "None")
-                self.current_confidence = prediction_json.get("confidence_score", 0.0)
+
+                # self.current_confidence = prediction_json.get("confidence_score", 0.0)
+                raw_confidence = prediction_json.get("confidence_score", 0.0)
+                try:
+                    self.current_confidence = float(raw_confidence)
+                except ValueError:
+                    self.current_confidence = 0.0
+
                 self.current_reasoning = prediction_json.get("reasoning", "No reasoning.")
                 
                 print(f"\n[NEW INTENT DECODED]: {self.current_intent} | Target: {self.current_target} | Confidence: {self.current_confidence}\n")
@@ -238,3 +245,28 @@ class LLMInferenceAgent:
             self.current_latency = inference_end_time - inference_start_time
             self.is_inferencing = False
 
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand pose and spatial motion indicate a STOP intent. However, due to the presence of a large object in the path, the action is blocked.
+
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.14s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.0
+
+[REASONING]: The hand pose and spatial motion match the DIRECTING intent (NAVIGATE_THERE). However, since there's a large object in the path, the action is blocked.
+
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.34s"""
