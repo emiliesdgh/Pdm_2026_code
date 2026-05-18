@@ -77,19 +77,19 @@ def detect_hand_state():
                         global_vars, 
                         finger_flexion_state, finger_contact_state, hand_orientation, 
                         motion_detected, spatial_motion, articulation, hand_position, 
-                        sensor_confidence
+                        sensor_confidence, 
+                        environmental_context=""
+                        # environmental_context="add simulated environmental context here"
                     )
-                    # print(f"Generated Prompt:\n{prompt}\n")
+                    # pass simulatedenvironmental context to test out the llm reasoning with the same gesture
+                    # but different contexts (e.g., "The user is in a kitchen environment, standing near a table
+                    # with various objects on it." vs "The user is in a living room environment, sitting on a couch
+                    # with a coffee table in front of them.")
 
-                    # print(f"Status: {spatial_motion} | Detected: {motion_detected} | Inferencing: {llm_agent.is_inferencing} ")
-
+                    
                     ### === LLM Prompting with State Machine Logic === ###
-
-                    # 1. Define the Wake Gesture (e.g., Open Palm facing camera)
-                    # If all fingers extended (1) and facing Inward
-                    is_wake_gesture = (sum(finger_flexion_state) == 2 and hand_orientation == 'Inward')
-
                     if hri_state == "SLEEPING":
+                        
                         if spatial_motion == "Stationary":
                             static_frame_count += 1
                         else:
@@ -132,66 +132,33 @@ def detect_hand_state():
                             # if they did a moving gesture, send the latched prompt
                             # if they just held a static pose, send the current prompt
                             final_prompt = best_prompt if best_prompt != "" else prompt
+
                             llm_agent.analyze_gesture_async(final_prompt)
+
 
                     elif hri_state == "INFERENCING":
                         if not llm_agent.is_inferencing:
+
                             # SAFETY GATE
                             if not llm_agent.is_inferencing:
                                 intent = llm_agent.current_intent
                                 confidence = getattr(llm_agent, 'current_confidence', 0.0)
                                 target = getattr(llm_agent, 'current_target', 'None')
+                                latency = getattr(llm_agent, 'current_latency', 0.0)    # to read the current latency
 
                                 if confidence >= 0.75:
-                                    print(f"[EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
+                                    print(f"[EXECUTE] -> {intent} on {target} (Confidence: {confidence}) | Latency: {latency:.2f}s")
                                     print(f"Protompt sent to LLM:\n{final_prompt}\n")
                                     # below line added but is necessary ?
                                     best_prompt = ""  # Clear the latched prompt after execution
                                 else:
-                                    print(f"[IGNORED] -> {intent} (Confidence too low: {confidence})")
+                                    print(f"[IGNORED] -> {intent} (Confidence too low: {confidence}) | Latency: {latency:.2f}s")
 
                                 hri_state = "SLEEPING"
                                 static_frame_count = 0  # Reset for next time
 
-                    # # 2. State Machine Logic
-                    # if hri_state == "SLEEPING":
-                    #     if is_wake_gesture:
-                    #         hri_state = "LISTENING"
-                    #         print("\n>>> SYSTEM AWAKE: Listening for command... <<<\n")
-                            
-                    # elif hri_state == "LISTENING":
-                    #     if motion_detected:
-                    #         static_frame_count = 0  # Reset timer if moving
-                    #     else:
-                    #         static_frame_count += 1 # Count stable frames
 
-                    #     # Trigger LLM if user holds a stable pose for 1 second
-                    #     if static_frame_count >= HOLD_TH and not llm_agent.is_inferencing:
-                    #         print("\n>>> GESTURE LOCKED: Sending to LLM... <<<\n")
-                    #         hri_state = "INFERENCING"
-                    #         llm_agent.analyze_gesture_async(prompt)
-                    #         static_frame_count = 0
-                            
-                    # elif hri_state == "INFERENCING":
-                    #     if not llm_agent.is_inferencing:
-                    #         # --- THE LIVE SAFETY GATE ---
-                    #         # Extract the LLM's final reasoning
-                    #         intent = llm_agent.current_intent
-                    #         confidence = getattr(llm_agent, 'current_confidence', 0.0)
-                    #         target = getattr(llm_agent, 'current_target', 'None')
-
-                    #         # Only execute if the LLM is highly confident
-                    #         if confidence >= 0.75:
-                    #             print(f"\n[ROBOT COMMAND EXECUTE] -> {intent} on {target} (Confidence: {confidence})")
-                    #             # This is where you will eventually call your robot's movement API
-                    #             # e.g., robot_controller.send_command(intent, target)
-                    #         else:
-                    #             print(f"\n[ROBOT COMMAND IGNORED] -> {intent} (Confidence too low: {confidence})")
-                    #             # The robot stays safe and does nothing
-                    #         # LLM is done, go back to sleep
-                    #         hri_state = "SLEEPING"
-
-                    ###===
+                    ### === Draw hand landmarks and info on the frame === ###
 
                     mp_drawing.draw_landmarks(
                         image=frame,
@@ -204,10 +171,6 @@ def detect_hand_state():
             if TEXT_FLIPPED:
                 frame = cv2.flip(frame, 1)
 
-            # # Display the LLM's prediction directly on the screen
-            # cv2.putText(frame, f"LLM: {llm_agent.current_prediction}", (10, 40), 
-            #             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-
             # --- DYNAMIC UI DISPLAY ---
             confidence = getattr(llm_agent, 'current_confidence', 0.0)
             intent = llm_agent.current_intent
@@ -215,22 +178,27 @@ def detect_hand_state():
             # If the LLM is currently thinking, show that
             if llm_agent.is_inferencing:
                 display_text = "LLM: Thinking..."
+                display_latency = ""
                 text_color = (0, 255, 255) # Yellow
             # If it finished and passed the safety gate
             elif confidence >= 0.75 and intent != "Waiting...":
-                display_text = f"EXECUTE: {intent} ({confidence:.2f})"
+                display_text = f"EXECUTE: {intent} ({confidence:.2f}) "
+                display_latency = f"Latency: {getattr(llm_agent, 'current_latency', 0.0):.2f}s"
                 text_color = (0, 255, 0) # Green
             # If it finished but failed the safety gate
             elif confidence < 0.75 and intent != "Waiting...":
-                display_text = f"IGNORED: {intent} (Conf: {confidence:.2f})"
+                display_text = f"IGNORED: {intent} (Conf: {confidence:.2f}) "
+                display_latency = f"Latency: {getattr(llm_agent, 'current_latency', 0.0):.2f}s"
                 text_color = (0, 0, 255) # Red
             # Default standby text
             else:
                 display_text = f"LLM: {intent}"
+                display_latency = ""
                 text_color = (255, 255, 255) # White
 
             cv2.putText(frame, display_text, (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, text_color, 2)
-            
+            cv2.putText(frame, display_latency, (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.6, text_color, 2)
+
             if TEXT_FLIPPED:
                 frame = cv2.flip(frame, 1)
 

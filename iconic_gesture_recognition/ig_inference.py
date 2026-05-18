@@ -2,7 +2,7 @@
 Script to link the gesture recognition to the LLM symbolic representation by determining the hand state (finger positions, hand orientation, etc.)
 """
 
-def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, spatial_motion, articulation, hand_position, sensor_confidence, environmental_context=""):
+def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_state, hand_orientation, motion_detected, spatial_motion, articulation, hand_position, sensor_confidence, environmental_context):
     """
     Formats the hand state into descriptive bullet points modeled after the GestureGPT paper.
     """
