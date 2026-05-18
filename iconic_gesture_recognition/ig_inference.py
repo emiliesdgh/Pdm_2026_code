@@ -102,3 +102,25 @@ def get_symbolic_string_2(global_vars, finger_flexion_state, finger_contact_stat
     # print(symbolic_str)
 
     return symbolic_str
+
+
+
+
+"""
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Closing
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inwards.
+- The hand is positioned at [x, y, z] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+No additional context from robot vision.
+
+"""
