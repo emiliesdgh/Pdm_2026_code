@@ -215,14 +215,3 @@ if __name__ == "__main__":
 
     detect_hand_state()
 
-"""SYSTEM AWAKE: Listening for command... <<<
-
-
-[SYSTEM AWAKE] - Listening for dynamic gesture command...
-
-[SNAPSHOT TAKEN] - Sending to LLM
-
-[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
-
-[REASONING]: The hand is in an Open Palm Pose and the Spatial Motion is 'Stationary'. The base intent is determined to be STOP (Rule 4). The vision context indicates a large object in the path ahead, making it impossible to navigate. Therefore, the action_status is 'Blocked'."""
-
