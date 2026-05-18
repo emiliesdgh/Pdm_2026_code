@@ -107,14 +107,20 @@ class LLMInferenceAgent:
             "- IF the Hand Pose is Fist AND Spatial Motion is 'Stationary' -> Intent is STOP.\n"
             "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Stationary' AND palm orientation is 'Inward' or 'Outward' -> Intent is STOP.\n\n"
 
+            # this version is not understood by mistral
+            # "STEP 3: ENVIRONMENTAL FEASIBILITY (CRITICAL SAFETY CHECK)\n"
+            # "Compare the Intent from Step 2 against the 'ROBOT VISION' context:\n"
+            # "- IF Intent is STOP -> The action is ALWAYS safe and possible, proceed normally to the next Step.\n"
+            # "- IF Intent is PICK_UP but the visionsays 'No objects visible' or 'No box' -> The action is impossible. You MUST output a confidence_score of 0.0.\n"
+            # "- IF Intent is NAVIGATE_THERE but the vision says 'Path blocked or 'Obstacle in path' -> The action is unsafe. You MUST output a confidence_score of 0.0.\n"
+            # "- IF the action is safe and logically possible -> Proceed normally. \n\n"
+
             "STEP 3: ENVIRONMENTAL FEASIBILITY (CRITICAL SAFETY CHECK)\n"
             "Compare the Intent from Step 2 against the 'ROBOT VISION' context:\n"
-            # "- IF Intent is PICK_UP but the visionsays 'No objects visible' or 'No box' -> OVERRIDE to UNKNOWN (Safety Override: Can't pick up what you can't see).\n"
+            # "- IF Intent is STOP -> The action is ALWAYS safe and possible, proceed normally to the next Step.\n"
             "- IF Intent is PICK_UP but the visionsays 'No objects visible' or 'No box' -> The action is impossible. You MUST output a confidence_score of 0.0.\n"
-            # "-IF Intent is NAVIGATE_THERE but the vision says 'No clear path' or 'Obstacle ahead' -> The action is unsafe. You MUST output a confidence_score of 0.0.\n"
             "- IF Intent is NAVIGATE_THERE but the vision says 'Path blocked or 'Obstacle in path' -> The action is unsafe. You MUST output a confidence_score of 0.0.\n"
-            "- IF Intent is STOP -> The action is always safe and possible, proceed normally.\n"
-            "- IF the action is safe and logically possible -> Proceed normally. \n\n"
+            "- For all other Intent (including STOP and SEARCH_AREA) -> Action is safe and logically possible -> Proceed normally. \n\n"
 
             "STEP 4: OUTPUT FORMAT\n"
             "Output ONLY a valid JSON object. Do not add comments. Fill out the 'analysis' section FIRST:\n"
@@ -127,15 +133,16 @@ class LLMInferenceAgent:
 
             "    \"is_grab_override_active\": true/false (MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching')\,\n"
             "    \"vision_context\": \"(Summarize the ROBOT VISION data)\",\n"
-            "    \"is_environment_safe\": true/false (Write false if the vision makes the base_intent unsafe or impossible)\",\n"
-            "    \"is_stop_intent\": true/false (Write true if the base_intent is STOP, otherwise false)\",\n"
+            # "    \"does_vision_block_intent\": true/false (MUST be true ONLY IF Step 3 says the action is impossible or unsafe. Otherwise, write false)\",\n"
+            "    \"does_vision_block_intent\": true/false (MUST be false IF base_intent is STOP. MUST be true IF the vision makes the base_intent unsafe or impossible)\",\n"
+            "    \"is_environment_safe\": true/false (MUST be true IF base_intent is STOP. Otherwise, write false if the vision makes the base_intent unsafe or impossible)\",\n"
 
-            "    \"final_logic\": \"IF is_stop_intent is true, Intent MUST be STOP. IF is_grab_override_active is true, Intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent). IF is_environment_safe is false AND is_stop_intent is false, confidence_score MUST be 0.0.\"\n"
+            "    \"final_logic\": \"IF is_grab_override_active is true, Intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent). IF is_environment_safe is false, confidence_score MUST be 0.0. IF blocked, state why.\"\n"
             "  },\n"
             "  \"intent\": \"(The base_intent, ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Extract target object name from ROBOT VISION if applicable, otherwise None)\",\n"
-            "  \"confidence_score\": 0.9(MUST be 0.0 IF is_environment_safe is false AND is_stop_intent is false),\n"
-            "  \"reasoning\": \"(Explain based on the final_logic, mentioning both the gesture and the environment)\"\n"
+            "  \"confidence_score\": 0.9(MUST be 0.0 IF does_vision_block_intent is true),\n"
+            "  \"reasoning\": \"(Explain based on the final_logic, mentioning both the gesture and the environment and the value of does_vision_block_intent)\"\n"
             "}"
         )
 

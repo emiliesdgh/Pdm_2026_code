@@ -214,17 +214,3 @@ def detect_hand_state():
 if __name__ == "__main__":
 
     detect_hand_state()
-
-
-""">>> SYSTEM AWAKE: Listening for command... <<<
-
-
-[SYSTEM AWAKE] - Listening for dynamic gesture command...
-
-[SNAPSHOT TAKEN] - Sending to LLM
-
-[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
-
-[REASONING]: The hand is in an Open Palm Pose and the spatial motion indicates that the hand is stationary. Since the environment is not safe due to a large object blocking the path, the intent is STOP.
-
-[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.09s"""
