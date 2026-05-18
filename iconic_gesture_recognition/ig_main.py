@@ -78,8 +78,9 @@ def detect_hand_state():
                         finger_flexion_state, finger_contact_state, hand_orientation, 
                         motion_detected, spatial_motion, articulation, hand_position, 
                         sensor_confidence, 
-                        # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
-                        environmental_context="ROBOT VISION: Large object in the path ahead. No clear path."    # test NAVIGATE_THERE
+                        # environmental_context=""
+                        environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
+                        # environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path."    # test NAVIGATE_THERE
                         # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
                         # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
@@ -216,12 +217,18 @@ if __name__ == "__main__":
     detect_hand_state()
 
 
+""">>> SYSTEM AWAKE: Listening for command... <<<
 
-"""pdm_env_py311) emilie@emilie-labpc:~/Desktop/pdm_gesture_recogition/Pdm_2026_code$ /home/emilie/Desktop/pdm_gesture_recogition/installations/Python-3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py
-WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779087800.203807  591755 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
-I0000 00:00:1779087800.272779  591850 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 570.133.20), renderer: NVIDIA GeForce RTX 4090/PCIe/SSE2
-INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is stationary and in an Open Palm Pose, which matches the STOP intent. However, the action is blocked due to the presence of an obstacle in the vision context.
+
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.21s
 
 >>> SYSTEM AWAKE: Listening for command... <<<
 
@@ -230,14 +237,30 @@ INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 
 [SNAPSHOT TAKEN] - Sending to LLM
 
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.0
+
+[REASONING]: The action is Blocked because Intent is NAVIGATE_THERE but the vision contains 'Obstacle'.
+
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.20s"""
+
+
+
+
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
 [NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
 
-[REASONING]: The hand is stationary and in an open palm pose with the palm orientation being inward, which matches the 'HALTING' rule in Step 2 resulting in the intent being 'STOP'. The large object in the path ahead blocks the action, hence the 'Blocked' action_status.
+[REASONING]: The hand pose is Open Palm and the spatial motion is Stationary, which matches the STOP intent. The action status is Safe because there are no obstacles in the vision context.
 
-[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 2.44s
+[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 2.03s
 Protompt sent to LLM:
 --- SENSOR CONFIDENCE ---
-Camera Tracking Confidence: 0.93/1.0
+Camera Tracking Confidence: 0.95/1.0
 
 --- TEMPORAL MOTION LOG ---
 - Spatial Motion: The hand is stationary, motionless.
@@ -247,10 +270,10 @@ Camera Tracking Confidence: 0.93/1.0
 - The hand is in a Open Palm pose.
 - The Thumb is NOT in contact with fingertips.
 - The palm orientation is Inward.
-- The hand is positioned at [0.4834206643558684, 0.3693458941720781, -0.047716968459283284] relative to the center of the view.
+- The hand is positioned at [0.589590691384815, 0.4914783991518475, -0.03022077120371036] relative to the center of the view.
 
 --- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
-ROBOT VISION: Large object in the path ahead. No clear path.
+ROBOT VISION: No object visible in the workspace. The floor is clear.
 
 
 >>> SYSTEM AWAKE: Listening for command... <<<
@@ -262,12 +285,12 @@ ROBOT VISION: Large object in the path ahead. No clear path.
 
 [NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
 
-[REASONING]: The hand is in a Pointing pose and the spatial motion is stationary, which matches the rules for the NAVIGATE_THERE intent. However, due to the presence of a large object in the path ahead, the action_status is 'Blocked'.
+[REASONING]: The hand is stationary and in a Pointing pose, which matches the criteria for the NAVIGATE_THERE intent. The action status is 'Safe' as there are no obstacles in the vision context.
 
-[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.60s
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.30s
 Protompt sent to LLM:
 --- SENSOR CONFIDENCE ---
-Camera Tracking Confidence: 1.00/1.0
+Camera Tracking Confidence: 0.99/1.0
 
 --- TEMPORAL MOTION LOG ---
 - Spatial Motion: The hand is stationary, motionless.
@@ -277,24 +300,11 @@ Camera Tracking Confidence: 1.00/1.0
 - The hand is in a Pointing pose.
 - The Thumb is NOT in contact with fingertips.
 - The palm orientation is Down.
-- The hand is positioned at [0.7020915576389858, 0.5478978880814144, -0.15803145389930226] relative to the center of the view.
+- The hand is positioned at [0.36867340831529527, 0.7534859691347394, -0.034513673986580486] relative to the center of the view.
 
 --- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
-ROBOT VISION: Large object in the path ahead. No clear path.
+ROBOT VISION: No object visible in the workspace. The floor is clear.
 
-^CTraceback (most recent call last):
-  File "/home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py", line 216, in <module>
-    detect_hand_state()
-  File "/home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py", line 42, in detect_hand_state
-    success, frame = cap.read()
-                     ^^^^^^^^^^
-KeyboardInterrupt
-
-(pdm_env_py311) emilie@emilie-labpc:~/Desktop/pdm_gesture_recogition/Pdm_2026_code$ /home/emilie/Desktop/pdm_gesture_recogition/installations/Python-3.11.9/pdm_env_py311/bin/python /home/emilie/Desktop/pdm_gesture_recogition/Pdm_2026_code/iconic_gesture_recognition/ig_main.py
-WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-I0000 00:00:1779087899.186880  591979 gl_context_egl.cc:85] Successfully initialized EGL. Major : 1 Minor: 5
-I0000 00:00:1779087899.256169  592081 gl_context.cc:357] GL version: 3.2 (OpenGL ES 3.2 NVIDIA 570.133.20), renderer: NVIDIA GeForce RTX 4090/PCIe/SSE2
-INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 
 >>> SYSTEM AWAKE: Listening for command... <<<
 
@@ -303,11 +313,28 @@ INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 
 [SNAPSHOT TAKEN] - Sending to LLM
 
-[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
 
-[REASONING]: The hand is stationary and in an Open Palm pose, which matches the 'STOP' intent according to Step 2. The large object in the path ahead makes it impossible for the robot to navigate or pick up any objects, resulting in a 'Blocked' action_status.
+[REASONING]: The base intent is SEARCH_AREA because the hand is moving with a Slow Oscillating / Waving motion, and there's no stop override active.
 
-[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.36s
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.9) | Latency: 2.29s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The Thumb, Index, Middle, Pinky fingers are straight, while the Ring finger is bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.4227654195967175, 0.7297030233201527, -0.11367002968526425] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
 
 >>> SYSTEM AWAKE: Listening for command... <<<
 
@@ -316,8 +343,8 @@ INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 
 [SNAPSHOT TAKEN] - Sending to LLM
 
-[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.0
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.0
 
-[REASONING]: The hand is in a Pointing pose and the spatial motion indicates that the hand is stationary. These conditions match the rules for determining the intent as NAVIGATE_THERE.
+[REASONING]: The base_intent is PICK_UP but the vision context indicates that there are no objects visible in the workspace.
 
-[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.53s"""
+[IGNORED] -> PICK_UP (Confidence too low: 0.0) | Latency: 2.06s"""

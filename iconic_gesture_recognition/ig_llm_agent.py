@@ -170,15 +170,14 @@ class LLMInferenceAgent:
             "- IF the Hand Pose is Pointing AND Spatial Motion is 'Stationary' or 'Linear Translation' -> Intent is NAVIGATE_THERE.\n"
             "- IF the Hand Pose is Open Palm AND Spatial Motion is 'Stationary' AND palm orientation is 'Down' -> Intent is NAVIGATE_THERE.\n\n"
 
-            
+            "STEP 3: ENVIRONMENTAL CONTEXT\n"
+            "Consider the Intent matched in Step 2 and the'ROBOT VISION' context to inform the status of the action. Evaluate in this EXACT order AND skip to Step 4 as soon as a condition is met:\n\n"
+            "- IF Intent is STOP -> The action is ALWAYS safe and possible -> action status is Safe.\n"
+            "- IF Intent is SEARCH_AREA -> The action is ALWAYS safe and possible -> action status is Safe.\n"
+            "- IF Intent is PICK_UP but the vision contains 'No objects visible', 'No box', 'Empty' or 'Obstacle'  -> The action is Blocked. \n"
+            "- IF Intent is NAVIGATE_THERE but the vision contains 'Obstacle' -> The action is Blocked.\n"
+            "- For all other cases, the action is safe and possible -> action status is Safe.\n\n"
 
-            "STEP 3: ENVIRONMENTAL FEASIBILITY (CRITICAL SAFETY CHECK)\n"
-            "Determine the 'action_status' based on the Intent matched in Step 2. Evaluate in this EXACT order AND skip to Step 4 as soon as a condition is met:\n\n"
-            "- IF Intent is STOP -> action_status is ALWAYS 'Safe'. (Halting is the safest response to an obstacle, overrides all action_status).\n"
-            "- IF Intent is SEARCH_AREA -> action_status is ALWAYS 'Safe'. (Looking around is always safe).\n"
-            "- IF Intent is PICK_UP AND vision contains 'No objects', 'No box', 'Empty', 'Obstacle' or 'Large object' -> action_status is 'Blocked' and confidence_score MUST be 0.0. (Robot can ONLY pick up target boxes)\n"
-            "- IF Intent is NAVIGATE_THERE AND vision contains 'Obstacle' or 'Large object' -> action_status is 'Blocked' and confidence_score MUST be 0.0.\n"
-            "- Otherwise -> action_status is 'Safe'.\n\n"
 
             "STEP 4: OUTPUT FORMAT\n"
             "Output ONLY a valid JSON object. Do not add comments. Fill out the 'analysis' section FIRST:\n"
@@ -187,18 +186,19 @@ class LLMInferenceAgent:
             "    \"articulation_state\": \"(Copy from log)\",\n"
             "    \"spatial_motion\": \"(Copy from log)\",\n"
             "    \"determined_pose\": \"(Write Pointing Pose, Open Palm Pose, Fist Pose, or Pinching Pose)\",\n"
-            "    \"base_intent\": \"(Which intent matched in Step 2)\",\n"
+            "    \"base_intent\": \"(Which Intent matched in Step 2)\",\n"
+            "    \"action_status\": \"(Which action status matched in Step 3)\",\n"
 
+            "    \"stop_override_active\": \"true or false (MUST BE true IF base_intent is STOP. Otherwise, write false)\",\n"
             "    \"is_grab_override_active\": \"true or false (MUST BE true IF articulation_state contains 'Closing' or 'Grabbing' or 'Pinching')\",\n"
             "    \"vision_context\": \"(Summarize the ROBOT VISION data)\",\n"
-            "    \"action_status\": \"(Write 'Safe' or 'Blocked' using the rules in Step 3)\",\n"
-            
-            "    \"final_logic\": \"IF Intent is 'STOP' or 'SEARCH_AREA', action_status is 'Safe'. IF is_grab_override_active is true, Intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent).\"\n"
+                        
+            "    \"final_logic\": \"IF stop_override_active is true, base_intent MUST be STOP AND confidence_score MUST be 0.9. IF is_grab_override_active is true, base_intent MUST be PICK_UP (Explain which rule from Step 2 matched to determine the intent).\"\n"
             "  },\n"
             "  \"intent\": \"(The base_intent, ONE OF THE 4 INTENTS)\",\n"
             "  \"target\": \"(Extract target object name from ROBOT VISION if applicable, otherwise None)\",\n"
-            "  \"confidence_score\": 0.0,\n"
-            # "  \"confidence_score\":(Write 0.9 if action_status is Safe. Write 0.0 if action_status is Blocked)\",\n"
+            # "  \"confidence_score\": 0.0,\n"
+            "  \"confidence_score\":(Write 0.9 IF stop_override_active is true or action_status is 'Safe'. Write 0.0 if action_status is Blocked)\",\n"
             "  \"reasoning\": \"(Explain based on the final_logic.)\"\n"
             "}"
         )
