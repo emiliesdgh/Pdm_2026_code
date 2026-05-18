@@ -79,8 +79,8 @@ def detect_hand_state():
                         motion_detected, spatial_motion, articulation, hand_position, 
                         sensor_confidence, 
                         # environmental_context=""
-                        environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
-                        # environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path."    # test NAVIGATE_THERE
+                        # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
+                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path."    # test NAVIGATE_THERE
                         # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
                         # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
@@ -241,7 +241,22 @@ if __name__ == "__main__":
 
 [REASONING]: The action is Blocked because Intent is NAVIGATE_THERE but the vision contains 'Obstacle'.
 
-[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.20s"""
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.20s
+
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand pose and spatial motion match the criteria for the STOP intent, but since there's an obstacle in the path, the action is Blocked.
+
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.19s"""
 
 
 

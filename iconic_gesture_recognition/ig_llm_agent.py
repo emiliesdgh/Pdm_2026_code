@@ -172,8 +172,8 @@ class LLMInferenceAgent:
 
             "STEP 3: ENVIRONMENTAL CONTEXT\n"
             "Consider the Intent matched in Step 2 and the'ROBOT VISION' context to inform the status of the action. Evaluate in this EXACT order AND skip to Step 4 as soon as a condition is met:\n\n"
-            "- IF Intent is STOP -> The action is ALWAYS safe and possible -> action status is Safe.\n"
-            "- IF Intent is SEARCH_AREA -> The action is ALWAYS safe and possible -> action status is Safe.\n"
+            "- IF Intent is STOP, ingore the vision, the action is ALWAYS safe and possible -> action status is Safe.\n"
+            "- IF Intent is SEARCH_AREA, ignore the vision, the action is ALWAYS safe and possible -> action status is Safe.\n"
             "- IF Intent is PICK_UP but the vision contains 'No objects visible', 'No box', 'Empty' or 'Obstacle'  -> The action is Blocked. \n"
             "- IF Intent is NAVIGATE_THERE but the vision contains 'Obstacle' -> The action is Blocked.\n"
             "- For all other cases, the action is safe and possible -> action status is Safe.\n\n"
