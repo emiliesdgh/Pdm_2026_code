@@ -216,3 +216,61 @@ if __name__ == "__main__":
 
     detect_hand_state()
 
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is stationary and in an Open Palm pose with a palm orientation of 'Inward'. This matches the criteria for Step 2A, determining the base intent as STOP. The action status is Executable because halting is always appropriate when an obstacle is present.
+
+[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 4.92s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.96/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5156443998927162, 0.4496916546708062, -0.04488766267725019] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Obstacle in the path ahead. No clear path. Stopping or Searching are still possible.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is Stationary. The intent matches with NAVIGATE_THERE from Step 2. Since the Intent is NAVIGATE_THERE, the action status is Executable according to Rule 1 (Halting is an emergency override and is highly appropriate when an obstacle is present).
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.73s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.6792910950524467, 0.748784757795788, -0.08239373007351018] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Obstacle in the path ahead. No clear path. Stopping or Searching are still possible."""
