@@ -1,0 +1,507 @@
+with environmental context : environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear." 
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in an Open Palm pose and the spatial motion is 'Stationary'. This matches with Step 2A of the mapping process, determining the Intent as STOP. The action status is Executable since there are no obstacles detected.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 2.18s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.96/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5675700392041888, 0.3763044497796467, -0.04129348779214139] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in an Open Palm pose and the spatial motion is 'Stationary'. This matches with Step 2A of the mapping process, determining the Intent as STOP.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 2.05s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.95/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5608920823960077, 0.3598242650429408, -0.03515254178193147] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. This matches the criteria for Intent NAVIGATE_THERE.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.0) | Latency: 2.04s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.95/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.4228511154651642, 0.6255066054207938, -0.13031769192994352] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. This matches the criteria for Intent NAVIGATE_THERE.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.0) | Latency: 2.08s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.97/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.4197105346691041, 0.6149347992170424, -0.12565063456356296] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a Fast Oscillating / Waving motion (SEARCH_AREA), and there are no obstacles detected in the environment.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 2.27s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.68/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Fast Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.6030885108879634, 0.7030998014268421, -0.13992214621569957] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a SEARCHING motion and is in an Open Palm pose. Since there are no obstacles or objects detected, the action is Executable.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 2.17s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.82/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Up.
+- The hand is positioned at [0.39802836378415424, 0.697241260891869, -0.15768629489094316] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is stationary and in a Fist pose, which matches the criteria for Intent STOP. No object is visible in the workspace.
+
+[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 1.91s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.3872106671333313, 0.5856745569478898, -0.03440538889723801] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Fist pose and the spatial motion is 'Stationary'. This matches with the STOP intent from Step 2. Since there are no obstacles detected, the action status is 'Executable' according to RULE 1.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 2.30s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4094006745588212, 0.5416599256651742, -0.038920269999534025] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Fist pose and the Spatial Motion is 'Stationary'. This matches the criteria for Intent STOP.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.93s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4204399159976414, 0.5380933994338626, -0.038586711423139054] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Fist pose and the Spatial Motion is 'Stationary'. This matches with the STOP intent from Step 2. Since there are no obstacles in the vision, the action status is 'Executable' according to RULE 5.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 2.40s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Ring fingertip.
+- The palm orientation is Inward.
+- The hand is positioned at [0.3945616100515638, 0.5182438677265531, -0.07999698977801692] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is in a Fist pose and the articulation state contains 'Pinching', which is an override for the PICK_UP intent. However, as there are no objects visible in the workspace, the action status is Blocked.
+
+[BLOCKED BY ENVIRONMENT] -> PICK_UP cannot be executed.
+[IGNORED] -> PICK_UP (Confidence too low: 0.0) | Latency: 2.22s
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+with environmental context : environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path and no object visible in the workspace."
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is stationary and in an Open Palm pose with the palm orientation being 'Inward'. Since there's an obstacle in the path ahead, the action status is determined to be 'Blocked', which overrides the initial base intent of 'STOP'.
+
+[BLOCKED BY ENVIRONMENT] -> STOP cannot be executed.
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.31s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is stationary and in an Open Palm pose, which matches the criteria for the STOP intent. However, since there's an obstacle in the path (as per ROBOT VISION), the action is 'Blocked'.
+
+[BLOCKED BY ENVIRONMENT] -> STOP cannot be executed.
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.34s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. However, since there's an obstacle in the path (as per ROBOT VISION), the Intent is NAVIGATE_THERE but the action status is 'Blocked'.
+
+[BLOCKED BY ENVIRONMENT] -> NAVIGATE_THERE cannot be executed.
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.58s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. However, since there's an obstacle in the path according to ROBOT VISION, the Intent is 'Blocked'. The action cannot be executed.
+
+[BLOCKED BY ENVIRONMENT] -> NAVIGATE_THERE cannot be executed.
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.47s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. However, since there's an obstacle in the path (as per ROBOT VISION), the Intent is NAVIGATE_THERE but the action status is 'Blocked'.
+
+[BLOCKED BY ENVIRONMENT] -> NAVIGATE_THERE cannot be executed.
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.62s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a SEARCH_AREA motion but the action status is 'Blocked' because there is an obstacle in the path.
+
+[BLOCKED BY ENVIRONMENT] -> SEARCH_AREA cannot be executed.
+[IGNORED] -> SEARCH_AREA (Confidence too low: 0.0) | Latency: 2.20s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a SEARCH_AREA motion but the presence of an obstacle blocks the action.
+
+[BLOCKED BY ENVIRONMENT] -> SEARCH_AREA cannot be executed.
+[IGNORED] -> SEARCH_AREA (Confidence too low: 0.0) | Latency: 2.09s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. However, since there's an obstacle in the path (as per ROBOT VISION), the Intent is NAVIGATE_THERE but the action status is 'Blocked'.
+
+[BLOCKED BY ENVIRONMENT] -> NAVIGATE_THERE cannot be executed.
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.63s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is in a Pointing pose and the spatial motion is 'Stationary'. However, the action is blocked due to an obstacle in the path.
+
+[BLOCKED BY ENVIRONMENT] -> NAVIGATE_THERE cannot be executed.
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 2.12s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is closing and the palm orientation is inward, indicating a fist pose. This matches with the intent PICK_UP. However, due to an obstacle in the path, the action is blocked.
+
+[BLOCKED BY ENVIRONMENT] -> PICK_UP cannot be executed.
+[IGNORED] -> PICK_UP (Confidence too low: 0.0) | Latency: 2.23s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is stationary and in a Fist pose, which matches the STOP intent. The action status is 'Executable' due to an emergency override when an obstacle is present.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 2.30s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Ring fingertip.
+- The palm orientation is Inward.
+- The hand is positioned at [0.3188289077509017, 0.47563148112524123, -0.051312238109333996] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Obstacle in the path ahead. No clear path and no object visible in the workspace.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Fist pose with an active grabbing motion, which triggers the 'PICK_UP' intent override. However, since there is an obstacle in the path, the action status is 'Blocked'.
+
+[BLOCKED BY ENVIRONMENT] -> PICK_UP cannot be executed.
+[IGNORED] -> PICK_UP (Confidence too low: 0.0) | Latency: 2.31s

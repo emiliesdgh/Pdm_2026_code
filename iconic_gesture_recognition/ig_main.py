@@ -80,7 +80,7 @@ def detect_hand_state():
                         sensor_confidence, 
                         # environmental_context=""
                         # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
-                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path and no object to pick up."    # test NAVIGATE_THERE
+                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path and no object visible in the workspace."    # test NAVIGATE_THERE
                         # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
                         # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
