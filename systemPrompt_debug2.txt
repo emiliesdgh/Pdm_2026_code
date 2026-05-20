@@ -1,0 +1,869 @@
+shift from rule-following prompt to afforadance reasoning :
+
+environmental context : environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear." 
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in an open palm pose, which is often used for scanning or searching. The environment affords this intent as there is an object visible and in reach.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.89s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.96/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.49593774051893325, 0.40938450183187214, -0.036948105132053696] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is stationary with an open palm pose, which usually signifies a desire to scan or search the area. The ROBOT VISION indicates that there is an object visible and in reach, making it physically possible for the robot to execute this intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.99s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.97/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.49389782547950745, 0.38024125070798964, -0.034521214342907655] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand is in a Fist pose, which typically signifies a desire to halt or stop. The ROBOT VISION indicates that physically stopping is possible as there are no obstacles blocking the path.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.56s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4883048775650206, 0.4612721630505153, -0.028638982099526047] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand is in a Fist pose, which typically signifies a desire to halt or stop. The ROBOT VISION indicates that physically stopping is possible as there are no obstacles blocking the path.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.56s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4837445347082047, 0.4517599826767331, -0.02873087159932637] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a pointing pose, which typically signifies a desire to direct or navigate there. The ROBOT VISION indicates that there is an object visible and in reach, and a clear path for navigation, making the action Executable.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.0) | Latency: 1.83s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.97/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.38612365154992967, 0.5653828595365796, -0.08493407243130972] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a slow oscillating/waving motion and is in a pointing pose, indicating a desire to direct or navigate there. The ROBOT VISION shows an object visible and in reach, and a clear path for navigation.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.0) | Latency: 1.86s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.28513058310463313, 0.6070434905233837, -0.05557637400917933] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's oscillating motion indicates a desire to scan or search the area, and the environment affords this action as there is an object visible and in reach, and a clear path for navigation.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.76s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.97/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.64323186590558, 0.6815330244245983, -0.09753090960310817] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's slow oscillating/waving motion indicates a desire to search the environment, and since there is an object visible and in reach, this intent can be executed.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.83s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.99/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Closing
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5459316968917847, 0.4637147259144556, -0.030130162888540805] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The kinematic meaning suggests a desire to halt or stop, and the vision affordance indicates that there are no obstacles blocking the hand's position, making it executable.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.73s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5280649974232628, 0.4455687233379909, -0.050450987200291335] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand's Fist pose and inward palm orientation suggest a desire to halt, which is an executable action given the clear environment as indicated by the ROBOT VISION.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.95s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up-Right motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4539129336675008, 0.2961846682287398, -0.11448749905409737] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: Object | Confidence: 0.9
+
+[REASONING]: The hand movement indicates a desire to pick up an object and the environment affords this action as there is an object visible and in reach.
+
+[EXECUTE] -> PICK_UP on Object (Confidence: 0.0) | Latency: 1.44s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up-Right motion.
+- Articulation: Shifting
+
+--- HAND STATE ---
+- The Thumb finger is straight, while the Index, Middle, Ring, Pinky fingers are bent.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.44571479445412043, 0.2569580702554612, -0.11984444856650218] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: Object | Confidence: 0.9
+
+[REASONING]: The kinematic meaning indicates a desire to pick up an object, and the vision affordance shows that there is an object within reach. Therefore, the robot should attempt to execute the PICK_UP action.
+
+[EXECUTE] -> PICK_UP on Object (Confidence: 0.0) | Latency: 1.81s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Pinching
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4501777603512719, 0.605701052007221, -0.05131084873888238] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: Object | Confidence: 0.9
+
+[REASONING]: The kinematic meaning suggests a desire to pick up an object, and the vision affordance indicates that there is an object in reach. Therefore, the robot should attempt to pick up the object.
+
+[EXECUTE] -> PICK_UP on Object (Confidence: 0.0) | Latency: 1.83s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Pinching
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4407415929294768, 0.5761224144981021, -0.06409147613454284] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: Object | Confidence: 0.9
+
+[REASONING]: The kinematic meaning suggests a desire to pick up an object, and the vision affordance indicates that there is an object within reach. Therefore, the robot should attempt to execute the 'PICK_UP' action.
+
+[EXECUTE] -> PICK_UP on Object (Confidence: 0.0) | Latency: 1.85s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Pinching
+
+--- HAND STATE ---
+- The Thumb, Index, Middle, Ring fingers are bent, while the other fingers are relaxed.
+- The Thumb is currently in contact with the Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.427075662783214, 0.5762993764309656, -0.06985155740186538] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Object is visible and in reach. The path to navigate is clear
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+environmental context : environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path and no object visible in the workspace."
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a rotating motion, which signifies a desire to scan or search the area. The robot vision indicates that there are no objects visible in the workspace, allowing for the execution of the scanning intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.9) | Latency: 4.41s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.94/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5189693995884487, 0.35570311830157325, -0.04732554150629271] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's open palm and inward orientation suggest a desire to scan or search the area. Although there are no objects visible in the workspace, the robot is capable of executing the internal 'search' intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 2.11s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.96/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4699199128718603, 0.4666389226913452, -0.05429314718653942] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's oscillating motion and open palm pose suggest a desire to scan or search the area. Although there are no objects visible in the workspace, the action of searching does not require a clear path.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.95s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.96/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4556086276258741, 0.44103287657101947, -0.053504763566210686] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand is in a Fist pose, which typically signifies a desire to halt or stop. The ROBOT VISION indicates that there are no obstacles in the workspace, so the intent to Stop is Executable.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.62s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.3652024567127228, 0.5817639700004033, -0.03795710739390007] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand is in a Fist pose, which typically signifies a desire to halt or stop. The ROBOT VISION shows no obstacles in the workspace, allowing for the execution of the 'STOP' intent.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.63s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.3403261062644777, 0.5364524651141394, -0.04981818363028815] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's slow oscillating/waving motion indicates a desire to scan or search the area, and since there are no obstacles in the ROBOT VISION, this action is executable.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.88s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Oscillating / Waving motion.
+- Articulation: Closing
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.36367890806425185, 0.6081175520306542, -0.08004176916181742] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand is in a Fist pose, which typically signifies a desire to halt or stop. The ROBOT VISION shows no obstacles in the workspace, allowing for the execution of this intent.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.60s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Ring fingertip.
+- The palm orientation is Inward.
+- The hand is positioned at [0.4111999954496111, 0.5817559645289466, -0.05065355927820831] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand's rigid and stationary pose suggests a desire to halt or stop, which is physically possible given the clear workspace.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.64s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5231913356553941, 0.6274417468479702, -0.08505797352297284] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's stationary motion and fist pose suggest a desire to scan or search the area. The robot vision indicates no objects visible in the workspace, allowing for the execution of this intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.86s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: Opening
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is currently in contact with the Middle fingertip.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5261615358647846, 0.62755648011253, -0.0803767221331907] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a pointing pose, which typically signifies a desire to direct or navigate there. The robot vision indicates a clear path, making the action executable.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.0) | Latency: 1.78s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.97/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.3257701297601064, 0.6338198412032354, -0.08327518877504955] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+
+environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear." 
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a rotating motion, suggesting a desire to scan or search the area. The environment is clear of objects, allowing for the execution of this intent.
+
+[EXECUTE] -> SEARCH_AREA on None (Confidence: 0.0) | Latency: 1.78s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.94/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.517967544850849, 0.3621075124967666, -0.05122637144458294] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 1.0
+
+[REASONING]: The hand is in a Fist pose, which typically signifies a desire to halt or stop. The ROBOT VISION shows no obstacles in the workspace, allowing for the execution of this intent.
+
+[EXECUTE] -> STOP on None (Confidence: 0.0) | Latency: 1.62s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.5037852029005686, 0.4311045521781558, -0.030164700585553417] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand's pointing gesture suggests a desire to direct or navigate, and the clear environment allows for this action.
+
+[IGNORED] -> NAVIGATE_THERE (Confidence too low: 0.0) | Latency: 1.84s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is moving with a Moderate Oscillating/Waving motion and is in a Pointing pose, signifying a desire to DIRECT or NAVIGATE_THERE. The ROBOT VISION indicates a clear path for Navigation.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.0) | Latency: 2.03s
+Prompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.91/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Oscillating / Waving motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Unknown.
+- The hand is positioned at [0.4312744935353597, 0.7329661164964948, -0.08302244516012237] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: No object visible in the workspace. The floor is clear.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: SEARCH_AREA | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is oscillating, indicating a desire to scan or search the area. The environment is clear and does not block this action.
+
+[IGNORED] -> SEARCH_AREA (Confidence too low: 0.0) | Latency: 1.80s
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.0
+
+[REASONING]: The kinematic meaning suggests a desire to pick up an object, but the ROBOT VISION does not indicate any objects in the workspace, making it impossible to execute this action.
+
+[BLOCKED BY ENVIRONMENT] -> PICK_UP cannot be executed.
+[IGNORED] -> PICK_UP (Confidence too low: 0.0) | Latency: 1.83s
