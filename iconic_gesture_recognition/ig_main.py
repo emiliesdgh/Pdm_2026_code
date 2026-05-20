@@ -80,7 +80,7 @@ def detect_hand_state():
                         sensor_confidence, 
                         # environmental_context=""
                         # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
-                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path."    # test NAVIGATE_THERE
+                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path. Stopping or Searching are still possible."    # test NAVIGATE_THERE
                         # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
                         # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
@@ -216,3 +216,15 @@ if __name__ == "__main__":
 
     detect_hand_state()
 
+""">>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.0
+
+[REASONING]: The hand is stationary and in an Open Palm pose with the palm orientation being Inward. However, due to the presence of an obstacle in the path, the action is determined to be Blocked.
+
+[IGNORED] -> STOP (Confidence too low: 0.0) | Latency: 2.13s"""
