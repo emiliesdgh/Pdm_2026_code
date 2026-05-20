@@ -110,8 +110,8 @@ class LLMInferenceAgent:
             "Analyze the 'HAND STATE' and 'TEMPORAL MOTION LOG'. Do NOT rely on strict pre-defined gestures. Instead, deduce the meaning of the kinematics:\n"
             "- A hand closing, grabbing, or pinching usually implies a desire to manipulate or PICK_UP an object.\n"
             "- A pointing finger or a flat hand moving in a direction usually implies a desire to DIRECT or NAVIGATE_THERE.\n"
-            "- A rigid, stationary, blocking pose (like a fist or flat palm facing out) usually implies a desire to HALT or STOP.\n"
-            "- A waving, oscillating, or rotating hand usually implies a desire to SCAN or SEARCH_AREA.\n"
+            "- A rigid, stationary, blocking pose (like a fist or open palm facing out) usually implies a desire to HALT or STOP.\n"
+            "- Any waving, oscillating, or rotating hand, regardless of the hand pose, usually implies a desire to SCAN or SEARCH_AREA.\n"
             "Based on the kinematics, map the user's state to EXACTLY ONE intent: [PICK_UP, NAVIGATE_THERE, STOP, SEARCH_AREA].\n\n"
 
             "--- 2. ENVIRONMENTAL AFFORDANCE (Contextual Reasoning) ---\n"
