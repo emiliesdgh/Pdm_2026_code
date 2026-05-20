@@ -80,7 +80,7 @@ def detect_hand_state():
                         sensor_confidence, 
                         # environmental_context=""
                         # environmental_context="ROBOT VISION: No object visible in the workspace. The floor is clear."   # test PICK_UP
-                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path. Stopping or Searching are still possible."    # test NAVIGATE_THERE
+                        environmental_context="ROBOT VISION: Obstacle in the path ahead. No clear path and no object to pick up."    # test NAVIGATE_THERE
                         # environmental_context="ROBOT VISION: Object is visible and in reach. The path to navigate is clear."    # test STOP
                         # environmental_context="ROBOT VISION: Large object blocking the path ahead. No clear path to navigate."    # test SEARCH_AREA
                         # environmental_context="add simulated environmental context here"
@@ -223,54 +223,24 @@ if __name__ == "__main__":
 
 [SNAPSHOT TAKEN] - Sending to LLM
 
-[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
+[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.9
 
-[REASONING]: The hand is stationary and in an Open Palm pose with a palm orientation of 'Inward'. This matches the criteria for Step 2A, determining the base intent as STOP. The action status is Executable because halting is always appropriate when an obstacle is present.
+[REASONING]: The hand is in a Pinching pose and the articulation contains 'Closing', 'Grabbing', or 'Pinching'. This overrides all other scenarios and determines the intent as GRABBING (PICK_UP). The action status is Executable because halting is an emergency override and is highly appropriate when an obstacle is present.
 
-[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 4.92s
-Protompt sent to LLM:
---- SENSOR CONFIDENCE ---
-Camera Tracking Confidence: 0.96/1.0
-
---- TEMPORAL MOTION LOG ---
-- Spatial Motion: The hand is stationary, motionless.
-- Articulation: None
-
---- HAND STATE ---
-- The hand is in a Open Palm pose.
-- The Thumb is NOT in contact with fingertips.
-- The palm orientation is Inward.
-- The hand is positioned at [0.5156443998927162, 0.4496916546708062, -0.04488766267725019] relative to the center of the view.
-
---- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
-ROBOT VISION: Obstacle in the path ahead. No clear path. Stopping or Searching are still possible.
-
-
->>> SYSTEM AWAKE: Listening for command... <<<
-
-
-[SYSTEM AWAKE] - Listening for dynamic gesture command...
-
-[SNAPSHOT TAKEN] - Sending to LLM
-
-[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
-
-[REASONING]: The hand is in a Pointing pose and the spatial motion is Stationary. The intent matches with NAVIGATE_THERE from Step 2. Since the Intent is NAVIGATE_THERE, the action status is Executable according to Rule 1 (Halting is an emergency override and is highly appropriate when an obstacle is present).
-
-[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.73s
+[EXECUTE] -> PICK_UP on None (Confidence: 0.9) | Latency: 2.78s
 Protompt sent to LLM:
 --- SENSOR CONFIDENCE ---
 Camera Tracking Confidence: 0.99/1.0
 
 --- TEMPORAL MOTION LOG ---
-- Spatial Motion: The hand is stationary, motionless.
-- Articulation: None
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
+- Articulation: Pinching
 
 --- HAND STATE ---
-- The hand is in a Pointing pose.
-- The Thumb is NOT in contact with fingertips.
-- The palm orientation is Down.
-- The hand is positioned at [0.6792910950524467, 0.748784757795788, -0.08239373007351018] relative to the center of the view.
+- The hand is in a Pinching pose.
+- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.48747476367723375, 0.3162526005790347, -0.0755354791396531] relative to the center of the view.
 
 --- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
-ROBOT VISION: Obstacle in the path ahead. No clear path. Stopping or Searching are still possible."""
+ROBOT VISION: Obstacle in the path ahead. No clear path."""
