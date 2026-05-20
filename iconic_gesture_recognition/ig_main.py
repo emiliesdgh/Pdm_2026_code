@@ -223,24 +223,115 @@ if __name__ == "__main__":
 
 [SNAPSHOT TAKEN] - Sending to LLM
 
-[NEW INTENT DECODED]: PICK_UP | Target: None | Confidence: 0.9
+[NEW INTENT DECODED]: STOP | Target: None | Confidence: 0.9
 
-[REASONING]: The hand is in a Pinching pose and the articulation contains 'Closing', 'Grabbing', or 'Pinching'. This overrides all other scenarios and determines the intent as GRABBING (PICK_UP). The action status is Executable because halting is an emergency override and is highly appropriate when an obstacle is present.
+[REASONING]: The hand is in an Open Palm pose and the spatial motion indicates that it's stationary. This matches the STOP intent. The applicable rule is Rule 4 because the base_intent is STOP. In the vision context, there is an obstacle in the path ahead which blocks the action. Therefore, the action status is Blocked.
 
-[EXECUTE] -> PICK_UP on None (Confidence: 0.9) | Latency: 2.78s
+[EXECUTE] -> STOP on None (Confidence: 0.9) | Latency: 5.14s
 Protompt sent to LLM:
 --- SENSOR CONFIDENCE ---
-Camera Tracking Confidence: 0.99/1.0
+Camera Tracking Confidence: 0.94/1.0
 
 --- TEMPORAL MOTION LOG ---
-- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up motion.
-- Articulation: Pinching
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
 
 --- HAND STATE ---
-- The hand is in a Pinching pose.
-- The Thumb is currently in contact with the Index, Middle, Ring fingertips.
+- The hand is in a Open Palm pose.
+- The Thumb is NOT in contact with fingertips.
 - The palm orientation is Inward.
-- The hand is positioned at [0.48747476367723375, 0.3162526005790347, -0.0755354791396531] relative to the center of the view.
+- The hand is positioned at [0.5214924258845193, 0.46594067840349107, -0.07730066436954314] relative to the center of the view.
 
 --- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
-ROBOT VISION: Obstacle in the path ahead. No clear path."""
+ROBOT VISION: Obstacle in the path ahead. No clear path and no object to pick up.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: Based on the final_logic.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.14s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 0.97/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is stationary, motionless.
+- Articulation: None
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.3292405697561446, 0.7588340100787935, -0.09171840654500028] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Obstacle in the path ahead. No clear path and no object to pick up.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: NAVIGATE_THERE | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a pointing pose and moving linearly towards up motion, which matches the intent of NAVIGATE_THERE. However, there's an obstacle in the path, which blocks the action according to Rule 4.
+
+[EXECUTE] -> NAVIGATE_THERE on None (Confidence: 0.9) | Latency: 2.68s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Moderate Linear Translation towards Up motion.
+- Articulation: Static Fingers (No articulation change)
+
+--- HAND STATE ---
+- The hand is in a Pointing pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Down.
+- The hand is positioned at [0.5991552926245189, 0.8124443264234633, -0.10140606382623756] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Obstacle in the path ahead. No clear path and no object to pick up.
+
+
+>>> SYSTEM AWAKE: Listening for command... <<<
+
+
+[SYSTEM AWAKE] - Listening for dynamic gesture command...
+
+[SNAPSHOT TAKEN] - Sending to LLM
+
+[NEW INTENT DECODED]: GRABBING | Target: None | Confidence: 0.9
+
+[REASONING]: The hand is in a Fist pose and closing, indicating a grabbing motion. However, the robot vision data shows an obstacle in the path ahead, which blocks the action.
+
+[EXECUTE] -> GRABBING on None (Confidence: 0.9) | Latency: 2.40s
+Protompt sent to LLM:
+--- SENSOR CONFIDENCE ---
+Camera Tracking Confidence: 1.00/1.0
+
+--- TEMPORAL MOTION LOG ---
+- Spatial Motion: The hand is moving with a Slow Linear Translation towards Up-Right motion.
+- Articulation: Closing
+
+--- HAND STATE ---
+- The hand is in a Fist pose.
+- The Thumb is NOT in contact with fingertips.
+- The palm orientation is Inward.
+- The hand is positioned at [0.37197033706165494, 0.5967812126591092, -0.03685971223355175] relative to the center of the view.
+
+--- ROBOT VISION (ENVIRONMENTAL CONTEXT) ---
+ROBOT VISION: Obstacle in the path ahead. No clear path and no object to pick up.
+"""
